@@ -1,29 +1,6 @@
 require_relative 'HtmlParserLexer'
 require_relative 'HtmlParserParser'
-
-# class ANTLR3::Recognizer
-  # def error_message(e=$!)
-    # # $!         The exception information message set by 'raise'.
-    # puts e.class
-    # case e
-      # when UnwantedToken
-      # token_name = token_name( e.expecting )
-      # if token_name==:SVALUE.to_s
-       # "atribute value doesnt start with \" found #{ token_error_display( e.unexpected_token ) }"
-      # elsif e.unexpected_token.name==:EOF
-        # "EOF"
-      # else
-      # "tags are probably overlapped, found #{ token_error_display( e.unexpected_token ) } expecting tag #{ token_name}"
-      # end
-      # when MismatchedToken
-        # if e.unexpected_token==:EOF
-        # "EOF"
-        # else
-          # "bbb"
-        # end
-    # end
-  # end
-# end
+require_relative 'HtmlPrinter'
 
 input = ANTLR3::FileStream.new( ARGF )
 lexer = HtmlParser::Lexer.new(input)
@@ -32,9 +9,27 @@ lexer = HtmlParser::Lexer.new(input)
   # puts lexer.next_token
 # end
 tokens=ANTLR3::CommonTokenStream.new(lexer)
+
+#puts "tokens: #{tokens}"
 parser = HtmlParser::Parser.new(tokens)
 
-parser.document
+#parser.document
+#parser.print
 
-# tree=parser.document.tree
-#puts( "tree: #{ tree.inspect }" )
+tree=parser.document.tree
+
+puts( "tree: #{ tree.inspect }" )
+
+#puts tree.has_child?(tree.root)
+
+#puts tree.root
+
+#elements=[]
+#visitor=ANTLR3::AST::Visitor.new(tree ) do |node, parent, child_index, labels|
+#      elements << node.to_s
+#    end
+
+#puts elements.size
+nodes=ANTLR3::AST::CommonTreeNodeStream.new(tree,:token_stream => parser.input)
+
+HtmlPrinter::TreeParser.new(nodes).document

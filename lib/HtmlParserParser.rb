@@ -5,7 +5,7 @@
 # Generated using ANTLR version: 3.2.1-SNAPSHOT Jul 31, 2010 19:34:52
 # Ruby runtime library version: 1.8.11
 # Input grammar file: HtmlParser.g
-# Generated at: 2011-12-20 22:29:35
+# Generated at: 2011-12-23 01:49:13
 # 
 
 # ~~~> start load path setup
@@ -66,17 +66,19 @@ module HtmlParser
   module TokenData
 
     # define the token constants
-    define_tokens( :END_TAG => 6, :CLASS => 34, :BORDERCOLOR => 42, :LETTER => 47, 
-                   :HEAD => 8, :TABLE => 23, :VALIGN => 43, :HTML => 5, 
-                   :ID => 32, :EOF => -1, :BORDER => 44, :PCDATA => 10, 
-                   :NAME => 49, :BACKGROUND => 36, :ALT => 39, :BODY => 11, 
-                   :DIGIT => 50, :ALIGN => 37, :IMG => 28, :TD => 26, :A => 27, 
-                   :BR => 30, :B => 21, :TH => 25, :HEIGHT => 41, :I => 20, 
-                   :TR => 24, :SRC => 38, :U => 22, :P => 18, :END_NOPAIR_TAG => 29, 
-                   :NAMECHAR => 48, :BGCOLOR => 35, :CLOSING_TAG => 7, :SVALUE => 46, 
-                   :WS => 31, :ASSIGN => 45, :WIDTH => 40, :STYLE => 33, 
-                   :H6 => 17, :H5 => 16, :H4 => 15, :H3 => 14, :H2 => 13, 
-                   :H1 => 12, :DIV => 19, :OPENING_TAG => 4, :TITLE => 9 )
+    define_tokens( :END_TAG => 9, :CLASS => 37, :BORDERCOLOR => 45, :LETTER => 53, 
+                   :HEAD => 11, :HREF => 48, :VALIGN => 46, :TABLE => 26, 
+                   :HTML => 8, :ID => 35, :EOF => -1, :BORDER => 47, :PCDATA => 13, 
+                   :NAME => 55, :BACKGROUND => 39, :ALT => 42, :BODY => 14, 
+                   :DIGIT => 56, :ALIGN => 40, :ATTR => 6, :IMG => 31, :TD => 29, 
+                   :A => 30, :BR => 33, :B => 24, :TH => 28, :HEIGHT => 44, 
+                   :ANAME => 49, :I => 23, :TR => 27, :SRC => 41, :U => 25, 
+                   :ATTRS => 5, :P => 21, :TARGET => 50, :END_NOPAIR_TAG => 32, 
+                   :TAG => 4, :NAMECHAR => 54, :BGCOLOR => 38, :CLOSING_TAG => 10, 
+                   :SVALUE => 52, :WS => 34, :ASSIGN => 51, :WIDTH => 43, 
+                   :STYLE => 36, :H6 => 20, :H5 => 19, :H4 => 18, :H3 => 17, 
+                   :H2 => 16, :H1 => 15, :DIV => 22, :OPENING_TAG => 7, 
+                   :TITLE => 12 )
 
     # register the proper human-readable name or literal value
     # for each token type
@@ -84,14 +86,14 @@ module HtmlParser
     # this is necessary because anonymous tokens, which are
     # created from literal values in the grammar, do not
     # have descriptive names
-    register_names( "OPENING_TAG", "HTML", "END_TAG", "CLOSING_TAG", "HEAD", 
-                    "TITLE", "PCDATA", "BODY", "H1", "H2", "H3", "H4", "H5", 
-                    "H6", "P", "DIV", "I", "B", "U", "TABLE", "TR", "TH", 
-                    "TD", "A", "IMG", "END_NOPAIR_TAG", "BR", "WS", "ID", 
-                    "STYLE", "CLASS", "BGCOLOR", "BACKGROUND", "ALIGN", 
-                    "SRC", "ALT", "WIDTH", "HEIGHT", "BORDERCOLOR", "VALIGN", 
-                    "BORDER", "ASSIGN", "SVALUE", "LETTER", "NAMECHAR", 
-                    "NAME", "DIGIT" )
+    register_names( "TAG", "ATTRS", "ATTR", "OPENING_TAG", "HTML", "END_TAG", 
+                    "CLOSING_TAG", "HEAD", "TITLE", "PCDATA", "BODY", "H1", 
+                    "H2", "H3", "H4", "H5", "H6", "P", "DIV", "I", "B", 
+                    "U", "TABLE", "TR", "TH", "TD", "A", "IMG", "END_NOPAIR_TAG", 
+                    "BR", "WS", "ID", "STYLE", "CLASS", "BGCOLOR", "BACKGROUND", 
+                    "ALIGN", "SRC", "ALT", "WIDTH", "HEIGHT", "BORDERCOLOR", 
+                    "VALIGN", "BORDER", "HREF", "ANAME", "TARGET", "ASSIGN", 
+                    "SVALUE", "LETTER", "NAMECHAR", "NAME", "DIGIT" )
     
   end
 
@@ -100,13 +102,14 @@ module HtmlParser
     @grammar_home = HtmlParser
     include ANTLR3::ASTBuilder
 
-    RULE_METHODS = [ :document, :head, :head_element, :title, :body, :body_tag, 
-                     :body_content, :heading, :block, :font, :special, :text_tag, 
-                     :text, :h1, :h2, :h3, :h4, :h5, :h6, :paragraph, :div, 
-                     :italic, :bold, :underline, :table, :tr, :th, :td, 
-                     :anchor, :img, :br, :id, :style, :klass, :bgcolor, 
-                     :background, :align, :src, :alt, :width, :height, :bordercolor, 
-                     :valign, :border, :attr_svalue ].freeze
+    RULE_METHODS = [ :document, :html, :head, :head_element, :title, :body, 
+                     :body_tag, :body_content, :heading, :block, :font, 
+                     :special, :text_tag, :text, :h1, :h2, :h3, :h4, :h5, 
+                     :h6, :paragraph, :div, :italic, :bold, :underline, 
+                     :table, :tr, :th, :td, :anchor, :img, :br, :id, :style, 
+                     :klass, :bgcolor, :background, :align, :src, :alt, 
+                     :width, :height, :bordercolor, :valign, :border, :href, 
+                     :name, :target, :attr_svalue ].freeze
 
 
     include TokenData
@@ -123,12 +126,88 @@ module HtmlParser
 
     end
 
-      @tagMode = false
+      @tagMode = false 
       
-       def emit_error_message(message)
-    	 	puts @stack.pop
-    	    puts "Error: " + message
-         end
+      def print()
+        @input.each do |token|
+          puts token_name(token.type)
+        end
+      end
+
+       def recover_from_mismatched_token( type, follow )
+       end
+         
+       def error_message(e=$!)
+       	# $!         The exception information message set by 'raise'.
+        puts e.class
+        puts (e.input.at(e.input.position+2)).text
+        case e
+          when UnwantedToken
+              if(token_name((e.input.at(e.input.position)).type)=="SVALUE")
+                "Missing quotation around attribute #{e.token.text}"
+              else
+                token_name = token_name( e.expecting )
+                "Extraneous input #{ token_error_display( e.unexpected_token ) } expecting #{ token_name }"
+              end
+              
+          when MissingToken
+            token_name = token_name( e.expecting )
+            "Missing #{ token_name } at #{ token_error_display( e.symbol ) }"
+            
+          when MismatchedToken
+            i=0
+            while token_name((e.input.at(e.input.position-i)).type)=="WS"
+              i+=1;
+            end
+            
+            puts (e.input.at(e.input.position))
+            
+            if(!((e.input.at(e.input.position-i)).nil?) && token_name((e.input.at(e.input.position-i)).type)=="CLOSING_TAG")
+              "Mismatched input: found </#{e.token}> expecting </#{(token_name(e.expecting)).downcase}>"
+            elsif(!((e.input.at(e.input.position-i)).nil?) && token_name((e.input.at(e.input.position-i)).type)=="OPENING_TAG")
+              "Mismatched input: found <#{e.token}> expecting <#{(token_name(e.expecting)).downcase}>"
+            elsif(!((e.input.at(e.input.position)).nil?) && token_name((e.input.at(e.input.position)).type)=="NAME")
+              "Missing quotations around attribute #{(e.input.at(e.input.position)).type}"
+            else
+              token_name=""
+              if token_name( e.expecting )=="SVALUE"
+                token_name="attributte value"
+              else
+                token_name=(token_name(e.expecting)).downcase
+              end
+              "Mismatched input #{ token_error_display(e.symbol) } expecting #{token_name}"
+            end
+            
+          when MismatchedTreeNode
+            token_name = token_name( e.expecting )
+            "Mismatched tree node: #{ e.symbol } expecting #{ token_name }"
+          
+          when NoViableAlternative
+            if token_name(e.symbol.type)=="OPENING_TAG"
+              i=1
+              while token_name((e.input.at(e.input.position+i)).type)=="WS"
+                i+=1;
+              end
+              "Unknown tagname "<< (e.input.at(e.input.position+i)).text
+            elsif token_name(e.symbol.type)=="NAME"
+              "Unknown attribute name, or this attribute cannot be used with given tag: "<< (e.input.at(e.input.position+1)).text
+            else
+              "No viable alternative at input " << token_error_display( e.symbol )
+            end
+          
+          when MismatchedSet
+            "Mismatched input %s expecting set %s" %
+            [ token_error_display( e.symbol ), e.expecting.inspect ]
+          when MismatchedNotSet
+            "Mismatched input %s expecting set %s" %
+            [ token_error_display( e.symbol ), e.expecting.inspect ]
+          when FailedPredicate
+            "Rule %s failed predicate: { %s }?" % [ e.rule_name, e.predicate_text ]
+          
+          else
+            e.message   
+          end
+        end
 
     # - - - - - - - - - - - - Rules - - - - - - - - - - - - -
     DocumentReturnValue = define_return_scope 
@@ -137,7 +216,7 @@ module HtmlParser
     # parser rule document
     # 
     # (in HtmlParser.g)
-    # 20:1: document : OPENING_TAG ohtml= HTML END_TAG ( head )? ( body )? CLOSING_TAG HTML END_TAG ;
+    # 91:1: document : html ;
     # 
     def document
       # -> uncomment the next line to manually enable rule tracing
@@ -148,113 +227,25 @@ module HtmlParser
       return_value.start = @input.look
 
       root_0 = nil
-      ohtml = nil
-      __OPENING_TAG1__ = nil
-      __END_TAG2__ = nil
-      __CLOSING_TAG5__ = nil
-      __HTML6__ = nil
-      __END_TAG7__ = nil
-      head3 = nil
-      body4 = nil
+      html1 = nil
 
-      tree_for_ohtml = nil
-      tree_for_OPENING_TAG1 = nil
-      tree_for_END_TAG2 = nil
-      tree_for_CLOSING_TAG5 = nil
-      tree_for_HTML6 = nil
-      tree_for_END_TAG7 = nil
-      # - - - - @init action - - - -
-      @stack=Array.new
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 23:5: OPENING_TAG ohtml= HTML END_TAG ( head )? ( body )? CLOSING_TAG HTML END_TAG
-        # --> action
-        puts "in html doc"
-        # <-- action
-        __OPENING_TAG1__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_document_56 )
-
-        tree_for_OPENING_TAG1 = @adaptor.create_with_payload( __OPENING_TAG1__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG1 )
-
-        ohtml = match( HTML, TOKENS_FOLLOWING_HTML_IN_document_60 )
-
-        tree_for_ohtml = @adaptor.create_with_payload( ohtml )
-        @adaptor.add_child( root_0, tree_for_ohtml )
-
-        # --> action
-        @stack << ohtml;
-        # <-- action
-        __END_TAG2__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_document_64 )
-
-        tree_for_END_TAG2 = @adaptor.create_with_payload( __END_TAG2__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG2 )
-
-        # at line 25:3: ( head )?
-        alt_1 = 2
-        look_1_0 = @input.peek( 1 )
-
-        if ( look_1_0 == OPENING_TAG )
-          look_1_1 = @input.peek( 2 )
-
-          if ( look_1_1 == HEAD )
-            alt_1 = 1
-          end
-        end
-        case alt_1
-        when 1
-          # at line 25:4: head
-          @state.following.push( TOKENS_FOLLOWING_head_IN_document_69 )
-          head3 = head
-          @state.following.pop
-          @adaptor.add_child( root_0, head3.tree )
-
-        end
-        # at line 26:3: ( body )?
-        alt_2 = 2
-        look_2_0 = @input.peek( 1 )
-
-        if ( look_2_0 == OPENING_TAG )
-          alt_2 = 1
-        end
-        case alt_2
-        when 1
-          # at line 26:4: body
-          @state.following.push( TOKENS_FOLLOWING_body_IN_document_76 )
-          body4 = body
-          @state.following.pop
-          @adaptor.add_child( root_0, body4.tree )
-
-        end
-        __CLOSING_TAG5__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_document_82 )
-
-        tree_for_CLOSING_TAG5 = @adaptor.create_with_payload( __CLOSING_TAG5__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG5 )
-
-        __HTML6__ = match( HTML, TOKENS_FOLLOWING_HTML_IN_document_84 )
-
-        tree_for_HTML6 = @adaptor.create_with_payload( __HTML6__ )
-        @adaptor.add_child( root_0, tree_for_HTML6 )
-
-        # --> action
-        puts @stack.pop
-        # <-- action
-        __END_TAG7__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_document_88 )
-
-        tree_for_END_TAG7 = @adaptor.create_with_payload( __END_TAG7__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG7 )
-
+        # at line 91:11: html
+        @state.following.push( TOKENS_FOLLOWING_html_IN_document_38 )
+        html1 = html
+        @state.following.pop
+        @adaptor.add_child( root_0, html1.tree )
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
 
         return_value.tree = @adaptor.rule_post_processing( root_0 )
         @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
-        # --> action
-        puts @stack.pop
-        # <-- action
+
       rescue ANTLR3::Error::RecognitionError => re
         report_error(re)
         recover(re)
@@ -269,89 +260,134 @@ module HtmlParser
       return return_value
     end
 
-    HeadReturnValue = define_return_scope 
+    HtmlReturnValue = define_return_scope 
 
     # 
-    # parser rule head
+    # parser rule html
     # 
     # (in HtmlParser.g)
-    # 30:1: head : OPENING_TAG HEAD END_TAG ( head_element )? CLOSING_TAG HEAD END_TAG ;
+    # 93:1: html : OPENING_TAG HTML END_TAG ( head )? ( body )? CLOSING_TAG HTML END_TAG -> ^( TAG HTML ( head )? ( body )? ) ;
     # 
-    def head
+    def html
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 2 )
-      return_value = HeadReturnValue.new
+      return_value = HtmlReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG8__ = nil
-      __HEAD9__ = nil
-      __END_TAG10__ = nil
-      __CLOSING_TAG12__ = nil
-      __HEAD13__ = nil
-      __END_TAG14__ = nil
-      head_element11 = nil
+      __OPENING_TAG2__ = nil
+      __HTML3__ = nil
+      __END_TAG4__ = nil
+      __CLOSING_TAG7__ = nil
+      __HTML8__ = nil
+      __END_TAG9__ = nil
+      head5 = nil
+      body6 = nil
 
-      tree_for_OPENING_TAG8 = nil
-      tree_for_HEAD9 = nil
-      tree_for_END_TAG10 = nil
-      tree_for_CLOSING_TAG12 = nil
-      tree_for_HEAD13 = nil
-      tree_for_END_TAG14 = nil
+      tree_for_OPENING_TAG2 = nil
+      tree_for_HTML3 = nil
+      tree_for_END_TAG4 = nil
+      tree_for_CLOSING_TAG7 = nil
+      tree_for_HTML8 = nil
+      tree_for_END_TAG9 = nil
+      stream_CLOSING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLOSING_TAG" )
+      stream_END_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token END_TAG" )
+      stream_HTML = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token HTML" )
+      stream_OPENING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OPENING_TAG" )
+      stream_body = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule body" )
+      stream_head = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule head" )# - - - - @init action - - - -
+      @stack=[]
 
       begin
-        root_0 = @adaptor.create_flat_list
+        # at line 95:4: OPENING_TAG HTML END_TAG ( head )? ( body )? CLOSING_TAG HTML END_TAG
+        __OPENING_TAG2__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_html_52 )
+        stream_OPENING_TAG.add( __OPENING_TAG2__ )
+        __HTML3__ = match( HTML, TOKENS_FOLLOWING_HTML_IN_html_54 )
+        stream_HTML.add( __HTML3__ )
+        __END_TAG4__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_html_56 )
+        stream_END_TAG.add( __END_TAG4__ )
+        # at line 96:3: ( head )?
+        alt_1 = 2
+        look_1_0 = @input.peek( 1 )
 
+        if ( look_1_0 == OPENING_TAG )
+          look_1_1 = @input.peek( 2 )
 
-        # at line 30:8: OPENING_TAG HEAD END_TAG ( head_element )? CLOSING_TAG HEAD END_TAG
-        __OPENING_TAG8__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_head_98 )
-
-        tree_for_OPENING_TAG8 = @adaptor.create_with_payload( __OPENING_TAG8__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG8 )
-
-        __HEAD9__ = match( HEAD, TOKENS_FOLLOWING_HEAD_IN_head_100 )
-
-        tree_for_HEAD9 = @adaptor.create_with_payload( __HEAD9__ )
-        @adaptor.add_child( root_0, tree_for_HEAD9 )
-
-        __END_TAG10__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_head_102 )
-
-        tree_for_END_TAG10 = @adaptor.create_with_payload( __END_TAG10__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG10 )
-
-        # at line 31:3: ( head_element )?
-        alt_3 = 2
-        look_3_0 = @input.peek( 1 )
-
-        if ( look_3_0 == OPENING_TAG )
-          alt_3 = 1
+          if ( look_1_1 == HEAD )
+            alt_1 = 1
+          end
         end
-        case alt_3
+        case alt_1
         when 1
-          # at line 31:4: head_element
-          @state.following.push( TOKENS_FOLLOWING_head_element_IN_head_107 )
-          head_element11 = head_element
+          # at line 96:4: head
+          @state.following.push( TOKENS_FOLLOWING_head_IN_html_62 )
+          head5 = head
           @state.following.pop
-          @adaptor.add_child( root_0, head_element11.tree )
+          stream_head.add( head5.tree )
 
         end
-        __CLOSING_TAG12__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_head_113 )
+        # at line 97:3: ( body )?
+        alt_2 = 2
+        look_2_0 = @input.peek( 1 )
 
-        tree_for_CLOSING_TAG12 = @adaptor.create_with_payload( __CLOSING_TAG12__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG12 )
+        if ( look_2_0 == OPENING_TAG )
+          alt_2 = 1
+        end
+        case alt_2
+        when 1
+          # at line 97:4: body
+          @state.following.push( TOKENS_FOLLOWING_body_IN_html_69 )
+          body6 = body
+          @state.following.pop
+          stream_body.add( body6.tree )
 
-        __HEAD13__ = match( HEAD, TOKENS_FOLLOWING_HEAD_IN_head_115 )
+        end
+        __CLOSING_TAG7__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_html_75 )
+        stream_CLOSING_TAG.add( __CLOSING_TAG7__ )
+        __HTML8__ = match( HTML, TOKENS_FOLLOWING_HTML_IN_html_77 )
+        stream_HTML.add( __HTML8__ )
+        __END_TAG9__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_html_79 )
+        stream_END_TAG.add( __END_TAG9__ )
+        # AST Rewrite
+        # elements: head, body, HTML
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
 
-        tree_for_HEAD13 = @adaptor.create_with_payload( __HEAD13__ )
-        @adaptor.add_child( root_0, tree_for_HEAD13 )
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
 
-        __END_TAG14__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_head_117 )
+        root_0 = @adaptor.create_flat_list
+        # 98:28: -> ^( TAG HTML ( head )? ( body )? )
+        # at line 98:31: ^( TAG HTML ( head )? ( body )? )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( TAG, "TAG" ), root_1 )
 
-        tree_for_END_TAG14 = @adaptor.create_with_payload( __END_TAG14__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG14 )
+        @adaptor.add_child( root_1, stream_HTML.next_node )
+        # at line 98:42: ( head )?
+        if stream_head.has_next?
+          @adaptor.add_child( root_1, stream_head.next_tree )
 
+        end
+
+        stream_head.reset();
+        # at line 98:50: ( body )?
+        if stream_body.has_next?
+          @adaptor.add_child( root_1, stream_body.next_tree )
+
+        end
+
+        stream_body.reset();
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -373,35 +409,103 @@ module HtmlParser
       return return_value
     end
 
-    HeadElementReturnValue = define_return_scope 
+    HeadReturnValue = define_return_scope 
 
     # 
-    # parser rule head_element
+    # parser rule head
     # 
     # (in HtmlParser.g)
-    # 35:1: head_element : title ;
+    # 101:1: head : OPENING_TAG HEAD END_TAG ( head_element )? CLOSING_TAG HEAD END_TAG -> ^( TAG HEAD ( head_element )? ) ;
     # 
-    def head_element
+    def head
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 3 )
-      return_value = HeadElementReturnValue.new
+      return_value = HeadReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      title15 = nil
+      __OPENING_TAG10__ = nil
+      __HEAD11__ = nil
+      __END_TAG12__ = nil
+      __CLOSING_TAG14__ = nil
+      __HEAD15__ = nil
+      __END_TAG16__ = nil
+      head_element13 = nil
 
-
+      tree_for_OPENING_TAG10 = nil
+      tree_for_HEAD11 = nil
+      tree_for_END_TAG12 = nil
+      tree_for_CLOSING_TAG14 = nil
+      tree_for_HEAD15 = nil
+      tree_for_END_TAG16 = nil
+      stream_CLOSING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLOSING_TAG" )
+      stream_END_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token END_TAG" )
+      stream_OPENING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OPENING_TAG" )
+      stream_HEAD = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token HEAD" )
+      stream_head_element = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule head_element" )
       begin
+        # at line 101:8: OPENING_TAG HEAD END_TAG ( head_element )? CLOSING_TAG HEAD END_TAG
+        __OPENING_TAG10__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_head_107 )
+        stream_OPENING_TAG.add( __OPENING_TAG10__ )
+        __HEAD11__ = match( HEAD, TOKENS_FOLLOWING_HEAD_IN_head_109 )
+        stream_HEAD.add( __HEAD11__ )
+        __END_TAG12__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_head_111 )
+        stream_END_TAG.add( __END_TAG12__ )
+        # at line 102:3: ( head_element )?
+        alt_3 = 2
+        look_3_0 = @input.peek( 1 )
+
+        if ( look_3_0 == OPENING_TAG )
+          alt_3 = 1
+        end
+        case alt_3
+        when 1
+          # at line 102:4: head_element
+          @state.following.push( TOKENS_FOLLOWING_head_element_IN_head_116 )
+          head_element13 = head_element
+          @state.following.pop
+          stream_head_element.add( head_element13.tree )
+
+        end
+        __CLOSING_TAG14__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_head_122 )
+        stream_CLOSING_TAG.add( __CLOSING_TAG14__ )
+        __HEAD15__ = match( HEAD, TOKENS_FOLLOWING_HEAD_IN_head_124 )
+        stream_HEAD.add( __HEAD15__ )
+        __END_TAG16__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_head_126 )
+        stream_END_TAG.add( __END_TAG16__ )
+        # AST Rewrite
+        # elements: head_element, HEAD
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
         root_0 = @adaptor.create_flat_list
+        # 103:28: -> ^( TAG HEAD ( head_element )? )
+        # at line 103:31: ^( TAG HEAD ( head_element )? )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( TAG, "TAG" ), root_1 )
+
+        @adaptor.add_child( root_1, stream_HEAD.next_node )
+        # at line 103:42: ( head_element )?
+        if stream_head_element.has_next?
+          @adaptor.add_child( root_1, stream_head_element.next_tree )
+
+        end
+
+        stream_head_element.reset();
+
+        @adaptor.add_child( root_0, root_1 )
 
 
-        # at line 36:4: title
-        @state.following.push( TOKENS_FOLLOWING_title_IN_head_element_128 )
-        title15 = title
-        @state.following.pop
-        @adaptor.add_child( root_0, title15.tree )
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -423,91 +527,35 @@ module HtmlParser
       return return_value
     end
 
-    TitleReturnValue = define_return_scope 
+    HeadElementReturnValue = define_return_scope 
 
     # 
-    # parser rule title
+    # parser rule head_element
     # 
     # (in HtmlParser.g)
-    # 39:1: title : OPENING_TAG TITLE END_TAG ( PCDATA )? CLOSING_TAG TITLE END_TAG ;
+    # 106:1: head_element : title ;
     # 
-    def title
+    def head_element
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 4 )
-      return_value = TitleReturnValue.new
+      return_value = HeadElementReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG16__ = nil
-      __TITLE17__ = nil
-      __END_TAG18__ = nil
-      __PCDATA19__ = nil
-      __CLOSING_TAG20__ = nil
-      __TITLE21__ = nil
-      __END_TAG22__ = nil
+      title17 = nil
 
-      tree_for_OPENING_TAG16 = nil
-      tree_for_TITLE17 = nil
-      tree_for_END_TAG18 = nil
-      tree_for_PCDATA19 = nil
-      tree_for_CLOSING_TAG20 = nil
-      tree_for_TITLE21 = nil
-      tree_for_END_TAG22 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 40:4: OPENING_TAG TITLE END_TAG ( PCDATA )? CLOSING_TAG TITLE END_TAG
-        __OPENING_TAG16__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_title_140 )
-
-        tree_for_OPENING_TAG16 = @adaptor.create_with_payload( __OPENING_TAG16__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG16 )
-
-        __TITLE17__ = match( TITLE, TOKENS_FOLLOWING_TITLE_IN_title_142 )
-
-        tree_for_TITLE17 = @adaptor.create_with_payload( __TITLE17__ )
-        @adaptor.add_child( root_0, tree_for_TITLE17 )
-
-        __END_TAG18__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_title_144 )
-
-        tree_for_END_TAG18 = @adaptor.create_with_payload( __END_TAG18__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG18 )
-
-        # at line 41:3: ( PCDATA )?
-        alt_4 = 2
-        look_4_0 = @input.peek( 1 )
-
-        if ( look_4_0 == PCDATA )
-          alt_4 = 1
-        end
-        case alt_4
-        when 1
-          # at line 41:3: PCDATA
-          __PCDATA19__ = match( PCDATA, TOKENS_FOLLOWING_PCDATA_IN_title_148 )
-
-          tree_for_PCDATA19 = @adaptor.create_with_payload( __PCDATA19__ )
-          @adaptor.add_child( root_0, tree_for_PCDATA19 )
-
-
-        end
-        __CLOSING_TAG20__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_title_153 )
-
-        tree_for_CLOSING_TAG20 = @adaptor.create_with_payload( __CLOSING_TAG20__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG20 )
-
-        __TITLE21__ = match( TITLE, TOKENS_FOLLOWING_TITLE_IN_title_155 )
-
-        tree_for_TITLE21 = @adaptor.create_with_payload( __TITLE21__ )
-        @adaptor.add_child( root_0, tree_for_TITLE21 )
-
-        __END_TAG22__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_title_157 )
-
-        tree_for_END_TAG22 = @adaptor.create_with_payload( __END_TAG22__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG22 )
-
+        # at line 107:4: title
+        @state.following.push( TOKENS_FOLLOWING_title_IN_head_element_150 )
+        title17 = title
+        @state.following.pop
+        @adaptor.add_child( root_0, title17.tree )
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -529,154 +577,105 @@ module HtmlParser
       return return_value
     end
 
-    BodyReturnValue = define_return_scope 
+    TitleReturnValue = define_return_scope 
 
     # 
-    # parser rule body
+    # parser rule title
     # 
     # (in HtmlParser.g)
-    # 45:1: body : OPENING_TAG BODY ( id | style | klass | bgcolor | background )* END_TAG ( body_content )* CLOSING_TAG BODY END_TAG ;
+    # 110:1: title : OPENING_TAG TITLE END_TAG ( PCDATA )? CLOSING_TAG TITLE END_TAG -> ^( TAG TITLE ( PCDATA )? ) ;
     # 
-    def body
+    def title
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 5 )
-      return_value = BodyReturnValue.new
+      return_value = TitleReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG23__ = nil
-      __BODY24__ = nil
-      __END_TAG30__ = nil
-      __CLOSING_TAG32__ = nil
-      __BODY33__ = nil
-      __END_TAG34__ = nil
-      id25 = nil
-      style26 = nil
-      klass27 = nil
-      bgcolor28 = nil
-      background29 = nil
-      body_content31 = nil
+      __OPENING_TAG18__ = nil
+      __TITLE19__ = nil
+      __END_TAG20__ = nil
+      __PCDATA21__ = nil
+      __CLOSING_TAG22__ = nil
+      __TITLE23__ = nil
+      __END_TAG24__ = nil
 
-      tree_for_OPENING_TAG23 = nil
-      tree_for_BODY24 = nil
-      tree_for_END_TAG30 = nil
-      tree_for_CLOSING_TAG32 = nil
-      tree_for_BODY33 = nil
-      tree_for_END_TAG34 = nil
+      tree_for_OPENING_TAG18 = nil
+      tree_for_TITLE19 = nil
+      tree_for_END_TAG20 = nil
+      tree_for_PCDATA21 = nil
+      tree_for_CLOSING_TAG22 = nil
+      tree_for_TITLE23 = nil
+      tree_for_END_TAG24 = nil
+      stream_PCDATA = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token PCDATA" )
+      stream_CLOSING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLOSING_TAG" )
+      stream_END_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token END_TAG" )
+      stream_OPENING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OPENING_TAG" )
+      stream_TITLE = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token TITLE" )
+      # - - - - @init action - - - -
+      puts "title"
 
       begin
+        # at line 112:4: OPENING_TAG TITLE END_TAG ( PCDATA )? CLOSING_TAG TITLE END_TAG
+        __OPENING_TAG18__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_title_169 )
+        stream_OPENING_TAG.add( __OPENING_TAG18__ )
+        __TITLE19__ = match( TITLE, TOKENS_FOLLOWING_TITLE_IN_title_171 )
+        stream_TITLE.add( __TITLE19__ )
+        __END_TAG20__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_title_173 )
+        stream_END_TAG.add( __END_TAG20__ )
+        # at line 113:3: ( PCDATA )?
+        alt_4 = 2
+        look_4_0 = @input.peek( 1 )
+
+        if ( look_4_0 == PCDATA )
+          alt_4 = 1
+        end
+        case alt_4
+        when 1
+          # at line 113:3: PCDATA
+          __PCDATA21__ = match( PCDATA, TOKENS_FOLLOWING_PCDATA_IN_title_177 )
+          stream_PCDATA.add( __PCDATA21__ )
+
+        end
+        __CLOSING_TAG22__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_title_182 )
+        stream_CLOSING_TAG.add( __CLOSING_TAG22__ )
+        __TITLE23__ = match( TITLE, TOKENS_FOLLOWING_TITLE_IN_title_184 )
+        stream_TITLE.add( __TITLE23__ )
+        __END_TAG24__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_title_186 )
+        stream_END_TAG.add( __END_TAG24__ )
+        # AST Rewrite
+        # elements: TITLE, PCDATA
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
         root_0 = @adaptor.create_flat_list
+        # 114:29: -> ^( TAG TITLE ( PCDATA )? )
+        # at line 114:32: ^( TAG TITLE ( PCDATA )? )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( TAG, "TAG" ), root_1 )
+
+        @adaptor.add_child( root_1, stream_TITLE.next_node )
+        # at line 114:44: ( PCDATA )?
+        if stream_PCDATA.has_next?
+          @adaptor.add_child( root_1, stream_PCDATA.next_node )
+
+        end
+
+        stream_PCDATA.reset();
+
+        @adaptor.add_child( root_0, root_1 )
 
 
-        # at line 45:8: OPENING_TAG BODY ( id | style | klass | bgcolor | background )* END_TAG ( body_content )* CLOSING_TAG BODY END_TAG
-        __OPENING_TAG23__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_body_167 )
 
-        tree_for_OPENING_TAG23 = @adaptor.create_with_payload( __OPENING_TAG23__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG23 )
-
-        __BODY24__ = match( BODY, TOKENS_FOLLOWING_BODY_IN_body_169 )
-
-        tree_for_BODY24 = @adaptor.create_with_payload( __BODY24__ )
-        @adaptor.add_child( root_0, tree_for_BODY24 )
-
-        # at line 45:25: ( id | style | klass | bgcolor | background )*
-        while true # decision 5
-          alt_5 = 6
-          look_5_0 = @input.peek( 1 )
-
-          if ( look_5_0 == WS )
-            case look_5 = @input.peek( 2 )
-            when ID then alt_5 = 1
-            when STYLE then alt_5 = 2
-            when CLASS then alt_5 = 3
-            when BGCOLOR then alt_5 = 4
-            when BACKGROUND then alt_5 = 5
-            end
-
-          end
-          case alt_5
-          when 1
-            # at line 45:26: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_body_172 )
-            id25 = id
-            @state.following.pop
-            @adaptor.add_child( root_0, id25.tree )
-
-          when 2
-            # at line 45:29: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_body_174 )
-            style26 = style
-            @state.following.pop
-            @adaptor.add_child( root_0, style26.tree )
-
-          when 3
-            # at line 45:35: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_body_176 )
-            klass27 = klass
-            @state.following.pop
-            @adaptor.add_child( root_0, klass27.tree )
-
-          when 4
-            # at line 45:41: bgcolor
-            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_body_178 )
-            bgcolor28 = bgcolor
-            @state.following.pop
-            @adaptor.add_child( root_0, bgcolor28.tree )
-
-          when 5
-            # at line 45:49: background
-            @state.following.push( TOKENS_FOLLOWING_background_IN_body_180 )
-            background29 = background
-            @state.following.pop
-            @adaptor.add_child( root_0, background29.tree )
-
-          else
-            break # out of loop for decision 5
-          end
-        end # loop for decision 5
-        __END_TAG30__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_body_184 )
-
-        tree_for_END_TAG30 = @adaptor.create_with_payload( __END_TAG30__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG30 )
-
-        # at line 47:4: ( body_content )*
-        while true # decision 6
-          alt_6 = 2
-          look_6_0 = @input.peek( 1 )
-
-          if ( look_6_0 == OPENING_TAG || look_6_0 == PCDATA )
-            alt_6 = 1
-
-          end
-          case alt_6
-          when 1
-            # at line 47:5: body_content
-            @state.following.push( TOKENS_FOLLOWING_body_content_IN_body_194 )
-            body_content31 = body_content
-            @state.following.pop
-            @adaptor.add_child( root_0, body_content31.tree )
-
-          else
-            break # out of loop for decision 6
-          end
-        end # loop for decision 6
-        __CLOSING_TAG32__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_body_202 )
-
-        tree_for_CLOSING_TAG32 = @adaptor.create_with_payload( __CLOSING_TAG32__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG32 )
-
-        __BODY33__ = match( BODY, TOKENS_FOLLOWING_BODY_IN_body_204 )
-
-        tree_for_BODY33 = @adaptor.create_with_payload( __BODY33__ )
-        @adaptor.add_child( root_0, tree_for_BODY33 )
-
-        __END_TAG34__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_body_206 )
-
-        tree_for_END_TAG34 = @adaptor.create_with_payload( __END_TAG34__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG34 )
-
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -698,29 +697,217 @@ module HtmlParser
       return return_value
     end
 
+    BodyReturnValue = define_return_scope 
+
+    # 
+    # parser rule body
+    # 
+    # (in HtmlParser.g)
+    # 117:1: body : OPENING_TAG BODY ( id | style | klass | bgcolor | background )* END_TAG ( body_content )* CLOSING_TAG BODY END_TAG -> ^( TAG BODY ( klass )* ) ;
+    # 
+    def body
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 6 )
+      return_value = BodyReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+      root_0 = nil
+      __OPENING_TAG25__ = nil
+      __BODY26__ = nil
+      __END_TAG32__ = nil
+      __CLOSING_TAG34__ = nil
+      __BODY35__ = nil
+      __END_TAG36__ = nil
+      id27 = nil
+      style28 = nil
+      klass29 = nil
+      bgcolor30 = nil
+      background31 = nil
+      body_content33 = nil
+
+      tree_for_OPENING_TAG25 = nil
+      tree_for_BODY26 = nil
+      tree_for_END_TAG32 = nil
+      tree_for_CLOSING_TAG34 = nil
+      tree_for_BODY35 = nil
+      tree_for_END_TAG36 = nil
+      stream_CLOSING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLOSING_TAG" )
+      stream_END_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token END_TAG" )
+      stream_BODY = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token BODY" )
+      stream_OPENING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OPENING_TAG" )
+      stream_id = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule id" )
+      stream_style = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule style" )
+      stream_klass = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule klass" )
+      stream_background = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule background" )
+      stream_body_content = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule body_content" )
+      stream_bgcolor = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule bgcolor" )
+      begin
+        # at line 117:8: OPENING_TAG BODY ( id | style | klass | bgcolor | background )* END_TAG ( body_content )* CLOSING_TAG BODY END_TAG
+        __OPENING_TAG25__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_body_209 )
+        stream_OPENING_TAG.add( __OPENING_TAG25__ )
+        __BODY26__ = match( BODY, TOKENS_FOLLOWING_BODY_IN_body_211 )
+        stream_BODY.add( __BODY26__ )
+        # at line 117:25: ( id | style | klass | bgcolor | background )*
+        while true # decision 5
+          alt_5 = 6
+          look_5_0 = @input.peek( 1 )
+
+          if ( look_5_0 == WS )
+            case look_5 = @input.peek( 2 )
+            when ID then alt_5 = 1
+            when STYLE then alt_5 = 2
+            when CLASS then alt_5 = 3
+            when BGCOLOR then alt_5 = 4
+            when BACKGROUND then alt_5 = 5
+            end
+
+          end
+          case alt_5
+          when 1
+            # at line 117:26: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_body_214 )
+            id27 = id
+            @state.following.pop
+            stream_id.add( id27.tree )
+
+          when 2
+            # at line 117:29: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_body_216 )
+            style28 = style
+            @state.following.pop
+            stream_style.add( style28.tree )
+
+          when 3
+            # at line 117:35: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_body_218 )
+            klass29 = klass
+            @state.following.pop
+            stream_klass.add( klass29.tree )
+
+          when 4
+            # at line 117:41: bgcolor
+            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_body_220 )
+            bgcolor30 = bgcolor
+            @state.following.pop
+            stream_bgcolor.add( bgcolor30.tree )
+
+          when 5
+            # at line 117:49: background
+            @state.following.push( TOKENS_FOLLOWING_background_IN_body_222 )
+            background31 = background
+            @state.following.pop
+            stream_background.add( background31.tree )
+
+          else
+            break # out of loop for decision 5
+          end
+        end # loop for decision 5
+        __END_TAG32__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_body_226 )
+        stream_END_TAG.add( __END_TAG32__ )
+        # at line 119:4: ( body_content )*
+        while true # decision 6
+          alt_6 = 2
+          look_6_0 = @input.peek( 1 )
+
+          if ( look_6_0 == OPENING_TAG || look_6_0 == PCDATA )
+            alt_6 = 1
+
+          end
+          case alt_6
+          when 1
+            # at line 119:5: body_content
+            @state.following.push( TOKENS_FOLLOWING_body_content_IN_body_236 )
+            body_content33 = body_content
+            @state.following.pop
+            stream_body_content.add( body_content33.tree )
+
+          else
+            break # out of loop for decision 6
+          end
+        end # loop for decision 6
+        __CLOSING_TAG34__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_body_244 )
+        stream_CLOSING_TAG.add( __CLOSING_TAG34__ )
+        __BODY35__ = match( BODY, TOKENS_FOLLOWING_BODY_IN_body_246 )
+        stream_BODY.add( __BODY35__ )
+        __END_TAG36__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_body_248 )
+        stream_END_TAG.add( __END_TAG36__ )
+        # AST Rewrite
+        # elements: klass, BODY
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 120:29: -> ^( TAG BODY ( klass )* )
+        # at line 120:32: ^( TAG BODY ( klass )* )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( TAG, "TAG" ), root_1 )
+
+        @adaptor.add_child( root_1, stream_BODY.next_node )
+        # at line 120:43: ( klass )*
+        while stream_klass.has_next?
+          @adaptor.add_child( root_1, stream_klass.next_tree )
+
+        end
+
+        stream_klass.reset();
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
+        # - - - - - - - rule clean up - - - - - - - -
+        return_value.stop = @input.look( -1 )
+
+
+        return_value.tree = @adaptor.rule_post_processing( root_0 )
+        @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 6 )
+
+      end
+      
+      return return_value
+    end
+
     BodyTagReturnValue = define_return_scope 
 
     # 
     # parser rule body_tag
     # 
     # (in HtmlParser.g)
-    # 55:1: body_tag : ( heading | block );
+    # 127:1: body_tag : ( heading | block );
     # 
     def body_tag
       # -> uncomment the next line to manually enable rule tracing
-      # trace_in( __method__, 6 )
+      # trace_in( __method__, 7 )
       return_value = BodyTagReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      heading35 = nil
-      block36 = nil
+      heading37 = nil
+      block38 = nil
 
 
       begin
-        # at line 56:2: ( heading | block )
+        # at line 128:2: ( heading | block )
         alt_7 = 2
         look_7_0 = @input.peek( 1 )
 
@@ -742,21 +929,21 @@ module HtmlParser
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 56:4: heading
-          @state.following.push( TOKENS_FOLLOWING_heading_IN_body_tag_221 )
-          heading35 = heading
+          # at line 128:4: heading
+          @state.following.push( TOKENS_FOLLOWING_heading_IN_body_tag_274 )
+          heading37 = heading
           @state.following.pop
-          @adaptor.add_child( root_0, heading35.tree )
+          @adaptor.add_child( root_0, heading37.tree )
 
         when 2
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 57:4: block
-          @state.following.push( TOKENS_FOLLOWING_block_IN_body_tag_227 )
-          block36 = block
+          # at line 129:4: block
+          @state.following.push( TOKENS_FOLLOWING_block_IN_body_tag_280 )
+          block38 = block
           @state.following.pop
-          @adaptor.add_child( root_0, block36.tree )
+          @adaptor.add_child( root_0, block38.tree )
 
         end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -772,7 +959,7 @@ module HtmlParser
 
       ensure
         # -> uncomment the next line to manually enable rule tracing
-        # trace_out( __method__, 6 )
+        # trace_out( __method__, 7 )
 
       end
       
@@ -785,23 +972,23 @@ module HtmlParser
     # parser rule body_content
     # 
     # (in HtmlParser.g)
-    # 60:1: body_content : ( body_tag | text );
+    # 132:1: body_content : ( body_tag | text );
     # 
     def body_content
       # -> uncomment the next line to manually enable rule tracing
-      # trace_in( __method__, 7 )
+      # trace_in( __method__, 8 )
       return_value = BodyContentReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      body_tag37 = nil
-      text38 = nil
+      body_tag39 = nil
+      text40 = nil
 
 
       begin
-        # at line 61:2: ( body_tag | text )
+        # at line 133:2: ( body_tag | text )
         alt_8 = 2
         look_8_0 = @input.peek( 1 )
 
@@ -825,147 +1012,21 @@ module HtmlParser
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 61:4: body_tag
-          @state.following.push( TOKENS_FOLLOWING_body_tag_IN_body_content_238 )
-          body_tag37 = body_tag
+          # at line 133:4: body_tag
+          @state.following.push( TOKENS_FOLLOWING_body_tag_IN_body_content_291 )
+          body_tag39 = body_tag
           @state.following.pop
-          @adaptor.add_child( root_0, body_tag37.tree )
+          @adaptor.add_child( root_0, body_tag39.tree )
 
         when 2
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 62:4: text
-          @state.following.push( TOKENS_FOLLOWING_text_IN_body_content_244 )
-          text38 = text
+          # at line 134:4: text
+          @state.following.push( TOKENS_FOLLOWING_text_IN_body_content_297 )
+          text40 = text
           @state.following.pop
-          @adaptor.add_child( root_0, text38.tree )
-
-        end# - - - - - - - rule clean up - - - - - - - -
-        return_value.stop = @input.look( -1 )
-
-
-        return_value.tree = @adaptor.rule_post_processing( root_0 )
-        @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
-
-      rescue ANTLR3::Error::RecognitionError => re
-        report_error(re)
-        recover(re)
-        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
-
-      ensure
-        # -> uncomment the next line to manually enable rule tracing
-        # trace_out( __method__, 7 )
-
-      end
-      
-      return return_value
-    end
-
-    HeadingReturnValue = define_return_scope 
-
-    # 
-    # parser rule heading
-    # 
-    # (in HtmlParser.g)
-    # 65:1: heading : ( h1 | h2 | h3 | h4 | h5 | h6 );
-    # 
-    def heading
-      # -> uncomment the next line to manually enable rule tracing
-      # trace_in( __method__, 8 )
-      return_value = HeadingReturnValue.new
-
-      # $rule.start = the first token seen before matching
-      return_value.start = @input.look
-
-      root_0 = nil
-      h139 = nil
-      h240 = nil
-      h341 = nil
-      h442 = nil
-      h543 = nil
-      h644 = nil
-
-
-      begin
-        # at line 66:2: ( h1 | h2 | h3 | h4 | h5 | h6 )
-        alt_9 = 6
-        look_9_0 = @input.peek( 1 )
-
-        if ( look_9_0 == OPENING_TAG )
-          case look_9 = @input.peek( 2 )
-          when H1 then alt_9 = 1
-          when H2 then alt_9 = 2
-          when H3 then alt_9 = 3
-          when H4 then alt_9 = 4
-          when H5 then alt_9 = 5
-          when H6 then alt_9 = 6
-          else
-            raise NoViableAlternative( "", 9, 1 )
-          end
-        else
-          raise NoViableAlternative( "", 9, 0 )
-        end
-        case alt_9
-        when 1
-          root_0 = @adaptor.create_flat_list
-
-
-          # at line 66:4: h1
-          @state.following.push( TOKENS_FOLLOWING_h1_IN_heading_257 )
-          h139 = h1
-          @state.following.pop
-          @adaptor.add_child( root_0, h139.tree )
-
-        when 2
-          root_0 = @adaptor.create_flat_list
-
-
-          # at line 66:9: h2
-          @state.following.push( TOKENS_FOLLOWING_h2_IN_heading_261 )
-          h240 = h2
-          @state.following.pop
-          @adaptor.add_child( root_0, h240.tree )
-
-        when 3
-          root_0 = @adaptor.create_flat_list
-
-
-          # at line 66:14: h3
-          @state.following.push( TOKENS_FOLLOWING_h3_IN_heading_265 )
-          h341 = h3
-          @state.following.pop
-          @adaptor.add_child( root_0, h341.tree )
-
-        when 4
-          root_0 = @adaptor.create_flat_list
-
-
-          # at line 66:19: h4
-          @state.following.push( TOKENS_FOLLOWING_h4_IN_heading_269 )
-          h442 = h4
-          @state.following.pop
-          @adaptor.add_child( root_0, h442.tree )
-
-        when 5
-          root_0 = @adaptor.create_flat_list
-
-
-          # at line 66:24: h5
-          @state.following.push( TOKENS_FOLLOWING_h5_IN_heading_273 )
-          h543 = h5
-          @state.following.pop
-          @adaptor.add_child( root_0, h543.tree )
-
-        when 6
-          root_0 = @adaptor.create_flat_list
-
-
-          # at line 66:29: h6
-          @state.following.push( TOKENS_FOLLOWING_h6_IN_heading_277 )
-          h644 = h6
-          @state.following.pop
-          @adaptor.add_child( root_0, h644.tree )
+          @adaptor.add_child( root_0, text40.tree )
 
         end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -988,74 +1049,110 @@ module HtmlParser
       return return_value
     end
 
-    BlockReturnValue = define_return_scope 
+    HeadingReturnValue = define_return_scope 
 
     # 
-    # parser rule block
+    # parser rule heading
     # 
     # (in HtmlParser.g)
-    # 69:1: block : ( paragraph | div | table );
+    # 137:1: heading : ( h1 | h2 | h3 | h4 | h5 | h6 );
     # 
-    def block
+    def heading
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 9 )
-      return_value = BlockReturnValue.new
+      return_value = HeadingReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      paragraph45 = nil
-      div46 = nil
-      table47 = nil
+      h141 = nil
+      h242 = nil
+      h343 = nil
+      h444 = nil
+      h545 = nil
+      h646 = nil
 
 
       begin
-        # at line 70:2: ( paragraph | div | table )
-        alt_10 = 3
-        look_10_0 = @input.peek( 1 )
+        # at line 138:2: ( h1 | h2 | h3 | h4 | h5 | h6 )
+        alt_9 = 6
+        look_9_0 = @input.peek( 1 )
 
-        if ( look_10_0 == OPENING_TAG )
-          case look_10 = @input.peek( 2 )
-          when P then alt_10 = 1
-          when DIV then alt_10 = 2
-          when TABLE then alt_10 = 3
+        if ( look_9_0 == OPENING_TAG )
+          case look_9 = @input.peek( 2 )
+          when H1 then alt_9 = 1
+          when H2 then alt_9 = 2
+          when H3 then alt_9 = 3
+          when H4 then alt_9 = 4
+          when H5 then alt_9 = 5
+          when H6 then alt_9 = 6
           else
-            raise NoViableAlternative( "", 10, 1 )
+            raise NoViableAlternative( "", 9, 1 )
           end
         else
-          raise NoViableAlternative( "", 10, 0 )
+          raise NoViableAlternative( "", 9, 0 )
         end
-        case alt_10
+        case alt_9
         when 1
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 70:4: paragraph
-          @state.following.push( TOKENS_FOLLOWING_paragraph_IN_block_289 )
-          paragraph45 = paragraph
+          # at line 138:4: h1
+          @state.following.push( TOKENS_FOLLOWING_h1_IN_heading_310 )
+          h141 = h1
           @state.following.pop
-          @adaptor.add_child( root_0, paragraph45.tree )
+          @adaptor.add_child( root_0, h141.tree )
 
         when 2
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 71:4: div
-          @state.following.push( TOKENS_FOLLOWING_div_IN_block_294 )
-          div46 = div
+          # at line 138:9: h2
+          @state.following.push( TOKENS_FOLLOWING_h2_IN_heading_314 )
+          h242 = h2
           @state.following.pop
-          @adaptor.add_child( root_0, div46.tree )
+          @adaptor.add_child( root_0, h242.tree )
 
         when 3
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 72:4: table
-          @state.following.push( TOKENS_FOLLOWING_table_IN_block_299 )
-          table47 = table
+          # at line 138:14: h3
+          @state.following.push( TOKENS_FOLLOWING_h3_IN_heading_318 )
+          h343 = h3
           @state.following.pop
-          @adaptor.add_child( root_0, table47.tree )
+          @adaptor.add_child( root_0, h343.tree )
+
+        when 4
+          root_0 = @adaptor.create_flat_list
+
+
+          # at line 138:19: h4
+          @state.following.push( TOKENS_FOLLOWING_h4_IN_heading_322 )
+          h444 = h4
+          @state.following.pop
+          @adaptor.add_child( root_0, h444.tree )
+
+        when 5
+          root_0 = @adaptor.create_flat_list
+
+
+          # at line 138:24: h5
+          @state.following.push( TOKENS_FOLLOWING_h5_IN_heading_326 )
+          h545 = h5
+          @state.following.pop
+          @adaptor.add_child( root_0, h545.tree )
+
+        when 6
+          root_0 = @adaptor.create_flat_list
+
+
+          # at line 138:29: h6
+          @state.following.push( TOKENS_FOLLOWING_h6_IN_heading_330 )
+          h646 = h6
+          @state.following.pop
+          @adaptor.add_child( root_0, h646.tree )
 
         end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -1078,74 +1175,74 @@ module HtmlParser
       return return_value
     end
 
-    FontReturnValue = define_return_scope 
+    BlockReturnValue = define_return_scope 
 
     # 
-    # parser rule font
+    # parser rule block
     # 
     # (in HtmlParser.g)
-    # 75:1: font : ( italic | bold | underline );
+    # 141:1: block : ( paragraph | div | table );
     # 
-    def font
+    def block
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 10 )
-      return_value = FontReturnValue.new
+      return_value = BlockReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      italic48 = nil
-      bold49 = nil
-      underline50 = nil
+      paragraph47 = nil
+      div48 = nil
+      table49 = nil
 
 
       begin
-        # at line 76:2: ( italic | bold | underline )
-        alt_11 = 3
-        look_11_0 = @input.peek( 1 )
+        # at line 142:2: ( paragraph | div | table )
+        alt_10 = 3
+        look_10_0 = @input.peek( 1 )
 
-        if ( look_11_0 == OPENING_TAG )
-          case look_11 = @input.peek( 2 )
-          when I then alt_11 = 1
-          when B then alt_11 = 2
-          when U then alt_11 = 3
+        if ( look_10_0 == OPENING_TAG )
+          case look_10 = @input.peek( 2 )
+          when P then alt_10 = 1
+          when DIV then alt_10 = 2
+          when TABLE then alt_10 = 3
           else
-            raise NoViableAlternative( "", 11, 1 )
+            raise NoViableAlternative( "", 10, 1 )
           end
         else
-          raise NoViableAlternative( "", 11, 0 )
+          raise NoViableAlternative( "", 10, 0 )
         end
-        case alt_11
+        case alt_10
         when 1
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 76:4: italic
-          @state.following.push( TOKENS_FOLLOWING_italic_IN_font_311 )
-          italic48 = italic
+          # at line 142:4: paragraph
+          @state.following.push( TOKENS_FOLLOWING_paragraph_IN_block_342 )
+          paragraph47 = paragraph
           @state.following.pop
-          @adaptor.add_child( root_0, italic48.tree )
+          @adaptor.add_child( root_0, paragraph47.tree )
 
         when 2
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 77:4: bold
-          @state.following.push( TOKENS_FOLLOWING_bold_IN_font_316 )
-          bold49 = bold
+          # at line 143:4: div
+          @state.following.push( TOKENS_FOLLOWING_div_IN_block_347 )
+          div48 = div
           @state.following.pop
-          @adaptor.add_child( root_0, bold49.tree )
+          @adaptor.add_child( root_0, div48.tree )
 
         when 3
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 78:4: underline
-          @state.following.push( TOKENS_FOLLOWING_underline_IN_font_321 )
-          underline50 = underline
+          # at line 144:4: table
+          @state.following.push( TOKENS_FOLLOWING_table_IN_block_352 )
+          table49 = table
           @state.following.pop
-          @adaptor.add_child( root_0, underline50.tree )
+          @adaptor.add_child( root_0, table49.tree )
 
         end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -1168,74 +1265,74 @@ module HtmlParser
       return return_value
     end
 
-    SpecialReturnValue = define_return_scope 
+    FontReturnValue = define_return_scope 
 
     # 
-    # parser rule special
+    # parser rule font
     # 
     # (in HtmlParser.g)
-    # 81:1: special : ( anchor | img | br );
+    # 147:1: font : ( italic | bold | underline );
     # 
-    def special
+    def font
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 11 )
-      return_value = SpecialReturnValue.new
+      return_value = FontReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      anchor51 = nil
-      img52 = nil
-      br53 = nil
+      italic50 = nil
+      bold51 = nil
+      underline52 = nil
 
 
       begin
-        # at line 82:2: ( anchor | img | br )
-        alt_12 = 3
-        look_12_0 = @input.peek( 1 )
+        # at line 148:2: ( italic | bold | underline )
+        alt_11 = 3
+        look_11_0 = @input.peek( 1 )
 
-        if ( look_12_0 == OPENING_TAG )
-          case look_12 = @input.peek( 2 )
-          when A then alt_12 = 1
-          when IMG then alt_12 = 2
-          when BR then alt_12 = 3
+        if ( look_11_0 == OPENING_TAG )
+          case look_11 = @input.peek( 2 )
+          when I then alt_11 = 1
+          when B then alt_11 = 2
+          when U then alt_11 = 3
           else
-            raise NoViableAlternative( "", 12, 1 )
+            raise NoViableAlternative( "", 11, 1 )
           end
         else
-          raise NoViableAlternative( "", 12, 0 )
+          raise NoViableAlternative( "", 11, 0 )
         end
-        case alt_12
+        case alt_11
         when 1
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 82:4: anchor
-          @state.following.push( TOKENS_FOLLOWING_anchor_IN_special_333 )
-          anchor51 = anchor
+          # at line 148:4: italic
+          @state.following.push( TOKENS_FOLLOWING_italic_IN_font_364 )
+          italic50 = italic
           @state.following.pop
-          @adaptor.add_child( root_0, anchor51.tree )
+          @adaptor.add_child( root_0, italic50.tree )
 
         when 2
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 83:4: img
-          @state.following.push( TOKENS_FOLLOWING_img_IN_special_339 )
-          img52 = img
+          # at line 149:4: bold
+          @state.following.push( TOKENS_FOLLOWING_bold_IN_font_369 )
+          bold51 = bold
           @state.following.pop
-          @adaptor.add_child( root_0, img52.tree )
+          @adaptor.add_child( root_0, bold51.tree )
 
         when 3
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 84:4: br
-          @state.following.push( TOKENS_FOLLOWING_br_IN_special_344 )
-          br53 = br
+          # at line 150:4: underline
+          @state.following.push( TOKENS_FOLLOWING_underline_IN_font_374 )
+          underline52 = underline
           @state.following.pop
-          @adaptor.add_child( root_0, br53.tree )
+          @adaptor.add_child( root_0, underline52.tree )
 
         end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -1258,65 +1355,74 @@ module HtmlParser
       return return_value
     end
 
-    TextTagReturnValue = define_return_scope 
+    SpecialReturnValue = define_return_scope 
 
     # 
-    # parser rule text_tag
+    # parser rule special
     # 
     # (in HtmlParser.g)
-    # 87:1: text_tag : ( font | special );
+    # 153:1: special : ( anchor | img | br );
     # 
-    def text_tag
+    def special
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 12 )
-      return_value = TextTagReturnValue.new
+      return_value = SpecialReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      font54 = nil
-      special55 = nil
+      anchor53 = nil
+      img54 = nil
+      br55 = nil
 
 
       begin
-        # at line 88:2: ( font | special )
-        alt_13 = 2
-        look_13_0 = @input.peek( 1 )
+        # at line 154:2: ( anchor | img | br )
+        alt_12 = 3
+        look_12_0 = @input.peek( 1 )
 
-        if ( look_13_0 == OPENING_TAG )
-          look_13_1 = @input.peek( 2 )
-
-          if ( look_13_1.between?( I, U ) )
-            alt_13 = 1
-          elsif ( look_13_1.between?( A, IMG ) || look_13_1 == BR )
-            alt_13 = 2
+        if ( look_12_0 == OPENING_TAG )
+          case look_12 = @input.peek( 2 )
+          when A then alt_12 = 1
+          when IMG then alt_12 = 2
+          when BR then alt_12 = 3
           else
-            raise NoViableAlternative( "", 13, 1 )
+            raise NoViableAlternative( "", 12, 1 )
           end
         else
-          raise NoViableAlternative( "", 13, 0 )
+          raise NoViableAlternative( "", 12, 0 )
         end
-        case alt_13
+        case alt_12
         when 1
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 88:4: font
-          @state.following.push( TOKENS_FOLLOWING_font_IN_text_tag_356 )
-          font54 = font
+          # at line 154:4: anchor
+          @state.following.push( TOKENS_FOLLOWING_anchor_IN_special_386 )
+          anchor53 = anchor
           @state.following.pop
-          @adaptor.add_child( root_0, font54.tree )
+          @adaptor.add_child( root_0, anchor53.tree )
 
         when 2
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 89:4: special
-          @state.following.push( TOKENS_FOLLOWING_special_IN_text_tag_362 )
-          special55 = special
+          # at line 155:4: img
+          @state.following.push( TOKENS_FOLLOWING_img_IN_special_392 )
+          img54 = img
           @state.following.pop
-          @adaptor.add_child( root_0, special55.tree )
+          @adaptor.add_child( root_0, img54.tree )
+
+        when 3
+          root_0 = @adaptor.create_flat_list
+
+
+          # at line 156:4: br
+          @state.following.push( TOKENS_FOLLOWING_br_IN_special_397 )
+          br55 = br
+          @state.following.pop
+          @adaptor.add_child( root_0, br55.tree )
 
         end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -1339,61 +1445,65 @@ module HtmlParser
       return return_value
     end
 
-    TextReturnValue = define_return_scope 
+    TextTagReturnValue = define_return_scope 
 
     # 
-    # parser rule text
+    # parser rule text_tag
     # 
     # (in HtmlParser.g)
-    # 92:1: text : ( PCDATA | text_tag );
+    # 159:1: text_tag : ( font | special );
     # 
-    def text
+    def text_tag
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 13 )
-      return_value = TextReturnValue.new
+      return_value = TextTagReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __PCDATA56__ = nil
-      text_tag57 = nil
+      font56 = nil
+      special57 = nil
 
-      tree_for_PCDATA56 = nil
 
       begin
-        # at line 92:5: ( PCDATA | text_tag )
-        alt_14 = 2
-        look_14_0 = @input.peek( 1 )
+        # at line 160:2: ( font | special )
+        alt_13 = 2
+        look_13_0 = @input.peek( 1 )
 
-        if ( look_14_0 == PCDATA )
-          alt_14 = 1
-        elsif ( look_14_0 == OPENING_TAG )
-          alt_14 = 2
+        if ( look_13_0 == OPENING_TAG )
+          look_13_1 = @input.peek( 2 )
+
+          if ( look_13_1.between?( I, U ) )
+            alt_13 = 1
+          elsif ( look_13_1.between?( A, IMG ) || look_13_1 == BR )
+            alt_13 = 2
+          else
+            raise NoViableAlternative( "", 13, 1 )
+          end
         else
-          raise NoViableAlternative( "", 14, 0 )
+          raise NoViableAlternative( "", 13, 0 )
         end
-        case alt_14
+        case alt_13
         when 1
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 92:7: PCDATA
-          __PCDATA56__ = match( PCDATA, TOKENS_FOLLOWING_PCDATA_IN_text_372 )
-
-          tree_for_PCDATA56 = @adaptor.create_with_payload( __PCDATA56__ )
-          @adaptor.add_child( root_0, tree_for_PCDATA56 )
-
+          # at line 160:4: font
+          @state.following.push( TOKENS_FOLLOWING_font_IN_text_tag_409 )
+          font56 = font
+          @state.following.pop
+          @adaptor.add_child( root_0, font56.tree )
 
         when 2
           root_0 = @adaptor.create_flat_list
 
 
-          # at line 93:4: text_tag
-          @state.following.push( TOKENS_FOLLOWING_text_tag_IN_text_378 )
-          text_tag57 = text_tag
+          # at line 161:4: special
+          @state.following.push( TOKENS_FOLLOWING_special_IN_text_tag_415 )
+          special57 = special
           @state.following.pop
-          @adaptor.add_child( root_0, text_tag57.tree )
+          @adaptor.add_child( root_0, special57.tree )
 
         end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -1416,163 +1526,63 @@ module HtmlParser
       return return_value
     end
 
-    H1ReturnValue = define_return_scope 
+    TextReturnValue = define_return_scope 
 
     # 
-    # parser rule h1
+    # parser rule text
     # 
     # (in HtmlParser.g)
-    # 99:1: h1 : OPENING_TAG H1 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H1 END_TAG ;
+    # 164:1: text : ( PCDATA | text_tag );
     # 
-    def h1
+    def text
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 14 )
-      return_value = H1ReturnValue.new
+      return_value = TextReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG58__ = nil
-      __H159__ = nil
-      __END_TAG64__ = nil
-      __CLOSING_TAG67__ = nil
-      __H168__ = nil
-      __END_TAG69__ = nil
-      id60 = nil
-      style61 = nil
-      klass62 = nil
-      align63 = nil
-      block65 = nil
-      text66 = nil
+      __PCDATA58__ = nil
+      text_tag59 = nil
 
-      tree_for_OPENING_TAG58 = nil
-      tree_for_H159 = nil
-      tree_for_END_TAG64 = nil
-      tree_for_CLOSING_TAG67 = nil
-      tree_for_H168 = nil
-      tree_for_END_TAG69 = nil
+      tree_for_PCDATA58 = nil
 
       begin
-        root_0 = @adaptor.create_flat_list
+        # at line 165:3: ( PCDATA | text_tag )
+        alt_14 = 2
+        look_14_0 = @input.peek( 1 )
+
+        if ( look_14_0 == PCDATA )
+          alt_14 = 1
+        elsif ( look_14_0 == OPENING_TAG )
+          alt_14 = 2
+        else
+          raise NoViableAlternative( "", 14, 0 )
+        end
+        case alt_14
+        when 1
+          root_0 = @adaptor.create_flat_list
 
 
-        # at line 99:6: OPENING_TAG H1 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H1 END_TAG
-        __OPENING_TAG58__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h1_395 )
+          # at line 165:5: PCDATA
+          __PCDATA58__ = match( PCDATA, TOKENS_FOLLOWING_PCDATA_IN_text_428 )
 
-        tree_for_OPENING_TAG58 = @adaptor.create_with_payload( __OPENING_TAG58__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG58 )
+          tree_for_PCDATA58 = @adaptor.create_with_payload( __PCDATA58__ )
+          @adaptor.add_child( root_0, tree_for_PCDATA58 )
 
-        __H159__ = match( H1, TOKENS_FOLLOWING_H1_IN_h1_397 )
 
-        tree_for_H159 = @adaptor.create_with_payload( __H159__ )
-        @adaptor.add_child( root_0, tree_for_H159 )
+        when 2
+          root_0 = @adaptor.create_flat_list
 
-        # at line 99:21: ( id | style | klass | align )*
-        while true # decision 15
-          alt_15 = 5
-          look_15_0 = @input.peek( 1 )
 
-          if ( look_15_0 == WS )
-            case look_15 = @input.peek( 2 )
-            when ID then alt_15 = 1
-            when STYLE then alt_15 = 2
-            when CLASS then alt_15 = 3
-            when ALIGN then alt_15 = 4
-            end
+          # at line 166:4: text_tag
+          @state.following.push( TOKENS_FOLLOWING_text_tag_IN_text_434 )
+          text_tag59 = text_tag
+          @state.following.pop
+          @adaptor.add_child( root_0, text_tag59.tree )
 
-          end
-          case alt_15
-          when 1
-            # at line 99:22: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_h1_400 )
-            id60 = id
-            @state.following.pop
-            @adaptor.add_child( root_0, id60.tree )
-
-          when 2
-            # at line 99:25: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_h1_402 )
-            style61 = style
-            @state.following.pop
-            @adaptor.add_child( root_0, style61.tree )
-
-          when 3
-            # at line 99:31: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_h1_404 )
-            klass62 = klass
-            @state.following.pop
-            @adaptor.add_child( root_0, klass62.tree )
-
-          when 4
-            # at line 99:37: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_h1_406 )
-            align63 = align
-            @state.following.pop
-            @adaptor.add_child( root_0, align63.tree )
-
-          else
-            break # out of loop for decision 15
-          end
-        end # loop for decision 15
-        __END_TAG64__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h1_410 )
-
-        tree_for_END_TAG64 = @adaptor.create_with_payload( __END_TAG64__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG64 )
-
-        # at line 100:3: ( block | text )*
-        while true # decision 16
-          alt_16 = 3
-          look_16_0 = @input.peek( 1 )
-
-          if ( look_16_0 == OPENING_TAG )
-            look_16_2 = @input.peek( 2 )
-
-            if ( look_16_2.between?( P, DIV ) || look_16_2 == TABLE )
-              alt_16 = 1
-            elsif ( look_16_2.between?( I, U ) || look_16_2.between?( A, IMG ) || look_16_2 == BR )
-              alt_16 = 2
-
-            end
-          elsif ( look_16_0 == PCDATA )
-            alt_16 = 2
-
-          end
-          case alt_16
-          when 1
-            # at line 100:4: block
-            @state.following.push( TOKENS_FOLLOWING_block_IN_h1_415 )
-            block65 = block
-            @state.following.pop
-            @adaptor.add_child( root_0, block65.tree )
-
-          when 2
-            # at line 100:12: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_h1_419 )
-            text66 = text
-            @state.following.pop
-            @adaptor.add_child( root_0, text66.tree )
-
-          else
-            break # out of loop for decision 16
-          end
-        end # loop for decision 16
-        __CLOSING_TAG67__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h1_425 )
-
-        tree_for_CLOSING_TAG67 = @adaptor.create_with_payload( __CLOSING_TAG67__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG67 )
-
-        __H168__ = match( H1, TOKENS_FOLLOWING_H1_IN_h1_427 )
-
-        tree_for_H168 = @adaptor.create_with_payload( __H168__ )
-        @adaptor.add_child( root_0, tree_for_H168 )
-
-        __END_TAG69__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h1_429 )
-
-        tree_for_END_TAG69 = @adaptor.create_with_payload( __END_TAG69__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG69 )
-
-        # - - - - - - - rule clean up - - - - - - - -
+        end# - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
 
@@ -1593,161 +1603,161 @@ module HtmlParser
       return return_value
     end
 
-    H2ReturnValue = define_return_scope 
+    H1ReturnValue = define_return_scope 
 
     # 
-    # parser rule h2
+    # parser rule h1
     # 
     # (in HtmlParser.g)
-    # 104:1: h2 : OPENING_TAG H2 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H2 END_TAG ;
+    # 172:1: h1 : OPENING_TAG H1 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H1 END_TAG ;
     # 
-    def h2
+    def h1
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 15 )
-      return_value = H2ReturnValue.new
+      return_value = H1ReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG70__ = nil
-      __H271__ = nil
-      __END_TAG76__ = nil
-      __CLOSING_TAG79__ = nil
-      __H280__ = nil
-      __END_TAG81__ = nil
-      id72 = nil
-      style73 = nil
-      klass74 = nil
-      align75 = nil
-      block77 = nil
-      text78 = nil
+      __OPENING_TAG60__ = nil
+      __H161__ = nil
+      __END_TAG66__ = nil
+      __CLOSING_TAG69__ = nil
+      __H170__ = nil
+      __END_TAG71__ = nil
+      id62 = nil
+      style63 = nil
+      klass64 = nil
+      align65 = nil
+      block67 = nil
+      text68 = nil
 
-      tree_for_OPENING_TAG70 = nil
-      tree_for_H271 = nil
-      tree_for_END_TAG76 = nil
-      tree_for_CLOSING_TAG79 = nil
-      tree_for_H280 = nil
-      tree_for_END_TAG81 = nil
+      tree_for_OPENING_TAG60 = nil
+      tree_for_H161 = nil
+      tree_for_END_TAG66 = nil
+      tree_for_CLOSING_TAG69 = nil
+      tree_for_H170 = nil
+      tree_for_END_TAG71 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 104:6: OPENING_TAG H2 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H2 END_TAG
-        __OPENING_TAG70__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h2_440 )
+        # at line 172:6: OPENING_TAG H1 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H1 END_TAG
+        __OPENING_TAG60__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h1_451 )
 
-        tree_for_OPENING_TAG70 = @adaptor.create_with_payload( __OPENING_TAG70__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG70 )
+        tree_for_OPENING_TAG60 = @adaptor.create_with_payload( __OPENING_TAG60__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG60 )
 
-        __H271__ = match( H2, TOKENS_FOLLOWING_H2_IN_h2_442 )
+        __H161__ = match( H1, TOKENS_FOLLOWING_H1_IN_h1_453 )
 
-        tree_for_H271 = @adaptor.create_with_payload( __H271__ )
-        @adaptor.add_child( root_0, tree_for_H271 )
+        tree_for_H161 = @adaptor.create_with_payload( __H161__ )
+        @adaptor.add_child( root_0, tree_for_H161 )
 
-        # at line 104:21: ( id | style | klass | align )*
-        while true # decision 17
-          alt_17 = 5
-          look_17_0 = @input.peek( 1 )
+        # at line 172:21: ( id | style | klass | align )*
+        while true # decision 15
+          alt_15 = 5
+          look_15_0 = @input.peek( 1 )
 
-          if ( look_17_0 == WS )
-            case look_17 = @input.peek( 2 )
-            when ID then alt_17 = 1
-            when STYLE then alt_17 = 2
-            when CLASS then alt_17 = 3
-            when ALIGN then alt_17 = 4
+          if ( look_15_0 == WS )
+            case look_15 = @input.peek( 2 )
+            when ID then alt_15 = 1
+            when STYLE then alt_15 = 2
+            when CLASS then alt_15 = 3
+            when ALIGN then alt_15 = 4
             end
 
           end
-          case alt_17
+          case alt_15
           when 1
-            # at line 104:22: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_h2_445 )
-            id72 = id
+            # at line 172:22: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_h1_456 )
+            id62 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id72.tree )
+            @adaptor.add_child( root_0, id62.tree )
 
           when 2
-            # at line 104:25: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_h2_447 )
-            style73 = style
+            # at line 172:25: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_h1_458 )
+            style63 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style73.tree )
+            @adaptor.add_child( root_0, style63.tree )
 
           when 3
-            # at line 104:31: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_h2_449 )
-            klass74 = klass
+            # at line 172:31: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_h1_460 )
+            klass64 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass74.tree )
+            @adaptor.add_child( root_0, klass64.tree )
 
           when 4
-            # at line 104:37: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_h2_451 )
-            align75 = align
+            # at line 172:37: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_h1_462 )
+            align65 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align75.tree )
+            @adaptor.add_child( root_0, align65.tree )
 
           else
-            break # out of loop for decision 17
+            break # out of loop for decision 15
           end
-        end # loop for decision 17
-        __END_TAG76__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h2_455 )
+        end # loop for decision 15
+        __END_TAG66__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h1_466 )
 
-        tree_for_END_TAG76 = @adaptor.create_with_payload( __END_TAG76__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG76 )
+        tree_for_END_TAG66 = @adaptor.create_with_payload( __END_TAG66__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG66 )
 
-        # at line 105:3: ( block | text )*
-        while true # decision 18
-          alt_18 = 3
-          look_18_0 = @input.peek( 1 )
+        # at line 173:3: ( block | text )*
+        while true # decision 16
+          alt_16 = 3
+          look_16_0 = @input.peek( 1 )
 
-          if ( look_18_0 == OPENING_TAG )
-            look_18_2 = @input.peek( 2 )
+          if ( look_16_0 == OPENING_TAG )
+            look_16_2 = @input.peek( 2 )
 
-            if ( look_18_2.between?( P, DIV ) || look_18_2 == TABLE )
-              alt_18 = 1
-            elsif ( look_18_2.between?( I, U ) || look_18_2.between?( A, IMG ) || look_18_2 == BR )
-              alt_18 = 2
+            if ( look_16_2.between?( P, DIV ) || look_16_2 == TABLE )
+              alt_16 = 1
+            elsif ( look_16_2.between?( I, U ) || look_16_2.between?( A, IMG ) || look_16_2 == BR )
+              alt_16 = 2
 
             end
-          elsif ( look_18_0 == PCDATA )
-            alt_18 = 2
+          elsif ( look_16_0 == PCDATA )
+            alt_16 = 2
 
           end
-          case alt_18
+          case alt_16
           when 1
-            # at line 105:4: block
-            @state.following.push( TOKENS_FOLLOWING_block_IN_h2_460 )
-            block77 = block
+            # at line 173:4: block
+            @state.following.push( TOKENS_FOLLOWING_block_IN_h1_471 )
+            block67 = block
             @state.following.pop
-            @adaptor.add_child( root_0, block77.tree )
+            @adaptor.add_child( root_0, block67.tree )
 
           when 2
-            # at line 105:12: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_h2_464 )
-            text78 = text
+            # at line 173:12: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_h1_475 )
+            text68 = text
             @state.following.pop
-            @adaptor.add_child( root_0, text78.tree )
+            @adaptor.add_child( root_0, text68.tree )
 
           else
-            break # out of loop for decision 18
+            break # out of loop for decision 16
           end
-        end # loop for decision 18
-        __CLOSING_TAG79__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h2_470 )
+        end # loop for decision 16
+        __CLOSING_TAG69__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h1_481 )
 
-        tree_for_CLOSING_TAG79 = @adaptor.create_with_payload( __CLOSING_TAG79__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG79 )
+        tree_for_CLOSING_TAG69 = @adaptor.create_with_payload( __CLOSING_TAG69__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG69 )
 
-        __H280__ = match( H2, TOKENS_FOLLOWING_H2_IN_h2_472 )
+        __H170__ = match( H1, TOKENS_FOLLOWING_H1_IN_h1_483 )
 
-        tree_for_H280 = @adaptor.create_with_payload( __H280__ )
-        @adaptor.add_child( root_0, tree_for_H280 )
+        tree_for_H170 = @adaptor.create_with_payload( __H170__ )
+        @adaptor.add_child( root_0, tree_for_H170 )
 
-        __END_TAG81__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h2_474 )
+        __END_TAG71__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h1_485 )
 
-        tree_for_END_TAG81 = @adaptor.create_with_payload( __END_TAG81__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG81 )
+        tree_for_END_TAG71 = @adaptor.create_with_payload( __END_TAG71__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG71 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -1770,161 +1780,161 @@ module HtmlParser
       return return_value
     end
 
-    H3ReturnValue = define_return_scope 
+    H2ReturnValue = define_return_scope 
 
     # 
-    # parser rule h3
+    # parser rule h2
     # 
     # (in HtmlParser.g)
-    # 109:1: h3 : OPENING_TAG H3 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H3 END_TAG ;
+    # 177:1: h2 : OPENING_TAG H2 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H2 END_TAG ;
     # 
-    def h3
+    def h2
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 16 )
-      return_value = H3ReturnValue.new
+      return_value = H2ReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG82__ = nil
-      __H383__ = nil
-      __END_TAG88__ = nil
-      __CLOSING_TAG91__ = nil
-      __H392__ = nil
-      __END_TAG93__ = nil
-      id84 = nil
-      style85 = nil
-      klass86 = nil
-      align87 = nil
-      block89 = nil
-      text90 = nil
+      __OPENING_TAG72__ = nil
+      __H273__ = nil
+      __END_TAG78__ = nil
+      __CLOSING_TAG81__ = nil
+      __H282__ = nil
+      __END_TAG83__ = nil
+      id74 = nil
+      style75 = nil
+      klass76 = nil
+      align77 = nil
+      block79 = nil
+      text80 = nil
 
-      tree_for_OPENING_TAG82 = nil
-      tree_for_H383 = nil
-      tree_for_END_TAG88 = nil
-      tree_for_CLOSING_TAG91 = nil
-      tree_for_H392 = nil
-      tree_for_END_TAG93 = nil
+      tree_for_OPENING_TAG72 = nil
+      tree_for_H273 = nil
+      tree_for_END_TAG78 = nil
+      tree_for_CLOSING_TAG81 = nil
+      tree_for_H282 = nil
+      tree_for_END_TAG83 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 109:6: OPENING_TAG H3 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H3 END_TAG
-        __OPENING_TAG82__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h3_485 )
+        # at line 177:6: OPENING_TAG H2 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H2 END_TAG
+        __OPENING_TAG72__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h2_496 )
 
-        tree_for_OPENING_TAG82 = @adaptor.create_with_payload( __OPENING_TAG82__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG82 )
+        tree_for_OPENING_TAG72 = @adaptor.create_with_payload( __OPENING_TAG72__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG72 )
 
-        __H383__ = match( H3, TOKENS_FOLLOWING_H3_IN_h3_487 )
+        __H273__ = match( H2, TOKENS_FOLLOWING_H2_IN_h2_498 )
 
-        tree_for_H383 = @adaptor.create_with_payload( __H383__ )
-        @adaptor.add_child( root_0, tree_for_H383 )
+        tree_for_H273 = @adaptor.create_with_payload( __H273__ )
+        @adaptor.add_child( root_0, tree_for_H273 )
 
-        # at line 109:21: ( id | style | klass | align )*
-        while true # decision 19
-          alt_19 = 5
-          look_19_0 = @input.peek( 1 )
+        # at line 177:21: ( id | style | klass | align )*
+        while true # decision 17
+          alt_17 = 5
+          look_17_0 = @input.peek( 1 )
 
-          if ( look_19_0 == WS )
-            case look_19 = @input.peek( 2 )
-            when ID then alt_19 = 1
-            when STYLE then alt_19 = 2
-            when CLASS then alt_19 = 3
-            when ALIGN then alt_19 = 4
+          if ( look_17_0 == WS )
+            case look_17 = @input.peek( 2 )
+            when ID then alt_17 = 1
+            when STYLE then alt_17 = 2
+            when CLASS then alt_17 = 3
+            when ALIGN then alt_17 = 4
             end
 
           end
-          case alt_19
+          case alt_17
           when 1
-            # at line 109:22: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_h3_490 )
-            id84 = id
+            # at line 177:22: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_h2_501 )
+            id74 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id84.tree )
+            @adaptor.add_child( root_0, id74.tree )
 
           when 2
-            # at line 109:25: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_h3_492 )
-            style85 = style
+            # at line 177:25: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_h2_503 )
+            style75 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style85.tree )
+            @adaptor.add_child( root_0, style75.tree )
 
           when 3
-            # at line 109:31: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_h3_494 )
-            klass86 = klass
+            # at line 177:31: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_h2_505 )
+            klass76 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass86.tree )
+            @adaptor.add_child( root_0, klass76.tree )
 
           when 4
-            # at line 109:37: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_h3_496 )
-            align87 = align
+            # at line 177:37: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_h2_507 )
+            align77 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align87.tree )
+            @adaptor.add_child( root_0, align77.tree )
 
           else
-            break # out of loop for decision 19
+            break # out of loop for decision 17
           end
-        end # loop for decision 19
-        __END_TAG88__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h3_500 )
+        end # loop for decision 17
+        __END_TAG78__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h2_511 )
 
-        tree_for_END_TAG88 = @adaptor.create_with_payload( __END_TAG88__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG88 )
+        tree_for_END_TAG78 = @adaptor.create_with_payload( __END_TAG78__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG78 )
 
-        # at line 110:3: ( block | text )*
-        while true # decision 20
-          alt_20 = 3
-          look_20_0 = @input.peek( 1 )
+        # at line 178:3: ( block | text )*
+        while true # decision 18
+          alt_18 = 3
+          look_18_0 = @input.peek( 1 )
 
-          if ( look_20_0 == OPENING_TAG )
-            look_20_2 = @input.peek( 2 )
+          if ( look_18_0 == OPENING_TAG )
+            look_18_2 = @input.peek( 2 )
 
-            if ( look_20_2.between?( P, DIV ) || look_20_2 == TABLE )
-              alt_20 = 1
-            elsif ( look_20_2.between?( I, U ) || look_20_2.between?( A, IMG ) || look_20_2 == BR )
-              alt_20 = 2
+            if ( look_18_2.between?( P, DIV ) || look_18_2 == TABLE )
+              alt_18 = 1
+            elsif ( look_18_2.between?( I, U ) || look_18_2.between?( A, IMG ) || look_18_2 == BR )
+              alt_18 = 2
 
             end
-          elsif ( look_20_0 == PCDATA )
-            alt_20 = 2
+          elsif ( look_18_0 == PCDATA )
+            alt_18 = 2
 
           end
-          case alt_20
+          case alt_18
           when 1
-            # at line 110:4: block
-            @state.following.push( TOKENS_FOLLOWING_block_IN_h3_505 )
-            block89 = block
+            # at line 178:4: block
+            @state.following.push( TOKENS_FOLLOWING_block_IN_h2_516 )
+            block79 = block
             @state.following.pop
-            @adaptor.add_child( root_0, block89.tree )
+            @adaptor.add_child( root_0, block79.tree )
 
           when 2
-            # at line 110:12: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_h3_509 )
-            text90 = text
+            # at line 178:12: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_h2_520 )
+            text80 = text
             @state.following.pop
-            @adaptor.add_child( root_0, text90.tree )
+            @adaptor.add_child( root_0, text80.tree )
 
           else
-            break # out of loop for decision 20
+            break # out of loop for decision 18
           end
-        end # loop for decision 20
-        __CLOSING_TAG91__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h3_515 )
+        end # loop for decision 18
+        __CLOSING_TAG81__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h2_526 )
 
-        tree_for_CLOSING_TAG91 = @adaptor.create_with_payload( __CLOSING_TAG91__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG91 )
+        tree_for_CLOSING_TAG81 = @adaptor.create_with_payload( __CLOSING_TAG81__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG81 )
 
-        __H392__ = match( H3, TOKENS_FOLLOWING_H3_IN_h3_517 )
+        __H282__ = match( H2, TOKENS_FOLLOWING_H2_IN_h2_528 )
 
-        tree_for_H392 = @adaptor.create_with_payload( __H392__ )
-        @adaptor.add_child( root_0, tree_for_H392 )
+        tree_for_H282 = @adaptor.create_with_payload( __H282__ )
+        @adaptor.add_child( root_0, tree_for_H282 )
 
-        __END_TAG93__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h3_519 )
+        __END_TAG83__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h2_530 )
 
-        tree_for_END_TAG93 = @adaptor.create_with_payload( __END_TAG93__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG93 )
+        tree_for_END_TAG83 = @adaptor.create_with_payload( __END_TAG83__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG83 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -1947,161 +1957,161 @@ module HtmlParser
       return return_value
     end
 
-    H4ReturnValue = define_return_scope 
+    H3ReturnValue = define_return_scope 
 
     # 
-    # parser rule h4
+    # parser rule h3
     # 
     # (in HtmlParser.g)
-    # 114:1: h4 : OPENING_TAG H4 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H4 END_TAG ;
+    # 182:1: h3 : OPENING_TAG H3 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H3 END_TAG ;
     # 
-    def h4
+    def h3
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 17 )
-      return_value = H4ReturnValue.new
+      return_value = H3ReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG94__ = nil
-      __H495__ = nil
-      __END_TAG100__ = nil
-      __CLOSING_TAG103__ = nil
-      __H4104__ = nil
-      __END_TAG105__ = nil
-      id96 = nil
-      style97 = nil
-      klass98 = nil
-      align99 = nil
-      block101 = nil
-      text102 = nil
+      __OPENING_TAG84__ = nil
+      __H385__ = nil
+      __END_TAG90__ = nil
+      __CLOSING_TAG93__ = nil
+      __H394__ = nil
+      __END_TAG95__ = nil
+      id86 = nil
+      style87 = nil
+      klass88 = nil
+      align89 = nil
+      block91 = nil
+      text92 = nil
 
-      tree_for_OPENING_TAG94 = nil
-      tree_for_H495 = nil
-      tree_for_END_TAG100 = nil
-      tree_for_CLOSING_TAG103 = nil
-      tree_for_H4104 = nil
-      tree_for_END_TAG105 = nil
+      tree_for_OPENING_TAG84 = nil
+      tree_for_H385 = nil
+      tree_for_END_TAG90 = nil
+      tree_for_CLOSING_TAG93 = nil
+      tree_for_H394 = nil
+      tree_for_END_TAG95 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 114:6: OPENING_TAG H4 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H4 END_TAG
-        __OPENING_TAG94__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h4_530 )
+        # at line 182:6: OPENING_TAG H3 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H3 END_TAG
+        __OPENING_TAG84__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h3_541 )
 
-        tree_for_OPENING_TAG94 = @adaptor.create_with_payload( __OPENING_TAG94__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG94 )
+        tree_for_OPENING_TAG84 = @adaptor.create_with_payload( __OPENING_TAG84__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG84 )
 
-        __H495__ = match( H4, TOKENS_FOLLOWING_H4_IN_h4_532 )
+        __H385__ = match( H3, TOKENS_FOLLOWING_H3_IN_h3_543 )
 
-        tree_for_H495 = @adaptor.create_with_payload( __H495__ )
-        @adaptor.add_child( root_0, tree_for_H495 )
+        tree_for_H385 = @adaptor.create_with_payload( __H385__ )
+        @adaptor.add_child( root_0, tree_for_H385 )
 
-        # at line 114:21: ( id | style | klass | align )*
-        while true # decision 21
-          alt_21 = 5
-          look_21_0 = @input.peek( 1 )
+        # at line 182:21: ( id | style | klass | align )*
+        while true # decision 19
+          alt_19 = 5
+          look_19_0 = @input.peek( 1 )
 
-          if ( look_21_0 == WS )
-            case look_21 = @input.peek( 2 )
-            when ID then alt_21 = 1
-            when STYLE then alt_21 = 2
-            when CLASS then alt_21 = 3
-            when ALIGN then alt_21 = 4
+          if ( look_19_0 == WS )
+            case look_19 = @input.peek( 2 )
+            when ID then alt_19 = 1
+            when STYLE then alt_19 = 2
+            when CLASS then alt_19 = 3
+            when ALIGN then alt_19 = 4
             end
 
           end
-          case alt_21
+          case alt_19
           when 1
-            # at line 114:22: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_h4_535 )
-            id96 = id
+            # at line 182:22: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_h3_546 )
+            id86 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id96.tree )
+            @adaptor.add_child( root_0, id86.tree )
 
           when 2
-            # at line 114:25: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_h4_537 )
-            style97 = style
+            # at line 182:25: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_h3_548 )
+            style87 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style97.tree )
+            @adaptor.add_child( root_0, style87.tree )
 
           when 3
-            # at line 114:31: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_h4_539 )
-            klass98 = klass
+            # at line 182:31: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_h3_550 )
+            klass88 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass98.tree )
+            @adaptor.add_child( root_0, klass88.tree )
 
           when 4
-            # at line 114:37: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_h4_541 )
-            align99 = align
+            # at line 182:37: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_h3_552 )
+            align89 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align99.tree )
+            @adaptor.add_child( root_0, align89.tree )
 
           else
-            break # out of loop for decision 21
+            break # out of loop for decision 19
           end
-        end # loop for decision 21
-        __END_TAG100__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h4_545 )
+        end # loop for decision 19
+        __END_TAG90__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h3_556 )
 
-        tree_for_END_TAG100 = @adaptor.create_with_payload( __END_TAG100__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG100 )
+        tree_for_END_TAG90 = @adaptor.create_with_payload( __END_TAG90__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG90 )
 
-        # at line 115:3: ( block | text )*
-        while true # decision 22
-          alt_22 = 3
-          look_22_0 = @input.peek( 1 )
+        # at line 183:3: ( block | text )*
+        while true # decision 20
+          alt_20 = 3
+          look_20_0 = @input.peek( 1 )
 
-          if ( look_22_0 == OPENING_TAG )
-            look_22_2 = @input.peek( 2 )
+          if ( look_20_0 == OPENING_TAG )
+            look_20_2 = @input.peek( 2 )
 
-            if ( look_22_2.between?( P, DIV ) || look_22_2 == TABLE )
-              alt_22 = 1
-            elsif ( look_22_2.between?( I, U ) || look_22_2.between?( A, IMG ) || look_22_2 == BR )
-              alt_22 = 2
+            if ( look_20_2.between?( P, DIV ) || look_20_2 == TABLE )
+              alt_20 = 1
+            elsif ( look_20_2.between?( I, U ) || look_20_2.between?( A, IMG ) || look_20_2 == BR )
+              alt_20 = 2
 
             end
-          elsif ( look_22_0 == PCDATA )
-            alt_22 = 2
+          elsif ( look_20_0 == PCDATA )
+            alt_20 = 2
 
           end
-          case alt_22
+          case alt_20
           when 1
-            # at line 115:4: block
-            @state.following.push( TOKENS_FOLLOWING_block_IN_h4_550 )
-            block101 = block
+            # at line 183:4: block
+            @state.following.push( TOKENS_FOLLOWING_block_IN_h3_561 )
+            block91 = block
             @state.following.pop
-            @adaptor.add_child( root_0, block101.tree )
+            @adaptor.add_child( root_0, block91.tree )
 
           when 2
-            # at line 115:12: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_h4_554 )
-            text102 = text
+            # at line 183:12: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_h3_565 )
+            text92 = text
             @state.following.pop
-            @adaptor.add_child( root_0, text102.tree )
+            @adaptor.add_child( root_0, text92.tree )
 
           else
-            break # out of loop for decision 22
+            break # out of loop for decision 20
           end
-        end # loop for decision 22
-        __CLOSING_TAG103__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h4_560 )
+        end # loop for decision 20
+        __CLOSING_TAG93__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h3_571 )
 
-        tree_for_CLOSING_TAG103 = @adaptor.create_with_payload( __CLOSING_TAG103__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG103 )
+        tree_for_CLOSING_TAG93 = @adaptor.create_with_payload( __CLOSING_TAG93__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG93 )
 
-        __H4104__ = match( H4, TOKENS_FOLLOWING_H4_IN_h4_562 )
+        __H394__ = match( H3, TOKENS_FOLLOWING_H3_IN_h3_573 )
 
-        tree_for_H4104 = @adaptor.create_with_payload( __H4104__ )
-        @adaptor.add_child( root_0, tree_for_H4104 )
+        tree_for_H394 = @adaptor.create_with_payload( __H394__ )
+        @adaptor.add_child( root_0, tree_for_H394 )
 
-        __END_TAG105__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h4_564 )
+        __END_TAG95__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h3_575 )
 
-        tree_for_END_TAG105 = @adaptor.create_with_payload( __END_TAG105__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG105 )
+        tree_for_END_TAG95 = @adaptor.create_with_payload( __END_TAG95__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG95 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -2124,161 +2134,161 @@ module HtmlParser
       return return_value
     end
 
-    H5ReturnValue = define_return_scope 
+    H4ReturnValue = define_return_scope 
 
     # 
-    # parser rule h5
+    # parser rule h4
     # 
     # (in HtmlParser.g)
-    # 119:1: h5 : OPENING_TAG H5 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H5 END_TAG ;
+    # 187:1: h4 : OPENING_TAG H4 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H4 END_TAG ;
     # 
-    def h5
+    def h4
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 18 )
-      return_value = H5ReturnValue.new
+      return_value = H4ReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG106__ = nil
-      __H5107__ = nil
-      __END_TAG112__ = nil
-      __CLOSING_TAG115__ = nil
-      __H5116__ = nil
-      __END_TAG117__ = nil
-      id108 = nil
-      style109 = nil
-      klass110 = nil
-      align111 = nil
-      block113 = nil
-      text114 = nil
+      __OPENING_TAG96__ = nil
+      __H497__ = nil
+      __END_TAG102__ = nil
+      __CLOSING_TAG105__ = nil
+      __H4106__ = nil
+      __END_TAG107__ = nil
+      id98 = nil
+      style99 = nil
+      klass100 = nil
+      align101 = nil
+      block103 = nil
+      text104 = nil
 
-      tree_for_OPENING_TAG106 = nil
-      tree_for_H5107 = nil
-      tree_for_END_TAG112 = nil
-      tree_for_CLOSING_TAG115 = nil
-      tree_for_H5116 = nil
-      tree_for_END_TAG117 = nil
+      tree_for_OPENING_TAG96 = nil
+      tree_for_H497 = nil
+      tree_for_END_TAG102 = nil
+      tree_for_CLOSING_TAG105 = nil
+      tree_for_H4106 = nil
+      tree_for_END_TAG107 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 119:6: OPENING_TAG H5 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H5 END_TAG
-        __OPENING_TAG106__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h5_575 )
+        # at line 187:6: OPENING_TAG H4 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H4 END_TAG
+        __OPENING_TAG96__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h4_586 )
 
-        tree_for_OPENING_TAG106 = @adaptor.create_with_payload( __OPENING_TAG106__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG106 )
+        tree_for_OPENING_TAG96 = @adaptor.create_with_payload( __OPENING_TAG96__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG96 )
 
-        __H5107__ = match( H5, TOKENS_FOLLOWING_H5_IN_h5_577 )
+        __H497__ = match( H4, TOKENS_FOLLOWING_H4_IN_h4_588 )
 
-        tree_for_H5107 = @adaptor.create_with_payload( __H5107__ )
-        @adaptor.add_child( root_0, tree_for_H5107 )
+        tree_for_H497 = @adaptor.create_with_payload( __H497__ )
+        @adaptor.add_child( root_0, tree_for_H497 )
 
-        # at line 119:21: ( id | style | klass | align )*
-        while true # decision 23
-          alt_23 = 5
-          look_23_0 = @input.peek( 1 )
+        # at line 187:21: ( id | style | klass | align )*
+        while true # decision 21
+          alt_21 = 5
+          look_21_0 = @input.peek( 1 )
 
-          if ( look_23_0 == WS )
-            case look_23 = @input.peek( 2 )
-            when ID then alt_23 = 1
-            when STYLE then alt_23 = 2
-            when CLASS then alt_23 = 3
-            when ALIGN then alt_23 = 4
+          if ( look_21_0 == WS )
+            case look_21 = @input.peek( 2 )
+            when ID then alt_21 = 1
+            when STYLE then alt_21 = 2
+            when CLASS then alt_21 = 3
+            when ALIGN then alt_21 = 4
             end
 
           end
-          case alt_23
+          case alt_21
           when 1
-            # at line 119:22: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_h5_580 )
-            id108 = id
+            # at line 187:22: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_h4_591 )
+            id98 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id108.tree )
+            @adaptor.add_child( root_0, id98.tree )
 
           when 2
-            # at line 119:25: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_h5_582 )
-            style109 = style
+            # at line 187:25: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_h4_593 )
+            style99 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style109.tree )
+            @adaptor.add_child( root_0, style99.tree )
 
           when 3
-            # at line 119:31: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_h5_584 )
-            klass110 = klass
+            # at line 187:31: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_h4_595 )
+            klass100 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass110.tree )
+            @adaptor.add_child( root_0, klass100.tree )
 
           when 4
-            # at line 119:37: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_h5_586 )
-            align111 = align
+            # at line 187:37: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_h4_597 )
+            align101 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align111.tree )
+            @adaptor.add_child( root_0, align101.tree )
 
           else
-            break # out of loop for decision 23
+            break # out of loop for decision 21
           end
-        end # loop for decision 23
-        __END_TAG112__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h5_590 )
+        end # loop for decision 21
+        __END_TAG102__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h4_601 )
 
-        tree_for_END_TAG112 = @adaptor.create_with_payload( __END_TAG112__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG112 )
+        tree_for_END_TAG102 = @adaptor.create_with_payload( __END_TAG102__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG102 )
 
-        # at line 120:3: ( block | text )*
-        while true # decision 24
-          alt_24 = 3
-          look_24_0 = @input.peek( 1 )
+        # at line 188:3: ( block | text )*
+        while true # decision 22
+          alt_22 = 3
+          look_22_0 = @input.peek( 1 )
 
-          if ( look_24_0 == OPENING_TAG )
-            look_24_2 = @input.peek( 2 )
+          if ( look_22_0 == OPENING_TAG )
+            look_22_2 = @input.peek( 2 )
 
-            if ( look_24_2.between?( P, DIV ) || look_24_2 == TABLE )
-              alt_24 = 1
-            elsif ( look_24_2.between?( I, U ) || look_24_2.between?( A, IMG ) || look_24_2 == BR )
-              alt_24 = 2
+            if ( look_22_2.between?( P, DIV ) || look_22_2 == TABLE )
+              alt_22 = 1
+            elsif ( look_22_2.between?( I, U ) || look_22_2.between?( A, IMG ) || look_22_2 == BR )
+              alt_22 = 2
 
             end
-          elsif ( look_24_0 == PCDATA )
-            alt_24 = 2
+          elsif ( look_22_0 == PCDATA )
+            alt_22 = 2
 
           end
-          case alt_24
+          case alt_22
           when 1
-            # at line 120:4: block
-            @state.following.push( TOKENS_FOLLOWING_block_IN_h5_595 )
-            block113 = block
+            # at line 188:4: block
+            @state.following.push( TOKENS_FOLLOWING_block_IN_h4_606 )
+            block103 = block
             @state.following.pop
-            @adaptor.add_child( root_0, block113.tree )
+            @adaptor.add_child( root_0, block103.tree )
 
           when 2
-            # at line 120:12: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_h5_599 )
-            text114 = text
+            # at line 188:12: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_h4_610 )
+            text104 = text
             @state.following.pop
-            @adaptor.add_child( root_0, text114.tree )
+            @adaptor.add_child( root_0, text104.tree )
 
           else
-            break # out of loop for decision 24
+            break # out of loop for decision 22
           end
-        end # loop for decision 24
-        __CLOSING_TAG115__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h5_605 )
+        end # loop for decision 22
+        __CLOSING_TAG105__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h4_616 )
 
-        tree_for_CLOSING_TAG115 = @adaptor.create_with_payload( __CLOSING_TAG115__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG115 )
+        tree_for_CLOSING_TAG105 = @adaptor.create_with_payload( __CLOSING_TAG105__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG105 )
 
-        __H5116__ = match( H5, TOKENS_FOLLOWING_H5_IN_h5_607 )
+        __H4106__ = match( H4, TOKENS_FOLLOWING_H4_IN_h4_618 )
 
-        tree_for_H5116 = @adaptor.create_with_payload( __H5116__ )
-        @adaptor.add_child( root_0, tree_for_H5116 )
+        tree_for_H4106 = @adaptor.create_with_payload( __H4106__ )
+        @adaptor.add_child( root_0, tree_for_H4106 )
 
-        __END_TAG117__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h5_609 )
+        __END_TAG107__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h4_620 )
 
-        tree_for_END_TAG117 = @adaptor.create_with_payload( __END_TAG117__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG117 )
+        tree_for_END_TAG107 = @adaptor.create_with_payload( __END_TAG107__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG107 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -2301,161 +2311,161 @@ module HtmlParser
       return return_value
     end
 
-    H6ReturnValue = define_return_scope 
+    H5ReturnValue = define_return_scope 
 
     # 
-    # parser rule h6
+    # parser rule h5
     # 
     # (in HtmlParser.g)
-    # 124:1: h6 : OPENING_TAG H6 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H6 END_TAG ;
+    # 192:1: h5 : OPENING_TAG H5 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H5 END_TAG ;
     # 
-    def h6
+    def h5
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 19 )
-      return_value = H6ReturnValue.new
+      return_value = H5ReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG118__ = nil
-      __H6119__ = nil
-      __END_TAG124__ = nil
-      __CLOSING_TAG127__ = nil
-      __H6128__ = nil
-      __END_TAG129__ = nil
-      id120 = nil
-      style121 = nil
-      klass122 = nil
-      align123 = nil
-      block125 = nil
-      text126 = nil
+      __OPENING_TAG108__ = nil
+      __H5109__ = nil
+      __END_TAG114__ = nil
+      __CLOSING_TAG117__ = nil
+      __H5118__ = nil
+      __END_TAG119__ = nil
+      id110 = nil
+      style111 = nil
+      klass112 = nil
+      align113 = nil
+      block115 = nil
+      text116 = nil
 
-      tree_for_OPENING_TAG118 = nil
-      tree_for_H6119 = nil
-      tree_for_END_TAG124 = nil
-      tree_for_CLOSING_TAG127 = nil
-      tree_for_H6128 = nil
-      tree_for_END_TAG129 = nil
+      tree_for_OPENING_TAG108 = nil
+      tree_for_H5109 = nil
+      tree_for_END_TAG114 = nil
+      tree_for_CLOSING_TAG117 = nil
+      tree_for_H5118 = nil
+      tree_for_END_TAG119 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 124:6: OPENING_TAG H6 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H6 END_TAG
-        __OPENING_TAG118__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h6_620 )
+        # at line 192:6: OPENING_TAG H5 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H5 END_TAG
+        __OPENING_TAG108__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h5_631 )
 
-        tree_for_OPENING_TAG118 = @adaptor.create_with_payload( __OPENING_TAG118__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG118 )
+        tree_for_OPENING_TAG108 = @adaptor.create_with_payload( __OPENING_TAG108__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG108 )
 
-        __H6119__ = match( H6, TOKENS_FOLLOWING_H6_IN_h6_622 )
+        __H5109__ = match( H5, TOKENS_FOLLOWING_H5_IN_h5_633 )
 
-        tree_for_H6119 = @adaptor.create_with_payload( __H6119__ )
-        @adaptor.add_child( root_0, tree_for_H6119 )
+        tree_for_H5109 = @adaptor.create_with_payload( __H5109__ )
+        @adaptor.add_child( root_0, tree_for_H5109 )
 
-        # at line 124:21: ( id | style | klass | align )*
-        while true # decision 25
-          alt_25 = 5
-          look_25_0 = @input.peek( 1 )
+        # at line 192:21: ( id | style | klass | align )*
+        while true # decision 23
+          alt_23 = 5
+          look_23_0 = @input.peek( 1 )
 
-          if ( look_25_0 == WS )
-            case look_25 = @input.peek( 2 )
-            when ID then alt_25 = 1
-            when STYLE then alt_25 = 2
-            when CLASS then alt_25 = 3
-            when ALIGN then alt_25 = 4
+          if ( look_23_0 == WS )
+            case look_23 = @input.peek( 2 )
+            when ID then alt_23 = 1
+            when STYLE then alt_23 = 2
+            when CLASS then alt_23 = 3
+            when ALIGN then alt_23 = 4
             end
 
           end
-          case alt_25
+          case alt_23
           when 1
-            # at line 124:22: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_h6_625 )
-            id120 = id
+            # at line 192:22: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_h5_636 )
+            id110 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id120.tree )
+            @adaptor.add_child( root_0, id110.tree )
 
           when 2
-            # at line 124:25: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_h6_627 )
-            style121 = style
+            # at line 192:25: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_h5_638 )
+            style111 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style121.tree )
+            @adaptor.add_child( root_0, style111.tree )
 
           when 3
-            # at line 124:31: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_h6_629 )
-            klass122 = klass
+            # at line 192:31: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_h5_640 )
+            klass112 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass122.tree )
+            @adaptor.add_child( root_0, klass112.tree )
 
           when 4
-            # at line 124:37: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_h6_631 )
-            align123 = align
+            # at line 192:37: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_h5_642 )
+            align113 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align123.tree )
+            @adaptor.add_child( root_0, align113.tree )
 
           else
-            break # out of loop for decision 25
+            break # out of loop for decision 23
           end
-        end # loop for decision 25
-        __END_TAG124__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h6_635 )
+        end # loop for decision 23
+        __END_TAG114__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h5_646 )
 
-        tree_for_END_TAG124 = @adaptor.create_with_payload( __END_TAG124__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG124 )
+        tree_for_END_TAG114 = @adaptor.create_with_payload( __END_TAG114__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG114 )
 
-        # at line 125:3: ( block | text )*
-        while true # decision 26
-          alt_26 = 3
-          look_26_0 = @input.peek( 1 )
+        # at line 193:3: ( block | text )*
+        while true # decision 24
+          alt_24 = 3
+          look_24_0 = @input.peek( 1 )
 
-          if ( look_26_0 == OPENING_TAG )
-            look_26_2 = @input.peek( 2 )
+          if ( look_24_0 == OPENING_TAG )
+            look_24_2 = @input.peek( 2 )
 
-            if ( look_26_2.between?( P, DIV ) || look_26_2 == TABLE )
-              alt_26 = 1
-            elsif ( look_26_2.between?( I, U ) || look_26_2.between?( A, IMG ) || look_26_2 == BR )
-              alt_26 = 2
+            if ( look_24_2.between?( P, DIV ) || look_24_2 == TABLE )
+              alt_24 = 1
+            elsif ( look_24_2.between?( I, U ) || look_24_2.between?( A, IMG ) || look_24_2 == BR )
+              alt_24 = 2
 
             end
-          elsif ( look_26_0 == PCDATA )
-            alt_26 = 2
+          elsif ( look_24_0 == PCDATA )
+            alt_24 = 2
 
           end
-          case alt_26
+          case alt_24
           when 1
-            # at line 125:4: block
-            @state.following.push( TOKENS_FOLLOWING_block_IN_h6_640 )
-            block125 = block
+            # at line 193:4: block
+            @state.following.push( TOKENS_FOLLOWING_block_IN_h5_651 )
+            block115 = block
             @state.following.pop
-            @adaptor.add_child( root_0, block125.tree )
+            @adaptor.add_child( root_0, block115.tree )
 
           when 2
-            # at line 125:12: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_h6_644 )
-            text126 = text
+            # at line 193:12: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_h5_655 )
+            text116 = text
             @state.following.pop
-            @adaptor.add_child( root_0, text126.tree )
+            @adaptor.add_child( root_0, text116.tree )
 
           else
-            break # out of loop for decision 26
+            break # out of loop for decision 24
           end
-        end # loop for decision 26
-        __CLOSING_TAG127__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h6_650 )
+        end # loop for decision 24
+        __CLOSING_TAG117__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h5_661 )
 
-        tree_for_CLOSING_TAG127 = @adaptor.create_with_payload( __CLOSING_TAG127__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG127 )
+        tree_for_CLOSING_TAG117 = @adaptor.create_with_payload( __CLOSING_TAG117__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG117 )
 
-        __H6128__ = match( H6, TOKENS_FOLLOWING_H6_IN_h6_652 )
+        __H5118__ = match( H5, TOKENS_FOLLOWING_H5_IN_h5_663 )
 
-        tree_for_H6128 = @adaptor.create_with_payload( __H6128__ )
-        @adaptor.add_child( root_0, tree_for_H6128 )
+        tree_for_H5118 = @adaptor.create_with_payload( __H5118__ )
+        @adaptor.add_child( root_0, tree_for_H5118 )
 
-        __END_TAG129__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h6_654 )
+        __END_TAG119__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h5_665 )
 
-        tree_for_END_TAG129 = @adaptor.create_with_payload( __END_TAG129__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG129 )
+        tree_for_END_TAG119 = @adaptor.create_with_payload( __END_TAG119__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG119 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -2478,144 +2488,161 @@ module HtmlParser
       return return_value
     end
 
-    ParagraphReturnValue = define_return_scope 
+    H6ReturnValue = define_return_scope 
 
     # 
-    # parser rule paragraph
+    # parser rule h6
     # 
     # (in HtmlParser.g)
-    # 130:1: paragraph : OPENING_TAG P ( id | style | klass | align )* END_TAG ( text )* CLOSING_TAG P END_TAG ;
+    # 197:1: h6 : OPENING_TAG H6 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H6 END_TAG ;
     # 
-    def paragraph
+    def h6
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 20 )
-      return_value = ParagraphReturnValue.new
+      return_value = H6ReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG130__ = nil
-      __P131__ = nil
-      __END_TAG136__ = nil
-      __CLOSING_TAG138__ = nil
-      __P139__ = nil
-      __END_TAG140__ = nil
-      id132 = nil
-      style133 = nil
-      klass134 = nil
-      align135 = nil
-      text137 = nil
+      __OPENING_TAG120__ = nil
+      __H6121__ = nil
+      __END_TAG126__ = nil
+      __CLOSING_TAG129__ = nil
+      __H6130__ = nil
+      __END_TAG131__ = nil
+      id122 = nil
+      style123 = nil
+      klass124 = nil
+      align125 = nil
+      block127 = nil
+      text128 = nil
 
-      tree_for_OPENING_TAG130 = nil
-      tree_for_P131 = nil
-      tree_for_END_TAG136 = nil
-      tree_for_CLOSING_TAG138 = nil
-      tree_for_P139 = nil
-      tree_for_END_TAG140 = nil
+      tree_for_OPENING_TAG120 = nil
+      tree_for_H6121 = nil
+      tree_for_END_TAG126 = nil
+      tree_for_CLOSING_TAG129 = nil
+      tree_for_H6130 = nil
+      tree_for_END_TAG131 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 131:4: OPENING_TAG P ( id | style | klass | align )* END_TAG ( text )* CLOSING_TAG P END_TAG
-        __OPENING_TAG130__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_paragraph_667 )
+        # at line 197:6: OPENING_TAG H6 ( id | style | klass | align )* END_TAG ( block | text )* CLOSING_TAG H6 END_TAG
+        __OPENING_TAG120__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_h6_676 )
 
-        tree_for_OPENING_TAG130 = @adaptor.create_with_payload( __OPENING_TAG130__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG130 )
+        tree_for_OPENING_TAG120 = @adaptor.create_with_payload( __OPENING_TAG120__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG120 )
 
-        __P131__ = match( P, TOKENS_FOLLOWING_P_IN_paragraph_669 )
+        __H6121__ = match( H6, TOKENS_FOLLOWING_H6_IN_h6_678 )
 
-        tree_for_P131 = @adaptor.create_with_payload( __P131__ )
-        @adaptor.add_child( root_0, tree_for_P131 )
+        tree_for_H6121 = @adaptor.create_with_payload( __H6121__ )
+        @adaptor.add_child( root_0, tree_for_H6121 )
 
-        # at line 131:18: ( id | style | klass | align )*
-        while true # decision 27
-          alt_27 = 5
-          look_27_0 = @input.peek( 1 )
+        # at line 197:21: ( id | style | klass | align )*
+        while true # decision 25
+          alt_25 = 5
+          look_25_0 = @input.peek( 1 )
 
-          if ( look_27_0 == WS )
-            case look_27 = @input.peek( 2 )
-            when ID then alt_27 = 1
-            when STYLE then alt_27 = 2
-            when CLASS then alt_27 = 3
-            when ALIGN then alt_27 = 4
+          if ( look_25_0 == WS )
+            case look_25 = @input.peek( 2 )
+            when ID then alt_25 = 1
+            when STYLE then alt_25 = 2
+            when CLASS then alt_25 = 3
+            when ALIGN then alt_25 = 4
             end
 
           end
-          case alt_27
+          case alt_25
           when 1
-            # at line 131:19: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_paragraph_672 )
-            id132 = id
+            # at line 197:22: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_h6_681 )
+            id122 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id132.tree )
+            @adaptor.add_child( root_0, id122.tree )
 
           when 2
-            # at line 131:22: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_paragraph_674 )
-            style133 = style
+            # at line 197:25: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_h6_683 )
+            style123 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style133.tree )
+            @adaptor.add_child( root_0, style123.tree )
 
           when 3
-            # at line 131:28: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_paragraph_676 )
-            klass134 = klass
+            # at line 197:31: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_h6_685 )
+            klass124 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass134.tree )
+            @adaptor.add_child( root_0, klass124.tree )
 
           when 4
-            # at line 131:34: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_paragraph_678 )
-            align135 = align
+            # at line 197:37: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_h6_687 )
+            align125 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align135.tree )
+            @adaptor.add_child( root_0, align125.tree )
 
           else
-            break # out of loop for decision 27
+            break # out of loop for decision 25
           end
-        end # loop for decision 27
-        __END_TAG136__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_paragraph_682 )
+        end # loop for decision 25
+        __END_TAG126__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h6_691 )
 
-        tree_for_END_TAG136 = @adaptor.create_with_payload( __END_TAG136__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG136 )
+        tree_for_END_TAG126 = @adaptor.create_with_payload( __END_TAG126__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG126 )
 
-        # at line 132:3: ( text )*
-        while true # decision 28
-          alt_28 = 2
-          look_28_0 = @input.peek( 1 )
+        # at line 198:3: ( block | text )*
+        while true # decision 26
+          alt_26 = 3
+          look_26_0 = @input.peek( 1 )
 
-          if ( look_28_0 == OPENING_TAG || look_28_0 == PCDATA )
-            alt_28 = 1
+          if ( look_26_0 == OPENING_TAG )
+            look_26_2 = @input.peek( 2 )
+
+            if ( look_26_2.between?( P, DIV ) || look_26_2 == TABLE )
+              alt_26 = 1
+            elsif ( look_26_2.between?( I, U ) || look_26_2.between?( A, IMG ) || look_26_2 == BR )
+              alt_26 = 2
+
+            end
+          elsif ( look_26_0 == PCDATA )
+            alt_26 = 2
 
           end
-          case alt_28
+          case alt_26
           when 1
-            # at line 132:4: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_paragraph_687 )
-            text137 = text
+            # at line 198:4: block
+            @state.following.push( TOKENS_FOLLOWING_block_IN_h6_696 )
+            block127 = block
             @state.following.pop
-            @adaptor.add_child( root_0, text137.tree )
+            @adaptor.add_child( root_0, block127.tree )
+
+          when 2
+            # at line 198:12: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_h6_700 )
+            text128 = text
+            @state.following.pop
+            @adaptor.add_child( root_0, text128.tree )
 
           else
-            break # out of loop for decision 28
+            break # out of loop for decision 26
           end
-        end # loop for decision 28
-        __CLOSING_TAG138__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_paragraph_693 )
+        end # loop for decision 26
+        __CLOSING_TAG129__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_h6_706 )
 
-        tree_for_CLOSING_TAG138 = @adaptor.create_with_payload( __CLOSING_TAG138__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG138 )
+        tree_for_CLOSING_TAG129 = @adaptor.create_with_payload( __CLOSING_TAG129__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG129 )
 
-        __P139__ = match( P, TOKENS_FOLLOWING_P_IN_paragraph_695 )
+        __H6130__ = match( H6, TOKENS_FOLLOWING_H6_IN_h6_708 )
 
-        tree_for_P139 = @adaptor.create_with_payload( __P139__ )
-        @adaptor.add_child( root_0, tree_for_P139 )
+        tree_for_H6130 = @adaptor.create_with_payload( __H6130__ )
+        @adaptor.add_child( root_0, tree_for_H6130 )
 
-        __END_TAG140__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_paragraph_697 )
+        __END_TAG131__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h6_710 )
 
-        tree_for_END_TAG140 = @adaptor.create_with_payload( __END_TAG140__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG140 )
+        tree_for_END_TAG131 = @adaptor.create_with_payload( __END_TAG131__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG131 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -2638,144 +2665,144 @@ module HtmlParser
       return return_value
     end
 
-    DivReturnValue = define_return_scope 
+    ParagraphReturnValue = define_return_scope 
 
     # 
-    # parser rule div
+    # parser rule paragraph
     # 
     # (in HtmlParser.g)
-    # 136:1: div : OPENING_TAG DIV ( id | style | klass | align )* END_TAG ( body_content )* CLOSING_TAG DIV END_TAG ;
+    # 203:1: paragraph : OPENING_TAG oparagraph= P ( id | style | klass | align )* END_TAG ( text )* CLOSING_TAG P END_TAG ;
     # 
-    def div
+    def paragraph
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 21 )
-      return_value = DivReturnValue.new
+      return_value = ParagraphReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG141__ = nil
-      __DIV142__ = nil
-      __END_TAG147__ = nil
-      __CLOSING_TAG149__ = nil
-      __DIV150__ = nil
-      __END_TAG151__ = nil
-      id143 = nil
-      style144 = nil
-      klass145 = nil
-      align146 = nil
-      body_content148 = nil
+      oparagraph = nil
+      __OPENING_TAG132__ = nil
+      __END_TAG137__ = nil
+      __CLOSING_TAG139__ = nil
+      __P140__ = nil
+      __END_TAG141__ = nil
+      id133 = nil
+      style134 = nil
+      klass135 = nil
+      align136 = nil
+      text138 = nil
 
-      tree_for_OPENING_TAG141 = nil
-      tree_for_DIV142 = nil
-      tree_for_END_TAG147 = nil
-      tree_for_CLOSING_TAG149 = nil
-      tree_for_DIV150 = nil
-      tree_for_END_TAG151 = nil
+      tree_for_oparagraph = nil
+      tree_for_OPENING_TAG132 = nil
+      tree_for_END_TAG137 = nil
+      tree_for_CLOSING_TAG139 = nil
+      tree_for_P140 = nil
+      tree_for_END_TAG141 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 136:7: OPENING_TAG DIV ( id | style | klass | align )* END_TAG ( body_content )* CLOSING_TAG DIV END_TAG
-        __OPENING_TAG141__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_div_707 )
+        # at line 204:4: OPENING_TAG oparagraph= P ( id | style | klass | align )* END_TAG ( text )* CLOSING_TAG P END_TAG
+        __OPENING_TAG132__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_paragraph_723 )
 
-        tree_for_OPENING_TAG141 = @adaptor.create_with_payload( __OPENING_TAG141__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG141 )
+        tree_for_OPENING_TAG132 = @adaptor.create_with_payload( __OPENING_TAG132__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG132 )
 
-        __DIV142__ = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_709 )
+        oparagraph = match( P, TOKENS_FOLLOWING_P_IN_paragraph_727 )
 
-        tree_for_DIV142 = @adaptor.create_with_payload( __DIV142__ )
-        @adaptor.add_child( root_0, tree_for_DIV142 )
+        tree_for_oparagraph = @adaptor.create_with_payload( oparagraph )
+        @adaptor.add_child( root_0, tree_for_oparagraph )
 
-        # at line 136:23: ( id | style | klass | align )*
-        while true # decision 29
-          alt_29 = 5
-          look_29_0 = @input.peek( 1 )
+        # at line 204:29: ( id | style | klass | align )*
+        while true # decision 27
+          alt_27 = 5
+          look_27_0 = @input.peek( 1 )
 
-          if ( look_29_0 == WS )
-            case look_29 = @input.peek( 2 )
-            when ID then alt_29 = 1
-            when STYLE then alt_29 = 2
-            when CLASS then alt_29 = 3
-            when ALIGN then alt_29 = 4
+          if ( look_27_0 == WS )
+            case look_27 = @input.peek( 2 )
+            when ID then alt_27 = 1
+            when STYLE then alt_27 = 2
+            when CLASS then alt_27 = 3
+            when ALIGN then alt_27 = 4
             end
 
           end
-          case alt_29
+          case alt_27
           when 1
-            # at line 136:24: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_div_712 )
-            id143 = id
+            # at line 204:30: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_paragraph_730 )
+            id133 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id143.tree )
+            @adaptor.add_child( root_0, id133.tree )
 
           when 2
-            # at line 136:27: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_div_714 )
-            style144 = style
+            # at line 204:33: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_paragraph_732 )
+            style134 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style144.tree )
+            @adaptor.add_child( root_0, style134.tree )
 
           when 3
-            # at line 136:33: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_div_716 )
-            klass145 = klass
+            # at line 204:39: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_paragraph_734 )
+            klass135 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass145.tree )
+            @adaptor.add_child( root_0, klass135.tree )
 
           when 4
-            # at line 136:39: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_div_718 )
-            align146 = align
+            # at line 204:45: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_paragraph_736 )
+            align136 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align146.tree )
+            @adaptor.add_child( root_0, align136.tree )
 
           else
-            break # out of loop for decision 29
+            break # out of loop for decision 27
           end
-        end # loop for decision 29
-        __END_TAG147__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_div_722 )
+        end # loop for decision 27
+        __END_TAG137__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_paragraph_740 )
 
-        tree_for_END_TAG147 = @adaptor.create_with_payload( __END_TAG147__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG147 )
+        tree_for_END_TAG137 = @adaptor.create_with_payload( __END_TAG137__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG137 )
 
-        # at line 137:3: ( body_content )*
-        while true # decision 30
-          alt_30 = 2
-          look_30_0 = @input.peek( 1 )
+        # at line 205:3: ( text )*
+        while true # decision 28
+          alt_28 = 2
+          look_28_0 = @input.peek( 1 )
 
-          if ( look_30_0 == OPENING_TAG || look_30_0 == PCDATA )
-            alt_30 = 1
+          if ( look_28_0 == OPENING_TAG || look_28_0 == PCDATA )
+            alt_28 = 1
 
           end
-          case alt_30
+          case alt_28
           when 1
-            # at line 137:4: body_content
-            @state.following.push( TOKENS_FOLLOWING_body_content_IN_div_727 )
-            body_content148 = body_content
+            # at line 205:4: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_paragraph_745 )
+            text138 = text
             @state.following.pop
-            @adaptor.add_child( root_0, body_content148.tree )
+            @adaptor.add_child( root_0, text138.tree )
 
           else
-            break # out of loop for decision 30
+            break # out of loop for decision 28
           end
-        end # loop for decision 30
-        __CLOSING_TAG149__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_div_733 )
+        end # loop for decision 28
+        __CLOSING_TAG139__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_paragraph_751 )
 
-        tree_for_CLOSING_TAG149 = @adaptor.create_with_payload( __CLOSING_TAG149__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG149 )
+        tree_for_CLOSING_TAG139 = @adaptor.create_with_payload( __CLOSING_TAG139__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG139 )
 
-        __DIV150__ = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_735 )
+        __P140__ = match( P, TOKENS_FOLLOWING_P_IN_paragraph_753 )
 
-        tree_for_DIV150 = @adaptor.create_with_payload( __DIV150__ )
-        @adaptor.add_child( root_0, tree_for_DIV150 )
+        tree_for_P140 = @adaptor.create_with_payload( __P140__ )
+        @adaptor.add_child( root_0, tree_for_P140 )
 
-        __END_TAG151__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_div_737 )
+        __END_TAG141__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_paragraph_755 )
 
-        tree_for_END_TAG151 = @adaptor.create_with_payload( __END_TAG151__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG151 )
+        tree_for_END_TAG141 = @adaptor.create_with_payload( __END_TAG141__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG141 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -2798,100 +2825,144 @@ module HtmlParser
       return return_value
     end
 
-    ItalicReturnValue = define_return_scope 
+    DivReturnValue = define_return_scope 
 
     # 
-    # parser rule italic
+    # parser rule div
     # 
     # (in HtmlParser.g)
-    # 142:1: italic : OPENING_TAG I END_TAG ( text )+ CLOSING_TAG I END_TAG ;
+    # 209:1: div : OPENING_TAG odiv= DIV ( id | style | klass | align )* END_TAG ( body_content )* CLOSING_TAG DIV END_TAG ;
     # 
-    def italic
+    def div
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 22 )
-      return_value = ItalicReturnValue.new
+      return_value = DivReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG152__ = nil
-      __I153__ = nil
-      __END_TAG154__ = nil
-      __CLOSING_TAG156__ = nil
-      __I157__ = nil
-      __END_TAG158__ = nil
-      text155 = nil
+      odiv = nil
+      __OPENING_TAG142__ = nil
+      __END_TAG147__ = nil
+      __CLOSING_TAG149__ = nil
+      __DIV150__ = nil
+      __END_TAG151__ = nil
+      id143 = nil
+      style144 = nil
+      klass145 = nil
+      align146 = nil
+      body_content148 = nil
 
-      tree_for_OPENING_TAG152 = nil
-      tree_for_I153 = nil
-      tree_for_END_TAG154 = nil
-      tree_for_CLOSING_TAG156 = nil
-      tree_for_I157 = nil
-      tree_for_END_TAG158 = nil
+      tree_for_odiv = nil
+      tree_for_OPENING_TAG142 = nil
+      tree_for_END_TAG147 = nil
+      tree_for_CLOSING_TAG149 = nil
+      tree_for_DIV150 = nil
+      tree_for_END_TAG151 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 142:9: OPENING_TAG I END_TAG ( text )+ CLOSING_TAG I END_TAG
-        __OPENING_TAG152__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_italic_749 )
+        # at line 209:7: OPENING_TAG odiv= DIV ( id | style | klass | align )* END_TAG ( body_content )* CLOSING_TAG DIV END_TAG
+        __OPENING_TAG142__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_div_765 )
 
-        tree_for_OPENING_TAG152 = @adaptor.create_with_payload( __OPENING_TAG152__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG152 )
+        tree_for_OPENING_TAG142 = @adaptor.create_with_payload( __OPENING_TAG142__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG142 )
 
-        __I153__ = match( I, TOKENS_FOLLOWING_I_IN_italic_751 )
+        odiv = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_769 )
 
-        tree_for_I153 = @adaptor.create_with_payload( __I153__ )
-        @adaptor.add_child( root_0, tree_for_I153 )
+        tree_for_odiv = @adaptor.create_with_payload( odiv )
+        @adaptor.add_child( root_0, tree_for_odiv )
 
-        __END_TAG154__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_italic_753 )
+        # at line 209:28: ( id | style | klass | align )*
+        while true # decision 29
+          alt_29 = 5
+          look_29_0 = @input.peek( 1 )
 
-        tree_for_END_TAG154 = @adaptor.create_with_payload( __END_TAG154__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG154 )
-
-        # at file 143:3: ( text )+
-        match_count_31 = 0
-        while true
-          alt_31 = 2
-          look_31_0 = @input.peek( 1 )
-
-          if ( look_31_0 == OPENING_TAG || look_31_0 == PCDATA )
-            alt_31 = 1
+          if ( look_29_0 == WS )
+            case look_29 = @input.peek( 2 )
+            when ID then alt_29 = 1
+            when STYLE then alt_29 = 2
+            when CLASS then alt_29 = 3
+            when ALIGN then alt_29 = 4
+            end
 
           end
-          case alt_31
+          case alt_29
           when 1
-            # at line 143:4: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_italic_758 )
-            text155 = text
+            # at line 209:29: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_div_772 )
+            id143 = id
             @state.following.pop
-            @adaptor.add_child( root_0, text155.tree )
+            @adaptor.add_child( root_0, id143.tree )
+
+          when 2
+            # at line 209:32: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_div_774 )
+            style144 = style
+            @state.following.pop
+            @adaptor.add_child( root_0, style144.tree )
+
+          when 3
+            # at line 209:38: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_div_776 )
+            klass145 = klass
+            @state.following.pop
+            @adaptor.add_child( root_0, klass145.tree )
+
+          when 4
+            # at line 209:44: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_div_778 )
+            align146 = align
+            @state.following.pop
+            @adaptor.add_child( root_0, align146.tree )
 
           else
-            match_count_31 > 0 and break
-            eee = EarlyExit(31)
-
-
-            raise eee
+            break # out of loop for decision 29
           end
-          match_count_31 += 1
-        end
+        end # loop for decision 29
+        __END_TAG147__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_div_782 )
 
-        __CLOSING_TAG156__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_italic_764 )
+        tree_for_END_TAG147 = @adaptor.create_with_payload( __END_TAG147__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG147 )
 
-        tree_for_CLOSING_TAG156 = @adaptor.create_with_payload( __CLOSING_TAG156__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG156 )
+        # at line 210:3: ( body_content )*
+        while true # decision 30
+          alt_30 = 2
+          look_30_0 = @input.peek( 1 )
 
-        __I157__ = match( I, TOKENS_FOLLOWING_I_IN_italic_766 )
+          if ( look_30_0 == OPENING_TAG || look_30_0 == PCDATA )
+            alt_30 = 1
 
-        tree_for_I157 = @adaptor.create_with_payload( __I157__ )
-        @adaptor.add_child( root_0, tree_for_I157 )
+          end
+          case alt_30
+          when 1
+            # at line 210:4: body_content
+            @state.following.push( TOKENS_FOLLOWING_body_content_IN_div_787 )
+            body_content148 = body_content
+            @state.following.pop
+            @adaptor.add_child( root_0, body_content148.tree )
 
-        __END_TAG158__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_italic_768 )
+          else
+            break # out of loop for decision 30
+          end
+        end # loop for decision 30
+        __CLOSING_TAG149__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_div_793 )
 
-        tree_for_END_TAG158 = @adaptor.create_with_payload( __END_TAG158__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG158 )
+        tree_for_CLOSING_TAG149 = @adaptor.create_with_payload( __CLOSING_TAG149__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG149 )
+
+        __DIV150__ = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_795 )
+
+        tree_for_DIV150 = @adaptor.create_with_payload( __DIV150__ )
+        @adaptor.add_child( root_0, tree_for_DIV150 )
+
+        __END_TAG151__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_div_797 )
+
+        tree_for_END_TAG151 = @adaptor.create_with_payload( __END_TAG151__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG151 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -2914,101 +2985,116 @@ module HtmlParser
       return return_value
     end
 
-    BoldReturnValue = define_return_scope 
+    ItalicReturnValue = define_return_scope 
 
     # 
-    # parser rule bold
+    # parser rule italic
     # 
     # (in HtmlParser.g)
-    # 147:1: bold : OPENING_TAG B END_TAG ( text )+ CLOSING_TAG B END_TAG ;
+    # 215:1: italic : OPENING_TAG I END_TAG ( text )+ CLOSING_TAG I END_TAG -> ^( TAG I ( text )+ ) ;
     # 
-    def bold
+    def italic
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 23 )
-      return_value = BoldReturnValue.new
+      return_value = ItalicReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG159__ = nil
-      __B160__ = nil
-      __END_TAG161__ = nil
-      __CLOSING_TAG163__ = nil
-      __B164__ = nil
-      __END_TAG165__ = nil
-      text162 = nil
+      __OPENING_TAG152__ = nil
+      __I153__ = nil
+      __END_TAG154__ = nil
+      __CLOSING_TAG156__ = nil
+      __I157__ = nil
+      __END_TAG158__ = nil
+      text155 = nil
 
-      tree_for_OPENING_TAG159 = nil
-      tree_for_B160 = nil
-      tree_for_END_TAG161 = nil
-      tree_for_CLOSING_TAG163 = nil
-      tree_for_B164 = nil
-      tree_for_END_TAG165 = nil
-
+      tree_for_OPENING_TAG152 = nil
+      tree_for_I153 = nil
+      tree_for_END_TAG154 = nil
+      tree_for_CLOSING_TAG156 = nil
+      tree_for_I157 = nil
+      tree_for_END_TAG158 = nil
+      stream_CLOSING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLOSING_TAG" )
+      stream_END_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token END_TAG" )
+      stream_OPENING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OPENING_TAG" )
+      stream_I = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token I" )
+      stream_text = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule text" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 147:9: OPENING_TAG B END_TAG ( text )+ CLOSING_TAG B END_TAG
-        __OPENING_TAG159__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_bold_784 )
-
-        tree_for_OPENING_TAG159 = @adaptor.create_with_payload( __OPENING_TAG159__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG159 )
-
-        __B160__ = match( B, TOKENS_FOLLOWING_B_IN_bold_786 )
-
-        tree_for_B160 = @adaptor.create_with_payload( __B160__ )
-        @adaptor.add_child( root_0, tree_for_B160 )
-
-        __END_TAG161__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_bold_788 )
-
-        tree_for_END_TAG161 = @adaptor.create_with_payload( __END_TAG161__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG161 )
-
-        # at file 148:3: ( text )+
-        match_count_32 = 0
+        # at line 215:9: OPENING_TAG I END_TAG ( text )+ CLOSING_TAG I END_TAG
+        __OPENING_TAG152__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_italic_809 )
+        stream_OPENING_TAG.add( __OPENING_TAG152__ )
+        __I153__ = match( I, TOKENS_FOLLOWING_I_IN_italic_811 )
+        stream_I.add( __I153__ )
+        __END_TAG154__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_italic_813 )
+        stream_END_TAG.add( __END_TAG154__ )
+        # at file 216:3: ( text )+
+        match_count_31 = 0
         while true
-          alt_32 = 2
-          look_32_0 = @input.peek( 1 )
+          alt_31 = 2
+          look_31_0 = @input.peek( 1 )
 
-          if ( look_32_0 == OPENING_TAG || look_32_0 == PCDATA )
-            alt_32 = 1
+          if ( look_31_0 == OPENING_TAG || look_31_0 == PCDATA )
+            alt_31 = 1
 
           end
-          case alt_32
+          case alt_31
           when 1
-            # at line 148:4: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_bold_793 )
-            text162 = text
+            # at line 216:4: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_italic_818 )
+            text155 = text
             @state.following.pop
-            @adaptor.add_child( root_0, text162.tree )
+            stream_text.add( text155.tree )
 
           else
-            match_count_32 > 0 and break
-            eee = EarlyExit(32)
+            match_count_31 > 0 and break
+            eee = EarlyExit(31)
 
 
             raise eee
           end
-          match_count_32 += 1
+          match_count_31 += 1
         end
 
-        __CLOSING_TAG163__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_bold_799 )
+        __CLOSING_TAG156__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_italic_824 )
+        stream_CLOSING_TAG.add( __CLOSING_TAG156__ )
+        __I157__ = match( I, TOKENS_FOLLOWING_I_IN_italic_826 )
+        stream_I.add( __I157__ )
+        __END_TAG158__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_italic_828 )
+        stream_END_TAG.add( __END_TAG158__ )
+        # AST Rewrite
+        # elements: text, I
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
 
-        tree_for_CLOSING_TAG163 = @adaptor.create_with_payload( __CLOSING_TAG163__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG163 )
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
 
-        __B164__ = match( B, TOKENS_FOLLOWING_B_IN_bold_801 )
+        root_0 = @adaptor.create_flat_list
+        # 217:25: -> ^( TAG I ( text )+ )
+        # at line 217:28: ^( TAG I ( text )+ )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( TAG, "TAG" ), root_1 )
 
-        tree_for_B164 = @adaptor.create_with_payload( __B164__ )
-        @adaptor.add_child( root_0, tree_for_B164 )
+        @adaptor.add_child( root_1, stream_I.next_node )
+        # at line 217:36: ( text )+
+        stream_text.has_next? or raise ANTLR3::RewriteEarlyExit
 
-        __END_TAG165__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_bold_803 )
+        while stream_text.has_next?
+          @adaptor.add_child( root_1, stream_text.next_tree )
 
-        tree_for_END_TAG165 = @adaptor.create_with_payload( __END_TAG165__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG165 )
+        end
+        stream_text.reset
 
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -3030,101 +3116,116 @@ module HtmlParser
       return return_value
     end
 
-    UnderlineReturnValue = define_return_scope 
+    BoldReturnValue = define_return_scope 
 
     # 
-    # parser rule underline
+    # parser rule bold
     # 
     # (in HtmlParser.g)
-    # 152:1: underline : OPENING_TAG U END_TAG ( text )+ CLOSING_TAG U END_TAG ;
+    # 220:1: bold : OPENING_TAG B END_TAG ( text )+ CLOSING_TAG B END_TAG -> ^( TAG B ( text )+ ) ;
     # 
-    def underline
+    def bold
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 24 )
-      return_value = UnderlineReturnValue.new
+      return_value = BoldReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG166__ = nil
-      __U167__ = nil
-      __END_TAG168__ = nil
-      __CLOSING_TAG170__ = nil
-      __U171__ = nil
-      __END_TAG172__ = nil
-      text169 = nil
+      __OPENING_TAG159__ = nil
+      __B160__ = nil
+      __END_TAG161__ = nil
+      __CLOSING_TAG163__ = nil
+      __B164__ = nil
+      __END_TAG165__ = nil
+      text162 = nil
 
-      tree_for_OPENING_TAG166 = nil
-      tree_for_U167 = nil
-      tree_for_END_TAG168 = nil
-      tree_for_CLOSING_TAG170 = nil
-      tree_for_U171 = nil
-      tree_for_END_TAG172 = nil
-
+      tree_for_OPENING_TAG159 = nil
+      tree_for_B160 = nil
+      tree_for_END_TAG161 = nil
+      tree_for_CLOSING_TAG163 = nil
+      tree_for_B164 = nil
+      tree_for_END_TAG165 = nil
+      stream_CLOSING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLOSING_TAG" )
+      stream_END_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token END_TAG" )
+      stream_B = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token B" )
+      stream_OPENING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OPENING_TAG" )
+      stream_text = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule text" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 152:12: OPENING_TAG U END_TAG ( text )+ CLOSING_TAG U END_TAG
-        __OPENING_TAG166__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_underline_817 )
-
-        tree_for_OPENING_TAG166 = @adaptor.create_with_payload( __OPENING_TAG166__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG166 )
-
-        __U167__ = match( U, TOKENS_FOLLOWING_U_IN_underline_819 )
-
-        tree_for_U167 = @adaptor.create_with_payload( __U167__ )
-        @adaptor.add_child( root_0, tree_for_U167 )
-
-        __END_TAG168__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_underline_821 )
-
-        tree_for_END_TAG168 = @adaptor.create_with_payload( __END_TAG168__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG168 )
-
-        # at file 153:6: ( text )+
-        match_count_33 = 0
+        # at line 220:9: OPENING_TAG B END_TAG ( text )+ CLOSING_TAG B END_TAG
+        __OPENING_TAG159__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_bold_857 )
+        stream_OPENING_TAG.add( __OPENING_TAG159__ )
+        __B160__ = match( B, TOKENS_FOLLOWING_B_IN_bold_859 )
+        stream_B.add( __B160__ )
+        __END_TAG161__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_bold_861 )
+        stream_END_TAG.add( __END_TAG161__ )
+        # at file 221:3: ( text )+
+        match_count_32 = 0
         while true
-          alt_33 = 2
-          look_33_0 = @input.peek( 1 )
+          alt_32 = 2
+          look_32_0 = @input.peek( 1 )
 
-          if ( look_33_0 == OPENING_TAG || look_33_0 == PCDATA )
-            alt_33 = 1
+          if ( look_32_0 == OPENING_TAG || look_32_0 == PCDATA )
+            alt_32 = 1
 
           end
-          case alt_33
+          case alt_32
           when 1
-            # at line 153:7: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_underline_829 )
-            text169 = text
+            # at line 221:4: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_bold_866 )
+            text162 = text
             @state.following.pop
-            @adaptor.add_child( root_0, text169.tree )
+            stream_text.add( text162.tree )
 
           else
-            match_count_33 > 0 and break
-            eee = EarlyExit(33)
+            match_count_32 > 0 and break
+            eee = EarlyExit(32)
 
 
             raise eee
           end
-          match_count_33 += 1
+          match_count_32 += 1
         end
 
-        __CLOSING_TAG170__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_underline_838 )
+        __CLOSING_TAG163__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_bold_872 )
+        stream_CLOSING_TAG.add( __CLOSING_TAG163__ )
+        __B164__ = match( B, TOKENS_FOLLOWING_B_IN_bold_874 )
+        stream_B.add( __B164__ )
+        __END_TAG165__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_bold_876 )
+        stream_END_TAG.add( __END_TAG165__ )
+        # AST Rewrite
+        # elements: B, text
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
 
-        tree_for_CLOSING_TAG170 = @adaptor.create_with_payload( __CLOSING_TAG170__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG170 )
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
 
-        __U171__ = match( U, TOKENS_FOLLOWING_U_IN_underline_840 )
+        root_0 = @adaptor.create_flat_list
+        # 222:25: -> ^( TAG B ( text )+ )
+        # at line 222:28: ^( TAG B ( text )+ )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( TAG, "TAG" ), root_1 )
 
-        tree_for_U171 = @adaptor.create_with_payload( __U171__ )
-        @adaptor.add_child( root_0, tree_for_U171 )
+        @adaptor.add_child( root_1, stream_B.next_node )
+        # at line 222:36: ( text )+
+        stream_text.has_next? or raise ANTLR3::RewriteEarlyExit
 
-        __END_TAG172__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_underline_842 )
+        while stream_text.has_next?
+          @adaptor.add_child( root_1, stream_text.next_tree )
 
-        tree_for_END_TAG172 = @adaptor.create_with_payload( __END_TAG172__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG172 )
+        end
+        stream_text.reset
 
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -3146,206 +3247,116 @@ module HtmlParser
       return return_value
     end
 
-    TableReturnValue = define_return_scope 
+    UnderlineReturnValue = define_return_scope 
 
     # 
-    # parser rule table
+    # parser rule underline
     # 
     # (in HtmlParser.g)
-    # 158:1: table : OPENING_TAG TABLE ( id | style | klass | align | width | height | background | bgcolor | border )* END_TAG ( PCDATA )* ( tr )+ CLOSING_TAG TABLE END_TAG ;
+    # 225:1: underline : OPENING_TAG U END_TAG ( text )+ CLOSING_TAG U END_TAG -> ^( TAG U ( text )+ ) ;
     # 
-    def table
+    def underline
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 25 )
-      return_value = TableReturnValue.new
+      return_value = UnderlineReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG173__ = nil
-      __TABLE174__ = nil
-      __END_TAG184__ = nil
-      __PCDATA185__ = nil
-      __CLOSING_TAG187__ = nil
-      __TABLE188__ = nil
-      __END_TAG189__ = nil
-      id175 = nil
-      style176 = nil
-      klass177 = nil
-      align178 = nil
-      width179 = nil
-      height180 = nil
-      background181 = nil
-      bgcolor182 = nil
-      border183 = nil
-      tr186 = nil
+      __OPENING_TAG166__ = nil
+      __U167__ = nil
+      __END_TAG168__ = nil
+      __CLOSING_TAG170__ = nil
+      __U171__ = nil
+      __END_TAG172__ = nil
+      text169 = nil
 
-      tree_for_OPENING_TAG173 = nil
-      tree_for_TABLE174 = nil
-      tree_for_END_TAG184 = nil
-      tree_for_PCDATA185 = nil
-      tree_for_CLOSING_TAG187 = nil
-      tree_for_TABLE188 = nil
-      tree_for_END_TAG189 = nil
-
+      tree_for_OPENING_TAG166 = nil
+      tree_for_U167 = nil
+      tree_for_END_TAG168 = nil
+      tree_for_CLOSING_TAG170 = nil
+      tree_for_U171 = nil
+      tree_for_END_TAG172 = nil
+      stream_U = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token U" )
+      stream_CLOSING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLOSING_TAG" )
+      stream_END_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token END_TAG" )
+      stream_OPENING_TAG = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OPENING_TAG" )
+      stream_text = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule text" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 159:4: OPENING_TAG TABLE ( id | style | klass | align | width | height | background | bgcolor | border )* END_TAG ( PCDATA )* ( tr )+ CLOSING_TAG TABLE END_TAG
-        __OPENING_TAG173__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_table_866 )
-
-        tree_for_OPENING_TAG173 = @adaptor.create_with_payload( __OPENING_TAG173__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG173 )
-
-        __TABLE174__ = match( TABLE, TOKENS_FOLLOWING_TABLE_IN_table_868 )
-
-        tree_for_TABLE174 = @adaptor.create_with_payload( __TABLE174__ )
-        @adaptor.add_child( root_0, tree_for_TABLE174 )
-
-        # at line 159:22: ( id | style | klass | align | width | height | background | bgcolor | border )*
-        while true # decision 34
-          alt_34 = 10
-          alt_34 = @dfa34.predict( @input )
-          case alt_34
-          when 1
-            # at line 159:23: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_table_871 )
-            id175 = id
-            @state.following.pop
-            @adaptor.add_child( root_0, id175.tree )
-
-          when 2
-            # at line 159:26: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_table_873 )
-            style176 = style
-            @state.following.pop
-            @adaptor.add_child( root_0, style176.tree )
-
-          when 3
-            # at line 159:32: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_table_875 )
-            klass177 = klass
-            @state.following.pop
-            @adaptor.add_child( root_0, klass177.tree )
-
-          when 4
-            # at line 159:38: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_table_877 )
-            align178 = align
-            @state.following.pop
-            @adaptor.add_child( root_0, align178.tree )
-
-          when 5
-            # at line 159:44: width
-            @state.following.push( TOKENS_FOLLOWING_width_IN_table_879 )
-            width179 = width
-            @state.following.pop
-            @adaptor.add_child( root_0, width179.tree )
-
-          when 6
-            # at line 159:50: height
-            @state.following.push( TOKENS_FOLLOWING_height_IN_table_881 )
-            height180 = height
-            @state.following.pop
-            @adaptor.add_child( root_0, height180.tree )
-
-          when 7
-            # at line 159:57: background
-            @state.following.push( TOKENS_FOLLOWING_background_IN_table_883 )
-            background181 = background
-            @state.following.pop
-            @adaptor.add_child( root_0, background181.tree )
-
-          when 8
-            # at line 159:68: bgcolor
-            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_table_885 )
-            bgcolor182 = bgcolor
-            @state.following.pop
-            @adaptor.add_child( root_0, bgcolor182.tree )
-
-          when 9
-            # at line 159:76: border
-            @state.following.push( TOKENS_FOLLOWING_border_IN_table_887 )
-            border183 = border
-            @state.following.pop
-            @adaptor.add_child( root_0, border183.tree )
-
-          else
-            break # out of loop for decision 34
-          end
-        end # loop for decision 34
-        __END_TAG184__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_table_891 )
-
-        tree_for_END_TAG184 = @adaptor.create_with_payload( __END_TAG184__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG184 )
-
-        # at line 160:4: ( PCDATA )*
-        while true # decision 35
-          alt_35 = 2
-          look_35_0 = @input.peek( 1 )
-
-          if ( look_35_0 == PCDATA )
-            alt_35 = 1
-
-          end
-          case alt_35
-          when 1
-            # at line 160:5: PCDATA
-            __PCDATA185__ = match( PCDATA, TOKENS_FOLLOWING_PCDATA_IN_table_897 )
-
-            tree_for_PCDATA185 = @adaptor.create_with_payload( __PCDATA185__ )
-            @adaptor.add_child( root_0, tree_for_PCDATA185 )
-
-
-          else
-            break # out of loop for decision 35
-          end
-        end # loop for decision 35
-        # at file 161:4: ( tr )+
-        match_count_36 = 0
+        # at line 225:12: OPENING_TAG U END_TAG ( text )+ CLOSING_TAG U END_TAG
+        __OPENING_TAG166__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_underline_903 )
+        stream_OPENING_TAG.add( __OPENING_TAG166__ )
+        __U167__ = match( U, TOKENS_FOLLOWING_U_IN_underline_905 )
+        stream_U.add( __U167__ )
+        __END_TAG168__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_underline_907 )
+        stream_END_TAG.add( __END_TAG168__ )
+        # at file 226:6: ( text )+
+        match_count_33 = 0
         while true
-          alt_36 = 2
-          look_36_0 = @input.peek( 1 )
+          alt_33 = 2
+          look_33_0 = @input.peek( 1 )
 
-          if ( look_36_0 == OPENING_TAG )
-            alt_36 = 1
+          if ( look_33_0 == OPENING_TAG || look_33_0 == PCDATA )
+            alt_33 = 1
 
           end
-          case alt_36
+          case alt_33
           when 1
-            # at line 161:5: tr
-            @state.following.push( TOKENS_FOLLOWING_tr_IN_table_905 )
-            tr186 = tr
+            # at line 226:7: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_underline_915 )
+            text169 = text
             @state.following.pop
-            @adaptor.add_child( root_0, tr186.tree )
+            stream_text.add( text169.tree )
 
           else
-            match_count_36 > 0 and break
-            eee = EarlyExit(36)
+            match_count_33 > 0 and break
+            eee = EarlyExit(33)
 
 
             raise eee
           end
-          match_count_36 += 1
+          match_count_33 += 1
         end
 
-        __CLOSING_TAG187__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_table_912 )
+        __CLOSING_TAG170__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_underline_924 )
+        stream_CLOSING_TAG.add( __CLOSING_TAG170__ )
+        __U171__ = match( U, TOKENS_FOLLOWING_U_IN_underline_926 )
+        stream_U.add( __U171__ )
+        __END_TAG172__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_underline_928 )
+        stream_END_TAG.add( __END_TAG172__ )
+        # AST Rewrite
+        # elements: text, U
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
 
-        tree_for_CLOSING_TAG187 = @adaptor.create_with_payload( __CLOSING_TAG187__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG187 )
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
 
-        __TABLE188__ = match( TABLE, TOKENS_FOLLOWING_TABLE_IN_table_914 )
+        root_0 = @adaptor.create_flat_list
+        # 227:28: -> ^( TAG U ( text )+ )
+        # at line 227:31: ^( TAG U ( text )+ )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( TAG, "TAG" ), root_1 )
 
-        tree_for_TABLE188 = @adaptor.create_with_payload( __TABLE188__ )
-        @adaptor.add_child( root_0, tree_for_TABLE188 )
+        @adaptor.add_child( root_1, stream_U.next_node )
+        # at line 227:39: ( text )+
+        stream_text.has_next? or raise ANTLR3::RewriteEarlyExit
 
-        __END_TAG189__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_table_916 )
+        while stream_text.has_next?
+          @adaptor.add_child( root_1, stream_text.next_tree )
 
-        tree_for_END_TAG189 = @adaptor.create_with_payload( __END_TAG189__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG189 )
+        end
+        stream_text.reset
 
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -3367,132 +3378,181 @@ module HtmlParser
       return return_value
     end
 
-    TrReturnValue = define_return_scope 
+    TableReturnValue = define_return_scope 
 
     # 
-    # parser rule tr
+    # parser rule table
     # 
     # (in HtmlParser.g)
-    # 165:1: tr : OPENING_TAG TR END_TAG ( PCDATA )* ( th | td )* CLOSING_TAG TR END_TAG ;
+    # 231:1: table : OPENING_TAG TABLE ( id | style | klass | align | width | height | background | bgcolor | border )* END_TAG ( tr )+ CLOSING_TAG TABLE END_TAG ;
     # 
-    def tr
+    def table
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 26 )
-      return_value = TrReturnValue.new
+      return_value = TableReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG190__ = nil
-      __TR191__ = nil
-      __END_TAG192__ = nil
-      __PCDATA193__ = nil
-      __CLOSING_TAG196__ = nil
-      __TR197__ = nil
-      __END_TAG198__ = nil
-      th194 = nil
-      td195 = nil
+      __OPENING_TAG173__ = nil
+      __TABLE174__ = nil
+      __END_TAG184__ = nil
+      __CLOSING_TAG186__ = nil
+      __TABLE187__ = nil
+      __END_TAG188__ = nil
+      id175 = nil
+      style176 = nil
+      klass177 = nil
+      align178 = nil
+      width179 = nil
+      height180 = nil
+      background181 = nil
+      bgcolor182 = nil
+      border183 = nil
+      tr185 = nil
 
-      tree_for_OPENING_TAG190 = nil
-      tree_for_TR191 = nil
-      tree_for_END_TAG192 = nil
-      tree_for_PCDATA193 = nil
-      tree_for_CLOSING_TAG196 = nil
-      tree_for_TR197 = nil
-      tree_for_END_TAG198 = nil
+      tree_for_OPENING_TAG173 = nil
+      tree_for_TABLE174 = nil
+      tree_for_END_TAG184 = nil
+      tree_for_CLOSING_TAG186 = nil
+      tree_for_TABLE187 = nil
+      tree_for_END_TAG188 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 165:6: OPENING_TAG TR END_TAG ( PCDATA )* ( th | td )* CLOSING_TAG TR END_TAG
-        __OPENING_TAG190__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_tr_926 )
+        # at line 232:4: OPENING_TAG TABLE ( id | style | klass | align | width | height | background | bgcolor | border )* END_TAG ( tr )+ CLOSING_TAG TABLE END_TAG
+        __OPENING_TAG173__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_table_965 )
 
-        tree_for_OPENING_TAG190 = @adaptor.create_with_payload( __OPENING_TAG190__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG190 )
+        tree_for_OPENING_TAG173 = @adaptor.create_with_payload( __OPENING_TAG173__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG173 )
 
-        __TR191__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_928 )
+        __TABLE174__ = match( TABLE, TOKENS_FOLLOWING_TABLE_IN_table_967 )
 
-        tree_for_TR191 = @adaptor.create_with_payload( __TR191__ )
-        @adaptor.add_child( root_0, tree_for_TR191 )
+        tree_for_TABLE174 = @adaptor.create_with_payload( __TABLE174__ )
+        @adaptor.add_child( root_0, tree_for_TABLE174 )
 
-        __END_TAG192__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_tr_930 )
-
-        tree_for_END_TAG192 = @adaptor.create_with_payload( __END_TAG192__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG192 )
-
-        # at line 166:4: ( PCDATA )*
-        while true # decision 37
-          alt_37 = 2
-          look_37_0 = @input.peek( 1 )
-
-          if ( look_37_0 == PCDATA )
-            alt_37 = 1
-
-          end
-          case alt_37
+        # at line 232:22: ( id | style | klass | align | width | height | background | bgcolor | border )*
+        while true # decision 34
+          alt_34 = 10
+          alt_34 = @dfa34.predict( @input )
+          case alt_34
           when 1
-            # at line 166:5: PCDATA
-            __PCDATA193__ = match( PCDATA, TOKENS_FOLLOWING_PCDATA_IN_tr_936 )
-
-            tree_for_PCDATA193 = @adaptor.create_with_payload( __PCDATA193__ )
-            @adaptor.add_child( root_0, tree_for_PCDATA193 )
-
-
-          else
-            break # out of loop for decision 37
-          end
-        end # loop for decision 37
-        # at line 167:4: ( th | td )*
-        while true # decision 38
-          alt_38 = 3
-          look_38_0 = @input.peek( 1 )
-
-          if ( look_38_0 == OPENING_TAG )
-            look_38_2 = @input.peek( 2 )
-
-            if ( look_38_2 == TH )
-              alt_38 = 1
-            elsif ( look_38_2 == TD )
-              alt_38 = 2
-
-            end
-
-          end
-          case alt_38
-          when 1
-            # at line 167:5: th
-            @state.following.push( TOKENS_FOLLOWING_th_IN_tr_944 )
-            th194 = th
+            # at line 232:23: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_table_970 )
+            id175 = id
             @state.following.pop
-            @adaptor.add_child( root_0, th194.tree )
+            @adaptor.add_child( root_0, id175.tree )
 
           when 2
-            # at line 167:10: td
-            @state.following.push( TOKENS_FOLLOWING_td_IN_tr_948 )
-            td195 = td
+            # at line 232:26: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_table_972 )
+            style176 = style
             @state.following.pop
-            @adaptor.add_child( root_0, td195.tree )
+            @adaptor.add_child( root_0, style176.tree )
+
+          when 3
+            # at line 232:32: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_table_974 )
+            klass177 = klass
+            @state.following.pop
+            @adaptor.add_child( root_0, klass177.tree )
+
+          when 4
+            # at line 232:38: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_table_976 )
+            align178 = align
+            @state.following.pop
+            @adaptor.add_child( root_0, align178.tree )
+
+          when 5
+            # at line 232:44: width
+            @state.following.push( TOKENS_FOLLOWING_width_IN_table_978 )
+            width179 = width
+            @state.following.pop
+            @adaptor.add_child( root_0, width179.tree )
+
+          when 6
+            # at line 232:50: height
+            @state.following.push( TOKENS_FOLLOWING_height_IN_table_980 )
+            height180 = height
+            @state.following.pop
+            @adaptor.add_child( root_0, height180.tree )
+
+          when 7
+            # at line 232:57: background
+            @state.following.push( TOKENS_FOLLOWING_background_IN_table_982 )
+            background181 = background
+            @state.following.pop
+            @adaptor.add_child( root_0, background181.tree )
+
+          when 8
+            # at line 232:68: bgcolor
+            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_table_984 )
+            bgcolor182 = bgcolor
+            @state.following.pop
+            @adaptor.add_child( root_0, bgcolor182.tree )
+
+          when 9
+            # at line 232:76: border
+            @state.following.push( TOKENS_FOLLOWING_border_IN_table_986 )
+            border183 = border
+            @state.following.pop
+            @adaptor.add_child( root_0, border183.tree )
 
           else
-            break # out of loop for decision 38
+            break # out of loop for decision 34
           end
-        end # loop for decision 38
-        __CLOSING_TAG196__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_tr_955 )
+        end # loop for decision 34
+        __END_TAG184__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_table_990 )
 
-        tree_for_CLOSING_TAG196 = @adaptor.create_with_payload( __CLOSING_TAG196__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG196 )
+        tree_for_END_TAG184 = @adaptor.create_with_payload( __END_TAG184__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG184 )
 
-        __TR197__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_957 )
+        # at file 234:4: ( tr )+
+        match_count_35 = 0
+        while true
+          alt_35 = 2
+          look_35_0 = @input.peek( 1 )
 
-        tree_for_TR197 = @adaptor.create_with_payload( __TR197__ )
-        @adaptor.add_child( root_0, tree_for_TR197 )
+          if ( look_35_0 == OPENING_TAG )
+            alt_35 = 1
 
-        __END_TAG198__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_tr_959 )
+          end
+          case alt_35
+          when 1
+            # at line 234:5: tr
+            @state.following.push( TOKENS_FOLLOWING_tr_IN_table_1000 )
+            tr185 = tr
+            @state.following.pop
+            @adaptor.add_child( root_0, tr185.tree )
 
-        tree_for_END_TAG198 = @adaptor.create_with_payload( __END_TAG198__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG198 )
+          else
+            match_count_35 > 0 and break
+            eee = EarlyExit(35)
+
+
+            raise eee
+          end
+          match_count_35 += 1
+        end
+
+        __CLOSING_TAG186__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_table_1007 )
+
+        tree_for_CLOSING_TAG186 = @adaptor.create_with_payload( __CLOSING_TAG186__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG186 )
+
+        __TABLE187__ = match( TABLE, TOKENS_FOLLOWING_TABLE_IN_table_1009 )
+
+        tree_for_TABLE187 = @adaptor.create_with_payload( __TABLE187__ )
+        @adaptor.add_child( root_0, tree_for_TABLE187 )
+
+        __END_TAG188__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_table_1011 )
+
+        tree_for_END_TAG188 = @adaptor.create_with_payload( __END_TAG188__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG188 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -3515,182 +3575,108 @@ module HtmlParser
       return return_value
     end
 
-    ThReturnValue = define_return_scope 
+    TrReturnValue = define_return_scope 
 
     # 
-    # parser rule th
+    # parser rule tr
     # 
     # (in HtmlParser.g)
-    # 171:1: th : OPENING_TAG TH ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TH END_TAG ;
+    # 238:1: tr : OPENING_TAG TR END_TAG ( th | td )* CLOSING_TAG TR END_TAG ;
     # 
-    def th
+    def tr
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 27 )
-      return_value = ThReturnValue.new
+      return_value = TrReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG199__ = nil
-      __TH200__ = nil
-      __END_TAG211__ = nil
-      __CLOSING_TAG213__ = nil
-      __TH214__ = nil
-      __END_TAG215__ = nil
-      id201 = nil
-      style202 = nil
-      klass203 = nil
-      align204 = nil
-      valign205 = nil
-      width206 = nil
-      height207 = nil
-      background208 = nil
-      bgcolor209 = nil
-      bordercolor210 = nil
-      body_content212 = nil
+      __OPENING_TAG189__ = nil
+      __TR190__ = nil
+      __END_TAG191__ = nil
+      __CLOSING_TAG194__ = nil
+      __TR195__ = nil
+      __END_TAG196__ = nil
+      th192 = nil
+      td193 = nil
 
-      tree_for_OPENING_TAG199 = nil
-      tree_for_TH200 = nil
-      tree_for_END_TAG211 = nil
-      tree_for_CLOSING_TAG213 = nil
-      tree_for_TH214 = nil
-      tree_for_END_TAG215 = nil
+      tree_for_OPENING_TAG189 = nil
+      tree_for_TR190 = nil
+      tree_for_END_TAG191 = nil
+      tree_for_CLOSING_TAG194 = nil
+      tree_for_TR195 = nil
+      tree_for_END_TAG196 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 171:7: OPENING_TAG TH ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TH END_TAG
-        __OPENING_TAG199__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_th_970 )
+        # at line 238:6: OPENING_TAG TR END_TAG ( th | td )* CLOSING_TAG TR END_TAG
+        __OPENING_TAG189__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_tr_1021 )
 
-        tree_for_OPENING_TAG199 = @adaptor.create_with_payload( __OPENING_TAG199__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG199 )
+        tree_for_OPENING_TAG189 = @adaptor.create_with_payload( __OPENING_TAG189__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG189 )
 
-        __TH200__ = match( TH, TOKENS_FOLLOWING_TH_IN_th_972 )
+        __TR190__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_1023 )
 
-        tree_for_TH200 = @adaptor.create_with_payload( __TH200__ )
-        @adaptor.add_child( root_0, tree_for_TH200 )
+        tree_for_TR190 = @adaptor.create_with_payload( __TR190__ )
+        @adaptor.add_child( root_0, tree_for_TR190 )
 
-        # at line 171:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
-        while true # decision 39
-          alt_39 = 11
-          alt_39 = @dfa39.predict( @input )
-          case alt_39
+        __END_TAG191__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_tr_1025 )
+
+        tree_for_END_TAG191 = @adaptor.create_with_payload( __END_TAG191__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG191 )
+
+        # at line 240:4: ( th | td )*
+        while true # decision 36
+          alt_36 = 3
+          look_36_0 = @input.peek( 1 )
+
+          if ( look_36_0 == OPENING_TAG )
+            look_36_2 = @input.peek( 2 )
+
+            if ( look_36_2 == TH )
+              alt_36 = 1
+            elsif ( look_36_2 == TD )
+              alt_36 = 2
+
+            end
+
+          end
+          case alt_36
           when 1
-            # at line 171:23: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_th_975 )
-            id201 = id
+            # at line 240:5: th
+            @state.following.push( TOKENS_FOLLOWING_th_IN_tr_1035 )
+            th192 = th
             @state.following.pop
-            @adaptor.add_child( root_0, id201.tree )
+            @adaptor.add_child( root_0, th192.tree )
 
           when 2
-            # at line 171:26: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_th_977 )
-            style202 = style
+            # at line 240:10: td
+            @state.following.push( TOKENS_FOLLOWING_td_IN_tr_1039 )
+            td193 = td
             @state.following.pop
-            @adaptor.add_child( root_0, style202.tree )
-
-          when 3
-            # at line 171:32: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_th_979 )
-            klass203 = klass
-            @state.following.pop
-            @adaptor.add_child( root_0, klass203.tree )
-
-          when 4
-            # at line 171:38: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_th_981 )
-            align204 = align
-            @state.following.pop
-            @adaptor.add_child( root_0, align204.tree )
-
-          when 5
-            # at line 171:44: valign
-            @state.following.push( TOKENS_FOLLOWING_valign_IN_th_983 )
-            valign205 = valign
-            @state.following.pop
-            @adaptor.add_child( root_0, valign205.tree )
-
-          when 6
-            # at line 171:51: width
-            @state.following.push( TOKENS_FOLLOWING_width_IN_th_985 )
-            width206 = width
-            @state.following.pop
-            @adaptor.add_child( root_0, width206.tree )
-
-          when 7
-            # at line 171:57: height
-            @state.following.push( TOKENS_FOLLOWING_height_IN_th_987 )
-            height207 = height
-            @state.following.pop
-            @adaptor.add_child( root_0, height207.tree )
-
-          when 8
-            # at line 171:64: background
-            @state.following.push( TOKENS_FOLLOWING_background_IN_th_989 )
-            background208 = background
-            @state.following.pop
-            @adaptor.add_child( root_0, background208.tree )
-
-          when 9
-            # at line 171:75: bgcolor
-            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_th_991 )
-            bgcolor209 = bgcolor
-            @state.following.pop
-            @adaptor.add_child( root_0, bgcolor209.tree )
-
-          when 10
-            # at line 171:83: bordercolor
-            @state.following.push( TOKENS_FOLLOWING_bordercolor_IN_th_993 )
-            bordercolor210 = bordercolor
-            @state.following.pop
-            @adaptor.add_child( root_0, bordercolor210.tree )
+            @adaptor.add_child( root_0, td193.tree )
 
           else
-            break # out of loop for decision 39
+            break # out of loop for decision 36
           end
-        end # loop for decision 39
-        __END_TAG211__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_th_997 )
+        end # loop for decision 36
+        __CLOSING_TAG194__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_tr_1046 )
 
-        tree_for_END_TAG211 = @adaptor.create_with_payload( __END_TAG211__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG211 )
+        tree_for_CLOSING_TAG194 = @adaptor.create_with_payload( __CLOSING_TAG194__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG194 )
 
-        # at line 172:3: ( body_content )*
-        while true # decision 40
-          alt_40 = 2
-          look_40_0 = @input.peek( 1 )
+        __TR195__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_1048 )
 
-          if ( look_40_0 == OPENING_TAG || look_40_0 == PCDATA )
-            alt_40 = 1
+        tree_for_TR195 = @adaptor.create_with_payload( __TR195__ )
+        @adaptor.add_child( root_0, tree_for_TR195 )
 
-          end
-          case alt_40
-          when 1
-            # at line 172:4: body_content
-            @state.following.push( TOKENS_FOLLOWING_body_content_IN_th_1002 )
-            body_content212 = body_content
-            @state.following.pop
-            @adaptor.add_child( root_0, body_content212.tree )
+        __END_TAG196__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_tr_1050 )
 
-          else
-            break # out of loop for decision 40
-          end
-        end # loop for decision 40
-        __CLOSING_TAG213__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_th_1008 )
-
-        tree_for_CLOSING_TAG213 = @adaptor.create_with_payload( __CLOSING_TAG213__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG213 )
-
-        __TH214__ = match( TH, TOKENS_FOLLOWING_TH_IN_th_1010 )
-
-        tree_for_TH214 = @adaptor.create_with_payload( __TH214__ )
-        @adaptor.add_child( root_0, tree_for_TH214 )
-
-        __END_TAG215__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_th_1012 )
-
-        tree_for_END_TAG215 = @adaptor.create_with_payload( __END_TAG215__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG215 )
+        tree_for_END_TAG196 = @adaptor.create_with_payload( __END_TAG196__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG196 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -3713,182 +3699,182 @@ module HtmlParser
       return return_value
     end
 
-    TdReturnValue = define_return_scope 
+    ThReturnValue = define_return_scope 
 
     # 
-    # parser rule td
+    # parser rule th
     # 
     # (in HtmlParser.g)
-    # 176:1: td : OPENING_TAG TD ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TD END_TAG ;
+    # 244:1: th : OPENING_TAG TH ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TH END_TAG ;
     # 
-    def td
+    def th
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 28 )
-      return_value = TdReturnValue.new
+      return_value = ThReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG216__ = nil
-      __TD217__ = nil
-      __END_TAG228__ = nil
-      __CLOSING_TAG230__ = nil
-      __TD231__ = nil
-      __END_TAG232__ = nil
-      id218 = nil
-      style219 = nil
-      klass220 = nil
-      align221 = nil
-      valign222 = nil
-      width223 = nil
-      height224 = nil
-      background225 = nil
-      bgcolor226 = nil
-      bordercolor227 = nil
-      body_content229 = nil
+      __OPENING_TAG197__ = nil
+      __TH198__ = nil
+      __END_TAG209__ = nil
+      __CLOSING_TAG211__ = nil
+      __TH212__ = nil
+      __END_TAG213__ = nil
+      id199 = nil
+      style200 = nil
+      klass201 = nil
+      align202 = nil
+      valign203 = nil
+      width204 = nil
+      height205 = nil
+      background206 = nil
+      bgcolor207 = nil
+      bordercolor208 = nil
+      body_content210 = nil
 
-      tree_for_OPENING_TAG216 = nil
-      tree_for_TD217 = nil
-      tree_for_END_TAG228 = nil
-      tree_for_CLOSING_TAG230 = nil
-      tree_for_TD231 = nil
-      tree_for_END_TAG232 = nil
+      tree_for_OPENING_TAG197 = nil
+      tree_for_TH198 = nil
+      tree_for_END_TAG209 = nil
+      tree_for_CLOSING_TAG211 = nil
+      tree_for_TH212 = nil
+      tree_for_END_TAG213 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 176:7: OPENING_TAG TD ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TD END_TAG
-        __OPENING_TAG216__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_td_1023 )
+        # at line 244:7: OPENING_TAG TH ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TH END_TAG
+        __OPENING_TAG197__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_th_1061 )
 
-        tree_for_OPENING_TAG216 = @adaptor.create_with_payload( __OPENING_TAG216__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG216 )
+        tree_for_OPENING_TAG197 = @adaptor.create_with_payload( __OPENING_TAG197__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG197 )
 
-        __TD217__ = match( TD, TOKENS_FOLLOWING_TD_IN_td_1025 )
+        __TH198__ = match( TH, TOKENS_FOLLOWING_TH_IN_th_1063 )
 
-        tree_for_TD217 = @adaptor.create_with_payload( __TD217__ )
-        @adaptor.add_child( root_0, tree_for_TD217 )
+        tree_for_TH198 = @adaptor.create_with_payload( __TH198__ )
+        @adaptor.add_child( root_0, tree_for_TH198 )
 
-        # at line 176:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
-        while true # decision 41
-          alt_41 = 11
-          alt_41 = @dfa41.predict( @input )
-          case alt_41
+        # at line 244:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
+        while true # decision 37
+          alt_37 = 11
+          alt_37 = @dfa37.predict( @input )
+          case alt_37
           when 1
-            # at line 176:23: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_td_1028 )
-            id218 = id
+            # at line 244:23: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_th_1066 )
+            id199 = id
             @state.following.pop
-            @adaptor.add_child( root_0, id218.tree )
+            @adaptor.add_child( root_0, id199.tree )
 
           when 2
-            # at line 176:26: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_td_1030 )
-            style219 = style
+            # at line 244:26: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_th_1068 )
+            style200 = style
             @state.following.pop
-            @adaptor.add_child( root_0, style219.tree )
+            @adaptor.add_child( root_0, style200.tree )
 
           when 3
-            # at line 176:32: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_td_1032 )
-            klass220 = klass
+            # at line 244:32: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_th_1070 )
+            klass201 = klass
             @state.following.pop
-            @adaptor.add_child( root_0, klass220.tree )
+            @adaptor.add_child( root_0, klass201.tree )
 
           when 4
-            # at line 176:38: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_td_1034 )
-            align221 = align
+            # at line 244:38: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_th_1072 )
+            align202 = align
             @state.following.pop
-            @adaptor.add_child( root_0, align221.tree )
+            @adaptor.add_child( root_0, align202.tree )
 
           when 5
-            # at line 176:44: valign
-            @state.following.push( TOKENS_FOLLOWING_valign_IN_td_1036 )
-            valign222 = valign
+            # at line 244:44: valign
+            @state.following.push( TOKENS_FOLLOWING_valign_IN_th_1074 )
+            valign203 = valign
             @state.following.pop
-            @adaptor.add_child( root_0, valign222.tree )
+            @adaptor.add_child( root_0, valign203.tree )
 
           when 6
-            # at line 176:51: width
-            @state.following.push( TOKENS_FOLLOWING_width_IN_td_1038 )
-            width223 = width
+            # at line 244:51: width
+            @state.following.push( TOKENS_FOLLOWING_width_IN_th_1076 )
+            width204 = width
             @state.following.pop
-            @adaptor.add_child( root_0, width223.tree )
+            @adaptor.add_child( root_0, width204.tree )
 
           when 7
-            # at line 176:57: height
-            @state.following.push( TOKENS_FOLLOWING_height_IN_td_1040 )
-            height224 = height
+            # at line 244:57: height
+            @state.following.push( TOKENS_FOLLOWING_height_IN_th_1078 )
+            height205 = height
             @state.following.pop
-            @adaptor.add_child( root_0, height224.tree )
+            @adaptor.add_child( root_0, height205.tree )
 
           when 8
-            # at line 176:64: background
-            @state.following.push( TOKENS_FOLLOWING_background_IN_td_1042 )
-            background225 = background
+            # at line 244:64: background
+            @state.following.push( TOKENS_FOLLOWING_background_IN_th_1080 )
+            background206 = background
             @state.following.pop
-            @adaptor.add_child( root_0, background225.tree )
+            @adaptor.add_child( root_0, background206.tree )
 
           when 9
-            # at line 176:75: bgcolor
-            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_td_1044 )
-            bgcolor226 = bgcolor
+            # at line 244:75: bgcolor
+            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_th_1082 )
+            bgcolor207 = bgcolor
             @state.following.pop
-            @adaptor.add_child( root_0, bgcolor226.tree )
+            @adaptor.add_child( root_0, bgcolor207.tree )
 
           when 10
-            # at line 176:83: bordercolor
-            @state.following.push( TOKENS_FOLLOWING_bordercolor_IN_td_1046 )
-            bordercolor227 = bordercolor
+            # at line 244:83: bordercolor
+            @state.following.push( TOKENS_FOLLOWING_bordercolor_IN_th_1084 )
+            bordercolor208 = bordercolor
             @state.following.pop
-            @adaptor.add_child( root_0, bordercolor227.tree )
+            @adaptor.add_child( root_0, bordercolor208.tree )
 
           else
-            break # out of loop for decision 41
+            break # out of loop for decision 37
           end
-        end # loop for decision 41
-        __END_TAG228__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_td_1050 )
+        end # loop for decision 37
+        __END_TAG209__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_th_1088 )
 
-        tree_for_END_TAG228 = @adaptor.create_with_payload( __END_TAG228__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG228 )
+        tree_for_END_TAG209 = @adaptor.create_with_payload( __END_TAG209__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG209 )
 
-        # at line 177:3: ( body_content )*
-        while true # decision 42
-          alt_42 = 2
-          look_42_0 = @input.peek( 1 )
+        # at line 245:3: ( body_content )*
+        while true # decision 38
+          alt_38 = 2
+          look_38_0 = @input.peek( 1 )
 
-          if ( look_42_0 == OPENING_TAG || look_42_0 == PCDATA )
-            alt_42 = 1
+          if ( look_38_0 == OPENING_TAG || look_38_0 == PCDATA )
+            alt_38 = 1
 
           end
-          case alt_42
+          case alt_38
           when 1
-            # at line 177:4: body_content
-            @state.following.push( TOKENS_FOLLOWING_body_content_IN_td_1055 )
-            body_content229 = body_content
+            # at line 245:4: body_content
+            @state.following.push( TOKENS_FOLLOWING_body_content_IN_th_1093 )
+            body_content210 = body_content
             @state.following.pop
-            @adaptor.add_child( root_0, body_content229.tree )
+            @adaptor.add_child( root_0, body_content210.tree )
 
           else
-            break # out of loop for decision 42
+            break # out of loop for decision 38
           end
-        end # loop for decision 42
-        __CLOSING_TAG230__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_td_1061 )
+        end # loop for decision 38
+        __CLOSING_TAG211__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_th_1099 )
 
-        tree_for_CLOSING_TAG230 = @adaptor.create_with_payload( __CLOSING_TAG230__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG230 )
+        tree_for_CLOSING_TAG211 = @adaptor.create_with_payload( __CLOSING_TAG211__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG211 )
 
-        __TD231__ = match( TD, TOKENS_FOLLOWING_TD_IN_td_1063 )
+        __TH212__ = match( TH, TOKENS_FOLLOWING_TH_IN_th_1101 )
 
-        tree_for_TD231 = @adaptor.create_with_payload( __TD231__ )
-        @adaptor.add_child( root_0, tree_for_TD231 )
+        tree_for_TH212 = @adaptor.create_with_payload( __TH212__ )
+        @adaptor.add_child( root_0, tree_for_TH212 )
 
-        __END_TAG232__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_td_1065 )
+        __END_TAG213__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_th_1103 )
 
-        tree_for_END_TAG232 = @adaptor.create_with_payload( __END_TAG232__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG232 )
+        tree_for_END_TAG213 = @adaptor.create_with_payload( __END_TAG213__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG213 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -3911,93 +3897,182 @@ module HtmlParser
       return return_value
     end
 
-    AnchorReturnValue = define_return_scope 
+    TdReturnValue = define_return_scope 
 
     # 
-    # parser rule anchor
+    # parser rule td
     # 
     # (in HtmlParser.g)
-    # 182:1: anchor : OPENING_TAG A END_TAG ( text )* CLOSING_TAG A END_TAG ;
+    # 249:1: td : OPENING_TAG TD ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TD END_TAG ;
     # 
-    def anchor
+    def td
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 29 )
-      return_value = AnchorReturnValue.new
+      return_value = TdReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG233__ = nil
-      __A234__ = nil
-      __END_TAG235__ = nil
-      __CLOSING_TAG237__ = nil
-      __A238__ = nil
-      __END_TAG239__ = nil
-      text236 = nil
+      __OPENING_TAG214__ = nil
+      __TD215__ = nil
+      __END_TAG226__ = nil
+      __CLOSING_TAG228__ = nil
+      __TD229__ = nil
+      __END_TAG230__ = nil
+      id216 = nil
+      style217 = nil
+      klass218 = nil
+      align219 = nil
+      valign220 = nil
+      width221 = nil
+      height222 = nil
+      background223 = nil
+      bgcolor224 = nil
+      bordercolor225 = nil
+      body_content227 = nil
 
-      tree_for_OPENING_TAG233 = nil
-      tree_for_A234 = nil
-      tree_for_END_TAG235 = nil
-      tree_for_CLOSING_TAG237 = nil
-      tree_for_A238 = nil
-      tree_for_END_TAG239 = nil
+      tree_for_OPENING_TAG214 = nil
+      tree_for_TD215 = nil
+      tree_for_END_TAG226 = nil
+      tree_for_CLOSING_TAG228 = nil
+      tree_for_TD229 = nil
+      tree_for_END_TAG230 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 182:9: OPENING_TAG A END_TAG ( text )* CLOSING_TAG A END_TAG
-        __OPENING_TAG233__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_anchor_1077 )
+        # at line 249:7: OPENING_TAG TD ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TD END_TAG
+        __OPENING_TAG214__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_td_1114 )
 
-        tree_for_OPENING_TAG233 = @adaptor.create_with_payload( __OPENING_TAG233__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG233 )
+        tree_for_OPENING_TAG214 = @adaptor.create_with_payload( __OPENING_TAG214__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG214 )
 
-        __A234__ = match( A, TOKENS_FOLLOWING_A_IN_anchor_1079 )
+        __TD215__ = match( TD, TOKENS_FOLLOWING_TD_IN_td_1116 )
 
-        tree_for_A234 = @adaptor.create_with_payload( __A234__ )
-        @adaptor.add_child( root_0, tree_for_A234 )
+        tree_for_TD215 = @adaptor.create_with_payload( __TD215__ )
+        @adaptor.add_child( root_0, tree_for_TD215 )
 
-        __END_TAG235__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_anchor_1081 )
-
-        tree_for_END_TAG235 = @adaptor.create_with_payload( __END_TAG235__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG235 )
-
-        # at line 183:3: ( text )*
-        while true # decision 43
-          alt_43 = 2
-          look_43_0 = @input.peek( 1 )
-
-          if ( look_43_0 == OPENING_TAG || look_43_0 == PCDATA )
-            alt_43 = 1
-
-          end
-          case alt_43
+        # at line 249:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
+        while true # decision 39
+          alt_39 = 11
+          alt_39 = @dfa39.predict( @input )
+          case alt_39
           when 1
-            # at line 183:4: text
-            @state.following.push( TOKENS_FOLLOWING_text_IN_anchor_1086 )
-            text236 = text
+            # at line 249:23: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_td_1119 )
+            id216 = id
             @state.following.pop
-            @adaptor.add_child( root_0, text236.tree )
+            @adaptor.add_child( root_0, id216.tree )
+
+          when 2
+            # at line 249:26: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_td_1121 )
+            style217 = style
+            @state.following.pop
+            @adaptor.add_child( root_0, style217.tree )
+
+          when 3
+            # at line 249:32: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_td_1123 )
+            klass218 = klass
+            @state.following.pop
+            @adaptor.add_child( root_0, klass218.tree )
+
+          when 4
+            # at line 249:38: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_td_1125 )
+            align219 = align
+            @state.following.pop
+            @adaptor.add_child( root_0, align219.tree )
+
+          when 5
+            # at line 249:44: valign
+            @state.following.push( TOKENS_FOLLOWING_valign_IN_td_1127 )
+            valign220 = valign
+            @state.following.pop
+            @adaptor.add_child( root_0, valign220.tree )
+
+          when 6
+            # at line 249:51: width
+            @state.following.push( TOKENS_FOLLOWING_width_IN_td_1129 )
+            width221 = width
+            @state.following.pop
+            @adaptor.add_child( root_0, width221.tree )
+
+          when 7
+            # at line 249:57: height
+            @state.following.push( TOKENS_FOLLOWING_height_IN_td_1131 )
+            height222 = height
+            @state.following.pop
+            @adaptor.add_child( root_0, height222.tree )
+
+          when 8
+            # at line 249:64: background
+            @state.following.push( TOKENS_FOLLOWING_background_IN_td_1133 )
+            background223 = background
+            @state.following.pop
+            @adaptor.add_child( root_0, background223.tree )
+
+          when 9
+            # at line 249:75: bgcolor
+            @state.following.push( TOKENS_FOLLOWING_bgcolor_IN_td_1135 )
+            bgcolor224 = bgcolor
+            @state.following.pop
+            @adaptor.add_child( root_0, bgcolor224.tree )
+
+          when 10
+            # at line 249:83: bordercolor
+            @state.following.push( TOKENS_FOLLOWING_bordercolor_IN_td_1137 )
+            bordercolor225 = bordercolor
+            @state.following.pop
+            @adaptor.add_child( root_0, bordercolor225.tree )
 
           else
-            break # out of loop for decision 43
+            break # out of loop for decision 39
           end
-        end # loop for decision 43
-        __CLOSING_TAG237__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_anchor_1092 )
+        end # loop for decision 39
+        __END_TAG226__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_td_1141 )
 
-        tree_for_CLOSING_TAG237 = @adaptor.create_with_payload( __CLOSING_TAG237__ )
-        @adaptor.add_child( root_0, tree_for_CLOSING_TAG237 )
+        tree_for_END_TAG226 = @adaptor.create_with_payload( __END_TAG226__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG226 )
 
-        __A238__ = match( A, TOKENS_FOLLOWING_A_IN_anchor_1094 )
+        # at line 250:3: ( body_content )*
+        while true # decision 40
+          alt_40 = 2
+          look_40_0 = @input.peek( 1 )
 
-        tree_for_A238 = @adaptor.create_with_payload( __A238__ )
-        @adaptor.add_child( root_0, tree_for_A238 )
+          if ( look_40_0 == OPENING_TAG || look_40_0 == PCDATA )
+            alt_40 = 1
 
-        __END_TAG239__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_anchor_1096 )
+          end
+          case alt_40
+          when 1
+            # at line 250:4: body_content
+            @state.following.push( TOKENS_FOLLOWING_body_content_IN_td_1146 )
+            body_content227 = body_content
+            @state.following.pop
+            @adaptor.add_child( root_0, body_content227.tree )
 
-        tree_for_END_TAG239 = @adaptor.create_with_payload( __END_TAG239__ )
-        @adaptor.add_child( root_0, tree_for_END_TAG239 )
+          else
+            break # out of loop for decision 40
+          end
+        end # loop for decision 40
+        __CLOSING_TAG228__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_td_1152 )
+
+        tree_for_CLOSING_TAG228 = @adaptor.create_with_payload( __CLOSING_TAG228__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG228 )
+
+        __TD229__ = match( TD, TOKENS_FOLLOWING_TD_IN_td_1154 )
+
+        tree_for_TD229 = @adaptor.create_with_payload( __TD229__ )
+        @adaptor.add_child( root_0, tree_for_TD229 )
+
+        __END_TAG230__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_td_1156 )
+
+        tree_for_END_TAG230 = @adaptor.create_with_payload( __END_TAG230__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG230 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -4020,123 +4095,170 @@ module HtmlParser
       return return_value
     end
 
-    ImgReturnValue = define_return_scope 
+    AnchorReturnValue = define_return_scope 
 
     # 
-    # parser rule img
+    # parser rule anchor
     # 
     # (in HtmlParser.g)
-    # 187:1: img : OPENING_TAG IMG ( id | style | klass | align | src | alt | width | height )* END_NOPAIR_TAG ;
+    # 255:1: anchor : OPENING_TAG A ( id | style | klass | align | href | name | target ) END_TAG ( text )* CLOSING_TAG A END_TAG ;
     # 
-    def img
+    def anchor
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 30 )
-      return_value = ImgReturnValue.new
+      return_value = AnchorReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG240__ = nil
-      __IMG241__ = nil
-      __END_NOPAIR_TAG250__ = nil
-      id242 = nil
-      style243 = nil
-      klass244 = nil
-      align245 = nil
-      src246 = nil
-      alt247 = nil
-      width248 = nil
-      height249 = nil
+      __OPENING_TAG231__ = nil
+      __A232__ = nil
+      __END_TAG240__ = nil
+      __CLOSING_TAG242__ = nil
+      __A243__ = nil
+      __END_TAG244__ = nil
+      id233 = nil
+      style234 = nil
+      klass235 = nil
+      align236 = nil
+      href237 = nil
+      name238 = nil
+      target239 = nil
+      text241 = nil
 
-      tree_for_OPENING_TAG240 = nil
-      tree_for_IMG241 = nil
-      tree_for_END_NOPAIR_TAG250 = nil
+      tree_for_OPENING_TAG231 = nil
+      tree_for_A232 = nil
+      tree_for_END_TAG240 = nil
+      tree_for_CLOSING_TAG242 = nil
+      tree_for_A243 = nil
+      tree_for_END_TAG244 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 187:6: OPENING_TAG IMG ( id | style | klass | align | src | alt | width | height )* END_NOPAIR_TAG
-        __OPENING_TAG240__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_img_1107 )
+        # at line 255:9: OPENING_TAG A ( id | style | klass | align | href | name | target ) END_TAG ( text )* CLOSING_TAG A END_TAG
+        __OPENING_TAG231__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_anchor_1168 )
 
-        tree_for_OPENING_TAG240 = @adaptor.create_with_payload( __OPENING_TAG240__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG240 )
+        tree_for_OPENING_TAG231 = @adaptor.create_with_payload( __OPENING_TAG231__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG231 )
 
-        __IMG241__ = match( IMG, TOKENS_FOLLOWING_IMG_IN_img_1109 )
+        __A232__ = match( A, TOKENS_FOLLOWING_A_IN_anchor_1170 )
 
-        tree_for_IMG241 = @adaptor.create_with_payload( __IMG241__ )
-        @adaptor.add_child( root_0, tree_for_IMG241 )
+        tree_for_A232 = @adaptor.create_with_payload( __A232__ )
+        @adaptor.add_child( root_0, tree_for_A232 )
 
-        # at line 187:22: ( id | style | klass | align | src | alt | width | height )*
-        while true # decision 44
-          alt_44 = 9
-          alt_44 = @dfa44.predict( @input )
-          case alt_44
+        # at line 255:23: ( id | style | klass | align | href | name | target )
+        alt_41 = 7
+        look_41_0 = @input.peek( 1 )
+
+        if ( look_41_0 == WS )
+          case look_41 = @input.peek( 2 )
+          when ID then alt_41 = 1
+          when STYLE then alt_41 = 2
+          when CLASS then alt_41 = 3
+          when ALIGN then alt_41 = 4
+          when HREF then alt_41 = 5
+          when ANAME then alt_41 = 6
+          when TARGET then alt_41 = 7
+          else
+            raise NoViableAlternative( "", 41, 1 )
+          end
+        else
+          raise NoViableAlternative( "", 41, 0 )
+        end
+        case alt_41
+        when 1
+          # at line 255:24: id
+          @state.following.push( TOKENS_FOLLOWING_id_IN_anchor_1173 )
+          id233 = id
+          @state.following.pop
+          @adaptor.add_child( root_0, id233.tree )
+
+        when 2
+          # at line 255:27: style
+          @state.following.push( TOKENS_FOLLOWING_style_IN_anchor_1175 )
+          style234 = style
+          @state.following.pop
+          @adaptor.add_child( root_0, style234.tree )
+
+        when 3
+          # at line 255:33: klass
+          @state.following.push( TOKENS_FOLLOWING_klass_IN_anchor_1177 )
+          klass235 = klass
+          @state.following.pop
+          @adaptor.add_child( root_0, klass235.tree )
+
+        when 4
+          # at line 255:39: align
+          @state.following.push( TOKENS_FOLLOWING_align_IN_anchor_1179 )
+          align236 = align
+          @state.following.pop
+          @adaptor.add_child( root_0, align236.tree )
+
+        when 5
+          # at line 255:45: href
+          @state.following.push( TOKENS_FOLLOWING_href_IN_anchor_1181 )
+          href237 = href
+          @state.following.pop
+          @adaptor.add_child( root_0, href237.tree )
+
+        when 6
+          # at line 255:50: name
+          @state.following.push( TOKENS_FOLLOWING_name_IN_anchor_1183 )
+          name238 = name
+          @state.following.pop
+          @adaptor.add_child( root_0, name238.tree )
+
+        when 7
+          # at line 255:55: target
+          @state.following.push( TOKENS_FOLLOWING_target_IN_anchor_1185 )
+          target239 = target
+          @state.following.pop
+          @adaptor.add_child( root_0, target239.tree )
+
+        end
+        __END_TAG240__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_anchor_1188 )
+
+        tree_for_END_TAG240 = @adaptor.create_with_payload( __END_TAG240__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG240 )
+
+        # at line 256:3: ( text )*
+        while true # decision 42
+          alt_42 = 2
+          look_42_0 = @input.peek( 1 )
+
+          if ( look_42_0 == OPENING_TAG || look_42_0 == PCDATA )
+            alt_42 = 1
+
+          end
+          case alt_42
           when 1
-            # at line 187:23: id
-            @state.following.push( TOKENS_FOLLOWING_id_IN_img_1112 )
-            id242 = id
+            # at line 256:4: text
+            @state.following.push( TOKENS_FOLLOWING_text_IN_anchor_1193 )
+            text241 = text
             @state.following.pop
-            @adaptor.add_child( root_0, id242.tree )
-
-          when 2
-            # at line 187:26: style
-            @state.following.push( TOKENS_FOLLOWING_style_IN_img_1114 )
-            style243 = style
-            @state.following.pop
-            @adaptor.add_child( root_0, style243.tree )
-
-          when 3
-            # at line 187:32: klass
-            @state.following.push( TOKENS_FOLLOWING_klass_IN_img_1116 )
-            klass244 = klass
-            @state.following.pop
-            @adaptor.add_child( root_0, klass244.tree )
-
-          when 4
-            # at line 187:38: align
-            @state.following.push( TOKENS_FOLLOWING_align_IN_img_1118 )
-            align245 = align
-            @state.following.pop
-            @adaptor.add_child( root_0, align245.tree )
-
-          when 5
-            # at line 187:44: src
-            @state.following.push( TOKENS_FOLLOWING_src_IN_img_1120 )
-            src246 = src
-            @state.following.pop
-            @adaptor.add_child( root_0, src246.tree )
-
-          when 6
-            # at line 187:48: alt
-            @state.following.push( TOKENS_FOLLOWING_alt_IN_img_1122 )
-            alt247 = alt
-            @state.following.pop
-            @adaptor.add_child( root_0, alt247.tree )
-
-          when 7
-            # at line 187:52: width
-            @state.following.push( TOKENS_FOLLOWING_width_IN_img_1124 )
-            width248 = width
-            @state.following.pop
-            @adaptor.add_child( root_0, width248.tree )
-
-          when 8
-            # at line 187:58: height
-            @state.following.push( TOKENS_FOLLOWING_height_IN_img_1126 )
-            height249 = height
-            @state.following.pop
-            @adaptor.add_child( root_0, height249.tree )
+            @adaptor.add_child( root_0, text241.tree )
 
           else
-            break # out of loop for decision 44
+            break # out of loop for decision 42
           end
-        end # loop for decision 44
-        __END_NOPAIR_TAG250__ = match( END_NOPAIR_TAG, TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_img_1132 )
+        end # loop for decision 42
+        __CLOSING_TAG242__ = match( CLOSING_TAG, TOKENS_FOLLOWING_CLOSING_TAG_IN_anchor_1199 )
 
-        tree_for_END_NOPAIR_TAG250 = @adaptor.create_with_payload( __END_NOPAIR_TAG250__ )
-        @adaptor.add_child( root_0, tree_for_END_NOPAIR_TAG250 )
+        tree_for_CLOSING_TAG242 = @adaptor.create_with_payload( __CLOSING_TAG242__ )
+        @adaptor.add_child( root_0, tree_for_CLOSING_TAG242 )
+
+        __A243__ = match( A, TOKENS_FOLLOWING_A_IN_anchor_1201 )
+
+        tree_for_A243 = @adaptor.create_with_payload( __A243__ )
+        @adaptor.add_child( root_0, tree_for_A243 )
+
+        __END_TAG244__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_anchor_1203 )
+
+        tree_for_END_TAG244 = @adaptor.create_with_payload( __END_TAG244__ )
+        @adaptor.add_child( root_0, tree_for_END_TAG244 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -4159,50 +4281,123 @@ module HtmlParser
       return return_value
     end
 
-    BrReturnValue = define_return_scope 
+    ImgReturnValue = define_return_scope 
 
     # 
-    # parser rule br
+    # parser rule img
     # 
     # (in HtmlParser.g)
-    # 191:1: br : OPENING_TAG BR END_NOPAIR_TAG ;
+    # 260:1: img : OPENING_TAG IMG ( id | style | klass | align | src | alt | width | height )* END_NOPAIR_TAG ;
     # 
-    def br
+    def img
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 31 )
-      return_value = BrReturnValue.new
+      return_value = ImgReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __OPENING_TAG251__ = nil
-      __BR252__ = nil
-      __END_NOPAIR_TAG253__ = nil
+      __OPENING_TAG245__ = nil
+      __IMG246__ = nil
+      __END_NOPAIR_TAG255__ = nil
+      id247 = nil
+      style248 = nil
+      klass249 = nil
+      align250 = nil
+      src251 = nil
+      alt252 = nil
+      width253 = nil
+      height254 = nil
 
-      tree_for_OPENING_TAG251 = nil
-      tree_for_BR252 = nil
-      tree_for_END_NOPAIR_TAG253 = nil
+      tree_for_OPENING_TAG245 = nil
+      tree_for_IMG246 = nil
+      tree_for_END_NOPAIR_TAG255 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 191:5: OPENING_TAG BR END_NOPAIR_TAG
-        __OPENING_TAG251__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_br_1146 )
+        # at line 260:6: OPENING_TAG IMG ( id | style | klass | align | src | alt | width | height )* END_NOPAIR_TAG
+        __OPENING_TAG245__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_img_1214 )
 
-        tree_for_OPENING_TAG251 = @adaptor.create_with_payload( __OPENING_TAG251__ )
-        @adaptor.add_child( root_0, tree_for_OPENING_TAG251 )
+        tree_for_OPENING_TAG245 = @adaptor.create_with_payload( __OPENING_TAG245__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG245 )
 
-        __BR252__ = match( BR, TOKENS_FOLLOWING_BR_IN_br_1148 )
+        __IMG246__ = match( IMG, TOKENS_FOLLOWING_IMG_IN_img_1216 )
 
-        tree_for_BR252 = @adaptor.create_with_payload( __BR252__ )
-        @adaptor.add_child( root_0, tree_for_BR252 )
+        tree_for_IMG246 = @adaptor.create_with_payload( __IMG246__ )
+        @adaptor.add_child( root_0, tree_for_IMG246 )
 
-        __END_NOPAIR_TAG253__ = match( END_NOPAIR_TAG, TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_br_1152 )
+        # at line 260:22: ( id | style | klass | align | src | alt | width | height )*
+        while true # decision 43
+          alt_43 = 9
+          alt_43 = @dfa43.predict( @input )
+          case alt_43
+          when 1
+            # at line 260:23: id
+            @state.following.push( TOKENS_FOLLOWING_id_IN_img_1219 )
+            id247 = id
+            @state.following.pop
+            @adaptor.add_child( root_0, id247.tree )
 
-        tree_for_END_NOPAIR_TAG253 = @adaptor.create_with_payload( __END_NOPAIR_TAG253__ )
-        @adaptor.add_child( root_0, tree_for_END_NOPAIR_TAG253 )
+          when 2
+            # at line 260:26: style
+            @state.following.push( TOKENS_FOLLOWING_style_IN_img_1221 )
+            style248 = style
+            @state.following.pop
+            @adaptor.add_child( root_0, style248.tree )
+
+          when 3
+            # at line 260:32: klass
+            @state.following.push( TOKENS_FOLLOWING_klass_IN_img_1223 )
+            klass249 = klass
+            @state.following.pop
+            @adaptor.add_child( root_0, klass249.tree )
+
+          when 4
+            # at line 260:38: align
+            @state.following.push( TOKENS_FOLLOWING_align_IN_img_1225 )
+            align250 = align
+            @state.following.pop
+            @adaptor.add_child( root_0, align250.tree )
+
+          when 5
+            # at line 260:44: src
+            @state.following.push( TOKENS_FOLLOWING_src_IN_img_1227 )
+            src251 = src
+            @state.following.pop
+            @adaptor.add_child( root_0, src251.tree )
+
+          when 6
+            # at line 260:48: alt
+            @state.following.push( TOKENS_FOLLOWING_alt_IN_img_1229 )
+            alt252 = alt
+            @state.following.pop
+            @adaptor.add_child( root_0, alt252.tree )
+
+          when 7
+            # at line 260:52: width
+            @state.following.push( TOKENS_FOLLOWING_width_IN_img_1231 )
+            width253 = width
+            @state.following.pop
+            @adaptor.add_child( root_0, width253.tree )
+
+          when 8
+            # at line 260:58: height
+            @state.following.push( TOKENS_FOLLOWING_height_IN_img_1233 )
+            height254 = height
+            @state.following.pop
+            @adaptor.add_child( root_0, height254.tree )
+
+          else
+            break # out of loop for decision 43
+          end
+        end # loop for decision 43
+        __END_NOPAIR_TAG255__ = match( END_NOPAIR_TAG, TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_img_1239 )
+
+        tree_for_END_NOPAIR_TAG255 = @adaptor.create_with_payload( __END_NOPAIR_TAG255__ )
+        @adaptor.add_child( root_0, tree_for_END_NOPAIR_TAG255 )
 
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
@@ -4225,49 +4420,51 @@ module HtmlParser
       return return_value
     end
 
-    IdReturnValue = define_return_scope 
+    BrReturnValue = define_return_scope 
 
     # 
-    # parser rule id
+    # parser rule br
     # 
     # (in HtmlParser.g)
-    # 197:1: id : WS ID attr_svalue ;
+    # 264:1: br : OPENING_TAG BR END_NOPAIR_TAG ;
     # 
-    def id
+    def br
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 32 )
-      return_value = IdReturnValue.new
+      return_value = BrReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS254__ = nil
-      __ID255__ = nil
-      attr_svalue256 = nil
+      __OPENING_TAG256__ = nil
+      __BR257__ = nil
+      __END_NOPAIR_TAG258__ = nil
 
-      tree_for_WS254 = nil
-      tree_for_ID255 = nil
+      tree_for_OPENING_TAG256 = nil
+      tree_for_BR257 = nil
+      tree_for_END_NOPAIR_TAG258 = nil
 
       begin
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 197:4: WS ID attr_svalue
-        __WS254__ = match( WS, TOKENS_FOLLOWING_WS_IN_id_1166 )
+        # at line 264:5: OPENING_TAG BR END_NOPAIR_TAG
+        __OPENING_TAG256__ = match( OPENING_TAG, TOKENS_FOLLOWING_OPENING_TAG_IN_br_1253 )
 
-        tree_for_WS254 = @adaptor.create_with_payload( __WS254__ )
-        @adaptor.add_child( root_0, tree_for_WS254 )
+        tree_for_OPENING_TAG256 = @adaptor.create_with_payload( __OPENING_TAG256__ )
+        @adaptor.add_child( root_0, tree_for_OPENING_TAG256 )
 
-        __ID255__ = match( ID, TOKENS_FOLLOWING_ID_IN_id_1168 )
+        __BR257__ = match( BR, TOKENS_FOLLOWING_BR_IN_br_1255 )
 
-        tree_for_ID255 = @adaptor.create_with_payload( __ID255__ )
-        @adaptor.add_child( root_0, tree_for_ID255 )
+        tree_for_BR257 = @adaptor.create_with_payload( __BR257__ )
+        @adaptor.add_child( root_0, tree_for_BR257 )
 
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_id_1170 )
-        attr_svalue256 = attr_svalue
-        @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue256.tree )
+        __END_NOPAIR_TAG258__ = match( END_NOPAIR_TAG, TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_br_1259 )
+
+        tree_for_END_NOPAIR_TAG258 = @adaptor.create_with_payload( __END_NOPAIR_TAG258__ )
+        @adaptor.add_child( root_0, tree_for_END_NOPAIR_TAG258 )
+
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4289,49 +4486,66 @@ module HtmlParser
       return return_value
     end
 
-    StyleReturnValue = define_return_scope 
+    IdReturnValue = define_return_scope 
 
     # 
-    # parser rule style
+    # parser rule id
     # 
     # (in HtmlParser.g)
-    # 198:1: style : WS STYLE attr_svalue ;
+    # 270:1: id : WS ID attr_svalue -> ^( ID attr_svalue ) ;
     # 
-    def style
+    def id
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 33 )
-      return_value = StyleReturnValue.new
+      return_value = IdReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS257__ = nil
-      __STYLE258__ = nil
-      attr_svalue259 = nil
+      __WS259__ = nil
+      __ID260__ = nil
+      attr_svalue261 = nil
 
-      tree_for_WS257 = nil
-      tree_for_STYLE258 = nil
-
+      tree_for_WS259 = nil
+      tree_for_ID260 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_ID = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token ID" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 198:7: WS STYLE attr_svalue
-        __WS257__ = match( WS, TOKENS_FOLLOWING_WS_IN_style_1175 )
-
-        tree_for_WS257 = @adaptor.create_with_payload( __WS257__ )
-        @adaptor.add_child( root_0, tree_for_WS257 )
-
-        __STYLE258__ = match( STYLE, TOKENS_FOLLOWING_STYLE_IN_style_1177 )
-
-        tree_for_STYLE258 = @adaptor.create_with_payload( __STYLE258__ )
-        @adaptor.add_child( root_0, tree_for_STYLE258 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_style_1179 )
-        attr_svalue259 = attr_svalue
+        # at line 270:4: WS ID attr_svalue
+        __WS259__ = match( WS, TOKENS_FOLLOWING_WS_IN_id_1273 )
+        stream_WS.add( __WS259__ )
+        __ID260__ = match( ID, TOKENS_FOLLOWING_ID_IN_id_1275 )
+        stream_ID.add( __ID260__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_id_1277 )
+        attr_svalue261 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue259.tree )
+        stream_attr_svalue.add( attr_svalue261.tree )
+        # AST Rewrite
+        # elements: attr_svalue, ID
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 270:22: -> ^( ID attr_svalue )
+        # at line 270:25: ^( ID attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_ID.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4353,49 +4567,66 @@ module HtmlParser
       return return_value
     end
 
-    KlassReturnValue = define_return_scope 
+    StyleReturnValue = define_return_scope 
 
     # 
-    # parser rule klass
+    # parser rule style
     # 
     # (in HtmlParser.g)
-    # 199:1: klass : WS CLASS attr_svalue ;
+    # 271:1: style : WS STYLE attr_svalue -> ^( STYLE attr_svalue ) ;
     # 
-    def klass
+    def style
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 34 )
-      return_value = KlassReturnValue.new
+      return_value = StyleReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS260__ = nil
-      __CLASS261__ = nil
-      attr_svalue262 = nil
+      __WS262__ = nil
+      __STYLE263__ = nil
+      attr_svalue264 = nil
 
-      tree_for_WS260 = nil
-      tree_for_CLASS261 = nil
-
+      tree_for_WS262 = nil
+      tree_for_STYLE263 = nil
+      stream_STYLE = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token STYLE" )
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 199:7: WS CLASS attr_svalue
-        __WS260__ = match( WS, TOKENS_FOLLOWING_WS_IN_klass_1184 )
-
-        tree_for_WS260 = @adaptor.create_with_payload( __WS260__ )
-        @adaptor.add_child( root_0, tree_for_WS260 )
-
-        __CLASS261__ = match( CLASS, TOKENS_FOLLOWING_CLASS_IN_klass_1186 )
-
-        tree_for_CLASS261 = @adaptor.create_with_payload( __CLASS261__ )
-        @adaptor.add_child( root_0, tree_for_CLASS261 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_klass_1188 )
-        attr_svalue262 = attr_svalue
+        # at line 271:7: WS STYLE attr_svalue
+        __WS262__ = match( WS, TOKENS_FOLLOWING_WS_IN_style_1290 )
+        stream_WS.add( __WS262__ )
+        __STYLE263__ = match( STYLE, TOKENS_FOLLOWING_STYLE_IN_style_1292 )
+        stream_STYLE.add( __STYLE263__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_style_1294 )
+        attr_svalue264 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue262.tree )
+        stream_attr_svalue.add( attr_svalue264.tree )
+        # AST Rewrite
+        # elements: attr_svalue, STYLE
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 271:28: -> ^( STYLE attr_svalue )
+        # at line 271:31: ^( STYLE attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_STYLE.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4417,49 +4648,66 @@ module HtmlParser
       return return_value
     end
 
-    BgcolorReturnValue = define_return_scope 
+    KlassReturnValue = define_return_scope 
 
     # 
-    # parser rule bgcolor
+    # parser rule klass
     # 
     # (in HtmlParser.g)
-    # 201:1: bgcolor : WS BGCOLOR attr_svalue ;
+    # 272:1: klass : WS CLASS attr_svalue -> ^( CLASS attr_svalue ) ;
     # 
-    def bgcolor
+    def klass
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 35 )
-      return_value = BgcolorReturnValue.new
+      return_value = KlassReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS263__ = nil
-      __BGCOLOR264__ = nil
-      attr_svalue265 = nil
+      __WS265__ = nil
+      __CLASS266__ = nil
+      attr_svalue267 = nil
 
-      tree_for_WS263 = nil
-      tree_for_BGCOLOR264 = nil
-
+      tree_for_WS265 = nil
+      tree_for_CLASS266 = nil
+      stream_CLASS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token CLASS" )
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 201:9: WS BGCOLOR attr_svalue
-        __WS263__ = match( WS, TOKENS_FOLLOWING_WS_IN_bgcolor_1195 )
-
-        tree_for_WS263 = @adaptor.create_with_payload( __WS263__ )
-        @adaptor.add_child( root_0, tree_for_WS263 )
-
-        __BGCOLOR264__ = match( BGCOLOR, TOKENS_FOLLOWING_BGCOLOR_IN_bgcolor_1197 )
-
-        tree_for_BGCOLOR264 = @adaptor.create_with_payload( __BGCOLOR264__ )
-        @adaptor.add_child( root_0, tree_for_BGCOLOR264 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_bgcolor_1199 )
-        attr_svalue265 = attr_svalue
+        # at line 272:7: WS CLASS attr_svalue
+        __WS265__ = match( WS, TOKENS_FOLLOWING_WS_IN_klass_1307 )
+        stream_WS.add( __WS265__ )
+        __CLASS266__ = match( CLASS, TOKENS_FOLLOWING_CLASS_IN_klass_1309 )
+        stream_CLASS.add( __CLASS266__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_klass_1311 )
+        attr_svalue267 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue265.tree )
+        stream_attr_svalue.add( attr_svalue267.tree )
+        # AST Rewrite
+        # elements: CLASS, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 272:28: -> ^( CLASS attr_svalue )
+        # at line 272:31: ^( CLASS attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_CLASS.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4481,49 +4729,66 @@ module HtmlParser
       return return_value
     end
 
-    BackgroundReturnValue = define_return_scope 
+    BgcolorReturnValue = define_return_scope 
 
     # 
-    # parser rule background
+    # parser rule bgcolor
     # 
     # (in HtmlParser.g)
-    # 203:1: background : WS BACKGROUND attr_svalue ;
+    # 274:1: bgcolor : WS BGCOLOR attr_svalue -> ^( BGCOLOR attr_svalue ) ;
     # 
-    def background
+    def bgcolor
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 36 )
-      return_value = BackgroundReturnValue.new
+      return_value = BgcolorReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS266__ = nil
-      __BACKGROUND267__ = nil
-      attr_svalue268 = nil
+      __WS268__ = nil
+      __BGCOLOR269__ = nil
+      attr_svalue270 = nil
 
-      tree_for_WS266 = nil
-      tree_for_BACKGROUND267 = nil
-
+      tree_for_WS268 = nil
+      tree_for_BGCOLOR269 = nil
+      stream_BGCOLOR = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token BGCOLOR" )
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 203:13: WS BACKGROUND attr_svalue
-        __WS266__ = match( WS, TOKENS_FOLLOWING_WS_IN_background_1206 )
-
-        tree_for_WS266 = @adaptor.create_with_payload( __WS266__ )
-        @adaptor.add_child( root_0, tree_for_WS266 )
-
-        __BACKGROUND267__ = match( BACKGROUND, TOKENS_FOLLOWING_BACKGROUND_IN_background_1208 )
-
-        tree_for_BACKGROUND267 = @adaptor.create_with_payload( __BACKGROUND267__ )
-        @adaptor.add_child( root_0, tree_for_BACKGROUND267 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_background_1210 )
-        attr_svalue268 = attr_svalue
+        # at line 274:9: WS BGCOLOR attr_svalue
+        __WS268__ = match( WS, TOKENS_FOLLOWING_WS_IN_bgcolor_1326 )
+        stream_WS.add( __WS268__ )
+        __BGCOLOR269__ = match( BGCOLOR, TOKENS_FOLLOWING_BGCOLOR_IN_bgcolor_1328 )
+        stream_BGCOLOR.add( __BGCOLOR269__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_bgcolor_1330 )
+        attr_svalue270 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue268.tree )
+        stream_attr_svalue.add( attr_svalue270.tree )
+        # AST Rewrite
+        # elements: BGCOLOR, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 274:32: -> ^( BGCOLOR attr_svalue )
+        # at line 274:35: ^( BGCOLOR attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_BGCOLOR.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4545,49 +4810,66 @@ module HtmlParser
       return return_value
     end
 
-    AlignReturnValue = define_return_scope 
+    BackgroundReturnValue = define_return_scope 
 
     # 
-    # parser rule align
+    # parser rule background
     # 
     # (in HtmlParser.g)
-    # 205:1: align : WS ALIGN attr_svalue ;
+    # 276:1: background : WS BACKGROUND attr_svalue -> ^( BACKGROUND attr_svalue ) ;
     # 
-    def align
+    def background
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 37 )
-      return_value = AlignReturnValue.new
+      return_value = BackgroundReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS269__ = nil
-      __ALIGN270__ = nil
-      attr_svalue271 = nil
+      __WS271__ = nil
+      __BACKGROUND272__ = nil
+      attr_svalue273 = nil
 
-      tree_for_WS269 = nil
-      tree_for_ALIGN270 = nil
-
+      tree_for_WS271 = nil
+      tree_for_BACKGROUND272 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_BACKGROUND = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token BACKGROUND" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 205:8: WS ALIGN attr_svalue
-        __WS269__ = match( WS, TOKENS_FOLLOWING_WS_IN_align_1217 )
-
-        tree_for_WS269 = @adaptor.create_with_payload( __WS269__ )
-        @adaptor.add_child( root_0, tree_for_WS269 )
-
-        __ALIGN270__ = match( ALIGN, TOKENS_FOLLOWING_ALIGN_IN_align_1219 )
-
-        tree_for_ALIGN270 = @adaptor.create_with_payload( __ALIGN270__ )
-        @adaptor.add_child( root_0, tree_for_ALIGN270 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_align_1221 )
-        attr_svalue271 = attr_svalue
+        # at line 276:13: WS BACKGROUND attr_svalue
+        __WS271__ = match( WS, TOKENS_FOLLOWING_WS_IN_background_1345 )
+        stream_WS.add( __WS271__ )
+        __BACKGROUND272__ = match( BACKGROUND, TOKENS_FOLLOWING_BACKGROUND_IN_background_1347 )
+        stream_BACKGROUND.add( __BACKGROUND272__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_background_1349 )
+        attr_svalue273 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue271.tree )
+        stream_attr_svalue.add( attr_svalue273.tree )
+        # AST Rewrite
+        # elements: attr_svalue, BACKGROUND
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 276:39: -> ^( BACKGROUND attr_svalue )
+        # at line 276:42: ^( BACKGROUND attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_BACKGROUND.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4609,49 +4891,66 @@ module HtmlParser
       return return_value
     end
 
-    SrcReturnValue = define_return_scope 
+    AlignReturnValue = define_return_scope 
 
     # 
-    # parser rule src
+    # parser rule align
     # 
     # (in HtmlParser.g)
-    # 207:1: src : WS SRC attr_svalue ;
+    # 278:1: align : WS ALIGN attr_svalue -> ^( ALIGN attr_svalue ) ;
     # 
-    def src
+    def align
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 38 )
-      return_value = SrcReturnValue.new
+      return_value = AlignReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS272__ = nil
-      __SRC273__ = nil
-      attr_svalue274 = nil
+      __WS274__ = nil
+      __ALIGN275__ = nil
+      attr_svalue276 = nil
 
-      tree_for_WS272 = nil
-      tree_for_SRC273 = nil
-
+      tree_for_WS274 = nil
+      tree_for_ALIGN275 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_ALIGN = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token ALIGN" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 207:6: WS SRC attr_svalue
-        __WS272__ = match( WS, TOKENS_FOLLOWING_WS_IN_src_1228 )
-
-        tree_for_WS272 = @adaptor.create_with_payload( __WS272__ )
-        @adaptor.add_child( root_0, tree_for_WS272 )
-
-        __SRC273__ = match( SRC, TOKENS_FOLLOWING_SRC_IN_src_1230 )
-
-        tree_for_SRC273 = @adaptor.create_with_payload( __SRC273__ )
-        @adaptor.add_child( root_0, tree_for_SRC273 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_src_1232 )
-        attr_svalue274 = attr_svalue
+        # at line 278:8: WS ALIGN attr_svalue
+        __WS274__ = match( WS, TOKENS_FOLLOWING_WS_IN_align_1364 )
+        stream_WS.add( __WS274__ )
+        __ALIGN275__ = match( ALIGN, TOKENS_FOLLOWING_ALIGN_IN_align_1366 )
+        stream_ALIGN.add( __ALIGN275__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_align_1368 )
+        attr_svalue276 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue274.tree )
+        stream_attr_svalue.add( attr_svalue276.tree )
+        # AST Rewrite
+        # elements: ALIGN, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 278:29: -> ^( ALIGN attr_svalue )
+        # at line 278:32: ^( ALIGN attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_ALIGN.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4673,49 +4972,66 @@ module HtmlParser
       return return_value
     end
 
-    AltReturnValue = define_return_scope 
+    SrcReturnValue = define_return_scope 
 
     # 
-    # parser rule alt
+    # parser rule src
     # 
     # (in HtmlParser.g)
-    # 209:1: alt : WS ALT attr_svalue ;
+    # 280:1: src : WS SRC attr_svalue -> ^( SRC attr_svalue ) ;
     # 
-    def alt
+    def src
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 39 )
-      return_value = AltReturnValue.new
+      return_value = SrcReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS275__ = nil
-      __ALT276__ = nil
-      attr_svalue277 = nil
+      __WS277__ = nil
+      __SRC278__ = nil
+      attr_svalue279 = nil
 
-      tree_for_WS275 = nil
-      tree_for_ALT276 = nil
-
+      tree_for_WS277 = nil
+      tree_for_SRC278 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_SRC = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token SRC" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 209:6: WS ALT attr_svalue
-        __WS275__ = match( WS, TOKENS_FOLLOWING_WS_IN_alt_1239 )
-
-        tree_for_WS275 = @adaptor.create_with_payload( __WS275__ )
-        @adaptor.add_child( root_0, tree_for_WS275 )
-
-        __ALT276__ = match( ALT, TOKENS_FOLLOWING_ALT_IN_alt_1241 )
-
-        tree_for_ALT276 = @adaptor.create_with_payload( __ALT276__ )
-        @adaptor.add_child( root_0, tree_for_ALT276 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_alt_1243 )
-        attr_svalue277 = attr_svalue
+        # at line 280:6: WS SRC attr_svalue
+        __WS277__ = match( WS, TOKENS_FOLLOWING_WS_IN_src_1383 )
+        stream_WS.add( __WS277__ )
+        __SRC278__ = match( SRC, TOKENS_FOLLOWING_SRC_IN_src_1385 )
+        stream_SRC.add( __SRC278__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_src_1387 )
+        attr_svalue279 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue277.tree )
+        stream_attr_svalue.add( attr_svalue279.tree )
+        # AST Rewrite
+        # elements: attr_svalue, SRC
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 280:25: -> ^( SRC attr_svalue )
+        # at line 280:28: ^( SRC attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_SRC.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4737,49 +5053,66 @@ module HtmlParser
       return return_value
     end
 
-    WidthReturnValue = define_return_scope 
+    AltReturnValue = define_return_scope 
 
     # 
-    # parser rule width
+    # parser rule alt
     # 
     # (in HtmlParser.g)
-    # 211:1: width : WS WIDTH attr_svalue ;
+    # 282:1: alt : WS ALT attr_svalue -> ^( ALT attr_svalue ) ;
     # 
-    def width
+    def alt
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 40 )
-      return_value = WidthReturnValue.new
+      return_value = AltReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS278__ = nil
-      __WIDTH279__ = nil
-      attr_svalue280 = nil
+      __WS280__ = nil
+      __ALT281__ = nil
+      attr_svalue282 = nil
 
-      tree_for_WS278 = nil
-      tree_for_WIDTH279 = nil
-
+      tree_for_WS280 = nil
+      tree_for_ALT281 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_ALT = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token ALT" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 211:8: WS WIDTH attr_svalue
-        __WS278__ = match( WS, TOKENS_FOLLOWING_WS_IN_width_1250 )
-
-        tree_for_WS278 = @adaptor.create_with_payload( __WS278__ )
-        @adaptor.add_child( root_0, tree_for_WS278 )
-
-        __WIDTH279__ = match( WIDTH, TOKENS_FOLLOWING_WIDTH_IN_width_1252 )
-
-        tree_for_WIDTH279 = @adaptor.create_with_payload( __WIDTH279__ )
-        @adaptor.add_child( root_0, tree_for_WIDTH279 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_width_1254 )
-        attr_svalue280 = attr_svalue
+        # at line 282:6: WS ALT attr_svalue
+        __WS280__ = match( WS, TOKENS_FOLLOWING_WS_IN_alt_1402 )
+        stream_WS.add( __WS280__ )
+        __ALT281__ = match( ALT, TOKENS_FOLLOWING_ALT_IN_alt_1404 )
+        stream_ALT.add( __ALT281__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_alt_1406 )
+        attr_svalue282 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue280.tree )
+        stream_attr_svalue.add( attr_svalue282.tree )
+        # AST Rewrite
+        # elements: ALT, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 282:25: -> ^( ALT attr_svalue )
+        # at line 282:28: ^( ALT attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_ALT.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4801,49 +5134,66 @@ module HtmlParser
       return return_value
     end
 
-    HeightReturnValue = define_return_scope 
+    WidthReturnValue = define_return_scope 
 
     # 
-    # parser rule height
+    # parser rule width
     # 
     # (in HtmlParser.g)
-    # 213:1: height : WS HEIGHT attr_svalue ;
+    # 284:1: width : WS WIDTH attr_svalue -> ^( WIDTH attr_svalue ) ;
     # 
-    def height
+    def width
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 41 )
-      return_value = HeightReturnValue.new
+      return_value = WidthReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS281__ = nil
-      __HEIGHT282__ = nil
-      attr_svalue283 = nil
+      __WS283__ = nil
+      __WIDTH284__ = nil
+      attr_svalue285 = nil
 
-      tree_for_WS281 = nil
-      tree_for_HEIGHT282 = nil
-
+      tree_for_WS283 = nil
+      tree_for_WIDTH284 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_WIDTH = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WIDTH" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 213:9: WS HEIGHT attr_svalue
-        __WS281__ = match( WS, TOKENS_FOLLOWING_WS_IN_height_1261 )
-
-        tree_for_WS281 = @adaptor.create_with_payload( __WS281__ )
-        @adaptor.add_child( root_0, tree_for_WS281 )
-
-        __HEIGHT282__ = match( HEIGHT, TOKENS_FOLLOWING_HEIGHT_IN_height_1263 )
-
-        tree_for_HEIGHT282 = @adaptor.create_with_payload( __HEIGHT282__ )
-        @adaptor.add_child( root_0, tree_for_HEIGHT282 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_height_1265 )
-        attr_svalue283 = attr_svalue
+        # at line 284:8: WS WIDTH attr_svalue
+        __WS283__ = match( WS, TOKENS_FOLLOWING_WS_IN_width_1421 )
+        stream_WS.add( __WS283__ )
+        __WIDTH284__ = match( WIDTH, TOKENS_FOLLOWING_WIDTH_IN_width_1423 )
+        stream_WIDTH.add( __WIDTH284__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_width_1425 )
+        attr_svalue285 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue283.tree )
+        stream_attr_svalue.add( attr_svalue285.tree )
+        # AST Rewrite
+        # elements: WIDTH, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 284:29: -> ^( WIDTH attr_svalue )
+        # at line 284:32: ^( WIDTH attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_WIDTH.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4865,49 +5215,66 @@ module HtmlParser
       return return_value
     end
 
-    BordercolorReturnValue = define_return_scope 
+    HeightReturnValue = define_return_scope 
 
     # 
-    # parser rule bordercolor
+    # parser rule height
     # 
     # (in HtmlParser.g)
-    # 215:1: bordercolor : WS BORDERCOLOR attr_svalue ;
+    # 286:1: height : WS HEIGHT attr_svalue -> ^( HEIGHT attr_svalue ) ;
     # 
-    def bordercolor
+    def height
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 42 )
-      return_value = BordercolorReturnValue.new
+      return_value = HeightReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS284__ = nil
-      __BORDERCOLOR285__ = nil
-      attr_svalue286 = nil
+      __WS286__ = nil
+      __HEIGHT287__ = nil
+      attr_svalue288 = nil
 
-      tree_for_WS284 = nil
-      tree_for_BORDERCOLOR285 = nil
-
+      tree_for_WS286 = nil
+      tree_for_HEIGHT287 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_HEIGHT = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token HEIGHT" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 215:14: WS BORDERCOLOR attr_svalue
-        __WS284__ = match( WS, TOKENS_FOLLOWING_WS_IN_bordercolor_1272 )
-
-        tree_for_WS284 = @adaptor.create_with_payload( __WS284__ )
-        @adaptor.add_child( root_0, tree_for_WS284 )
-
-        __BORDERCOLOR285__ = match( BORDERCOLOR, TOKENS_FOLLOWING_BORDERCOLOR_IN_bordercolor_1274 )
-
-        tree_for_BORDERCOLOR285 = @adaptor.create_with_payload( __BORDERCOLOR285__ )
-        @adaptor.add_child( root_0, tree_for_BORDERCOLOR285 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_bordercolor_1276 )
-        attr_svalue286 = attr_svalue
+        # at line 286:9: WS HEIGHT attr_svalue
+        __WS286__ = match( WS, TOKENS_FOLLOWING_WS_IN_height_1440 )
+        stream_WS.add( __WS286__ )
+        __HEIGHT287__ = match( HEIGHT, TOKENS_FOLLOWING_HEIGHT_IN_height_1442 )
+        stream_HEIGHT.add( __HEIGHT287__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_height_1444 )
+        attr_svalue288 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue286.tree )
+        stream_attr_svalue.add( attr_svalue288.tree )
+        # AST Rewrite
+        # elements: HEIGHT, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 286:31: -> ^( HEIGHT attr_svalue )
+        # at line 286:34: ^( HEIGHT attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_HEIGHT.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4929,49 +5296,66 @@ module HtmlParser
       return return_value
     end
 
-    ValignReturnValue = define_return_scope 
+    BordercolorReturnValue = define_return_scope 
 
     # 
-    # parser rule valign
+    # parser rule bordercolor
     # 
     # (in HtmlParser.g)
-    # 217:1: valign : WS VALIGN attr_svalue ;
+    # 288:1: bordercolor : WS BORDERCOLOR attr_svalue -> ^( BORDERCOLOR attr_svalue ) ;
     # 
-    def valign
+    def bordercolor
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 43 )
-      return_value = ValignReturnValue.new
+      return_value = BordercolorReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS287__ = nil
-      __VALIGN288__ = nil
-      attr_svalue289 = nil
+      __WS289__ = nil
+      __BORDERCOLOR290__ = nil
+      attr_svalue291 = nil
 
-      tree_for_WS287 = nil
-      tree_for_VALIGN288 = nil
-
+      tree_for_WS289 = nil
+      tree_for_BORDERCOLOR290 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_BORDERCOLOR = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token BORDERCOLOR" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 217:9: WS VALIGN attr_svalue
-        __WS287__ = match( WS, TOKENS_FOLLOWING_WS_IN_valign_1283 )
-
-        tree_for_WS287 = @adaptor.create_with_payload( __WS287__ )
-        @adaptor.add_child( root_0, tree_for_WS287 )
-
-        __VALIGN288__ = match( VALIGN, TOKENS_FOLLOWING_VALIGN_IN_valign_1285 )
-
-        tree_for_VALIGN288 = @adaptor.create_with_payload( __VALIGN288__ )
-        @adaptor.add_child( root_0, tree_for_VALIGN288 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_valign_1287 )
-        attr_svalue289 = attr_svalue
+        # at line 288:14: WS BORDERCOLOR attr_svalue
+        __WS289__ = match( WS, TOKENS_FOLLOWING_WS_IN_bordercolor_1459 )
+        stream_WS.add( __WS289__ )
+        __BORDERCOLOR290__ = match( BORDERCOLOR, TOKENS_FOLLOWING_BORDERCOLOR_IN_bordercolor_1461 )
+        stream_BORDERCOLOR.add( __BORDERCOLOR290__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_bordercolor_1463 )
+        attr_svalue291 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue289.tree )
+        stream_attr_svalue.add( attr_svalue291.tree )
+        # AST Rewrite
+        # elements: attr_svalue, BORDERCOLOR
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 288:41: -> ^( BORDERCOLOR attr_svalue )
+        # at line 288:44: ^( BORDERCOLOR attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_BORDERCOLOR.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -4993,49 +5377,66 @@ module HtmlParser
       return return_value
     end
 
-    BorderReturnValue = define_return_scope 
+    ValignReturnValue = define_return_scope 
 
     # 
-    # parser rule border
+    # parser rule valign
     # 
     # (in HtmlParser.g)
-    # 219:1: border : WS BORDER attr_svalue ;
+    # 290:1: valign : WS VALIGN attr_svalue -> ^( VALIGN attr_svalue ) ;
     # 
-    def border
+    def valign
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 44 )
-      return_value = BorderReturnValue.new
+      return_value = ValignReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS290__ = nil
-      __BORDER291__ = nil
-      attr_svalue292 = nil
+      __WS292__ = nil
+      __VALIGN293__ = nil
+      attr_svalue294 = nil
 
-      tree_for_WS290 = nil
-      tree_for_BORDER291 = nil
-
+      tree_for_WS292 = nil
+      tree_for_VALIGN293 = nil
+      stream_VALIGN = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token VALIGN" )
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 219:9: WS BORDER attr_svalue
-        __WS290__ = match( WS, TOKENS_FOLLOWING_WS_IN_border_1294 )
-
-        tree_for_WS290 = @adaptor.create_with_payload( __WS290__ )
-        @adaptor.add_child( root_0, tree_for_WS290 )
-
-        __BORDER291__ = match( BORDER, TOKENS_FOLLOWING_BORDER_IN_border_1296 )
-
-        tree_for_BORDER291 = @adaptor.create_with_payload( __BORDER291__ )
-        @adaptor.add_child( root_0, tree_for_BORDER291 )
-
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_border_1298 )
-        attr_svalue292 = attr_svalue
+        # at line 290:9: WS VALIGN attr_svalue
+        __WS292__ = match( WS, TOKENS_FOLLOWING_WS_IN_valign_1478 )
+        stream_WS.add( __WS292__ )
+        __VALIGN293__ = match( VALIGN, TOKENS_FOLLOWING_VALIGN_IN_valign_1480 )
+        stream_VALIGN.add( __VALIGN293__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_valign_1482 )
+        attr_svalue294 = attr_svalue
         @state.following.pop
-        @adaptor.add_child( root_0, attr_svalue292.tree )
+        stream_attr_svalue.add( attr_svalue294.tree )
+        # AST Rewrite
+        # elements: VALIGN, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 290:31: -> ^( VALIGN attr_svalue )
+        # at line 290:34: ^( VALIGN attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_VALIGN.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -5057,82 +5458,66 @@ module HtmlParser
       return return_value
     end
 
-    AttrSvalueReturnValue = define_return_scope 
+    BorderReturnValue = define_return_scope 
 
     # 
-    # parser rule attr_svalue
+    # parser rule border
     # 
     # (in HtmlParser.g)
-    # 222:1: attr_svalue : ( WS )? ASSIGN ( WS )? SVALUE ;
+    # 292:1: border : WS BORDER attr_svalue -> ^( BORDER attr_svalue ) ;
     # 
-    def attr_svalue
+    def border
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 45 )
-      return_value = AttrSvalueReturnValue.new
+      return_value = BorderReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
 
       root_0 = nil
-      __WS293__ = nil
-      __ASSIGN294__ = nil
       __WS295__ = nil
-      __SVALUE296__ = nil
+      __BORDER296__ = nil
+      attr_svalue297 = nil
 
-      tree_for_WS293 = nil
-      tree_for_ASSIGN294 = nil
       tree_for_WS295 = nil
-      tree_for_SVALUE296 = nil
-
+      tree_for_BORDER296 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_BORDER = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token BORDER" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
       begin
+        # at line 292:9: WS BORDER attr_svalue
+        __WS295__ = match( WS, TOKENS_FOLLOWING_WS_IN_border_1497 )
+        stream_WS.add( __WS295__ )
+        __BORDER296__ = match( BORDER, TOKENS_FOLLOWING_BORDER_IN_border_1499 )
+        stream_BORDER.add( __BORDER296__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_border_1501 )
+        attr_svalue297 = attr_svalue
+        @state.following.pop
+        stream_attr_svalue.add( attr_svalue297.tree )
+        # AST Rewrite
+        # elements: attr_svalue, BORDER
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
         root_0 = @adaptor.create_flat_list
+        # 292:31: -> ^( BORDER attr_svalue )
+        # at line 292:34: ^( BORDER attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_BORDER.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
 
 
-        # at line 222:14: ( WS )? ASSIGN ( WS )? SVALUE
-        # at line 222:14: ( WS )?
-        alt_45 = 2
-        look_45_0 = @input.peek( 1 )
 
-        if ( look_45_0 == WS )
-          alt_45 = 1
-        end
-        case alt_45
-        when 1
-          # at line 222:14: WS
-          __WS293__ = match( WS, TOKENS_FOLLOWING_WS_IN_attr_svalue_1308 )
-
-          tree_for_WS293 = @adaptor.create_with_payload( __WS293__ )
-          @adaptor.add_child( root_0, tree_for_WS293 )
-
-
-        end
-        __ASSIGN294__ = match( ASSIGN, TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_1311 )
-
-        tree_for_ASSIGN294 = @adaptor.create_with_payload( __ASSIGN294__ )
-        @adaptor.add_child( root_0, tree_for_ASSIGN294 )
-
-        # at line 222:25: ( WS )?
-        alt_46 = 2
-        look_46_0 = @input.peek( 1 )
-
-        if ( look_46_0 == WS )
-          alt_46 = 1
-        end
-        case alt_46
-        when 1
-          # at line 222:25: WS
-          __WS295__ = match( WS, TOKENS_FOLLOWING_WS_IN_attr_svalue_1313 )
-
-          tree_for_WS295 = @adaptor.create_with_payload( __WS295__ )
-          @adaptor.add_child( root_0, tree_for_WS295 )
-
-
-        end
-        __SVALUE296__ = match( SVALUE, TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_1316 )
-
-        tree_for_SVALUE296 = @adaptor.create_with_payload( __SVALUE296__ )
-        @adaptor.add_child( root_0, tree_for_SVALUE296 )
-
+        return_value.tree = root_0
         # - - - - - - - rule clean up - - - - - - - -
         return_value.stop = @input.look( -1 )
 
@@ -5154,14 +5539,366 @@ module HtmlParser
       return return_value
     end
 
+    HrefReturnValue = define_return_scope 
+
+    # 
+    # parser rule href
+    # 
+    # (in HtmlParser.g)
+    # 294:1: href : WS HREF attr_svalue -> ^( HREF attr_svalue ) ;
+    # 
+    def href
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 46 )
+      return_value = HrefReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+      root_0 = nil
+      __WS298__ = nil
+      __HREF299__ = nil
+      attr_svalue300 = nil
+
+      tree_for_WS298 = nil
+      tree_for_HREF299 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_HREF = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token HREF" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
+      begin
+        # at line 294:7: WS HREF attr_svalue
+        __WS298__ = match( WS, TOKENS_FOLLOWING_WS_IN_href_1516 )
+        stream_WS.add( __WS298__ )
+        __HREF299__ = match( HREF, TOKENS_FOLLOWING_HREF_IN_href_1518 )
+        stream_HREF.add( __HREF299__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_href_1520 )
+        attr_svalue300 = attr_svalue
+        @state.following.pop
+        stream_attr_svalue.add( attr_svalue300.tree )
+        # AST Rewrite
+        # elements: attr_svalue, HREF
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 294:27: -> ^( HREF attr_svalue )
+        # at line 294:30: ^( HREF attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_HREF.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
+        # - - - - - - - rule clean up - - - - - - - -
+        return_value.stop = @input.look( -1 )
+
+
+        return_value.tree = @adaptor.rule_post_processing( root_0 )
+        @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 46 )
+
+      end
+      
+      return return_value
+    end
+
+    NameReturnValue = define_return_scope 
+
+    # 
+    # parser rule name
+    # 
+    # (in HtmlParser.g)
+    # 296:1: name : WS ANAME attr_svalue -> ^( ANAME attr_svalue ) ;
+    # 
+    def name
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 47 )
+      return_value = NameReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+      root_0 = nil
+      __WS301__ = nil
+      __ANAME302__ = nil
+      attr_svalue303 = nil
+
+      tree_for_WS301 = nil
+      tree_for_ANAME302 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_ANAME = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token ANAME" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
+      begin
+        # at line 296:7: WS ANAME attr_svalue
+        __WS301__ = match( WS, TOKENS_FOLLOWING_WS_IN_name_1535 )
+        stream_WS.add( __WS301__ )
+        __ANAME302__ = match( ANAME, TOKENS_FOLLOWING_ANAME_IN_name_1537 )
+        stream_ANAME.add( __ANAME302__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_name_1539 )
+        attr_svalue303 = attr_svalue
+        @state.following.pop
+        stream_attr_svalue.add( attr_svalue303.tree )
+        # AST Rewrite
+        # elements: ANAME, attr_svalue
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 296:28: -> ^( ANAME attr_svalue )
+        # at line 296:31: ^( ANAME attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_ANAME.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
+        # - - - - - - - rule clean up - - - - - - - -
+        return_value.stop = @input.look( -1 )
+
+
+        return_value.tree = @adaptor.rule_post_processing( root_0 )
+        @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 47 )
+
+      end
+      
+      return return_value
+    end
+
+    TargetReturnValue = define_return_scope 
+
+    # 
+    # parser rule target
+    # 
+    # (in HtmlParser.g)
+    # 298:1: target : WS TARGET attr_svalue -> ^( TARGET attr_svalue ) ;
+    # 
+    def target
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 48 )
+      return_value = TargetReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+      root_0 = nil
+      __WS304__ = nil
+      __TARGET305__ = nil
+      attr_svalue306 = nil
+
+      tree_for_WS304 = nil
+      tree_for_TARGET305 = nil
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_TARGET = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token TARGET" )
+      stream_attr_svalue = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule attr_svalue" )
+      begin
+        # at line 298:9: WS TARGET attr_svalue
+        __WS304__ = match( WS, TOKENS_FOLLOWING_WS_IN_target_1554 )
+        stream_WS.add( __WS304__ )
+        __TARGET305__ = match( TARGET, TOKENS_FOLLOWING_TARGET_IN_target_1556 )
+        stream_TARGET.add( __TARGET305__ )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_target_1558 )
+        attr_svalue306 = attr_svalue
+        @state.following.pop
+        stream_attr_svalue.add( attr_svalue306.tree )
+        # AST Rewrite
+        # elements: attr_svalue, TARGET
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 298:31: -> ^( TARGET attr_svalue )
+        # at line 298:34: ^( TARGET attr_svalue )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_TARGET.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_attr_svalue.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
+        # - - - - - - - rule clean up - - - - - - - -
+        return_value.stop = @input.look( -1 )
+
+
+        return_value.tree = @adaptor.rule_post_processing( root_0 )
+        @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 48 )
+
+      end
+      
+      return return_value
+    end
+
+    AttrSvalueReturnValue = define_return_scope 
+
+    # 
+    # parser rule attr_svalue
+    # 
+    # (in HtmlParser.g)
+    # 301:1: attr_svalue : ( WS )? ASSIGN ( WS )? SVALUE -> ^( ASSIGN SVALUE ) ;
+    # 
+    def attr_svalue
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 49 )
+      return_value = AttrSvalueReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+      root_0 = nil
+      __WS307__ = nil
+      __ASSIGN308__ = nil
+      __WS309__ = nil
+      __SVALUE310__ = nil
+
+      tree_for_WS307 = nil
+      tree_for_ASSIGN308 = nil
+      tree_for_WS309 = nil
+      tree_for_SVALUE310 = nil
+      stream_SVALUE = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token SVALUE" )
+      stream_WS = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token WS" )
+      stream_ASSIGN = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token ASSIGN" )
+
+      begin
+        # at line 301:14: ( WS )? ASSIGN ( WS )? SVALUE
+        # at line 301:14: ( WS )?
+        alt_44 = 2
+        look_44_0 = @input.peek( 1 )
+
+        if ( look_44_0 == WS )
+          alt_44 = 1
+        end
+        case alt_44
+        when 1
+          # at line 301:14: WS
+          __WS307__ = match( WS, TOKENS_FOLLOWING_WS_IN_attr_svalue_1576 )
+          stream_WS.add( __WS307__ )
+
+        end
+        __ASSIGN308__ = match( ASSIGN, TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_1579 )
+        stream_ASSIGN.add( __ASSIGN308__ )
+        # at line 301:25: ( WS )?
+        alt_45 = 2
+        look_45_0 = @input.peek( 1 )
+
+        if ( look_45_0 == WS )
+          alt_45 = 1
+        end
+        case alt_45
+        when 1
+          # at line 301:25: WS
+          __WS309__ = match( WS, TOKENS_FOLLOWING_WS_IN_attr_svalue_1581 )
+          stream_WS.add( __WS309__ )
+
+        end
+        __SVALUE310__ = match( SVALUE, TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_1584 )
+        stream_SVALUE.add( __SVALUE310__ )
+        # AST Rewrite
+        # elements: ASSIGN, SVALUE
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 301:36: -> ^( ASSIGN SVALUE )
+        # at line 301:39: ^( ASSIGN SVALUE )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( stream_ASSIGN.next_node, root_1 )
+
+        @adaptor.add_child( root_1, stream_SVALUE.next_node )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+        return_value.tree = root_0
+        # - - - - - - - rule clean up - - - - - - - -
+        return_value.stop = @input.look( -1 )
+
+
+        return_value.tree = @adaptor.rule_post_processing( root_0 )
+        @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 49 )
+
+      end
+      
+      return return_value
+    end
+
 
 
     # - - - - - - - - - - DFA definitions - - - - - - - - - - -
     class DFA34 < ANTLR3::DFA
       EOT = unpack( 12, -1 )
       EOF = unpack( 12, -1 )
-      MIN = unpack( 1, 6, 1, -1, 1, 32, 9, -1 )
-      MAX = unpack( 1, 31, 1, -1, 1, 44, 9, -1 )
+      MIN = unpack( 1, 9, 1, -1, 1, 35, 9, -1 )
+      MAX = unpack( 1, 34, 1, -1, 1, 47, 9, -1 )
       ACCEPT = unpack( 1, -1, 1, 10, 1, -1, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 
                        1, 6, 1, 7, 1, 8, 1, 9 )
       SPECIAL = unpack( 12, -1 )
@@ -5192,15 +5929,55 @@ module HtmlParser
 
       def description
         <<-'__dfa_description__'.strip!
-          ()* loopback of 159:22: ( id | style | klass | align | width | height | background | bgcolor | border )*
+          ()* loopback of 232:22: ( id | style | klass | align | width | height | background | bgcolor | border )*
+        __dfa_description__
+      end
+    end
+    class DFA37 < ANTLR3::DFA
+      EOT = unpack( 13, -1 )
+      EOF = unpack( 13, -1 )
+      MIN = unpack( 1, 9, 1, -1, 1, 35, 10, -1 )
+      MAX = unpack( 1, 34, 1, -1, 1, 46, 10, -1 )
+      ACCEPT = unpack( 1, -1, 1, 11, 1, -1, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 
+                       1, 6, 1, 7, 1, 8, 1, 9, 1, 10 )
+      SPECIAL = unpack( 13, -1 )
+      TRANSITION = [
+        unpack( 1, 1, 24, -1, 1, 2 ),
+        unpack(  ),
+        unpack( 1, 3, 1, 4, 1, 5, 1, 11, 1, 10, 1, 6, 2, -1, 1, 8, 1, 9, 
+                 1, 12, 1, 7 ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  ),
+        unpack(  )
+      ].freeze
+      
+      ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
+        if a > 0 and z < 0
+          MAX[ i ] %= 0x10000
+        end
+      end
+      
+      @decision = 37
+      
+
+      def description
+        <<-'__dfa_description__'.strip!
+          ()* loopback of 244:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
         __dfa_description__
       end
     end
     class DFA39 < ANTLR3::DFA
       EOT = unpack( 13, -1 )
       EOF = unpack( 13, -1 )
-      MIN = unpack( 1, 6, 1, -1, 1, 32, 10, -1 )
-      MAX = unpack( 1, 31, 1, -1, 1, 43, 10, -1 )
+      MIN = unpack( 1, 9, 1, -1, 1, 35, 10, -1 )
+      MAX = unpack( 1, 34, 1, -1, 1, 46, 10, -1 )
       ACCEPT = unpack( 1, -1, 1, 11, 1, -1, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 
                        1, 6, 1, 7, 1, 8, 1, 9, 1, 10 )
       SPECIAL = unpack( 13, -1 )
@@ -5232,55 +6009,15 @@ module HtmlParser
 
       def description
         <<-'__dfa_description__'.strip!
-          ()* loopback of 171:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
+          ()* loopback of 249:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
         __dfa_description__
       end
     end
-    class DFA41 < ANTLR3::DFA
-      EOT = unpack( 13, -1 )
-      EOF = unpack( 13, -1 )
-      MIN = unpack( 1, 6, 1, -1, 1, 32, 10, -1 )
-      MAX = unpack( 1, 31, 1, -1, 1, 43, 10, -1 )
-      ACCEPT = unpack( 1, -1, 1, 11, 1, -1, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 
-                       1, 6, 1, 7, 1, 8, 1, 9, 1, 10 )
-      SPECIAL = unpack( 13, -1 )
-      TRANSITION = [
-        unpack( 1, 1, 24, -1, 1, 2 ),
-        unpack(  ),
-        unpack( 1, 3, 1, 4, 1, 5, 1, 11, 1, 10, 1, 6, 2, -1, 1, 8, 1, 9, 
-                 1, 12, 1, 7 ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  ),
-        unpack(  )
-      ].freeze
-      
-      ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
-        if a > 0 and z < 0
-          MAX[ i ] %= 0x10000
-        end
-      end
-      
-      @decision = 41
-      
-
-      def description
-        <<-'__dfa_description__'.strip!
-          ()* loopback of 176:22: ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )*
-        __dfa_description__
-      end
-    end
-    class DFA44 < ANTLR3::DFA
+    class DFA43 < ANTLR3::DFA
       EOT = unpack( 11, -1 )
       EOF = unpack( 11, -1 )
-      MIN = unpack( 1, 29, 1, -1, 1, 32, 8, -1 )
-      MAX = unpack( 1, 31, 1, -1, 1, 41, 8, -1 )
+      MIN = unpack( 1, 32, 1, -1, 1, 35, 8, -1 )
+      MAX = unpack( 1, 34, 1, -1, 1, 44, 8, -1 )
       ACCEPT = unpack( 1, -1, 1, 9, 1, -1, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 
                        1, 6, 1, 7, 1, 8 )
       SPECIAL = unpack( 11, -1 )
@@ -5304,12 +6041,12 @@ module HtmlParser
         end
       end
       
-      @decision = 44
+      @decision = 43
       
 
       def description
         <<-'__dfa_description__'.strip!
-          ()* loopback of 187:22: ( id | style | klass | align | src | alt | width | height )*
+          ()* loopback of 260:22: ( id | style | klass | align | src | alt | width | height )*
         __dfa_description__
       end
     end
@@ -5320,308 +6057,323 @@ module HtmlParser
     def initialize_dfas
       super rescue nil
       @dfa34 = DFA34.new( self, 34 )
+      @dfa37 = DFA37.new( self, 37 )
       @dfa39 = DFA39.new( self, 39 )
-      @dfa41 = DFA41.new( self, 41 )
-      @dfa44 = DFA44.new( self, 44 )
+      @dfa43 = DFA43.new( self, 43 )
 
     end
-    TOKENS_FOLLOWING_OPENING_TAG_IN_document_56 = Set[ 5 ]
-    TOKENS_FOLLOWING_HTML_IN_document_60 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_document_64 = Set[ 4, 7 ]
-    TOKENS_FOLLOWING_head_IN_document_69 = Set[ 4, 7 ]
-    TOKENS_FOLLOWING_body_IN_document_76 = Set[ 7 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_document_82 = Set[ 5 ]
-    TOKENS_FOLLOWING_HTML_IN_document_84 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_document_88 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_head_98 = Set[ 8 ]
-    TOKENS_FOLLOWING_HEAD_IN_head_100 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_head_102 = Set[ 4, 7 ]
-    TOKENS_FOLLOWING_head_element_IN_head_107 = Set[ 7 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_head_113 = Set[ 8 ]
-    TOKENS_FOLLOWING_HEAD_IN_head_115 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_head_117 = Set[ 1 ]
-    TOKENS_FOLLOWING_title_IN_head_element_128 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_title_140 = Set[ 9 ]
-    TOKENS_FOLLOWING_TITLE_IN_title_142 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_title_144 = Set[ 7, 10 ]
-    TOKENS_FOLLOWING_PCDATA_IN_title_148 = Set[ 7 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_title_153 = Set[ 9 ]
-    TOKENS_FOLLOWING_TITLE_IN_title_155 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_title_157 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_body_167 = Set[ 11 ]
-    TOKENS_FOLLOWING_BODY_IN_body_169 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_body_172 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_body_174 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_body_176 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_bgcolor_IN_body_178 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_background_IN_body_180 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_body_184 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_body_content_IN_body_194 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_body_202 = Set[ 11 ]
-    TOKENS_FOLLOWING_BODY_IN_body_204 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_body_206 = Set[ 1 ]
-    TOKENS_FOLLOWING_heading_IN_body_tag_221 = Set[ 1 ]
-    TOKENS_FOLLOWING_block_IN_body_tag_227 = Set[ 1 ]
-    TOKENS_FOLLOWING_body_tag_IN_body_content_238 = Set[ 1 ]
-    TOKENS_FOLLOWING_text_IN_body_content_244 = Set[ 1 ]
-    TOKENS_FOLLOWING_h1_IN_heading_257 = Set[ 1 ]
-    TOKENS_FOLLOWING_h2_IN_heading_261 = Set[ 1 ]
-    TOKENS_FOLLOWING_h3_IN_heading_265 = Set[ 1 ]
-    TOKENS_FOLLOWING_h4_IN_heading_269 = Set[ 1 ]
-    TOKENS_FOLLOWING_h5_IN_heading_273 = Set[ 1 ]
-    TOKENS_FOLLOWING_h6_IN_heading_277 = Set[ 1 ]
-    TOKENS_FOLLOWING_paragraph_IN_block_289 = Set[ 1 ]
-    TOKENS_FOLLOWING_div_IN_block_294 = Set[ 1 ]
-    TOKENS_FOLLOWING_table_IN_block_299 = Set[ 1 ]
-    TOKENS_FOLLOWING_italic_IN_font_311 = Set[ 1 ]
-    TOKENS_FOLLOWING_bold_IN_font_316 = Set[ 1 ]
-    TOKENS_FOLLOWING_underline_IN_font_321 = Set[ 1 ]
-    TOKENS_FOLLOWING_anchor_IN_special_333 = Set[ 1 ]
-    TOKENS_FOLLOWING_img_IN_special_339 = Set[ 1 ]
-    TOKENS_FOLLOWING_br_IN_special_344 = Set[ 1 ]
-    TOKENS_FOLLOWING_font_IN_text_tag_356 = Set[ 1 ]
-    TOKENS_FOLLOWING_special_IN_text_tag_362 = Set[ 1 ]
-    TOKENS_FOLLOWING_PCDATA_IN_text_372 = Set[ 1 ]
-    TOKENS_FOLLOWING_text_tag_IN_text_378 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_h1_395 = Set[ 12 ]
-    TOKENS_FOLLOWING_H1_IN_h1_397 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_h1_400 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_h1_402 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_h1_404 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_h1_406 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h1_410 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_block_IN_h1_415 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_h1_419 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_h1_425 = Set[ 12 ]
-    TOKENS_FOLLOWING_H1_IN_h1_427 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h1_429 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_h2_440 = Set[ 13 ]
-    TOKENS_FOLLOWING_H2_IN_h2_442 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_h2_445 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_h2_447 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_h2_449 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_h2_451 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h2_455 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_block_IN_h2_460 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_h2_464 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_h2_470 = Set[ 13 ]
-    TOKENS_FOLLOWING_H2_IN_h2_472 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h2_474 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_h3_485 = Set[ 14 ]
-    TOKENS_FOLLOWING_H3_IN_h3_487 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_h3_490 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_h3_492 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_h3_494 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_h3_496 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h3_500 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_block_IN_h3_505 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_h3_509 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_h3_515 = Set[ 14 ]
-    TOKENS_FOLLOWING_H3_IN_h3_517 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h3_519 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_h4_530 = Set[ 15 ]
-    TOKENS_FOLLOWING_H4_IN_h4_532 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_h4_535 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_h4_537 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_h4_539 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_h4_541 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h4_545 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_block_IN_h4_550 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_h4_554 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_h4_560 = Set[ 15 ]
-    TOKENS_FOLLOWING_H4_IN_h4_562 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h4_564 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_h5_575 = Set[ 16 ]
-    TOKENS_FOLLOWING_H5_IN_h5_577 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_h5_580 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_h5_582 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_h5_584 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_h5_586 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h5_590 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_block_IN_h5_595 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_h5_599 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_h5_605 = Set[ 16 ]
-    TOKENS_FOLLOWING_H5_IN_h5_607 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h5_609 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_h6_620 = Set[ 17 ]
-    TOKENS_FOLLOWING_H6_IN_h6_622 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_h6_625 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_h6_627 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_h6_629 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_h6_631 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h6_635 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_block_IN_h6_640 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_h6_644 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_h6_650 = Set[ 17 ]
-    TOKENS_FOLLOWING_H6_IN_h6_652 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_h6_654 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_paragraph_667 = Set[ 18 ]
-    TOKENS_FOLLOWING_P_IN_paragraph_669 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_paragraph_672 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_paragraph_674 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_paragraph_676 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_paragraph_678 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_paragraph_682 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_paragraph_687 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_paragraph_693 = Set[ 18 ]
-    TOKENS_FOLLOWING_P_IN_paragraph_695 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_paragraph_697 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_div_707 = Set[ 19 ]
-    TOKENS_FOLLOWING_DIV_IN_div_709 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_div_712 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_div_714 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_div_716 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_div_718 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_div_722 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_body_content_IN_div_727 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_div_733 = Set[ 19 ]
-    TOKENS_FOLLOWING_DIV_IN_div_735 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_div_737 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_italic_749 = Set[ 20 ]
-    TOKENS_FOLLOWING_I_IN_italic_751 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_italic_753 = Set[ 4, 10 ]
-    TOKENS_FOLLOWING_text_IN_italic_758 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_italic_764 = Set[ 20 ]
-    TOKENS_FOLLOWING_I_IN_italic_766 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_italic_768 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_bold_784 = Set[ 21 ]
-    TOKENS_FOLLOWING_B_IN_bold_786 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_bold_788 = Set[ 4, 10 ]
-    TOKENS_FOLLOWING_text_IN_bold_793 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_bold_799 = Set[ 21 ]
-    TOKENS_FOLLOWING_B_IN_bold_801 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_bold_803 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_underline_817 = Set[ 22 ]
-    TOKENS_FOLLOWING_U_IN_underline_819 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_underline_821 = Set[ 4, 10 ]
-    TOKENS_FOLLOWING_text_IN_underline_829 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_underline_838 = Set[ 22 ]
-    TOKENS_FOLLOWING_U_IN_underline_840 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_underline_842 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_table_866 = Set[ 23 ]
-    TOKENS_FOLLOWING_TABLE_IN_table_868 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_table_871 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_table_873 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_table_875 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_table_877 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_width_IN_table_879 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_height_IN_table_881 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_background_IN_table_883 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_bgcolor_IN_table_885 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_border_IN_table_887 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_table_891 = Set[ 4, 10 ]
-    TOKENS_FOLLOWING_PCDATA_IN_table_897 = Set[ 4, 10 ]
-    TOKENS_FOLLOWING_tr_IN_table_905 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_table_912 = Set[ 23 ]
-    TOKENS_FOLLOWING_TABLE_IN_table_914 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_table_916 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_tr_926 = Set[ 24 ]
-    TOKENS_FOLLOWING_TR_IN_tr_928 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_tr_930 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_PCDATA_IN_tr_936 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_th_IN_tr_944 = Set[ 4, 7 ]
-    TOKENS_FOLLOWING_td_IN_tr_948 = Set[ 4, 7 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_tr_955 = Set[ 24 ]
-    TOKENS_FOLLOWING_TR_IN_tr_957 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_tr_959 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_th_970 = Set[ 25 ]
-    TOKENS_FOLLOWING_TH_IN_th_972 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_th_975 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_th_977 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_th_979 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_th_981 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_valign_IN_th_983 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_width_IN_th_985 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_height_IN_th_987 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_background_IN_th_989 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_bgcolor_IN_th_991 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_bordercolor_IN_th_993 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_th_997 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_body_content_IN_th_1002 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_th_1008 = Set[ 25 ]
-    TOKENS_FOLLOWING_TH_IN_th_1010 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_th_1012 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_td_1023 = Set[ 26 ]
-    TOKENS_FOLLOWING_TD_IN_td_1025 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_id_IN_td_1028 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_style_IN_td_1030 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_klass_IN_td_1032 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_align_IN_td_1034 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_valign_IN_td_1036 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_width_IN_td_1038 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_height_IN_td_1040 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_background_IN_td_1042 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_bgcolor_IN_td_1044 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_bordercolor_IN_td_1046 = Set[ 6, 31 ]
-    TOKENS_FOLLOWING_END_TAG_IN_td_1050 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_body_content_IN_td_1055 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_td_1061 = Set[ 26 ]
-    TOKENS_FOLLOWING_TD_IN_td_1063 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_td_1065 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_anchor_1077 = Set[ 27 ]
-    TOKENS_FOLLOWING_A_IN_anchor_1079 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_anchor_1081 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_text_IN_anchor_1086 = Set[ 4, 7, 10 ]
-    TOKENS_FOLLOWING_CLOSING_TAG_IN_anchor_1092 = Set[ 27 ]
-    TOKENS_FOLLOWING_A_IN_anchor_1094 = Set[ 6 ]
-    TOKENS_FOLLOWING_END_TAG_IN_anchor_1096 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_img_1107 = Set[ 28 ]
-    TOKENS_FOLLOWING_IMG_IN_img_1109 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_id_IN_img_1112 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_style_IN_img_1114 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_klass_IN_img_1116 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_align_IN_img_1118 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_src_IN_img_1120 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_alt_IN_img_1122 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_width_IN_img_1124 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_height_IN_img_1126 = Set[ 29, 31 ]
-    TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_img_1132 = Set[ 1 ]
-    TOKENS_FOLLOWING_OPENING_TAG_IN_br_1146 = Set[ 30 ]
-    TOKENS_FOLLOWING_BR_IN_br_1148 = Set[ 29 ]
-    TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_br_1152 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_id_1166 = Set[ 32 ]
-    TOKENS_FOLLOWING_ID_IN_id_1168 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_id_1170 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_style_1175 = Set[ 33 ]
-    TOKENS_FOLLOWING_STYLE_IN_style_1177 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_style_1179 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_klass_1184 = Set[ 34 ]
-    TOKENS_FOLLOWING_CLASS_IN_klass_1186 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_klass_1188 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_bgcolor_1195 = Set[ 35 ]
-    TOKENS_FOLLOWING_BGCOLOR_IN_bgcolor_1197 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_bgcolor_1199 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_background_1206 = Set[ 36 ]
-    TOKENS_FOLLOWING_BACKGROUND_IN_background_1208 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_background_1210 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_align_1217 = Set[ 37 ]
-    TOKENS_FOLLOWING_ALIGN_IN_align_1219 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_align_1221 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_src_1228 = Set[ 38 ]
-    TOKENS_FOLLOWING_SRC_IN_src_1230 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_src_1232 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_alt_1239 = Set[ 39 ]
-    TOKENS_FOLLOWING_ALT_IN_alt_1241 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_alt_1243 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_width_1250 = Set[ 40 ]
-    TOKENS_FOLLOWING_WIDTH_IN_width_1252 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_width_1254 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_height_1261 = Set[ 41 ]
-    TOKENS_FOLLOWING_HEIGHT_IN_height_1263 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_height_1265 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_bordercolor_1272 = Set[ 42 ]
-    TOKENS_FOLLOWING_BORDERCOLOR_IN_bordercolor_1274 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_bordercolor_1276 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_valign_1283 = Set[ 43 ]
-    TOKENS_FOLLOWING_VALIGN_IN_valign_1285 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_valign_1287 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_border_1294 = Set[ 44 ]
-    TOKENS_FOLLOWING_BORDER_IN_border_1296 = Set[ 31, 45 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_border_1298 = Set[ 1 ]
-    TOKENS_FOLLOWING_WS_IN_attr_svalue_1308 = Set[ 45 ]
-    TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_1311 = Set[ 31, 46 ]
-    TOKENS_FOLLOWING_WS_IN_attr_svalue_1313 = Set[ 46 ]
-    TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_1316 = Set[ 1 ]
+    TOKENS_FOLLOWING_html_IN_document_38 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_html_52 = Set[ 8 ]
+    TOKENS_FOLLOWING_HTML_IN_html_54 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_html_56 = Set[ 7, 10 ]
+    TOKENS_FOLLOWING_head_IN_html_62 = Set[ 7, 10 ]
+    TOKENS_FOLLOWING_body_IN_html_69 = Set[ 10 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_html_75 = Set[ 8 ]
+    TOKENS_FOLLOWING_HTML_IN_html_77 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_html_79 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_head_107 = Set[ 11 ]
+    TOKENS_FOLLOWING_HEAD_IN_head_109 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_head_111 = Set[ 7, 10 ]
+    TOKENS_FOLLOWING_head_element_IN_head_116 = Set[ 10 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_head_122 = Set[ 11 ]
+    TOKENS_FOLLOWING_HEAD_IN_head_124 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_head_126 = Set[ 1 ]
+    TOKENS_FOLLOWING_title_IN_head_element_150 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_title_169 = Set[ 12 ]
+    TOKENS_FOLLOWING_TITLE_IN_title_171 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_title_173 = Set[ 10, 13 ]
+    TOKENS_FOLLOWING_PCDATA_IN_title_177 = Set[ 10 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_title_182 = Set[ 12 ]
+    TOKENS_FOLLOWING_TITLE_IN_title_184 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_title_186 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_body_209 = Set[ 14 ]
+    TOKENS_FOLLOWING_BODY_IN_body_211 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_body_214 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_body_216 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_body_218 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_bgcolor_IN_body_220 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_background_IN_body_222 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_body_226 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_body_content_IN_body_236 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_body_244 = Set[ 14 ]
+    TOKENS_FOLLOWING_BODY_IN_body_246 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_body_248 = Set[ 1 ]
+    TOKENS_FOLLOWING_heading_IN_body_tag_274 = Set[ 1 ]
+    TOKENS_FOLLOWING_block_IN_body_tag_280 = Set[ 1 ]
+    TOKENS_FOLLOWING_body_tag_IN_body_content_291 = Set[ 1 ]
+    TOKENS_FOLLOWING_text_IN_body_content_297 = Set[ 1 ]
+    TOKENS_FOLLOWING_h1_IN_heading_310 = Set[ 1 ]
+    TOKENS_FOLLOWING_h2_IN_heading_314 = Set[ 1 ]
+    TOKENS_FOLLOWING_h3_IN_heading_318 = Set[ 1 ]
+    TOKENS_FOLLOWING_h4_IN_heading_322 = Set[ 1 ]
+    TOKENS_FOLLOWING_h5_IN_heading_326 = Set[ 1 ]
+    TOKENS_FOLLOWING_h6_IN_heading_330 = Set[ 1 ]
+    TOKENS_FOLLOWING_paragraph_IN_block_342 = Set[ 1 ]
+    TOKENS_FOLLOWING_div_IN_block_347 = Set[ 1 ]
+    TOKENS_FOLLOWING_table_IN_block_352 = Set[ 1 ]
+    TOKENS_FOLLOWING_italic_IN_font_364 = Set[ 1 ]
+    TOKENS_FOLLOWING_bold_IN_font_369 = Set[ 1 ]
+    TOKENS_FOLLOWING_underline_IN_font_374 = Set[ 1 ]
+    TOKENS_FOLLOWING_anchor_IN_special_386 = Set[ 1 ]
+    TOKENS_FOLLOWING_img_IN_special_392 = Set[ 1 ]
+    TOKENS_FOLLOWING_br_IN_special_397 = Set[ 1 ]
+    TOKENS_FOLLOWING_font_IN_text_tag_409 = Set[ 1 ]
+    TOKENS_FOLLOWING_special_IN_text_tag_415 = Set[ 1 ]
+    TOKENS_FOLLOWING_PCDATA_IN_text_428 = Set[ 1 ]
+    TOKENS_FOLLOWING_text_tag_IN_text_434 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_h1_451 = Set[ 15 ]
+    TOKENS_FOLLOWING_H1_IN_h1_453 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_h1_456 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_h1_458 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_h1_460 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_h1_462 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h1_466 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_block_IN_h1_471 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_h1_475 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_h1_481 = Set[ 15 ]
+    TOKENS_FOLLOWING_H1_IN_h1_483 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h1_485 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_h2_496 = Set[ 16 ]
+    TOKENS_FOLLOWING_H2_IN_h2_498 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_h2_501 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_h2_503 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_h2_505 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_h2_507 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h2_511 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_block_IN_h2_516 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_h2_520 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_h2_526 = Set[ 16 ]
+    TOKENS_FOLLOWING_H2_IN_h2_528 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h2_530 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_h3_541 = Set[ 17 ]
+    TOKENS_FOLLOWING_H3_IN_h3_543 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_h3_546 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_h3_548 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_h3_550 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_h3_552 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h3_556 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_block_IN_h3_561 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_h3_565 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_h3_571 = Set[ 17 ]
+    TOKENS_FOLLOWING_H3_IN_h3_573 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h3_575 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_h4_586 = Set[ 18 ]
+    TOKENS_FOLLOWING_H4_IN_h4_588 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_h4_591 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_h4_593 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_h4_595 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_h4_597 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h4_601 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_block_IN_h4_606 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_h4_610 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_h4_616 = Set[ 18 ]
+    TOKENS_FOLLOWING_H4_IN_h4_618 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h4_620 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_h5_631 = Set[ 19 ]
+    TOKENS_FOLLOWING_H5_IN_h5_633 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_h5_636 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_h5_638 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_h5_640 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_h5_642 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h5_646 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_block_IN_h5_651 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_h5_655 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_h5_661 = Set[ 19 ]
+    TOKENS_FOLLOWING_H5_IN_h5_663 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h5_665 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_h6_676 = Set[ 20 ]
+    TOKENS_FOLLOWING_H6_IN_h6_678 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_h6_681 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_h6_683 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_h6_685 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_h6_687 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h6_691 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_block_IN_h6_696 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_h6_700 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_h6_706 = Set[ 20 ]
+    TOKENS_FOLLOWING_H6_IN_h6_708 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_h6_710 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_paragraph_723 = Set[ 21 ]
+    TOKENS_FOLLOWING_P_IN_paragraph_727 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_paragraph_730 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_paragraph_732 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_paragraph_734 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_paragraph_736 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_paragraph_740 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_paragraph_745 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_paragraph_751 = Set[ 21 ]
+    TOKENS_FOLLOWING_P_IN_paragraph_753 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_paragraph_755 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_div_765 = Set[ 22 ]
+    TOKENS_FOLLOWING_DIV_IN_div_769 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_div_772 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_div_774 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_div_776 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_div_778 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_div_782 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_body_content_IN_div_787 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_div_793 = Set[ 22 ]
+    TOKENS_FOLLOWING_DIV_IN_div_795 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_div_797 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_italic_809 = Set[ 23 ]
+    TOKENS_FOLLOWING_I_IN_italic_811 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_italic_813 = Set[ 7, 13 ]
+    TOKENS_FOLLOWING_text_IN_italic_818 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_italic_824 = Set[ 23 ]
+    TOKENS_FOLLOWING_I_IN_italic_826 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_italic_828 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_bold_857 = Set[ 24 ]
+    TOKENS_FOLLOWING_B_IN_bold_859 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_bold_861 = Set[ 7, 13 ]
+    TOKENS_FOLLOWING_text_IN_bold_866 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_bold_872 = Set[ 24 ]
+    TOKENS_FOLLOWING_B_IN_bold_874 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_bold_876 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_underline_903 = Set[ 25 ]
+    TOKENS_FOLLOWING_U_IN_underline_905 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_underline_907 = Set[ 7, 13 ]
+    TOKENS_FOLLOWING_text_IN_underline_915 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_underline_924 = Set[ 25 ]
+    TOKENS_FOLLOWING_U_IN_underline_926 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_underline_928 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_table_965 = Set[ 26 ]
+    TOKENS_FOLLOWING_TABLE_IN_table_967 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_table_970 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_table_972 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_table_974 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_table_976 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_width_IN_table_978 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_height_IN_table_980 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_background_IN_table_982 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_bgcolor_IN_table_984 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_border_IN_table_986 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_table_990 = Set[ 7 ]
+    TOKENS_FOLLOWING_tr_IN_table_1000 = Set[ 7, 10 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_table_1007 = Set[ 26 ]
+    TOKENS_FOLLOWING_TABLE_IN_table_1009 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_table_1011 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_tr_1021 = Set[ 27 ]
+    TOKENS_FOLLOWING_TR_IN_tr_1023 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_tr_1025 = Set[ 7, 10 ]
+    TOKENS_FOLLOWING_th_IN_tr_1035 = Set[ 7, 10 ]
+    TOKENS_FOLLOWING_td_IN_tr_1039 = Set[ 7, 10 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_tr_1046 = Set[ 27 ]
+    TOKENS_FOLLOWING_TR_IN_tr_1048 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_tr_1050 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_th_1061 = Set[ 28 ]
+    TOKENS_FOLLOWING_TH_IN_th_1063 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_th_1066 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_th_1068 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_th_1070 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_th_1072 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_valign_IN_th_1074 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_width_IN_th_1076 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_height_IN_th_1078 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_background_IN_th_1080 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_bgcolor_IN_th_1082 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_bordercolor_IN_th_1084 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_th_1088 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_body_content_IN_th_1093 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_th_1099 = Set[ 28 ]
+    TOKENS_FOLLOWING_TH_IN_th_1101 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_th_1103 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_td_1114 = Set[ 29 ]
+    TOKENS_FOLLOWING_TD_IN_td_1116 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_id_IN_td_1119 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_style_IN_td_1121 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_klass_IN_td_1123 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_align_IN_td_1125 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_valign_IN_td_1127 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_width_IN_td_1129 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_height_IN_td_1131 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_background_IN_td_1133 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_bgcolor_IN_td_1135 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_bordercolor_IN_td_1137 = Set[ 9, 34 ]
+    TOKENS_FOLLOWING_END_TAG_IN_td_1141 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_body_content_IN_td_1146 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_td_1152 = Set[ 29 ]
+    TOKENS_FOLLOWING_TD_IN_td_1154 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_td_1156 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_anchor_1168 = Set[ 30 ]
+    TOKENS_FOLLOWING_A_IN_anchor_1170 = Set[ 34 ]
+    TOKENS_FOLLOWING_id_IN_anchor_1173 = Set[ 9 ]
+    TOKENS_FOLLOWING_style_IN_anchor_1175 = Set[ 9 ]
+    TOKENS_FOLLOWING_klass_IN_anchor_1177 = Set[ 9 ]
+    TOKENS_FOLLOWING_align_IN_anchor_1179 = Set[ 9 ]
+    TOKENS_FOLLOWING_href_IN_anchor_1181 = Set[ 9 ]
+    TOKENS_FOLLOWING_name_IN_anchor_1183 = Set[ 9 ]
+    TOKENS_FOLLOWING_target_IN_anchor_1185 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_anchor_1188 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_text_IN_anchor_1193 = Set[ 7, 10, 13 ]
+    TOKENS_FOLLOWING_CLOSING_TAG_IN_anchor_1199 = Set[ 30 ]
+    TOKENS_FOLLOWING_A_IN_anchor_1201 = Set[ 9 ]
+    TOKENS_FOLLOWING_END_TAG_IN_anchor_1203 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_img_1214 = Set[ 31 ]
+    TOKENS_FOLLOWING_IMG_IN_img_1216 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_id_IN_img_1219 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_style_IN_img_1221 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_klass_IN_img_1223 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_align_IN_img_1225 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_src_IN_img_1227 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_alt_IN_img_1229 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_width_IN_img_1231 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_height_IN_img_1233 = Set[ 32, 34 ]
+    TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_img_1239 = Set[ 1 ]
+    TOKENS_FOLLOWING_OPENING_TAG_IN_br_1253 = Set[ 33 ]
+    TOKENS_FOLLOWING_BR_IN_br_1255 = Set[ 32 ]
+    TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_br_1259 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_id_1273 = Set[ 35 ]
+    TOKENS_FOLLOWING_ID_IN_id_1275 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_id_1277 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_style_1290 = Set[ 36 ]
+    TOKENS_FOLLOWING_STYLE_IN_style_1292 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_style_1294 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_klass_1307 = Set[ 37 ]
+    TOKENS_FOLLOWING_CLASS_IN_klass_1309 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_klass_1311 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_bgcolor_1326 = Set[ 38 ]
+    TOKENS_FOLLOWING_BGCOLOR_IN_bgcolor_1328 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_bgcolor_1330 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_background_1345 = Set[ 39 ]
+    TOKENS_FOLLOWING_BACKGROUND_IN_background_1347 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_background_1349 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_align_1364 = Set[ 40 ]
+    TOKENS_FOLLOWING_ALIGN_IN_align_1366 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_align_1368 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_src_1383 = Set[ 41 ]
+    TOKENS_FOLLOWING_SRC_IN_src_1385 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_src_1387 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_alt_1402 = Set[ 42 ]
+    TOKENS_FOLLOWING_ALT_IN_alt_1404 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_alt_1406 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_width_1421 = Set[ 43 ]
+    TOKENS_FOLLOWING_WIDTH_IN_width_1423 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_width_1425 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_height_1440 = Set[ 44 ]
+    TOKENS_FOLLOWING_HEIGHT_IN_height_1442 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_height_1444 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_bordercolor_1459 = Set[ 45 ]
+    TOKENS_FOLLOWING_BORDERCOLOR_IN_bordercolor_1461 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_bordercolor_1463 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_valign_1478 = Set[ 46 ]
+    TOKENS_FOLLOWING_VALIGN_IN_valign_1480 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_valign_1482 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_border_1497 = Set[ 47 ]
+    TOKENS_FOLLOWING_BORDER_IN_border_1499 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_border_1501 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_href_1516 = Set[ 48 ]
+    TOKENS_FOLLOWING_HREF_IN_href_1518 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_href_1520 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_name_1535 = Set[ 49 ]
+    TOKENS_FOLLOWING_ANAME_IN_name_1537 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_name_1539 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_target_1554 = Set[ 50 ]
+    TOKENS_FOLLOWING_TARGET_IN_target_1556 = Set[ 34, 51 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_target_1558 = Set[ 1 ]
+    TOKENS_FOLLOWING_WS_IN_attr_svalue_1576 = Set[ 51 ]
+    TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_1579 = Set[ 34, 52 ]
+    TOKENS_FOLLOWING_WS_IN_attr_svalue_1581 = Set[ 52 ]
+    TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_1584 = Set[ 1 ]
 
   end # class Parser < ANTLR3::Parser
 
