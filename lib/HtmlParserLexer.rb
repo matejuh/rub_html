@@ -5,7 +5,7 @@
 # Generated using ANTLR version: 3.2.1-SNAPSHOT Jul 31, 2010 19:34:52
 # Ruby runtime library version: 1.8.11
 # Input grammar file: HtmlParser.g
-# Generated at: 2011-12-23 01:49:15
+# Generated at: 2011-12-23 13:58:20
 # 
 
 # ~~~> start load path setup
@@ -70,15 +70,15 @@ module HtmlParser
                    :HEAD => 11, :HREF => 48, :TABLE => 26, :VALIGN => 46, 
                    :HTML => 8, :ID => 35, :EOF => -1, :BORDER => 47, :PCDATA => 13, 
                    :NAME => 55, :BACKGROUND => 39, :ALT => 42, :BODY => 14, 
-                   :DIGIT => 56, :ALIGN => 40, :ATTR => 6, :IMG => 31, :TD => 29, 
-                   :A => 30, :BR => 33, :B => 24, :TH => 28, :HEIGHT => 44, 
-                   :ANAME => 49, :I => 23, :TR => 27, :SRC => 41, :U => 25, 
-                   :ATTRS => 5, :P => 21, :TARGET => 50, :END_NOPAIR_TAG => 32, 
-                   :TAG => 4, :NAMECHAR => 54, :BGCOLOR => 38, :CLOSING_TAG => 10, 
+                   :DIGIT => 56, :ALIGN => 40, :IMG => 31, :TD => 29, :A => 30, 
+                   :BR => 33, :B => 24, :TH => 28, :HEIGHT => 44, :ANAME => 49, 
+                   :I => 23, :TR => 27, :SRC => 41, :U => 25, :ATTRS => 5, 
+                   :P => 21, :TARGET => 50, :END_NOPAIR_TAG => 32, :TAG => 4, 
+                   :NAMECHAR => 54, :BGCOLOR => 38, :CLOSING_TAG => 10, 
                    :SVALUE => 52, :WS => 34, :WIDTH => 43, :ASSIGN => 51, 
                    :STYLE => 36, :H6 => 20, :H5 => 19, :H4 => 18, :H3 => 17, 
                    :H2 => 16, :H1 => 15, :DIV => 22, :OPENING_TAG => 7, 
-                   :TITLE => 12 )
+                   :DATA => 6, :TITLE => 12 )
     
   end
 
@@ -130,7 +130,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 304:7: 'html'
+      # at line 306:7: 'html'
       match( "html" )
 
       
@@ -154,7 +154,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 306:7: 'head'
+      # at line 308:7: 'head'
       match( "head" )
 
       
@@ -178,7 +178,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 308:8: 'title'
+      # at line 310:8: 'title'
       match( "title" )
 
       
@@ -202,7 +202,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 310:7: 'body'
+      # at line 312:7: 'body'
       match( "body" )
 
       
@@ -226,7 +226,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 313:5: 'h1'
+      # at line 315:5: 'h1'
       match( "h1" )
 
       
@@ -250,7 +250,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 314:5: 'h2'
+      # at line 316:5: 'h2'
       match( "h2" )
 
       
@@ -274,7 +274,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 315:5: 'h3'
+      # at line 317:5: 'h3'
       match( "h3" )
 
       
@@ -298,7 +298,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 316:5: 'h4'
+      # at line 318:5: 'h4'
       match( "h4" )
 
       
@@ -322,7 +322,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 317:5: 'h5'
+      # at line 319:5: 'h5'
       match( "h5" )
 
       
@@ -346,7 +346,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 318:5: 'h6'
+      # at line 320:5: 'h6'
       match( "h6" )
 
       
@@ -370,7 +370,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 320:6: 'p'
+      # at line 322:6: 'p'
       match( 0x70 )
 
       
@@ -394,7 +394,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 321:6: 'div'
+      # at line 323:6: 'div'
       match( "div" )
 
       
@@ -418,7 +418,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 323:4: 'i'
+      # at line 325:4: 'i'
       match( 0x69 )
 
       
@@ -442,7 +442,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 324:4: 'b'
+      # at line 326:4: 'b'
       match( 0x62 )
 
       
@@ -466,7 +466,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 325:4: 'u'
+      # at line 327:4: 'u'
       match( 0x75 )
 
       
@@ -490,7 +490,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 327:8: 'table'
+      # at line 329:8: 'table'
       match( "table" )
 
       
@@ -514,7 +514,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 328:5: 'tr'
+      # at line 330:5: 'tr'
       match( "tr" )
 
       
@@ -538,7 +538,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 329:5: 'th'
+      # at line 331:5: 'th'
       match( "th" )
 
       
@@ -562,7 +562,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 330:5: 'td'
+      # at line 332:5: 'td'
       match( "td" )
 
       
@@ -586,7 +586,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 332:7: 'a'
+      # at line 334:7: 'a'
       match( 0x61 )
 
       
@@ -610,7 +610,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 333:7: 'img'
+      # at line 335:7: 'img'
       match( "img" )
 
       
@@ -634,7 +634,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 334:7: 'br'
+      # at line 336:7: 'br'
       match( "br" )
 
       
@@ -658,12 +658,12 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 336:14: '<' ( WS )?
+      # at line 338:14: '<' ( WS )?
       match( 0x3c )
       # --> action
        @tagMode = true 
       # <-- action
-      # at line 336:37: ( WS )?
+      # at line 338:37: ( WS )?
       alt_1 = 2
       look_1_0 = @input.peek( 1 )
 
@@ -674,7 +674,7 @@ module HtmlParser
       end
       case alt_1
       when 1
-        # at line 336:37: WS
+        # at line 338:37: WS
         ws!
 
       end
@@ -700,12 +700,12 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 337:14: '</' ( WS )?
+      # at line 339:14: '</' ( WS )?
       match( "</" )
       # --> action
        @tagMode = true 
       # <-- action
-      # at line 337:39: ( WS )?
+      # at line 339:39: ( WS )?
       alt_2 = 2
       look_2_0 = @input.peek( 1 )
 
@@ -716,7 +716,7 @@ module HtmlParser
       end
       case alt_2
       when 1
-        # at line 337:39: WS
+        # at line 339:39: WS
         ws!
 
       end
@@ -742,7 +742,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 338:10: WS '>' WS
+      # at line 340:10: WS '>' WS
       ws!
       match( 0x3e )
       ws!
@@ -771,7 +771,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 339:17: WS '/>' WS
+      # at line 341:17: WS '/>' WS
       ws!
       match( "/>" )
       ws!
@@ -800,7 +800,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 342:6: 'id'
+      # at line 344:6: 'id'
       match( "id" )
 
       
@@ -824,7 +824,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 343:8: 'class'
+      # at line 345:8: 'class'
       match( "class" )
 
       
@@ -848,7 +848,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 344:8: 'style'
+      # at line 346:8: 'style'
       match( "style" )
 
       
@@ -872,7 +872,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 345:10: 'bgcolor'
+      # at line 347:10: 'bgcolor'
       match( "bgcolor" )
 
       
@@ -896,7 +896,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 346:13: 'background'
+      # at line 348:13: 'background'
       match( "background" )
 
       
@@ -920,7 +920,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 347:8: 'align'
+      # at line 349:8: 'align'
       match( "align" )
 
       
@@ -944,7 +944,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 348:6: 'src'
+      # at line 350:6: 'src'
       match( "src" )
 
       
@@ -968,7 +968,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 349:6: 'alt'
+      # at line 351:6: 'alt'
       match( "alt" )
 
       
@@ -992,7 +992,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 350:8: 'width'
+      # at line 352:8: 'width'
       match( "width" )
 
       
@@ -1016,7 +1016,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 351:9: 'height'
+      # at line 353:9: 'height'
       match( "height" )
 
       
@@ -1040,7 +1040,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 352:9: 'border'
+      # at line 354:9: 'border'
       match( "border" )
 
       
@@ -1064,7 +1064,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 353:9: 'valign'
+      # at line 355:9: 'valign'
       match( "valign" )
 
       
@@ -1088,7 +1088,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 354:14: 'bordercolor'
+      # at line 356:14: 'bordercolor'
       match( "bordercolor" )
 
       
@@ -1112,7 +1112,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 355:8: 'name'
+      # at line 357:8: 'name'
       match( "name" )
 
       
@@ -1136,7 +1136,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 356:7: 'href'
+      # at line 358:7: 'href'
       match( "href" )
 
       
@@ -1160,7 +1160,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 357:9: 'target'
+      # at line 359:9: 'target'
       match( "target" )
 
       
@@ -1184,9 +1184,9 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 362:9: {...}? => ( '\"' (~ '\"' )* '\"' | '\\'' (~ '\\'' )* '\\'' )
+      # at line 364:9: {...}? => ( '\"' (~ '\"' )* '\"' | '\\'' (~ '\\'' )* '\\'' )
       raise FailedPredicate( "SVALUE", " @tagMode " ) unless ( (  @tagMode  ) )
-      # at line 363:9: ( '\"' (~ '\"' )* '\"' | '\\'' (~ '\\'' )* '\\'' )
+      # at line 365:9: ( '\"' (~ '\"' )* '\"' | '\\'' (~ '\\'' )* '\\'' )
       alt_5 = 2
       look_5_0 = @input.peek( 1 )
 
@@ -1199,9 +1199,9 @@ module HtmlParser
       end
       case alt_5
       when 1
-        # at line 363:11: '\"' (~ '\"' )* '\"'
+        # at line 365:11: '\"' (~ '\"' )* '\"'
         match( 0x22 )
-        # at line 363:15: (~ '\"' )*
+        # at line 365:15: (~ '\"' )*
         while true # decision 3
           alt_3 = 2
           look_3_0 = @input.peek( 1 )
@@ -1212,7 +1212,7 @@ module HtmlParser
           end
           case alt_3
           when 1
-            # at line 363:16: ~ '\"'
+            # at line 365:16: ~ '\"'
             if @input.peek( 1 ).between?( 0x0, 0x21 ) || @input.peek( 1 ).between?( 0x23, 0xff )
               @input.consume
             else
@@ -1230,9 +1230,9 @@ module HtmlParser
         match( 0x22 )
 
       when 2
-        # at line 364:11: '\\'' (~ '\\'' )* '\\''
+        # at line 366:11: '\\'' (~ '\\'' )* '\\''
         match( 0x27 )
-        # at line 364:16: (~ '\\'' )*
+        # at line 366:16: (~ '\\'' )*
         while true # decision 4
           alt_4 = 2
           look_4_0 = @input.peek( 1 )
@@ -1243,7 +1243,7 @@ module HtmlParser
           end
           case alt_4
           when 1
-            # at line 364:17: ~ '\\''
+            # at line 366:17: ~ '\\''
             if @input.peek( 1 ).between?( 0x0, 0x26 ) || @input.peek( 1 ).between?( 0x28, 0xff )
               @input.consume
             else
@@ -1283,7 +1283,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 368:7: ( LETTER | '_' | ':' ) ( NAMECHAR )*
+      # at line 370:7: ( LETTER | '_' | ':' ) ( NAMECHAR )*
       if @input.peek(1) == 0x3a || @input.peek( 1 ).between?( 0x41, 0x5a ) || @input.peek(1) == 0x5f || @input.peek( 1 ).between?( 0x61, 0x7a )
         @input.consume
       else
@@ -1293,7 +1293,7 @@ module HtmlParser
       end
 
 
-      # at line 368:29: ( NAMECHAR )*
+      # at line 370:29: ( NAMECHAR )*
       while true # decision 6
         alt_6 = 2
         look_6_0 = @input.peek( 1 )
@@ -1304,7 +1304,7 @@ module HtmlParser
         end
         case alt_6
         when 1
-          # at line 368:30: NAMECHAR
+          # at line 370:30: NAMECHAR
           namechar!
 
         else
@@ -1355,7 +1355,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 377:10: '0' .. '9'
+      # at line 379:10: '0' .. '9'
       match_range( 0x30, 0x39 )
 
     ensure
@@ -1400,7 +1400,7 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 385:9: {...}? => '='
+      # at line 387:9: {...}? => '='
       raise FailedPredicate( "ASSIGN", " @tagMode " ) unless ( (  @tagMode  ) )
       match( 0x3d )
 
@@ -1425,9 +1425,9 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 388:8: {...}? => ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )*
+      # at line 390:8: {...}? => ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )*
       raise FailedPredicate( "WS", " @tagMode " ) unless ( (  @tagMode  ) )
-      # at line 388:23: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )*
+      # at line 390:23: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )*
       while true # decision 7
         alt_7 = 2
         look_7_0 = @input.peek( 1 )
@@ -1475,9 +1475,9 @@ module HtmlParser
 
       
       # - - - - main rule block - - - -
-      # at line 391:9: {...}? => (~ '<' )+
+      # at line 393:9: {...}? => (~ '<' )+
       raise FailedPredicate( "PCDATA", " !@tagMode " ) unless ( (  !@tagMode  ) )
-      # at file 391:25: (~ '<' )+
+      # at file 393:25: (~ '<' )+
       match_count_8 = 0
       while true
         alt_8 = 2
@@ -1489,7 +1489,7 @@ module HtmlParser
         end
         case alt_8
         when 1
-          # at line 391:26: ~ '<'
+          # at line 393:26: ~ '<'
           if @input.peek( 1 ).between?( 0x0, 0x3b ) || @input.peek( 1 ).between?( 0x3d, 0xff )
             @input.consume
           else

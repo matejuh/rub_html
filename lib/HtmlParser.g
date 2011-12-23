@@ -2,7 +2,7 @@ grammar HtmlParser;
 options {output=AST;language=Ruby;}
 
 tokens{
-  TAG;ATTRS;ATTR;
+  TAG;ATTRS;DATA;
 }
 @members {
   @tagMode = false 
@@ -108,7 +108,6 @@ head_element
 	;
 	
 title
-  @init{puts "title"}
 	:	OPENING_TAG TITLE END_TAG
 		PCDATA?
 		CLOSING_TAG TITLE END_TAG -> ^(TAG TITLE (PCDATA)?)
@@ -117,7 +116,7 @@ title
 body:  OPENING_TAG BODY (id|style|klass|bgcolor|background)* END_TAG
 	  //body_content_no_PCDATA
 	  (body_content)* 
-	  CLOSING_TAG BODY END_TAG -> ^(TAG BODY klass*)
+	  CLOSING_TAG BODY END_TAG -> ^(TAG BODY id* style* klass* bgcolor* background* (body_content)*)
 	;
 
 //body_content_no_PCDATA
@@ -162,7 +161,7 @@ text_tag
 	;
 	
 text
-  : PCDATA 
+  : PCDATA -> ^(DATA PCDATA)
 	| text_tag
 	;	
 	
@@ -170,45 +169,48 @@ text
 
 /*HEADINGS*/
 h1	:	OPENING_TAG H1 (id|style|klass|align)* END_TAG
-		(block | text)*
-		CLOSING_TAG H1 END_TAG
+		heading_data*
+		CLOSING_TAG H1 END_TAG  -> ^(TAG H1 id* style* klass* align* heading_data*)
 	;
 	
 h2	:	OPENING_TAG H2 (id|style|klass|align)* END_TAG
-		(block | text)*
+		heading_data*
 		CLOSING_TAG H2 END_TAG
 	;
 	
 h3	:	OPENING_TAG H3 (id|style|klass|align)* END_TAG
-		(block | text)*
+		heading_data*
 		CLOSING_TAG H3 END_TAG
 	;
 	
 h4	:	OPENING_TAG H4 (id|style|klass|align)* END_TAG
-		(block | text)*
+		heading_data*
 		CLOSING_TAG H4 END_TAG
 	;
 	
 h5	:	OPENING_TAG H5 (id|style|klass|align)* END_TAG
-		(block | text)*
+		heading_data*
 		CLOSING_TAG H5 END_TAG
 	;
 	
 h6	:	OPENING_TAG H6 (id|style|klass|align)* END_TAG
-		(block | text)*
-		CLOSING_TAG H6 END_TAG
+		heading_data*
+		CLOSING_TAG H6 END_TAG 
 	;
 
+heading_data :block
+             |text
+             ;
 /*BLOCKS*/
 paragraph
-	:	OPENING_TAG oparagraph=P (id|style|klass|align)* END_TAG
+	:	OPENING_TAG P (id|style|klass|align)* END_TAG
 		(text)*
-		CLOSING_TAG P END_TAG
+		CLOSING_TAG P END_TAG -> ^(TAG P id* style* klass* align* (text)*)
 	;
 
-div	:	OPENING_TAG odiv=DIV (id|style|klass|align)* END_TAG
+div	:	OPENING_TAG DIV (id|style|klass|align)* END_TAG
 		(body_content)*
-		CLOSING_TAG DIV END_TAG
+		CLOSING_TAG DIV END_TAG -> ^(TAG DIV id* style* klass* align* (body_content)*)
 	;
 	
 /*FONTS*/
@@ -237,9 +239,13 @@ table
 
 tr	:	OPENING_TAG TR END_TAG
  		//(PCDATA)*
- 		(th | td)*
+ 		(tr_data)*
  		CLOSING_TAG TR END_TAG
 	;
+	
+tr_data : td
+        | td
+        ;
 
 th  :	OPENING_TAG TH (id|style|klass|align|valign|width|height|background|bgcolor|bordercolor)* END_TAG
 		(body_content)*
@@ -258,11 +264,11 @@ anchor: OPENING_TAG A (id|style|klass|align|href|name|target) END_TAG
 	  ;
 
 img: OPENING_TAG IMG (id|style|klass|align|src|alt|width|height)*
-	 END_NOPAIR_TAG
+	 END_NOPAIR_TAG -> ^(TAG IMG id* style* klass* align* src* alt* width* height*)
    ;
    
 br: OPENING_TAG BR 
-	END_NOPAIR_TAG
+	END_NOPAIR_TAG -> ^(TAG BR)
   ;
 		
 
