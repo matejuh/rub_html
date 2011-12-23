@@ -232,29 +232,29 @@ underline: OPENING_TAG U END_TAG
 /*TABLE*/
 table
 	:	OPENING_TAG TABLE (id|style|klass|align|width|height|background|bgcolor|border)* END_TAG
-	 	//(PCDATA)*
+	  // (PCDATA)*
 	 	(tr)+
-	 	CLOSING_TAG TABLE END_TAG
+	 	CLOSING_TAG TABLE END_TAG -> ^(TAG TABLE id* style* klass* align* width* height* background* bgcolor* border* (tr)+)
 	;
 
 tr	:	OPENING_TAG TR END_TAG
  		//(PCDATA)*
  		(tr_data)*
- 		CLOSING_TAG TR END_TAG
+ 		CLOSING_TAG TR END_TAG -> ^(TAG TR (tr_data)*)
 	;
 	
 tr_data : td
-        | td
+        | th
         ;
 
 th  :	OPENING_TAG TH (id|style|klass|align|valign|width|height|background|bgcolor|bordercolor)* END_TAG
 		(body_content)*
-		CLOSING_TAG TH END_TAG
+		CLOSING_TAG TH END_TAG -> ^(TAG TH id* style* klass* align* valign* width* height* background* bgcolor* bordercolor* (body_content)*)
 	;
 
 td  :	OPENING_TAG TD (id|style|klass|align|valign|width|height|background|bgcolor|bordercolor)* END_TAG
 		(body_content)*
-		CLOSING_TAG TD END_TAG
+		CLOSING_TAG TD END_TAG -> ^(TAG TD id* style* klass* align* valign* width* height* background* bgcolor* bordercolor* (body_content)*)
 	;	
 
 /*SPECIAL*/

@@ -24,7 +24,7 @@ options {
   end
   
   def printEndingBracket
-    puts ">".colorize(:green)
+    print ">".colorize(:green)
   end
   
   def putsEndTag(tag)
@@ -71,7 +71,7 @@ text_tags
   ;
 
 
-text_tag : ^(TAG tag_name=(U|I|B|A) {printStartTag($tag_name);} attrs {putsEndingBracket;} text){printEndTag($tag_name);}
+text_tag : ^(TAG tag_name=(U|I|B|A) {printStartTag($tag_name);} attrs {putsEndingBracket;} text+){printEndTag($tag_name);}
          | ^(TAG tag_name=(A) {printStartTag($tag_name);} attrs {printEndingBracket;}){printEndTag($tag_name);} 
          ;
 
@@ -94,17 +94,27 @@ heading_data : block
          
 block  : paragraph
        | div
-//       | table
+       | table
        ;
        
 paragraph
-         : ^(TAG P {printStartTag($P);} attrs {putsEndingBracket;} text){printEndTag($P);}
+         : ^(TAG P {printStartTag($P);} attrs {putsEndingBracket;} text+){printEndTag($P);}
          | ^(TAG P {printStartTag($P);} attrs {printEndingBracket;}){putsEndTag($P);} 
          ;
 
 div: ^(TAG DIV {printStartTag($DIV);} attrs {putsEndingBracket;} body_content+){printEndTag($DIV);}
    | ^(TAG DIV {printStartTag($DIV);} attrs {printEndingBracket;}){putsEndTag($DIV);} 
    ;
+   
+table: ^(TAG TABLE {printStartTag($TABLE);} attrs {putsEndingBracket;} tr+){printEndTag($TABLE);};
+
+tr : ^(TAG TR {printStartTag($TR);} {putsEndingBracket;} tr_data+){printEndTag($TR);}
+   | ^(TAG TR {printStartTag($TR);} {printEndingBracket;}){putsEndTag($TR);}
+   ;
+
+tr_data : ^(TAG tag_name=(TH|TD) {printStartTag($tag_name);} attrs {putsEndingBracket;} body_content+){printEndTag($tag_name);}
+        | ^(TAG tag_name=(TH|TD) {printStartTag($tag_name);} attrs {printEndingBracket;}){putsEndTag($tag_name);} 
+        ;
 
 attrs:attr*;
 
