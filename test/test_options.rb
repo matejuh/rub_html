@@ -42,6 +42,16 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_match(expected,res)
   end
 
+  def test_output
+    begin
+      ARGV.clear
+      parser=HtmlParser::Options.new(ARGV << "-o ./output.html"<< "./sample/test.html")
+    rescue SystemExit=>e
+    end
+    assert_equal(" ./output.html",parser.output_file)
+    assert_equal(true,parser.output_to_file)
+  end
+
   def test_unknown_argument
     begin
       HtmlParser::Options.new(ARGV<<"-k")
