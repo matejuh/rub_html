@@ -9,6 +9,8 @@ require_relative 'HtmlPrinter'
 module HtmlParser
   class HtmlParser
     
+    attr_reader :options, :parser, :tree, :tokens
+    
     def initialize(argv)
       @options=Options.new(argv)
     end
@@ -21,19 +23,20 @@ module HtmlParser
       end
       
       input = ANTLR3::FileStream.new(@options.input_file)
+      
       lexer = Lexer.new(input)
       
-      tokens=ANTLR3::CommonTokenStream.new(lexer)
+      @tokens=ANTLR3::CommonTokenStream.new(lexer)
       
-      parser = Parser.new(tokens)
+      parser = Parser.new(@tokens)
       
       #parser.document
-      tree=parser.document.tree
+      @tree=parser.document.tree
       
       #puts( "tree: #{ tree.inspect }" )
       
-      STDERR.puts "Document is well-formed! Formatted output: ".colorize(:yellow)
-      STDERR.puts ""
+      $stderr.puts "Document is well-formed! Formatted output: ".colorize(:yellow)
+      $stderr.puts ""
       
       nodes=ANTLR3::AST::CommonTreeNodeStream.new(tree,:token_stream => parser.input)
       
