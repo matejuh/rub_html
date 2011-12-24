@@ -7,22 +7,20 @@ module HtmlParser
     
     def initialize(argv)
       @output_to_file=false
-      
       parse(argv)
-
       if argv.length==0
-        STDERR.puts "Missing input file"
+        $stderr.puts "Missing input file"
         argv.clear
         parse(argv<<"-h")
       end
       if argv.length>1
-        STDERR.puts "Only one input file can be specified"
+        $stderr.puts "Only one input file can be specified"
         argv.clear
         parse(argv<<"-h")
       end
       
       if !File.exists?(argv[0])
-        STDERR.puts "File #{argv[0]} does not exists"
+        $stderr.puts "File #{argv[0]} does not exists"
         exit
       end
       
@@ -51,7 +49,7 @@ module HtmlParser
           end
           opts.parse!(ARGV)
         rescue OptionParser::ParseError => e
-        STDERR.puts e.message, "\n", opts
+        $stderr.puts e.message, "\n", opts
         exit(-1)
         end
       end
