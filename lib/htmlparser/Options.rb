@@ -7,9 +7,10 @@ module HtmlParser
     
     def initialize(argv)
       @output_to_file=false
+      
       parse(argv)
 
-      if argv.empty?
+      if argv.length==0
         STDERR.puts "Missing input file"
         argv.clear
         parse(argv<<"-h")

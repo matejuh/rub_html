@@ -2,24 +2,30 @@ grammar HtmlParser;
 options {output=AST;language=Ruby;}
 
 tokens{
-  TAG;ATTRS;DATA;
+  TAG;DATA;
 }
 @members {
+  require 'colorize'
+  
   @tagMode = false 
   
-  def print()
-    @input.each do |token|
-      puts token_name(token.type)
-    end
+  #def print()
+  #  @input.each do |token|
+  #    puts token_name(token.type)
+  #  end
+  #end
+
+     def recover( re )
+    exit
   end
 
-   def recover_from_mismatched_token( type, follow )
-   end
      
    def error_message(e=$!)
+     STDERR.puts "Problem in formatting found!".colorize(:red)
+     #puts "error message"
    	# $!         The exception information message set by 'raise'.
-    puts e.class
-    puts (e.input.at(e.input.position+2)).text
+    #puts e.class
+    #puts (e.input.at(e.input.position+2)).text
     case e
       when UnwantedToken
           if(token_name((e.input.at(e.input.position)).type)=="SVALUE")
@@ -34,19 +40,21 @@ tokens{
         "Missing #{ token_name } at #{ token_error_display( e.symbol ) }"
         
       when MismatchedToken
-        i=0
+        i=1
         while token_name((e.input.at(e.input.position-i)).type)=="WS"
           i+=1;
         end
         
-        puts (e.input.at(e.input.position))
+        #puts token_name((e.input.at(e.input.position+1)).type)
         
         if(!((e.input.at(e.input.position-i)).nil?) && token_name((e.input.at(e.input.position-i)).type)=="CLOSING_TAG")
           "Mismatched input: found </#{e.token}> expecting </#{(token_name(e.expecting)).downcase}>"
         elsif(!((e.input.at(e.input.position-i)).nil?) && token_name((e.input.at(e.input.position-i)).type)=="OPENING_TAG")
           "Mismatched input: found <#{e.token}> expecting <#{(token_name(e.expecting)).downcase}>"
         elsif(!((e.input.at(e.input.position)).nil?) && token_name((e.input.at(e.input.position)).type)=="NAME")
-          "Missing quotations around attribute #{(e.input.at(e.input.position)).type}"
+          "Missing quotations around attribute #{(e.input.at(e.input.position)).text}"
+        elsif(!(e.input.at(e.input.position+1)).nil? && (e.input.at(e.input.position+1)).type==NAME)
+          "Unknown attribute name, or this attribute cannot be used with given tag: "<< (e.input.at(e.input.position+1)).text
         else
           token_name=""
           if token_name( e.expecting )=="SVALUE"
@@ -87,6 +95,7 @@ tokens{
         e.message   
       end
     end
+    
 }
 document: html;
 
@@ -208,7 +217,7 @@ paragraph
 		CLOSING_TAG P END_TAG -> ^(TAG P id* style* klass* align* (text)*)
 	;
 
-div	:	OPENING_TAG DIV (id|style|klass|align)* END_TAG
+div	:	OPENING_TAG DIV WS* (id|style|klass|align)* END_TAG
 		(body_content)*
 		CLOSING_TAG DIV END_TAG -> ^(TAG DIV id* style* klass* align* (body_content)*)
 	;

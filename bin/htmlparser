@@ -1,6 +1,6 @@
 #! /usr/bin/ruby
 
-require_relative '../lib/htmlparser/Parser'
+require_relative '../lib/htmlparser/HtmlParser'
 
-parser = HtmlParser::Parser.new(ARGV)
+parser = HtmlParser::HtmlParser.new(ARGV)
 parser.parse
