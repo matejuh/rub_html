@@ -36,8 +36,14 @@ module HtmlParser
       
       #puts( "tree: #{ tree.inspect }" )
       
-      $stderr.puts "Document is well-formed! Formatted output: ".colorize(:yellow)
-      $stderr.puts ""
+      $stderr.print "Document is well-formed! ".colorize(:yellow)
+      if(@options.output_to_file)
+        $stderr.puts "Output will be written to file: #{@options.output_file}.".colorize(:yellow)
+      else
+         $stderr.puts "Formatted output:".colorize(:yellow)
+         $stderr.puts "".colorize(:yellow)
+      end
+      
       
       nodes=ANTLR3::AST::CommonTreeNodeStream.new(tree,:token_stream => parser.input)
       

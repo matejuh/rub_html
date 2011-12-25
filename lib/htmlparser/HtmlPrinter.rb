@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 #
-# ../lib/htmlparser/HtmlPrinter.g
+# HtmlPrinter.g
 # --
 # Generated using ANTLR version: 3.2.1-SNAPSHOT Jul 31, 2010 19:34:52
 # Ruby runtime library version: 1.8.11
-# Input grammar file: ../lib/htmlparser/HtmlPrinter.g
-# Generated at: 2011-12-25 02:23:08
+# Input grammar file: HtmlPrinter.g
+# Generated at: 2011-12-25 02:59:04
 # 
 
 # ~~~> start load path setup
@@ -110,7 +110,7 @@ module HtmlPrinter
     include TokenData
 
     begin
-      generated_using( "../lib/htmlparser/HtmlPrinter.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
+      generated_using( "HtmlPrinter.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
     rescue NoMethodError => error
       # ignore
     end
@@ -151,7 +151,7 @@ module HtmlPrinter
     # 
     # parser rule document
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 35:1: document : html ;
     # 
     def document
@@ -181,7 +181,7 @@ module HtmlPrinter
     # 
     # parser rule html
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 37:1: html : ^( TAG HTML ( head )? ( body )? ) ;
     # 
     def html
@@ -259,7 +259,7 @@ module HtmlPrinter
     # 
     # parser rule head
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 39:1: head : ( ^( TAG HEAD title_element ) | ^( TAG HEAD ) );
     # 
     def head
@@ -350,7 +350,7 @@ module HtmlPrinter
     # 
     # parser rule title_element
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 43:1: title_element : title ;
     # 
     def title_element
@@ -380,7 +380,7 @@ module HtmlPrinter
     # 
     # parser rule title
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 45:1: title : ( ^( TAG TITLE pcdata ) | ^( TAG TITLE ) );
     # 
     def title
@@ -471,7 +471,7 @@ module HtmlPrinter
     # 
     # parser rule body
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 49:1: body : ( ^( TAG BODY attrs ( body_content )+ ) | ^( TAG BODY attrs ) );
     # 
     def body
@@ -572,7 +572,7 @@ module HtmlPrinter
     # 
     # parser rule body_content
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 54:1: body_content : ( text | body_tag );
     # 
     def body_content
@@ -636,7 +636,7 @@ module HtmlPrinter
     # 
     # parser rule text
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 59:1: text : ( pcdata | text_tags );
     # 
     def text
@@ -686,7 +686,7 @@ module HtmlPrinter
     # 
     # parser rule pcdata
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 64:1: pcdata : ( ^( DATA PCDATA ) | PCDATA );
     # 
     def pcdata
@@ -745,7 +745,7 @@ module HtmlPrinter
     # 
     # parser rule text_tags
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 68:1: text_tags : ( text_tag | special );
     # 
     def text_tags
@@ -807,7 +807,7 @@ module HtmlPrinter
     # 
     # parser rule text_tag
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 74:1: text_tag : ( ^( TAG tag_name= ( U | I | B | A ) attrs ( text )+ ) | ^( TAG tag_name= ( A ) attrs ) );
     # 
     def text_tag
@@ -919,7 +919,7 @@ module HtmlPrinter
     # 
     # parser rule special
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 78:1: special : ^( TAG tag_name= ( IMG | BR ) attrs ) ;
     # 
     def special
@@ -971,7 +971,7 @@ module HtmlPrinter
     # 
     # parser rule body_tag
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 87:1: body_tag : ( heading | block );
     # 
     def body_tag
@@ -1033,7 +1033,7 @@ module HtmlPrinter
     # 
     # parser rule heading
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 92:1: heading : ( ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ ) | ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ) );
     # 
     def heading
@@ -1151,7 +1151,7 @@ module HtmlPrinter
     # 
     # parser rule heading_data
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 96:1: heading_data : ( block | text );
     # 
     def heading_data
@@ -1215,7 +1215,7 @@ module HtmlPrinter
     # 
     # parser rule block
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 100:1: block : ( paragraph | div | table );
     # 
     def block
@@ -1281,7 +1281,7 @@ module HtmlPrinter
     # 
     # parser rule paragraph
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 105:1: paragraph : ( ^( TAG P attrs ( text )+ ) | ^( TAG P attrs ) );
     # 
     def paragraph
@@ -1382,7 +1382,7 @@ module HtmlPrinter
     # 
     # parser rule div
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 110:1: div : ( ^( TAG DIV attrs ( body_content )+ ) | ^( TAG DIV attrs ) );
     # 
     def div
@@ -1483,7 +1483,7 @@ module HtmlPrinter
     # 
     # parser rule table
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 114:1: table : ^( TAG TABLE attrs ( tr )+ ) ;
     # 
     def table
@@ -1556,7 +1556,7 @@ module HtmlPrinter
     # 
     # parser rule tr
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 116:1: tr : ( ^( TAG TR ( tr_data )+ ) | ^( TAG TR ) );
     # 
     def tr
@@ -1677,7 +1677,7 @@ module HtmlPrinter
     # 
     # parser rule tr_data
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 120:1: tr_data : ( ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ ) | ^( TAG tag_name= ( TH | TD ) attrs ) );
     # 
     def tr_data
@@ -1795,7 +1795,7 @@ module HtmlPrinter
     # 
     # parser rule attrs
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 124:1: attrs : ( attr )* ;
     # 
     def attrs
@@ -1842,7 +1842,7 @@ module HtmlPrinter
     # 
     # parser rule attr
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 126:1: attr : ^(attr_name= ( ID | STYLE | CLASS | BGCOLOR | BACKGROUND | ALIGN | SRC | ALT | WIDTH | HEIGHT | BORDERCOLOR | VALIGN | BORDER | HREF | ANAME | TARGET ) attr_svalue ) ;
     # 
     def attr
@@ -1891,7 +1891,7 @@ module HtmlPrinter
     # 
     # parser rule attr_svalue
     # 
-    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # (in HtmlPrinter.g)
     # 128:1: attr_svalue : ^( ASSIGN SVALUE ) ;
     # 
     def attr_svalue

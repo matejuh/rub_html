@@ -8,4 +8,36 @@ Princip těchto úloh spočívá ve správném rozparsování vstupu. Ten se dá
 
 '''17. HTML parser (KS)'''
 
-Vytvořte program, který dostane na vstup HTML soubor a na výstup dá hlášku, zda je soubor dobře utvořen. Nemusíte řešit všechny tagy, stačí <HTML>, <HEAD>, <TITLE>, <BODY>, <B>, <I>, <U>, <BR> a tagy pro tabulky a nadpisy. U každého tagu uvažujte pouze několik nejběžnejších parametrů, ale minimálně 3. Výstup zpracujte co nejpřehledněji.
+Vytvořte program, který dostane na vstup HTML soubor a na výstup dá hlášku, zda je soubor dobře utvořen. Nemusíte řešit všechny tagy, stačí <code><HTML>, <HEAD>, <TITLE>, <BODY>, <B>, <I>, <U>, <BR></code> a tagy pro tabulky a nadpisy. U každého tagu uvažujte pouze několik nejběžnejších parametrů, ale minimálně 3. Výstup zpracujte co nejpřehledněji.
+
+=== Řešení ===
+
+Pro vypracování jsem využil ANTLR4Ruby. Pomocí něho jsem si vytvořil gramatiku. Při parsování textu (v Parseru) se mi víceméně automaticky kontroluje správnost syntaxe.
+
+Přepsal jsem metodu error_message tak, aby mi vracela několik smysluplnějších hlášek specifických pro zpracování HTML. Proto jsem ale musel omezit zobrazení dalších chybových hlášek, takže se vždy zobrazí jen první chyba.
+
+Ostatní chyby v gramatice jsou hlášeny pomocí standardních zpráv knihovny.
+
+Poté, co se mi vytvoří lexer a parser, tak dostanu strom, který procházím pomocí stromové gramatiky HtmlPrinter.
+
+Ta mi pomáhá poměrně výrazně ve formátování výstupu, protože tím, že to mám ve stromu a ten procházím, jsem schopný u jednotlivých uzlů zjistit jejich hloubku a tedy i zanoření při formátování.
+
+Navíc jsem použil gem colorize pro obarvení výstupu v konzoli. Tato knihovna by se měla automaticky naistalovat díky použití gemfilu.
+
+Rozeznávám jen několik základních tagů a jejich atributů. Nerozlišuji hodnoty atributů. Tedy nekontroluji, zda je daný atrbibut textový, nebo zda má mít hodnotu z výčtu jako left, right...
+
+=== Použití ===
+Spouštěcí soubor je v /bin/htmlparser/htmlparser
+
+Usage:  htmlParser [ options ]  path/to/input_file...
+
+Volitelné parametry:
+
+-o, --output FILE Path to output file (output to STDOUT otherwise)
+-h, --help Show help
+
+Pokud není specifikován výstupní soubor, vypíše se zformátovaný text na standardní výstup.
+
+Soubory pro testování je možné nalézt v /test/sample. Soubor test2.html obsahuje všechny použitelné tagy a atributy.
+
+'''Zpracováváné tagy: ''' html, head, title, body, div, p, table, tr, th, td, i, b, u, a, img, br, h1-h6 a jejich základní parametry

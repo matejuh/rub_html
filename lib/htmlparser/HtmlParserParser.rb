@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 #
-# ../lib/htmlparser/HtmlParser.g
+# HtmlParser.g
 # --
 # Generated using ANTLR version: 3.2.1-SNAPSHOT Jul 31, 2010 19:34:52
 # Ruby runtime library version: 1.8.11
-# Input grammar file: ../lib/htmlparser/HtmlParser.g
-# Generated at: 2011-12-25 02:20:54
+# Input grammar file: HtmlParser.g
+# Generated at: 2011-12-25 02:58:50
 # 
 
 # ~~~> start load path setup
@@ -114,7 +114,7 @@ module HtmlParser
     include TokenData
 
     begin
-      generated_using( "../lib/htmlparser/HtmlParser.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
+      generated_using( "HtmlParser.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
     rescue NoMethodError => error
       # ignore
     end
@@ -223,7 +223,7 @@ module HtmlParser
     # 
     # parser rule document
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 100:1: document : html ;
     # 
     def document
@@ -273,7 +273,7 @@ module HtmlParser
     # 
     # parser rule html
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 102:1: html : OPENING_TAG HTML END_TAG ( head )? ( body )? CLOSING_TAG HTML END_TAG -> ^( TAG HTML ( head )? ( body )? ) ;
     # 
     def html
@@ -359,7 +359,7 @@ module HtmlParser
         __END_TAG9__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_html_77 )
         stream_END_TAG.add( __END_TAG9__ )
         # AST Rewrite
-        # elements: head, body, HTML
+        # elements: body, head, HTML
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -422,7 +422,7 @@ module HtmlParser
     # 
     # parser rule head
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 110:1: head : OPENING_TAG HEAD END_TAG ( head_element )? CLOSING_TAG HEAD END_TAG -> ^( TAG HEAD ( head_element )? ) ;
     # 
     def head
@@ -540,7 +540,7 @@ module HtmlParser
     # 
     # parser rule head_element
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 115:1: head_element : title ;
     # 
     def head_element
@@ -590,7 +590,7 @@ module HtmlParser
     # 
     # parser rule title
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 119:1: title : OPENING_TAG TITLE END_TAG ( PCDATA )? CLOSING_TAG TITLE END_TAG -> ^( TAG TITLE ( PCDATA )? ) ;
     # 
     def title
@@ -652,7 +652,7 @@ module HtmlParser
         __END_TAG24__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_title_178 )
         stream_END_TAG.add( __END_TAG24__ )
         # AST Rewrite
-        # elements: TITLE, PCDATA
+        # elements: PCDATA, TITLE
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -708,7 +708,7 @@ module HtmlParser
     # 
     # parser rule body
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 125:1: body : OPENING_TAG BODY ( id | style | klass | bgcolor | background )* END_TAG ( body_content )* CLOSING_TAG BODY END_TAG -> ^( TAG BODY ( id )* ( style )* ( klass )* ( bgcolor )* ( background )* ( body_content )* ) ;
     # 
     def body
@@ -840,7 +840,7 @@ module HtmlParser
         __END_TAG36__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_body_240 )
         stream_END_TAG.add( __END_TAG36__ )
         # AST Rewrite
-        # elements: klass, id, BODY, bgcolor, style, background, body_content
+        # elements: id, style, BODY, klass, body_content, bgcolor, background
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -931,7 +931,7 @@ module HtmlParser
     # 
     # parser rule body_tag
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 135:1: body_tag : ( heading | block );
     # 
     def body_tag
@@ -1012,7 +1012,7 @@ module HtmlParser
     # 
     # parser rule body_content
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 140:1: body_content : ( body_tag | text );
     # 
     def body_content
@@ -1095,7 +1095,7 @@ module HtmlParser
     # 
     # parser rule heading
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 145:1: heading : ( h1 | h2 | h3 | h4 | h5 | h6 );
     # 
     def heading
@@ -1221,7 +1221,7 @@ module HtmlParser
     # 
     # parser rule block
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 149:1: block : ( paragraph | div | table );
     # 
     def block
@@ -1311,7 +1311,7 @@ module HtmlParser
     # 
     # parser rule font
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 155:1: font : ( italic | bold | underline );
     # 
     def font
@@ -1401,7 +1401,7 @@ module HtmlParser
     # 
     # parser rule special
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 161:1: special : ( anchor | img | br );
     # 
     def special
@@ -1491,7 +1491,7 @@ module HtmlParser
     # 
     # parser rule text_tag
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 167:1: text_tag : ( font | special );
     # 
     def text_tag
@@ -1572,7 +1572,7 @@ module HtmlParser
     # 
     # parser rule text
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 172:1: text : ( PCDATA -> ^( DATA PCDATA ) | text_tag );
     # 
     def text
@@ -1668,7 +1668,7 @@ module HtmlParser
     # 
     # parser rule h1
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 180:1: h1 : OPENING_TAG H1 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H1 END_TAG -> ^( TAG H1 ( id )* ( style )* ( klass )* ( align )* ( heading_data )* ) ;
     # 
     def h1
@@ -1790,7 +1790,7 @@ module HtmlParser
         __END_TAG70__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h1_495 )
         stream_END_TAG.add( __END_TAG70__ )
         # AST Rewrite
-        # elements: H1, align, heading_data, style, klass, id
+        # elements: klass, style, align, H1, id, heading_data
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -1874,7 +1874,7 @@ module HtmlParser
     # 
     # parser rule h2
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 185:1: h2 : OPENING_TAG H2 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H2 END_TAG -> ^( TAG H2 ( id )* ( style )* ( klass )* ( align )* ( heading_data )* ) ;
     # 
     def h2
@@ -1996,7 +1996,7 @@ module HtmlParser
         __END_TAG81__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h2_558 )
         stream_END_TAG.add( __END_TAG81__ )
         # AST Rewrite
-        # elements: heading_data, klass, id, style, H2, align
+        # elements: heading_data, align, style, H2, id, klass
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -2080,7 +2080,7 @@ module HtmlParser
     # 
     # parser rule h3
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 190:1: h3 : OPENING_TAG H3 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H3 END_TAG -> ^( TAG H3 ( id )* ( style )* ( klass )* ( align )* ( heading_data )* ) ;
     # 
     def h3
@@ -2202,7 +2202,7 @@ module HtmlParser
         __END_TAG92__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h3_620 )
         stream_END_TAG.add( __END_TAG92__ )
         # AST Rewrite
-        # elements: heading_data, klass, id, align, style, H3
+        # elements: heading_data, align, style, H3, klass, id
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -2286,7 +2286,7 @@ module HtmlParser
     # 
     # parser rule h4
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 195:1: h4 : OPENING_TAG H4 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H4 END_TAG -> ^( TAG H4 ( id )* ( style )* ( klass )* ( align )* ( heading_data )* ) ;
     # 
     def h4
@@ -2408,7 +2408,7 @@ module HtmlParser
         __END_TAG103__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h4_682 )
         stream_END_TAG.add( __END_TAG103__ )
         # AST Rewrite
-        # elements: klass, H4, align, style, id, heading_data
+        # elements: style, klass, id, heading_data, H4, align
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -2492,7 +2492,7 @@ module HtmlParser
     # 
     # parser rule h5
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 200:1: h5 : OPENING_TAG H5 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H5 END_TAG -> ^( TAG H5 ( id )* ( style )* ( klass )* ( align )* ( heading_data )* ) ;
     # 
     def h5
@@ -2614,7 +2614,7 @@ module HtmlParser
         __END_TAG114__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h5_744 )
         stream_END_TAG.add( __END_TAG114__ )
         # AST Rewrite
-        # elements: id, align, heading_data, style, klass, H5
+        # elements: heading_data, H5, klass, align, id, style
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -2698,7 +2698,7 @@ module HtmlParser
     # 
     # parser rule h6
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 205:1: h6 : OPENING_TAG H6 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H6 END_TAG -> ^( TAG H6 ( id )* ( style )* ( klass )* ( align )* ( heading_data )* ) ;
     # 
     def h6
@@ -2820,7 +2820,7 @@ module HtmlParser
         __END_TAG125__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_h6_806 )
         stream_END_TAG.add( __END_TAG125__ )
         # AST Rewrite
-        # elements: H6, style, klass, heading_data, id, align
+        # elements: id, style, align, heading_data, H6, klass
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -2904,7 +2904,7 @@ module HtmlParser
     # 
     # parser rule heading_data
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 210:1: heading_data : ( block | text );
     # 
     def heading_data
@@ -2987,7 +2987,7 @@ module HtmlParser
     # 
     # parser rule paragraph
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 214:1: paragraph : OPENING_TAG P ( id | style | klass | align )* END_TAG ( text )* CLOSING_TAG P END_TAG -> ^( TAG P ( id )* ( style )* ( klass )* ( align )* ( text )* ) ;
     # 
     def paragraph
@@ -3109,7 +3109,7 @@ module HtmlParser
         __END_TAG138__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_paragraph_908 )
         stream_END_TAG.add( __END_TAG138__ )
         # AST Rewrite
-        # elements: P, style, klass, align, id, text
+        # elements: id, style, klass, P, align, text
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -3193,7 +3193,7 @@ module HtmlParser
     # 
     # parser rule div
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 220:1: div : OPENING_TAG DIV ( WS )* ( id | style | klass | align )* END_TAG ( body_content )* CLOSING_TAG DIV END_TAG -> ^( TAG DIV ( id )* ( style )* ( klass )* ( align )* ( body_content )* ) ;
     # 
     def div
@@ -3342,7 +3342,7 @@ module HtmlParser
         __END_TAG150__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_div_976 )
         stream_END_TAG.add( __END_TAG150__ )
         # AST Rewrite
-        # elements: body_content, align, klass, id, DIV, style
+        # elements: align, klass, body_content, style, DIV, id
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -3426,7 +3426,7 @@ module HtmlParser
     # 
     # parser rule italic
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 226:1: italic : OPENING_TAG I END_TAG ( text )+ CLOSING_TAG I END_TAG -> ^( TAG I ( text )+ ) ;
     # 
     def italic
@@ -3557,7 +3557,7 @@ module HtmlParser
     # 
     # parser rule bold
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 231:1: bold : OPENING_TAG B END_TAG ( text )+ CLOSING_TAG B END_TAG -> ^( TAG B ( text )+ ) ;
     # 
     def bold
@@ -3688,7 +3688,7 @@ module HtmlParser
     # 
     # parser rule underline
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 236:1: underline : OPENING_TAG U END_TAG ( text )+ CLOSING_TAG U END_TAG -> ^( TAG U ( text )+ ) ;
     # 
     def underline
@@ -3762,7 +3762,7 @@ module HtmlParser
         __END_TAG171__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_underline_1132 )
         stream_END_TAG.add( __END_TAG171__ )
         # AST Rewrite
-        # elements: U, text
+        # elements: text, U
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -3819,7 +3819,7 @@ module HtmlParser
     # 
     # parser rule table
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 242:1: table : OPENING_TAG TABLE ( id | style | klass | align | width | height | background | bgcolor | border )* END_TAG ( tr )+ CLOSING_TAG TABLE END_TAG -> ^( TAG TABLE ( id )* ( style )* ( klass )* ( align )* ( width )* ( height )* ( background )* ( bgcolor )* ( border )* ( tr )+ ) ;
     # 
     def table
@@ -3983,7 +3983,7 @@ module HtmlParser
         __END_TAG187__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_table_1215 )
         stream_END_TAG.add( __END_TAG187__ )
         # AST Rewrite
-        # elements: bgcolor, style, id, width, border, klass, tr, background, align, height, TABLE
+        # elements: background, id, TABLE, align, bgcolor, style, border, height, klass, width, tr
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -4103,7 +4103,7 @@ module HtmlParser
     # 
     # parser rule tr
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 249:1: tr : OPENING_TAG TR END_TAG ( tr_data )* CLOSING_TAG TR END_TAG -> ^( TAG TR ( tr_data )* ) ;
     # 
     def tr
@@ -4226,7 +4226,7 @@ module HtmlParser
     # 
     # parser rule tr_data
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 255:1: tr_data : ( td | th );
     # 
     def tr_data
@@ -4307,7 +4307,7 @@ module HtmlParser
     # 
     # parser rule th
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 259:1: th : OPENING_TAG TH ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TH END_TAG -> ^( TAG TH ( id )* ( style )* ( klass )* ( align )* ( valign )* ( width )* ( height )* ( background )* ( bgcolor )* ( bordercolor )* ( body_content )* ) ;
     # 
     def th
@@ -4473,7 +4473,7 @@ module HtmlParser
         __END_TAG213__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_th_1386 )
         stream_END_TAG.add( __END_TAG213__ )
         # AST Rewrite
-        # elements: width, align, TH, height, valign, id, background, bordercolor, bgcolor, body_content, klass, style
+        # elements: valign, klass, width, align, TH, height, bgcolor, background, body_content, bordercolor, style, id
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -4599,7 +4599,7 @@ module HtmlParser
     # 
     # parser rule td
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 264:1: td : OPENING_TAG TD ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TD END_TAG -> ^( TAG TD ( id )* ( style )* ( klass )* ( align )* ( valign )* ( width )* ( height )* ( background )* ( bgcolor )* ( bordercolor )* ( body_content )* ) ;
     # 
     def td
@@ -4765,7 +4765,7 @@ module HtmlParser
         __END_TAG230__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_td_1482 )
         stream_END_TAG.add( __END_TAG230__ )
         # AST Rewrite
-        # elements: background, bgcolor, klass, id, style, valign, body_content, align, bordercolor, height, width, TD
+        # elements: height, background, style, TD, id, body_content, align, bordercolor, klass, bgcolor, width, valign
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -4891,7 +4891,7 @@ module HtmlParser
     # 
     # parser rule anchor
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 270:1: anchor : OPENING_TAG A ( id | style | klass | align | href | name | target )* END_TAG ( text )* CLOSING_TAG A END_TAG -> ^( TAG A ( id )* ( style )* ( klass )* ( align )* ( href )* ( name )* ( target )* ( text )* ) ;
     # 
     def anchor
@@ -5030,7 +5030,7 @@ module HtmlParser
         __END_TAG244__ = match( END_TAG, TOKENS_FOLLOWING_END_TAG_IN_anchor_1573 )
         stream_END_TAG.add( __END_TAG244__ )
         # AST Rewrite
-        # elements: align, text, id, name, klass, target, A, href, style
+        # elements: klass, target, A, href, style, name, text, align, id
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -5135,7 +5135,7 @@ module HtmlParser
     # 
     # parser rule img
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 275:1: img : OPENING_TAG IMG ( id | style | klass | align | src | alt | width | height )* END_NOPAIR_TAG -> ^( TAG IMG ( id )* ( style )* ( klass )* ( align )* ( src )* ( alt )* ( width )* ( height )* ) ;
     # 
     def img
@@ -5247,7 +5247,7 @@ module HtmlParser
         __END_NOPAIR_TAG255__ = match( END_NOPAIR_TAG, TOKENS_FOLLOWING_END_NOPAIR_TAG_IN_img_1643 )
         stream_END_NOPAIR_TAG.add( __END_NOPAIR_TAG255__ )
         # AST Rewrite
-        # elements: style, alt, align, IMG, id, src, width, height, klass
+        # elements: id, src, height, klass, IMG, align, alt, width, style
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -5352,7 +5352,7 @@ module HtmlParser
     # 
     # parser rule br
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 279:1: br : OPENING_TAG BR END_NOPAIR_TAG -> ^( TAG BR ) ;
     # 
     def br
@@ -5433,7 +5433,7 @@ module HtmlParser
     # 
     # parser rule id
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 285:1: id : WS ID attr_svalue -> ^( ID attr_svalue ) ;
     # 
     def id
@@ -5465,7 +5465,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue261.tree )
         # AST Rewrite
-        # elements: attr_svalue, ID
+        # elements: ID, attr_svalue
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -5514,7 +5514,7 @@ module HtmlParser
     # 
     # parser rule style
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 286:1: style : WS STYLE attr_svalue -> ^( STYLE attr_svalue ) ;
     # 
     def style
@@ -5595,7 +5595,7 @@ module HtmlParser
     # 
     # parser rule klass
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 287:1: klass : WS CLASS attr_svalue -> ^( CLASS attr_svalue ) ;
     # 
     def klass
@@ -5676,7 +5676,7 @@ module HtmlParser
     # 
     # parser rule bgcolor
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 289:1: bgcolor : WS BGCOLOR attr_svalue -> ^( BGCOLOR attr_svalue ) ;
     # 
     def bgcolor
@@ -5708,7 +5708,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue270.tree )
         # AST Rewrite
-        # elements: attr_svalue, BGCOLOR
+        # elements: BGCOLOR, attr_svalue
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -5757,7 +5757,7 @@ module HtmlParser
     # 
     # parser rule background
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 291:1: background : WS BACKGROUND attr_svalue -> ^( BACKGROUND attr_svalue ) ;
     # 
     def background
@@ -5838,7 +5838,7 @@ module HtmlParser
     # 
     # parser rule align
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 293:1: align : WS ALIGN attr_svalue -> ^( ALIGN attr_svalue ) ;
     # 
     def align
@@ -5919,7 +5919,7 @@ module HtmlParser
     # 
     # parser rule src
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 295:1: src : WS SRC attr_svalue -> ^( SRC attr_svalue ) ;
     # 
     def src
@@ -5951,7 +5951,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue279.tree )
         # AST Rewrite
-        # elements: attr_svalue, SRC
+        # elements: SRC, attr_svalue
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6000,7 +6000,7 @@ module HtmlParser
     # 
     # parser rule alt
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 297:1: alt : WS ALT attr_svalue -> ^( ALT attr_svalue ) ;
     # 
     def alt
@@ -6081,7 +6081,7 @@ module HtmlParser
     # 
     # parser rule width
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 299:1: width : WS WIDTH attr_svalue -> ^( WIDTH attr_svalue ) ;
     # 
     def width
@@ -6113,7 +6113,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue285.tree )
         # AST Rewrite
-        # elements: attr_svalue, WIDTH
+        # elements: WIDTH, attr_svalue
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6162,7 +6162,7 @@ module HtmlParser
     # 
     # parser rule height
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 301:1: height : WS HEIGHT attr_svalue -> ^( HEIGHT attr_svalue ) ;
     # 
     def height
@@ -6243,7 +6243,7 @@ module HtmlParser
     # 
     # parser rule bordercolor
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 303:1: bordercolor : WS BORDERCOLOR attr_svalue -> ^( BORDERCOLOR attr_svalue ) ;
     # 
     def bordercolor
@@ -6275,7 +6275,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue291.tree )
         # AST Rewrite
-        # elements: BORDERCOLOR, attr_svalue
+        # elements: attr_svalue, BORDERCOLOR
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6324,7 +6324,7 @@ module HtmlParser
     # 
     # parser rule valign
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 305:1: valign : WS VALIGN attr_svalue -> ^( VALIGN attr_svalue ) ;
     # 
     def valign
@@ -6356,7 +6356,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue294.tree )
         # AST Rewrite
-        # elements: attr_svalue, VALIGN
+        # elements: VALIGN, attr_svalue
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6405,7 +6405,7 @@ module HtmlParser
     # 
     # parser rule border
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 307:1: border : WS BORDER attr_svalue -> ^( BORDER attr_svalue ) ;
     # 
     def border
@@ -6437,7 +6437,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue297.tree )
         # AST Rewrite
-        # elements: attr_svalue, BORDER
+        # elements: BORDER, attr_svalue
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6486,7 +6486,7 @@ module HtmlParser
     # 
     # parser rule href
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 309:1: href : WS HREF attr_svalue -> ^( HREF attr_svalue ) ;
     # 
     def href
@@ -6518,7 +6518,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue300.tree )
         # AST Rewrite
-        # elements: HREF, attr_svalue
+        # elements: attr_svalue, HREF
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6567,7 +6567,7 @@ module HtmlParser
     # 
     # parser rule name
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 311:1: name : WS ANAME attr_svalue -> ^( ANAME attr_svalue ) ;
     # 
     def name
@@ -6599,7 +6599,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue303.tree )
         # AST Rewrite
-        # elements: attr_svalue, ANAME
+        # elements: ANAME, attr_svalue
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6648,7 +6648,7 @@ module HtmlParser
     # 
     # parser rule target
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 313:1: target : WS TARGET attr_svalue -> ^( TARGET attr_svalue ) ;
     # 
     def target
@@ -6680,7 +6680,7 @@ module HtmlParser
         @state.following.pop
         stream_attr_svalue.add( attr_svalue306.tree )
         # AST Rewrite
-        # elements: TARGET, attr_svalue
+        # elements: attr_svalue, TARGET
         # token labels: 
         # rule labels: return_value
         # token list labels: 
@@ -6729,7 +6729,7 @@ module HtmlParser
     # 
     # parser rule attr_svalue
     # 
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     # 316:1: attr_svalue : ( WS )? ASSIGN ( WS )? SVALUE -> ^( ASSIGN SVALUE ) ;
     # 
     def attr_svalue
@@ -6789,7 +6789,7 @@ module HtmlParser
         __SVALUE310__ = match( SVALUE, TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_2028 )
         stream_SVALUE.add( __SVALUE310__ )
         # AST Rewrite
-        # elements: ASSIGN, SVALUE
+        # elements: SVALUE, ASSIGN
         # token labels: 
         # rule labels: return_value
         # token list labels: 

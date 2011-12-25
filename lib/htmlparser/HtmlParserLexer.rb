@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 #
-# ../lib/htmlparser/HtmlParser.g
+# HtmlParser.g
 # --
 # Generated using ANTLR version: 3.2.1-SNAPSHOT Jul 31, 2010 19:34:52
 # Ruby runtime library version: 1.8.11
-# Input grammar file: ../lib/htmlparser/HtmlParser.g
-# Generated at: 2011-12-25 02:20:57
+# Input grammar file: HtmlParser.g
+# Generated at: 2011-12-25 02:58:52
 # 
 
 # ~~~> start load path setup
@@ -88,7 +88,7 @@ module HtmlParser
 
     
     begin
-      generated_using( "../lib/htmlparser/HtmlParser.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
+      generated_using( "HtmlParser.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
     rescue NoMethodError => error
       # ignore
     end
@@ -119,7 +119,7 @@ module HtmlParser
     
     # - - - - - - - - - - - lexer rules - - - - - - - - - - - -
     # lexer rule html! (HTML)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def html!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 1 )
@@ -143,7 +143,7 @@ module HtmlParser
     end
 
     # lexer rule head! (HEAD)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def head!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 2 )
@@ -167,7 +167,7 @@ module HtmlParser
     end
 
     # lexer rule title! (TITLE)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def title!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 3 )
@@ -191,7 +191,7 @@ module HtmlParser
     end
 
     # lexer rule body! (BODY)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def body!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 4 )
@@ -215,7 +215,7 @@ module HtmlParser
     end
 
     # lexer rule h_1! (H1)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def h_1!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 5 )
@@ -239,7 +239,7 @@ module HtmlParser
     end
 
     # lexer rule h_2! (H2)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def h_2!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 6 )
@@ -263,7 +263,7 @@ module HtmlParser
     end
 
     # lexer rule h_3! (H3)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def h_3!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 7 )
@@ -287,7 +287,7 @@ module HtmlParser
     end
 
     # lexer rule h_4! (H4)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def h_4!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 8 )
@@ -311,7 +311,7 @@ module HtmlParser
     end
 
     # lexer rule h_5! (H5)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def h_5!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 9 )
@@ -335,7 +335,7 @@ module HtmlParser
     end
 
     # lexer rule h_6! (H6)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def h_6!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 10 )
@@ -359,7 +359,7 @@ module HtmlParser
     end
 
     # lexer rule p! (P)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def p!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 11 )
@@ -383,7 +383,7 @@ module HtmlParser
     end
 
     # lexer rule div! (DIV)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def div!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 12 )
@@ -407,7 +407,7 @@ module HtmlParser
     end
 
     # lexer rule i! (I)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def i!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 13 )
@@ -431,7 +431,7 @@ module HtmlParser
     end
 
     # lexer rule b! (B)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def b!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 14 )
@@ -455,7 +455,7 @@ module HtmlParser
     end
 
     # lexer rule u! (U)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def u!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 15 )
@@ -479,7 +479,7 @@ module HtmlParser
     end
 
     # lexer rule table! (TABLE)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def table!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 16 )
@@ -503,7 +503,7 @@ module HtmlParser
     end
 
     # lexer rule tr! (TR)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def tr!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 17 )
@@ -527,7 +527,7 @@ module HtmlParser
     end
 
     # lexer rule th! (TH)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def th!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 18 )
@@ -551,7 +551,7 @@ module HtmlParser
     end
 
     # lexer rule td! (TD)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def td!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 19 )
@@ -575,7 +575,7 @@ module HtmlParser
     end
 
     # lexer rule a! (A)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def a!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 20 )
@@ -599,7 +599,7 @@ module HtmlParser
     end
 
     # lexer rule img! (IMG)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def img!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 21 )
@@ -623,7 +623,7 @@ module HtmlParser
     end
 
     # lexer rule br! (BR)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def br!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 22 )
@@ -647,7 +647,7 @@ module HtmlParser
     end
 
     # lexer rule opening_tag! (OPENING_TAG)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def opening_tag!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 23 )
@@ -689,7 +689,7 @@ module HtmlParser
     end
 
     # lexer rule closing_tag! (CLOSING_TAG)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def closing_tag!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 24 )
@@ -731,7 +731,7 @@ module HtmlParser
     end
 
     # lexer rule end_tag! (END_TAG)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def end_tag!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 25 )
@@ -760,7 +760,7 @@ module HtmlParser
     end
 
     # lexer rule end_nopair_tag! (END_NOPAIR_TAG)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def end_nopair_tag!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 26 )
@@ -789,7 +789,7 @@ module HtmlParser
     end
 
     # lexer rule id! (ID)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def id!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 27 )
@@ -813,7 +813,7 @@ module HtmlParser
     end
 
     # lexer rule class! (CLASS)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def class!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 28 )
@@ -837,7 +837,7 @@ module HtmlParser
     end
 
     # lexer rule style! (STYLE)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def style!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 29 )
@@ -861,7 +861,7 @@ module HtmlParser
     end
 
     # lexer rule bgcolor! (BGCOLOR)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def bgcolor!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 30 )
@@ -885,7 +885,7 @@ module HtmlParser
     end
 
     # lexer rule background! (BACKGROUND)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def background!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 31 )
@@ -909,7 +909,7 @@ module HtmlParser
     end
 
     # lexer rule align! (ALIGN)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def align!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 32 )
@@ -933,7 +933,7 @@ module HtmlParser
     end
 
     # lexer rule src! (SRC)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def src!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 33 )
@@ -957,7 +957,7 @@ module HtmlParser
     end
 
     # lexer rule alt! (ALT)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def alt!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 34 )
@@ -981,7 +981,7 @@ module HtmlParser
     end
 
     # lexer rule width! (WIDTH)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def width!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 35 )
@@ -1005,7 +1005,7 @@ module HtmlParser
     end
 
     # lexer rule height! (HEIGHT)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def height!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 36 )
@@ -1029,7 +1029,7 @@ module HtmlParser
     end
 
     # lexer rule border! (BORDER)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def border!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 37 )
@@ -1053,7 +1053,7 @@ module HtmlParser
     end
 
     # lexer rule valign! (VALIGN)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def valign!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 38 )
@@ -1077,7 +1077,7 @@ module HtmlParser
     end
 
     # lexer rule bordercolor! (BORDERCOLOR)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def bordercolor!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 39 )
@@ -1101,7 +1101,7 @@ module HtmlParser
     end
 
     # lexer rule aname! (ANAME)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def aname!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 40 )
@@ -1125,7 +1125,7 @@ module HtmlParser
     end
 
     # lexer rule href! (HREF)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def href!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 41 )
@@ -1149,7 +1149,7 @@ module HtmlParser
     end
 
     # lexer rule target! (TARGET)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def target!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 42 )
@@ -1173,7 +1173,7 @@ module HtmlParser
     end
 
     # lexer rule svalue! (SVALUE)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def svalue!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 43 )
@@ -1272,7 +1272,7 @@ module HtmlParser
     end
 
     # lexer rule name! (NAME)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def name!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 44 )
@@ -1322,7 +1322,7 @@ module HtmlParser
     end
 
     # lexer rule namechar! (NAMECHAR)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def namechar!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 45 )
@@ -1347,7 +1347,7 @@ module HtmlParser
     end
 
     # lexer rule digit! (DIGIT)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def digit!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 46 )
@@ -1364,7 +1364,7 @@ module HtmlParser
     end
 
     # lexer rule letter! (LETTER)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def letter!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 47 )
@@ -1389,7 +1389,7 @@ module HtmlParser
     end
 
     # lexer rule assign! (ASSIGN)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def assign!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 48 )
@@ -1414,7 +1414,7 @@ module HtmlParser
     end
 
     # lexer rule ws! (WS)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def ws!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 49 )
@@ -1464,7 +1464,7 @@ module HtmlParser
     end
 
     # lexer rule pcdata! (PCDATA)
-    # (in ../lib/htmlparser/HtmlParser.g)
+    # (in HtmlParser.g)
     def pcdata!
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 50 )
