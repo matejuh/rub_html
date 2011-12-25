@@ -27,17 +27,19 @@ Navíc jsem použil gem colorize pro obarvení výstupu v konzoli. Tato knihovna
 Rozeznávám jen několik základních tagů a jejich atributů. Nerozlišuji hodnoty atributů. Tedy nekontroluji, zda je daný atrbibut textový, nebo zda má mít hodnotu z výčtu jako left, right...
 
 === Použití ===
-Spouštěcí soubor je v /bin/htmlparser/htmlparser
+Spouštěcí soubor je v ''/bin/htmlparser/htmlparser''
 
+<code>
 Usage:  htmlParser [ options ]  path/to/input_file...
 
 Volitelné parametry:
 
 -o, --output FILE Path to output file (output to STDOUT otherwise)
 -h, --help Show help
+</code>
 
 Pokud není specifikován výstupní soubor, vypíše se zformátovaný text na standardní výstup.
 
-Soubory pro testování je možné nalézt v /test/sample. Soubor test2.html obsahuje všechny použitelné tagy a atributy.
+Soubory pro testování je možné nalézt v ''/test/sample''. Soubor ''test2.html'' obsahuje všechny použitelné tagy a atributy.
 
-'''Zpracováváné tagy: ''' html, head, title, body, div, p, table, tr, th, td, i, b, u, a, img, br, h1-h6 a jejich základní parametry
+'''Zpracovávané tagy: ''' ''html, head, title, body, div, p, table, tr, th, td, i, b, u, a, img, br, h1-h6'' a jejich základní parametry
