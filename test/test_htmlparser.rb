@@ -1,3 +1,5 @@
+#test htmlparser class
+
 require 'test/unit'
 require 'stringio'
 
@@ -23,18 +25,22 @@ class TestHtmlParser < Test::Unit::TestCase
     $stderr=@stderr_orig
   end
   
+  #test constructor
   def test_init
     assert_instance_of(HtmlParser::Options,@htmlparser.options)
   end
   
+  #test tokens
   def test_tokens
     assert_equal("<html>\n\t<head></head>\n\t<body></body>\n</html>",@htmlparser.tokens.to_s)
   end
   
+  #test tree
   def test_tree
     assert_equal("(TAG html (TAG head) (TAG body))",@htmlparser.tree.inspect)
   end
   
+  #test very basic output
   def test_output
     @result=$stdout
     @result.rewind

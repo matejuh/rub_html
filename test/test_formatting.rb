@@ -1,3 +1,4 @@
+#a few test on formatting
 require 'test/unit'
 require 'stringio'
 

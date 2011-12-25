@@ -1,3 +1,4 @@
+#test some errors which are special handled
 require 'test/unit'
 require 'stringio'
 

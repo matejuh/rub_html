@@ -1,3 +1,5 @@
+#Hadles program options
+
 require 'optparse'
 
 module HtmlParser

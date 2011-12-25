@@ -1,4 +1,5 @@
 require 'colorize'
+#HtmlParser- program control, get lexer, parser, call building tree
 
 require_relative 'Options'
 

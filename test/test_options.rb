@@ -1,3 +1,5 @@
+#Run options test
+
 require 'test/unit'
 require 'stringio'
 
@@ -12,6 +14,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     $stderr=StringIO.new
   end
 
+  #test help message
   def test_help_message
     begin
       HtmlParser::Options.new(ARGV<<"-h")
@@ -25,6 +28,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_equal(expected,res)
   end
 
+  #test calling exit
   def test_help_exit
     assert_raise(SystemExit){HtmlParser::Options.new(ARGV<<"-h")}
   end
@@ -42,6 +46,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_match(expected,res)
   end
 
+  #test output option
   def test_output
     begin
       ARGV.clear
@@ -52,6 +57,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_equal(true,parser.output_to_file)
   end
 
+  #test unknown option
   def test_unknown_argument
     begin
       HtmlParser::Options.new(ARGV<<"-k")
@@ -65,6 +71,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_match(expected,res)
   end
 
+  #test if more input files specified
   def test_multiple_input
     begin
       HtmlParser::Options.new(ARGV<<"./file1"<<"./file2")
@@ -78,6 +85,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_equal(expected,res)
   end
 
+  #test if input file doesnt exist
   def test_input_notexists
     begin
       HtmlParser::Options.new(ARGV<<"./file1")
@@ -91,6 +99,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_equal(expected,res)
   end
 
+  #test if input file exists
   def test_input_exists
     begin
       parser=HtmlParser::Options.new(ARGV<<"./sample/test.html")
@@ -99,6 +108,7 @@ class TestHtmlParserOptions < Test::Unit::TestCase
     assert_equal("./sample/test.html",parser.input_file)
   end
 
+  #test empty input
   def test_empty_input
     begin
       HtmlParser::Options.new(ARGV)
