@@ -32,12 +32,15 @@ Spouštěcí soubor je v ''/bin/htmlparser/htmlparser''
 <code>
 Usage:  htmlParser [ options ]  path/to/input_file...
 </code>
+
 <code>
 Volitelné parametry:
 </code>
+
 <code>
 -o, --output FILE Path to output file (output to STDOUT otherwise)
 </code>
+
 <code>
 -h, --help Show help
 </code>
