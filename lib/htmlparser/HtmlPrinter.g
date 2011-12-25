@@ -77,7 +77,12 @@ text_tag : ^(TAG tag_name=(U|I|B|A) {printStartTag($tag_name);} attrs {putsEndin
 
 special
   : ^(TAG tag_name=(IMG|BR) {printStartTag($tag_name);} attrs) {puts " \\>".colorize(:green)}
+//  | anchor
   ;
+  
+// anchor : ^(TAG A {printStartTag($A);} attrs attrs {putsEndingBracket;} text+){printEndTag($A);}
+       // | ^(TAG A {printStartTag($A);} attrs {printEndingBracket;}){putsEndTag($A);}
+       // ; 
   
 body_tag
   : heading 
@@ -118,6 +123,6 @@ tr_data : ^(TAG tag_name=(TH|TD) {printStartTag($tag_name);} attrs {putsEndingBr
 
 attrs:attr*;
 
-attr: ^(attr_name=(ID|STYLE|CLASS|BGCOLOR|BACKGROUND|ALIGN|SRC|ALT|WIDTH|HEIGHT|BORDERCOLOR|VALIGN|BORDER|HREF|NAME|TARGET) {print " #{$attr_name.text.colorize(:magenta)}"} attr_svalue);
+attr: ^(attr_name=(ID|STYLE|CLASS|BGCOLOR|BACKGROUND|ALIGN|SRC|ALT|WIDTH|HEIGHT|BORDERCOLOR|VALIGN|BORDER|HREF|ANAME|TARGET) {print " #{$attr_name.text.colorize(:magenta)}"} attr_svalue);
 
 attr_svalue: ^(ASSIGN {print "=".colorize(:magenta)} SVALUE {print ($SVALUE.text).colorize(:magenta)});

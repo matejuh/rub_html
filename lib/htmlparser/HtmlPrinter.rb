@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 #
-# HtmlPrinter.g
+# ../lib/htmlparser/HtmlPrinter.g
 # --
 # Generated using ANTLR version: 3.2.1-SNAPSHOT Jul 31, 2010 19:34:52
 # Ruby runtime library version: 1.8.11
-# Input grammar file: HtmlPrinter.g
-# Generated at: 2011-12-24 01:57:23
+# Input grammar file: ../lib/htmlparser/HtmlPrinter.g
+# Generated at: 2011-12-25 02:23:08
 # 
 
 # ~~~> start load path setup
@@ -67,14 +67,14 @@ module HtmlPrinter
 
     # define the token constants
     define_tokens( :END_TAG => 8, :CLASS => 36, :BORDERCOLOR => 44, :LETTER => 52, 
-                   :HEAD => 10, :HREF => 47, :TABLE => 25, :VALIGN => 45, 
+                   :HEAD => 10, :HREF => 47, :TABLE => 26, :VALIGN => 45, 
                    :HTML => 7, :ID => 34, :EOF => -1, :BORDER => 46, :PCDATA => 12, 
                    :NAME => 54, :BACKGROUND => 38, :ALT => 41, :BODY => 13, 
-                   :DIGIT => 55, :ALIGN => 39, :IMG => 30, :TD => 28, :A => 29, 
-                   :BR => 32, :B => 23, :TH => 27, :HEIGHT => 43, :ANAME => 48, 
-                   :I => 22, :TR => 26, :SRC => 40, :U => 24, :P => 20, 
-                   :TARGET => 49, :END_NOPAIR_TAG => 31, :TAG => 4, :NAMECHAR => 53, 
-                   :BGCOLOR => 37, :CLOSING_TAG => 9, :SVALUE => 51, :WS => 33, 
+                   :DIGIT => 55, :ALIGN => 39, :IMG => 31, :TD => 29, :A => 30, 
+                   :BR => 33, :B => 24, :TH => 28, :HEIGHT => 43, :ANAME => 48, 
+                   :I => 23, :TR => 27, :SRC => 40, :U => 25, :P => 20, 
+                   :TARGET => 49, :END_NOPAIR_TAG => 32, :TAG => 4, :NAMECHAR => 53, 
+                   :BGCOLOR => 37, :CLOSING_TAG => 9, :SVALUE => 51, :WS => 22, 
                    :WIDTH => 42, :ASSIGN => 50, :STYLE => 35, :H6 => 19, 
                    :H5 => 18, :H4 => 17, :H3 => 16, :H2 => 15, :H1 => 14, 
                    :DIV => 21, :OPENING_TAG => 6, :DATA => 5, :TITLE => 11 )
@@ -87,12 +87,12 @@ module HtmlPrinter
     # have descriptive names
     register_names( "TAG", "DATA", "OPENING_TAG", "HTML", "END_TAG", "CLOSING_TAG", 
                     "HEAD", "TITLE", "PCDATA", "BODY", "H1", "H2", "H3", 
-                    "H4", "H5", "H6", "P", "DIV", "I", "B", "U", "TABLE", 
+                    "H4", "H5", "H6", "P", "DIV", "WS", "I", "B", "U", "TABLE", 
                     "TR", "TH", "TD", "A", "IMG", "END_NOPAIR_TAG", "BR", 
-                    "WS", "ID", "STYLE", "CLASS", "BGCOLOR", "BACKGROUND", 
-                    "ALIGN", "SRC", "ALT", "WIDTH", "HEIGHT", "BORDERCOLOR", 
-                    "VALIGN", "BORDER", "HREF", "ANAME", "TARGET", "ASSIGN", 
-                    "SVALUE", "LETTER", "NAMECHAR", "NAME", "DIGIT" )
+                    "ID", "STYLE", "CLASS", "BGCOLOR", "BACKGROUND", "ALIGN", 
+                    "SRC", "ALT", "WIDTH", "HEIGHT", "BORDERCOLOR", "VALIGN", 
+                    "BORDER", "HREF", "ANAME", "TARGET", "ASSIGN", "SVALUE", 
+                    "LETTER", "NAMECHAR", "NAME", "DIGIT" )
     
   end
 
@@ -110,7 +110,7 @@ module HtmlPrinter
     include TokenData
 
     begin
-      generated_using( "HtmlPrinter.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
+      generated_using( "../lib/htmlparser/HtmlPrinter.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
     rescue NoMethodError => error
       # ignore
     end
@@ -151,7 +151,7 @@ module HtmlPrinter
     # 
     # parser rule document
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 35:1: document : html ;
     # 
     def document
@@ -181,7 +181,7 @@ module HtmlPrinter
     # 
     # parser rule html
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 37:1: html : ^( TAG HTML ( head )? ( body )? ) ;
     # 
     def html
@@ -259,7 +259,7 @@ module HtmlPrinter
     # 
     # parser rule head
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 39:1: head : ( ^( TAG HEAD title_element ) | ^( TAG HEAD ) );
     # 
     def head
@@ -350,7 +350,7 @@ module HtmlPrinter
     # 
     # parser rule title_element
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 43:1: title_element : title ;
     # 
     def title_element
@@ -380,7 +380,7 @@ module HtmlPrinter
     # 
     # parser rule title
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 45:1: title : ( ^( TAG TITLE pcdata ) | ^( TAG TITLE ) );
     # 
     def title
@@ -471,7 +471,7 @@ module HtmlPrinter
     # 
     # parser rule body
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 49:1: body : ( ^( TAG BODY attrs ( body_content )+ ) | ^( TAG BODY attrs ) );
     # 
     def body
@@ -572,7 +572,7 @@ module HtmlPrinter
     # 
     # parser rule body_content
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 54:1: body_content : ( text | body_tag );
     # 
     def body_content
@@ -636,7 +636,7 @@ module HtmlPrinter
     # 
     # parser rule text
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 59:1: text : ( pcdata | text_tags );
     # 
     def text
@@ -686,7 +686,7 @@ module HtmlPrinter
     # 
     # parser rule pcdata
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 64:1: pcdata : ( ^( DATA PCDATA ) | PCDATA );
     # 
     def pcdata
@@ -745,7 +745,7 @@ module HtmlPrinter
     # 
     # parser rule text_tags
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 68:1: text_tags : ( text_tag | special );
     # 
     def text_tags
@@ -807,7 +807,7 @@ module HtmlPrinter
     # 
     # parser rule text_tag
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 74:1: text_tag : ( ^( TAG tag_name= ( U | I | B | A ) attrs ( text )+ ) | ^( TAG tag_name= ( A ) attrs ) );
     # 
     def text_tag
@@ -919,7 +919,7 @@ module HtmlPrinter
     # 
     # parser rule special
     # 
-    # (in HtmlPrinter.g)
+    # (in ../lib/htmlparser/HtmlPrinter.g)
     # 78:1: special : ^( TAG tag_name= ( IMG | BR ) attrs ) ;
     # 
     def special
@@ -971,15 +971,15 @@ module HtmlPrinter
     # 
     # parser rule body_tag
     # 
-    # (in HtmlPrinter.g)
-    # 82:1: body_tag : ( heading | block );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 87:1: body_tag : ( heading | block );
     # 
     def body_tag
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 13 )
 
       begin
-        # at line 83:3: ( heading | block )
+        # at line 88:3: ( heading | block )
         alt_13 = 2
         look_13_0 = @input.peek( 1 )
 
@@ -1004,14 +1004,14 @@ module HtmlPrinter
         end
         case alt_13
         when 1
-          # at line 83:5: heading
-          @state.following.push( TOKENS_FOLLOWING_heading_IN_body_tag_413 )
+          # at line 88:5: heading
+          @state.following.push( TOKENS_FOLLOWING_heading_IN_body_tag_434 )
           heading
           @state.following.pop
 
         when 2
-          # at line 84:5: block
-          @state.following.push( TOKENS_FOLLOWING_block_IN_body_tag_420 )
+          # at line 89:5: block
+          @state.following.push( TOKENS_FOLLOWING_block_IN_body_tag_441 )
           block
           @state.following.pop
 
@@ -1033,8 +1033,8 @@ module HtmlPrinter
     # 
     # parser rule heading
     # 
-    # (in HtmlPrinter.g)
-    # 87:1: heading : ( ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ ) | ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ) );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 92:1: heading : ( ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ ) | ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ) );
     # 
     def heading
       # -> uncomment the next line to manually enable rule tracing
@@ -1042,13 +1042,13 @@ module HtmlPrinter
       tag_name = nil
 
       begin
-        # at line 87:10: ( ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ ) | ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ) )
+        # at line 92:10: ( ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ ) | ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ) )
         alt_15 = 2
         alt_15 = @dfa15.predict( @input )
         case alt_15
         when 1
-          # at line 87:12: ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_heading_433 )
+          # at line 92:12: ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_heading_454 )
 
           match( DOWN, nil )
           tag_name = @input.look
@@ -1064,13 +1064,13 @@ module HtmlPrinter
           # --> action
           printStartTag(tag_name);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_heading_453 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_heading_474 )
           attrs
           @state.following.pop
           # --> action
           putsEndingBracket;
           # <-- action
-          # at file 87:102: ( heading_data )+
+          # at file 92:102: ( heading_data )+
           match_count_14 = 0
           while true
             alt_14 = 2
@@ -1082,8 +1082,8 @@ module HtmlPrinter
             end
             case alt_14
             when 1
-              # at line 87:102: heading_data
-              @state.following.push( TOKENS_FOLLOWING_heading_data_IN_heading_457 )
+              # at line 92:102: heading_data
+              @state.following.push( TOKENS_FOLLOWING_heading_data_IN_heading_478 )
               heading_data
               @state.following.pop
 
@@ -1104,8 +1104,8 @@ module HtmlPrinter
           # <-- action
 
         when 2
-          # at line 88:12: ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_heading_474 )
+          # at line 93:12: ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_heading_495 )
 
           match( DOWN, nil )
           tag_name = @input.look
@@ -1121,7 +1121,7 @@ module HtmlPrinter
           # --> action
           printStartTag(tag_name);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_heading_494 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_heading_515 )
           attrs
           @state.following.pop
           # --> action
@@ -1151,15 +1151,15 @@ module HtmlPrinter
     # 
     # parser rule heading_data
     # 
-    # (in HtmlPrinter.g)
-    # 91:1: heading_data : ( block | text );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 96:1: heading_data : ( block | text );
     # 
     def heading_data
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 15 )
 
       begin
-        # at line 91:14: ( block | text )
+        # at line 96:14: ( block | text )
         alt_16 = 2
         look_16_0 = @input.peek( 1 )
 
@@ -1186,14 +1186,14 @@ module HtmlPrinter
         end
         case alt_16
         when 1
-          # at line 91:16: block
-          @state.following.push( TOKENS_FOLLOWING_block_IN_heading_data_526 )
+          # at line 96:16: block
+          @state.following.push( TOKENS_FOLLOWING_block_IN_heading_data_547 )
           block
           @state.following.pop
 
         when 2
-          # at line 92:16: text
-          @state.following.push( TOKENS_FOLLOWING_text_IN_heading_data_543 )
+          # at line 97:16: text
+          @state.following.push( TOKENS_FOLLOWING_text_IN_heading_data_564 )
           text
           @state.following.pop
 
@@ -1215,15 +1215,15 @@ module HtmlPrinter
     # 
     # parser rule block
     # 
-    # (in HtmlPrinter.g)
-    # 95:1: block : ( paragraph | div | table );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 100:1: block : ( paragraph | div | table );
     # 
     def block
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 16 )
 
       begin
-        # at line 95:8: ( paragraph | div | table )
+        # at line 100:8: ( paragraph | div | table )
         alt_17 = 3
         look_17_0 = @input.peek( 1 )
 
@@ -1246,20 +1246,20 @@ module HtmlPrinter
         end
         case alt_17
         when 1
-          # at line 95:10: paragraph
-          @state.following.push( TOKENS_FOLLOWING_paragraph_IN_block_575 )
+          # at line 100:10: paragraph
+          @state.following.push( TOKENS_FOLLOWING_paragraph_IN_block_596 )
           paragraph
           @state.following.pop
 
         when 2
-          # at line 96:10: div
-          @state.following.push( TOKENS_FOLLOWING_div_IN_block_586 )
+          # at line 101:10: div
+          @state.following.push( TOKENS_FOLLOWING_div_IN_block_607 )
           div
           @state.following.pop
 
         when 3
-          # at line 97:10: table
-          @state.following.push( TOKENS_FOLLOWING_table_IN_block_597 )
+          # at line 102:10: table
+          @state.following.push( TOKENS_FOLLOWING_table_IN_block_618 )
           table
           @state.following.pop
 
@@ -1281,8 +1281,8 @@ module HtmlPrinter
     # 
     # parser rule paragraph
     # 
-    # (in HtmlPrinter.g)
-    # 100:1: paragraph : ( ^( TAG P attrs ( text )+ ) | ^( TAG P attrs ) );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 105:1: paragraph : ( ^( TAG P attrs ( text )+ ) | ^( TAG P attrs ) );
     # 
     def paragraph
       # -> uncomment the next line to manually enable rule tracing
@@ -1291,26 +1291,26 @@ module HtmlPrinter
       __P11__ = nil
 
       begin
-        # at line 101:10: ( ^( TAG P attrs ( text )+ ) | ^( TAG P attrs ) )
+        # at line 106:10: ( ^( TAG P attrs ( text )+ ) | ^( TAG P attrs ) )
         alt_19 = 2
         alt_19 = @dfa19.predict( @input )
         case alt_19
         when 1
-          # at line 101:12: ^( TAG P attrs ( text )+ )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_paragraph_630 )
+          # at line 106:12: ^( TAG P attrs ( text )+ )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_paragraph_651 )
 
           match( DOWN, nil )
-          __P10__ = match( P, TOKENS_FOLLOWING_P_IN_paragraph_632 )
+          __P10__ = match( P, TOKENS_FOLLOWING_P_IN_paragraph_653 )
           # --> action
           printStartTag(__P10__);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_paragraph_636 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_paragraph_657 )
           attrs
           @state.following.pop
           # --> action
           putsEndingBracket;
           # <-- action
-          # at file 101:68: ( text )+
+          # at file 106:68: ( text )+
           match_count_18 = 0
           while true
             alt_18 = 2
@@ -1322,8 +1322,8 @@ module HtmlPrinter
             end
             case alt_18
             when 1
-              # at line 101:68: text
-              @state.following.push( TOKENS_FOLLOWING_text_IN_paragraph_640 )
+              # at line 106:68: text
+              @state.following.push( TOKENS_FOLLOWING_text_IN_paragraph_661 )
               text
               @state.following.pop
 
@@ -1344,15 +1344,15 @@ module HtmlPrinter
           # <-- action
 
         when 2
-          # at line 102:12: ^( TAG P attrs )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_paragraph_657 )
+          # at line 107:12: ^( TAG P attrs )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_paragraph_678 )
 
           match( DOWN, nil )
-          __P11__ = match( P, TOKENS_FOLLOWING_P_IN_paragraph_659 )
+          __P11__ = match( P, TOKENS_FOLLOWING_P_IN_paragraph_680 )
           # --> action
           printStartTag(__P11__);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_paragraph_663 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_paragraph_684 )
           attrs
           @state.following.pop
           # --> action
@@ -1382,8 +1382,8 @@ module HtmlPrinter
     # 
     # parser rule div
     # 
-    # (in HtmlPrinter.g)
-    # 105:1: div : ( ^( TAG DIV attrs ( body_content )+ ) | ^( TAG DIV attrs ) );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 110:1: div : ( ^( TAG DIV attrs ( body_content )+ ) | ^( TAG DIV attrs ) );
     # 
     def div
       # -> uncomment the next line to manually enable rule tracing
@@ -1392,26 +1392,26 @@ module HtmlPrinter
       __DIV13__ = nil
 
       begin
-        # at line 105:4: ( ^( TAG DIV attrs ( body_content )+ ) | ^( TAG DIV attrs ) )
+        # at line 110:4: ( ^( TAG DIV attrs ( body_content )+ ) | ^( TAG DIV attrs ) )
         alt_21 = 2
         alt_21 = @dfa21.predict( @input )
         case alt_21
         when 1
-          # at line 105:6: ^( TAG DIV attrs ( body_content )+ )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_div_686 )
+          # at line 110:6: ^( TAG DIV attrs ( body_content )+ )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_div_707 )
 
           match( DOWN, nil )
-          __DIV12__ = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_688 )
+          __DIV12__ = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_709 )
           # --> action
           printStartTag(__DIV12__);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_div_692 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_div_713 )
           attrs
           @state.following.pop
           # --> action
           putsEndingBracket;
           # <-- action
-          # at file 105:66: ( body_content )+
+          # at file 110:66: ( body_content )+
           match_count_20 = 0
           while true
             alt_20 = 2
@@ -1423,8 +1423,8 @@ module HtmlPrinter
             end
             case alt_20
             when 1
-              # at line 105:66: body_content
-              @state.following.push( TOKENS_FOLLOWING_body_content_IN_div_696 )
+              # at line 110:66: body_content
+              @state.following.push( TOKENS_FOLLOWING_body_content_IN_div_717 )
               body_content
               @state.following.pop
 
@@ -1445,15 +1445,15 @@ module HtmlPrinter
           # <-- action
 
         when 2
-          # at line 106:6: ^( TAG DIV attrs )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_div_707 )
+          # at line 111:6: ^( TAG DIV attrs )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_div_728 )
 
           match( DOWN, nil )
-          __DIV13__ = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_709 )
+          __DIV13__ = match( DIV, TOKENS_FOLLOWING_DIV_IN_div_730 )
           # --> action
           printStartTag(__DIV13__);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_div_713 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_div_734 )
           attrs
           @state.following.pop
           # --> action
@@ -1483,8 +1483,8 @@ module HtmlPrinter
     # 
     # parser rule table
     # 
-    # (in HtmlPrinter.g)
-    # 109:1: table : ^( TAG TABLE attrs ( tr )+ ) ;
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 114:1: table : ^( TAG TABLE attrs ( tr )+ ) ;
     # 
     def table
       # -> uncomment the next line to manually enable rule tracing
@@ -1492,21 +1492,21 @@ module HtmlPrinter
       __TABLE14__ = nil
 
       begin
-        # at line 109:8: ^( TAG TABLE attrs ( tr )+ )
-        match( TAG, TOKENS_FOLLOWING_TAG_IN_table_733 )
+        # at line 114:8: ^( TAG TABLE attrs ( tr )+ )
+        match( TAG, TOKENS_FOLLOWING_TAG_IN_table_754 )
 
         match( DOWN, nil )
-        __TABLE14__ = match( TABLE, TOKENS_FOLLOWING_TABLE_IN_table_735 )
+        __TABLE14__ = match( TABLE, TOKENS_FOLLOWING_TABLE_IN_table_756 )
         # --> action
         printStartTag(__TABLE14__);
         # <-- action
-        @state.following.push( TOKENS_FOLLOWING_attrs_IN_table_739 )
+        @state.following.push( TOKENS_FOLLOWING_attrs_IN_table_760 )
         attrs
         @state.following.pop
         # --> action
         putsEndingBracket;
         # <-- action
-        # at file 109:72: ( tr )+
+        # at file 114:72: ( tr )+
         match_count_22 = 0
         while true
           alt_22 = 2
@@ -1518,8 +1518,8 @@ module HtmlPrinter
           end
           case alt_22
           when 1
-            # at line 109:72: tr
-            @state.following.push( TOKENS_FOLLOWING_tr_IN_table_743 )
+            # at line 114:72: tr
+            @state.following.push( TOKENS_FOLLOWING_tr_IN_table_764 )
             tr
             @state.following.pop
 
@@ -1556,8 +1556,8 @@ module HtmlPrinter
     # 
     # parser rule tr
     # 
-    # (in HtmlPrinter.g)
-    # 111:1: tr : ( ^( TAG TR ( tr_data )+ ) | ^( TAG TR ) );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 116:1: tr : ( ^( TAG TR ( tr_data )+ ) | ^( TAG TR ) );
     # 
     def tr
       # -> uncomment the next line to manually enable rule tracing
@@ -1566,7 +1566,7 @@ module HtmlPrinter
       __TR16__ = nil
 
       begin
-        # at line 111:4: ( ^( TAG TR ( tr_data )+ ) | ^( TAG TR ) )
+        # at line 116:4: ( ^( TAG TR ( tr_data )+ ) | ^( TAG TR ) )
         alt_24 = 2
         look_24_0 = @input.peek( 1 )
 
@@ -1597,18 +1597,18 @@ module HtmlPrinter
         end
         case alt_24
         when 1
-          # at line 111:6: ^( TAG TR ( tr_data )+ )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_755 )
+          # at line 116:6: ^( TAG TR ( tr_data )+ )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_776 )
 
           match( DOWN, nil )
-          __TR15__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_757 )
+          __TR15__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_778 )
           # --> action
           printStartTag(__TR15__);
           # <-- action
           # --> action
           putsEndingBracket;
           # <-- action
-          # at file 111:58: ( tr_data )+
+          # at file 116:58: ( tr_data )+
           match_count_23 = 0
           while true
             alt_23 = 2
@@ -1620,8 +1620,8 @@ module HtmlPrinter
             end
             case alt_23
             when 1
-              # at line 111:58: tr_data
-              @state.following.push( TOKENS_FOLLOWING_tr_data_IN_tr_763 )
+              # at line 116:58: tr_data
+              @state.following.push( TOKENS_FOLLOWING_tr_data_IN_tr_784 )
               tr_data
               @state.following.pop
 
@@ -1642,11 +1642,11 @@ module HtmlPrinter
           # <-- action
 
         when 2
-          # at line 112:6: ^( TAG TR )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_774 )
+          # at line 117:6: ^( TAG TR )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_795 )
 
           match( DOWN, nil )
-          __TR16__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_776 )
+          __TR16__ = match( TR, TOKENS_FOLLOWING_TR_IN_tr_797 )
           # --> action
           printStartTag(__TR16__);
           # <-- action
@@ -1677,8 +1677,8 @@ module HtmlPrinter
     # 
     # parser rule tr_data
     # 
-    # (in HtmlPrinter.g)
-    # 115:1: tr_data : ( ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ ) | ^( TAG tag_name= ( TH | TD ) attrs ) );
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 120:1: tr_data : ( ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ ) | ^( TAG tag_name= ( TH | TD ) attrs ) );
     # 
     def tr_data
       # -> uncomment the next line to manually enable rule tracing
@@ -1686,13 +1686,13 @@ module HtmlPrinter
       tag_name = nil
 
       begin
-        # at line 115:9: ( ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ ) | ^( TAG tag_name= ( TH | TD ) attrs ) )
+        # at line 120:9: ( ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ ) | ^( TAG tag_name= ( TH | TD ) attrs ) )
         alt_26 = 2
         alt_26 = @dfa26.predict( @input )
         case alt_26
         when 1
-          # at line 115:11: ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_data_795 )
+          # at line 120:11: ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_data_816 )
 
           match( DOWN, nil )
           tag_name = @input.look
@@ -1708,13 +1708,13 @@ module HtmlPrinter
           # --> action
           printStartTag(tag_name);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_tr_data_807 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_tr_data_828 )
           attrs
           @state.following.pop
           # --> action
           putsEndingBracket;
           # <-- action
-          # at file 115:89: ( body_content )+
+          # at file 120:89: ( body_content )+
           match_count_25 = 0
           while true
             alt_25 = 2
@@ -1726,8 +1726,8 @@ module HtmlPrinter
             end
             case alt_25
             when 1
-              # at line 115:89: body_content
-              @state.following.push( TOKENS_FOLLOWING_body_content_IN_tr_data_811 )
+              # at line 120:89: body_content
+              @state.following.push( TOKENS_FOLLOWING_body_content_IN_tr_data_832 )
               body_content
               @state.following.pop
 
@@ -1748,8 +1748,8 @@ module HtmlPrinter
           # <-- action
 
         when 2
-          # at line 116:11: ^( TAG tag_name= ( TH | TD ) attrs )
-          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_data_827 )
+          # at line 121:11: ^( TAG tag_name= ( TH | TD ) attrs )
+          match( TAG, TOKENS_FOLLOWING_TAG_IN_tr_data_848 )
 
           match( DOWN, nil )
           tag_name = @input.look
@@ -1765,7 +1765,7 @@ module HtmlPrinter
           # --> action
           printStartTag(tag_name);
           # <-- action
-          @state.following.push( TOKENS_FOLLOWING_attrs_IN_tr_data_839 )
+          @state.following.push( TOKENS_FOLLOWING_attrs_IN_tr_data_860 )
           attrs
           @state.following.pop
           # --> action
@@ -1795,28 +1795,28 @@ module HtmlPrinter
     # 
     # parser rule attrs
     # 
-    # (in HtmlPrinter.g)
-    # 119:1: attrs : ( attr )* ;
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 124:1: attrs : ( attr )* ;
     # 
     def attrs
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 22 )
 
       begin
-        # at line 119:7: ( attr )*
-        # at line 119:7: ( attr )*
+        # at line 124:7: ( attr )*
+        # at line 124:7: ( attr )*
         while true # decision 27
           alt_27 = 2
           look_27_0 = @input.peek( 1 )
 
-          if ( look_27_0.between?( ID, HREF ) || look_27_0 == TARGET || look_27_0 == NAME )
+          if ( look_27_0.between?( ID, TARGET ) )
             alt_27 = 1
 
           end
           case alt_27
           when 1
-            # at line 119:7: attr
-            @state.following.push( TOKENS_FOLLOWING_attr_IN_attrs_859 )
+            # at line 124:7: attr
+            @state.following.push( TOKENS_FOLLOWING_attr_IN_attrs_880 )
             attr
             @state.following.pop
 
@@ -1842,8 +1842,8 @@ module HtmlPrinter
     # 
     # parser rule attr
     # 
-    # (in HtmlPrinter.g)
-    # 121:1: attr : ^(attr_name= ( ID | STYLE | CLASS | BGCOLOR | BACKGROUND | ALIGN | SRC | ALT | WIDTH | HEIGHT | BORDERCOLOR | VALIGN | BORDER | HREF | NAME | TARGET ) attr_svalue ) ;
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 126:1: attr : ^(attr_name= ( ID | STYLE | CLASS | BGCOLOR | BACKGROUND | ALIGN | SRC | ALT | WIDTH | HEIGHT | BORDERCOLOR | VALIGN | BORDER | HREF | ANAME | TARGET ) attr_svalue ) ;
     # 
     def attr
       # -> uncomment the next line to manually enable rule tracing
@@ -1851,9 +1851,9 @@ module HtmlPrinter
       attr_name = nil
 
       begin
-        # at line 121:7: ^(attr_name= ( ID | STYLE | CLASS | BGCOLOR | BACKGROUND | ALIGN | SRC | ALT | WIDTH | HEIGHT | BORDERCOLOR | VALIGN | BORDER | HREF | NAME | TARGET ) attr_svalue )
+        # at line 126:7: ^(attr_name= ( ID | STYLE | CLASS | BGCOLOR | BACKGROUND | ALIGN | SRC | ALT | WIDTH | HEIGHT | BORDERCOLOR | VALIGN | BORDER | HREF | ANAME | TARGET ) attr_svalue )
         attr_name = @input.look
-        if @input.peek( 1 ).between?( ID, HREF ) || @input.peek(1) == TARGET || @input.peek(1) == NAME
+        if @input.peek( 1 ).between?( ID, TARGET )
           @input.consume
           @state.error_recovery = false
         else
@@ -1868,7 +1868,7 @@ module HtmlPrinter
         # <-- action
 
         match( DOWN, nil )
-        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_attr_906 )
+        @state.following.push( TOKENS_FOLLOWING_attr_svalue_IN_attr_927 )
         attr_svalue
         @state.following.pop
 
@@ -1891,8 +1891,8 @@ module HtmlPrinter
     # 
     # parser rule attr_svalue
     # 
-    # (in HtmlPrinter.g)
-    # 123:1: attr_svalue : ^( ASSIGN SVALUE ) ;
+    # (in ../lib/htmlparser/HtmlPrinter.g)
+    # 128:1: attr_svalue : ^( ASSIGN SVALUE ) ;
     # 
     def attr_svalue
       # -> uncomment the next line to manually enable rule tracing
@@ -1900,15 +1900,15 @@ module HtmlPrinter
       __SVALUE17__ = nil
 
       begin
-        # at line 123:14: ^( ASSIGN SVALUE )
-        match( ASSIGN, TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_915 )
+        # at line 128:14: ^( ASSIGN SVALUE )
+        match( ASSIGN, TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_936 )
 
         # --> action
         print "=".colorize(:magenta)
         # <-- action
 
         match( DOWN, nil )
-        __SVALUE17__ = match( SVALUE, TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_919 )
+        __SVALUE17__ = match( SVALUE, TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_940 )
         # --> action
         print (__SVALUE17__.text).colorize(:magenta)
         # <-- action
@@ -1936,16 +1936,15 @@ module HtmlPrinter
       EOF = unpack( 13, -1 )
       MIN = unpack( 1, 4, 1, 2, 1, 13, 1, 3, 1, 2, 2, -1, 1, 50, 1, 2, 1, 
                     51, 3, 3 )
-      MAX = unpack( 1, 4, 1, 2, 1, 13, 1, 54, 1, 2, 2, -1, 1, 50, 1, 2, 
-                    1, 51, 2, 3, 1, 54 )
+      MAX = unpack( 1, 4, 1, 2, 1, 13, 1, 49, 1, 2, 2, -1, 1, 50, 1, 2, 
+                    1, 51, 2, 3, 1, 49 )
       ACCEPT = unpack( 5, -1, 1, 1, 1, 2, 6, -1 )
       SPECIAL = unpack( 13, -1 )
       TRANSITION = [
         unpack( 1, 1 ),
         unpack( 1, 2 ),
         unpack( 1, 3 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 ),
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 ),
         unpack( 1, 7 ),
         unpack(  ),
         unpack(  ),
@@ -1954,8 +1953,7 @@ module HtmlPrinter
         unpack( 1, 10 ),
         unpack( 1, 11 ),
         unpack( 1, 12 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 )
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 )
       ].freeze
       
       ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
@@ -1976,18 +1974,17 @@ module HtmlPrinter
     class DFA12 < ANTLR3::DFA
       EOT = unpack( 13, -1 )
       EOF = unpack( 13, -1 )
-      MIN = unpack( 1, 4, 1, 2, 1, 22, 1, 3, 1, -1, 1, 2, 1, -1, 1, 50, 
+      MIN = unpack( 1, 4, 1, 2, 1, 23, 1, 3, 1, -1, 1, 2, 1, -1, 1, 50, 
                     1, 2, 1, 51, 3, 3 )
-      MAX = unpack( 1, 4, 1, 2, 1, 29, 1, 54, 1, -1, 1, 2, 1, -1, 1, 50, 
-                    1, 2, 1, 51, 2, 3, 1, 54 )
+      MAX = unpack( 1, 4, 1, 2, 1, 30, 1, 49, 1, -1, 1, 2, 1, -1, 1, 50, 
+                    1, 2, 1, 51, 2, 3, 1, 49 )
       ACCEPT = unpack( 4, -1, 1, 1, 1, -1, 1, 2, 6, -1 )
       SPECIAL = unpack( 13, -1 )
       TRANSITION = [
         unpack( 1, 1 ),
         unpack( 1, 2 ),
         unpack( 3, 4, 4, -1, 1, 3 ),
-        unpack( 1, 6, 2, 4, 6, -1, 1, 4, 21, -1, 14, 5, 1, -1, 1, 5, 4, 
-                 -1, 1, 5 ),
+        unpack( 1, 6, 2, 4, 6, -1, 1, 4, 21, -1, 16, 5 ),
         unpack(  ),
         unpack( 1, 7 ),
         unpack(  ),
@@ -1996,8 +1993,7 @@ module HtmlPrinter
         unpack( 1, 10 ),
         unpack( 1, 11 ),
         unpack( 1, 12 ),
-        unpack( 1, 6, 2, 4, 6, -1, 1, 4, 21, -1, 14, 5, 1, -1, 1, 5, 4, 
-                 -1, 1, 5 )
+        unpack( 1, 6, 2, 4, 6, -1, 1, 4, 21, -1, 16, 5 )
       ].freeze
       
       ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
@@ -2020,16 +2016,15 @@ module HtmlPrinter
       EOF = unpack( 13, -1 )
       MIN = unpack( 1, 4, 1, 2, 1, 14, 1, 3, 1, 2, 2, -1, 1, 50, 1, 2, 1, 
                     51, 3, 3 )
-      MAX = unpack( 1, 4, 1, 2, 1, 19, 1, 54, 1, 2, 2, -1, 1, 50, 1, 2, 
-                    1, 51, 2, 3, 1, 54 )
+      MAX = unpack( 1, 4, 1, 2, 1, 19, 1, 49, 1, 2, 2, -1, 1, 50, 1, 2, 
+                    1, 51, 2, 3, 1, 49 )
       ACCEPT = unpack( 5, -1, 1, 1, 1, 2, 6, -1 )
       SPECIAL = unpack( 13, -1 )
       TRANSITION = [
         unpack( 1, 1 ),
         unpack( 1, 2 ),
         unpack( 6, 3 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 ),
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 ),
         unpack( 1, 7 ),
         unpack(  ),
         unpack(  ),
@@ -2038,8 +2033,7 @@ module HtmlPrinter
         unpack( 1, 10 ),
         unpack( 1, 11 ),
         unpack( 1, 12 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 )
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 )
       ].freeze
       
       ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
@@ -2053,7 +2047,7 @@ module HtmlPrinter
 
       def description
         <<-'__dfa_description__'.strip!
-          87:1: heading : ( ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ ) | ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ) );
+          92:1: heading : ( ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ( heading_data )+ ) | ^( TAG tag_name= ( H1 | H2 | H3 | H4 | H5 | H6 ) attrs ) );
         __dfa_description__
       end
     end
@@ -2062,16 +2056,15 @@ module HtmlPrinter
       EOF = unpack( 13, -1 )
       MIN = unpack( 1, 4, 1, 2, 1, 20, 1, 3, 1, 2, 2, -1, 1, 50, 1, 2, 1, 
                     51, 3, 3 )
-      MAX = unpack( 1, 4, 1, 2, 1, 20, 1, 54, 1, 2, 2, -1, 1, 50, 1, 2, 
-                    1, 51, 2, 3, 1, 54 )
+      MAX = unpack( 1, 4, 1, 2, 1, 20, 1, 49, 1, 2, 2, -1, 1, 50, 1, 2, 
+                    1, 51, 2, 3, 1, 49 )
       ACCEPT = unpack( 5, -1, 1, 1, 1, 2, 6, -1 )
       SPECIAL = unpack( 13, -1 )
       TRANSITION = [
         unpack( 1, 1 ),
         unpack( 1, 2 ),
         unpack( 1, 3 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 ),
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 ),
         unpack( 1, 7 ),
         unpack(  ),
         unpack(  ),
@@ -2080,8 +2073,7 @@ module HtmlPrinter
         unpack( 1, 10 ),
         unpack( 1, 11 ),
         unpack( 1, 12 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 )
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 )
       ].freeze
       
       ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
@@ -2095,7 +2087,7 @@ module HtmlPrinter
 
       def description
         <<-'__dfa_description__'.strip!
-          100:1: paragraph : ( ^( TAG P attrs ( text )+ ) | ^( TAG P attrs ) );
+          105:1: paragraph : ( ^( TAG P attrs ( text )+ ) | ^( TAG P attrs ) );
         __dfa_description__
       end
     end
@@ -2104,16 +2096,15 @@ module HtmlPrinter
       EOF = unpack( 13, -1 )
       MIN = unpack( 1, 4, 1, 2, 1, 21, 1, 3, 1, 2, 2, -1, 1, 50, 1, 2, 1, 
                     51, 3, 3 )
-      MAX = unpack( 1, 4, 1, 2, 1, 21, 1, 54, 1, 2, 2, -1, 1, 50, 1, 2, 
-                    1, 51, 2, 3, 1, 54 )
+      MAX = unpack( 1, 4, 1, 2, 1, 21, 1, 49, 1, 2, 2, -1, 1, 50, 1, 2, 
+                    1, 51, 2, 3, 1, 49 )
       ACCEPT = unpack( 5, -1, 1, 1, 1, 2, 6, -1 )
       SPECIAL = unpack( 13, -1 )
       TRANSITION = [
         unpack( 1, 1 ),
         unpack( 1, 2 ),
         unpack( 1, 3 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 ),
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 ),
         unpack( 1, 7 ),
         unpack(  ),
         unpack(  ),
@@ -2122,8 +2113,7 @@ module HtmlPrinter
         unpack( 1, 10 ),
         unpack( 1, 11 ),
         unpack( 1, 12 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 )
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 )
       ].freeze
       
       ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
@@ -2137,25 +2127,24 @@ module HtmlPrinter
 
       def description
         <<-'__dfa_description__'.strip!
-          105:1: div : ( ^( TAG DIV attrs ( body_content )+ ) | ^( TAG DIV attrs ) );
+          110:1: div : ( ^( TAG DIV attrs ( body_content )+ ) | ^( TAG DIV attrs ) );
         __dfa_description__
       end
     end
     class DFA26 < ANTLR3::DFA
       EOT = unpack( 13, -1 )
       EOF = unpack( 13, -1 )
-      MIN = unpack( 1, 4, 1, 2, 1, 27, 1, 3, 1, 2, 2, -1, 1, 50, 1, 2, 1, 
+      MIN = unpack( 1, 4, 1, 2, 1, 28, 1, 3, 1, 2, 2, -1, 1, 50, 1, 2, 1, 
                     51, 3, 3 )
-      MAX = unpack( 1, 4, 1, 2, 1, 28, 1, 54, 1, 2, 2, -1, 1, 50, 1, 2, 
-                    1, 51, 2, 3, 1, 54 )
+      MAX = unpack( 1, 4, 1, 2, 1, 29, 1, 49, 1, 2, 2, -1, 1, 50, 1, 2, 
+                    1, 51, 2, 3, 1, 49 )
       ACCEPT = unpack( 5, -1, 1, 1, 1, 2, 6, -1 )
       SPECIAL = unpack( 13, -1 )
       TRANSITION = [
         unpack( 1, 1 ),
         unpack( 1, 2 ),
         unpack( 2, 3 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 ),
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 ),
         unpack( 1, 7 ),
         unpack(  ),
         unpack(  ),
@@ -2164,8 +2153,7 @@ module HtmlPrinter
         unpack( 1, 10 ),
         unpack( 1, 11 ),
         unpack( 1, 12 ),
-        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 14, 4, 1, -1, 1, 4, 4, 
-                 -1, 1, 4 )
+        unpack( 1, 6, 2, 5, 6, -1, 1, 5, 21, -1, 16, 4 )
       ].freeze
       
       ( 0 ... MIN.length ).zip( MIN, MAX ) do | i, a, z |
@@ -2179,7 +2167,7 @@ module HtmlPrinter
 
       def description
         <<-'__dfa_description__'.strip!
-          115:1: tr_data : ( ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ ) | ^( TAG tag_name= ( TH | TD ) attrs ) );
+          120:1: tr_data : ( ^( TAG tag_name= ( TH | TD ) attrs ( body_content )+ ) | ^( TAG tag_name= ( TH | TD ) attrs ) );
         __dfa_description__
       end
     end
@@ -2214,11 +2202,11 @@ module HtmlPrinter
     TOKENS_FOLLOWING_TAG_IN_title_143 = Set[ 2 ]
     TOKENS_FOLLOWING_TITLE_IN_title_145 = Set[ 3 ]
     TOKENS_FOLLOWING_TAG_IN_body_167 = Set[ 2 ]
-    TOKENS_FOLLOWING_BODY_IN_body_169 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_body_173 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_body_content_IN_body_177 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
+    TOKENS_FOLLOWING_BODY_IN_body_169 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_body_173 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_body_content_IN_body_177 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
     TOKENS_FOLLOWING_TAG_IN_body_189 = Set[ 2 ]
-    TOKENS_FOLLOWING_BODY_IN_body_191 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
+    TOKENS_FOLLOWING_BODY_IN_body_191 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
     TOKENS_FOLLOWING_attrs_IN_body_195 = Set[ 3 ]
     TOKENS_FOLLOWING_text_IN_body_content_214 = Set[ 1 ]
     TOKENS_FOLLOWING_body_tag_IN_body_content_220 = Set[ 1 ]
@@ -2230,64 +2218,64 @@ module HtmlPrinter
     TOKENS_FOLLOWING_text_tag_IN_text_tags_291 = Set[ 1 ]
     TOKENS_FOLLOWING_special_IN_text_tags_297 = Set[ 1 ]
     TOKENS_FOLLOWING_TAG_IN_text_tag_310 = Set[ 2 ]
-    TOKENS_FOLLOWING_set_IN_text_tag_314 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
+    TOKENS_FOLLOWING_set_IN_text_tag_314 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
     TOKENS_FOLLOWING_attrs_IN_text_tag_326 = Set[ 4, 5, 12 ]
     TOKENS_FOLLOWING_text_IN_text_tag_330 = Set[ 3, 4, 5, 12 ]
     TOKENS_FOLLOWING_TAG_IN_text_tag_347 = Set[ 2 ]
-    TOKENS_FOLLOWING_A_IN_text_tag_352 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
+    TOKENS_FOLLOWING_A_IN_text_tag_352 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
     TOKENS_FOLLOWING_attrs_IN_text_tag_357 = Set[ 3 ]
     TOKENS_FOLLOWING_TAG_IN_special_383 = Set[ 2 ]
-    TOKENS_FOLLOWING_set_IN_special_387 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
+    TOKENS_FOLLOWING_set_IN_special_387 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
     TOKENS_FOLLOWING_attrs_IN_special_395 = Set[ 3 ]
-    TOKENS_FOLLOWING_heading_IN_body_tag_413 = Set[ 1 ]
-    TOKENS_FOLLOWING_block_IN_body_tag_420 = Set[ 1 ]
-    TOKENS_FOLLOWING_TAG_IN_heading_433 = Set[ 2 ]
-    TOKENS_FOLLOWING_set_IN_heading_437 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_heading_453 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_heading_data_IN_heading_457 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_TAG_IN_heading_474 = Set[ 2 ]
-    TOKENS_FOLLOWING_set_IN_heading_478 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_heading_494 = Set[ 3 ]
-    TOKENS_FOLLOWING_block_IN_heading_data_526 = Set[ 1 ]
-    TOKENS_FOLLOWING_text_IN_heading_data_543 = Set[ 1 ]
-    TOKENS_FOLLOWING_paragraph_IN_block_575 = Set[ 1 ]
-    TOKENS_FOLLOWING_div_IN_block_586 = Set[ 1 ]
-    TOKENS_FOLLOWING_table_IN_block_597 = Set[ 1 ]
-    TOKENS_FOLLOWING_TAG_IN_paragraph_630 = Set[ 2 ]
-    TOKENS_FOLLOWING_P_IN_paragraph_632 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_paragraph_636 = Set[ 4, 5, 12 ]
-    TOKENS_FOLLOWING_text_IN_paragraph_640 = Set[ 3, 4, 5, 12 ]
-    TOKENS_FOLLOWING_TAG_IN_paragraph_657 = Set[ 2 ]
-    TOKENS_FOLLOWING_P_IN_paragraph_659 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_paragraph_663 = Set[ 3 ]
-    TOKENS_FOLLOWING_TAG_IN_div_686 = Set[ 2 ]
-    TOKENS_FOLLOWING_DIV_IN_div_688 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_div_692 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_body_content_IN_div_696 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
+    TOKENS_FOLLOWING_heading_IN_body_tag_434 = Set[ 1 ]
+    TOKENS_FOLLOWING_block_IN_body_tag_441 = Set[ 1 ]
+    TOKENS_FOLLOWING_TAG_IN_heading_454 = Set[ 2 ]
+    TOKENS_FOLLOWING_set_IN_heading_458 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_heading_474 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_heading_data_IN_heading_478 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_TAG_IN_heading_495 = Set[ 2 ]
+    TOKENS_FOLLOWING_set_IN_heading_499 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_heading_515 = Set[ 3 ]
+    TOKENS_FOLLOWING_block_IN_heading_data_547 = Set[ 1 ]
+    TOKENS_FOLLOWING_text_IN_heading_data_564 = Set[ 1 ]
+    TOKENS_FOLLOWING_paragraph_IN_block_596 = Set[ 1 ]
+    TOKENS_FOLLOWING_div_IN_block_607 = Set[ 1 ]
+    TOKENS_FOLLOWING_table_IN_block_618 = Set[ 1 ]
+    TOKENS_FOLLOWING_TAG_IN_paragraph_651 = Set[ 2 ]
+    TOKENS_FOLLOWING_P_IN_paragraph_653 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_paragraph_657 = Set[ 4, 5, 12 ]
+    TOKENS_FOLLOWING_text_IN_paragraph_661 = Set[ 3, 4, 5, 12 ]
+    TOKENS_FOLLOWING_TAG_IN_paragraph_678 = Set[ 2 ]
+    TOKENS_FOLLOWING_P_IN_paragraph_680 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_paragraph_684 = Set[ 3 ]
     TOKENS_FOLLOWING_TAG_IN_div_707 = Set[ 2 ]
-    TOKENS_FOLLOWING_DIV_IN_div_709 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_div_713 = Set[ 3 ]
-    TOKENS_FOLLOWING_TAG_IN_table_733 = Set[ 2 ]
-    TOKENS_FOLLOWING_TABLE_IN_table_735 = Set[ 4, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_table_739 = Set[ 4, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_tr_IN_table_743 = Set[ 3, 4, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_TAG_IN_tr_755 = Set[ 2 ]
-    TOKENS_FOLLOWING_TR_IN_tr_757 = Set[ 4 ]
-    TOKENS_FOLLOWING_tr_data_IN_tr_763 = Set[ 3, 4 ]
-    TOKENS_FOLLOWING_TAG_IN_tr_774 = Set[ 2 ]
-    TOKENS_FOLLOWING_TR_IN_tr_776 = Set[ 3 ]
-    TOKENS_FOLLOWING_TAG_IN_tr_data_795 = Set[ 2 ]
-    TOKENS_FOLLOWING_set_IN_tr_data_799 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_tr_data_807 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_body_content_IN_tr_data_811 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_TAG_IN_tr_data_827 = Set[ 2 ]
-    TOKENS_FOLLOWING_set_IN_tr_data_831 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_attrs_IN_tr_data_839 = Set[ 3 ]
-    TOKENS_FOLLOWING_attr_IN_attrs_859 = Set[ 1, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 49, 54 ]
-    TOKENS_FOLLOWING_set_IN_attr_870 = Set[ 2 ]
-    TOKENS_FOLLOWING_attr_svalue_IN_attr_906 = Set[ 3 ]
-    TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_915 = Set[ 2 ]
-    TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_919 = Set[ 3 ]
+    TOKENS_FOLLOWING_DIV_IN_div_709 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_div_713 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_body_content_IN_div_717 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_TAG_IN_div_728 = Set[ 2 ]
+    TOKENS_FOLLOWING_DIV_IN_div_730 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_div_734 = Set[ 3 ]
+    TOKENS_FOLLOWING_TAG_IN_table_754 = Set[ 2 ]
+    TOKENS_FOLLOWING_TABLE_IN_table_756 = Set[ 4, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_table_760 = Set[ 4, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_tr_IN_table_764 = Set[ 3, 4, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_TAG_IN_tr_776 = Set[ 2 ]
+    TOKENS_FOLLOWING_TR_IN_tr_778 = Set[ 4 ]
+    TOKENS_FOLLOWING_tr_data_IN_tr_784 = Set[ 3, 4 ]
+    TOKENS_FOLLOWING_TAG_IN_tr_795 = Set[ 2 ]
+    TOKENS_FOLLOWING_TR_IN_tr_797 = Set[ 3 ]
+    TOKENS_FOLLOWING_TAG_IN_tr_data_816 = Set[ 2 ]
+    TOKENS_FOLLOWING_set_IN_tr_data_820 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_tr_data_828 = Set[ 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_body_content_IN_tr_data_832 = Set[ 3, 4, 5, 12, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_TAG_IN_tr_data_848 = Set[ 2 ]
+    TOKENS_FOLLOWING_set_IN_tr_data_852 = Set[ 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_attrs_IN_tr_data_860 = Set[ 3 ]
+    TOKENS_FOLLOWING_attr_IN_attrs_880 = Set[ 1, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+    TOKENS_FOLLOWING_set_IN_attr_891 = Set[ 2 ]
+    TOKENS_FOLLOWING_attr_svalue_IN_attr_927 = Set[ 3 ]
+    TOKENS_FOLLOWING_ASSIGN_IN_attr_svalue_936 = Set[ 2 ]
+    TOKENS_FOLLOWING_SVALUE_IN_attr_svalue_940 = Set[ 3 ]
 
   end # class TreeParser < ANTLR3::TreeParser
 

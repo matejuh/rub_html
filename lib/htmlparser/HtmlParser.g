@@ -184,27 +184,27 @@ h1	:	OPENING_TAG H1 (id|style|klass|align)* END_TAG
 	
 h2	:	OPENING_TAG H2 (id|style|klass|align)* END_TAG
 		heading_data*
-		CLOSING_TAG H2 END_TAG
+		CLOSING_TAG H2 END_TAG -> ^(TAG H2 id* style* klass* align* heading_data*)
 	;
 	
 h3	:	OPENING_TAG H3 (id|style|klass|align)* END_TAG
 		heading_data*
-		CLOSING_TAG H3 END_TAG
+		CLOSING_TAG H3 END_TAG -> ^(TAG H3 id* style* klass* align* heading_data*)
 	;
 	
 h4	:	OPENING_TAG H4 (id|style|klass|align)* END_TAG
 		heading_data*
-		CLOSING_TAG H4 END_TAG
+		CLOSING_TAG H4 END_TAG -> ^(TAG H4 id* style* klass* align* heading_data*)
 	;
 	
 h5	:	OPENING_TAG H5 (id|style|klass|align)* END_TAG
 		heading_data*
-		CLOSING_TAG H5 END_TAG
+		CLOSING_TAG H5 END_TAG -> ^(TAG H5 id* style* klass* align* heading_data*)
 	;
 	
 h6	:	OPENING_TAG H6 (id|style|klass|align)* END_TAG
 		heading_data*
-		CLOSING_TAG H6 END_TAG 
+		CLOSING_TAG H6 END_TAG -> ^(TAG H6 id* style* klass* align* heading_data*)
 	;
 
 heading_data :block
@@ -267,9 +267,9 @@ td  :	OPENING_TAG TD (id|style|klass|align|valign|width|height|background|bgcolo
 	;	
 
 /*SPECIAL*/
-anchor: OPENING_TAG A (id|style|klass|align|href|name|target) END_TAG
+anchor: OPENING_TAG A (id|style|klass|align|href|name|target)* END_TAG
 		(text)*
-		CLOSING_TAG A END_TAG
+		CLOSING_TAG A END_TAG -> ^(TAG A id* style* klass* align* href* name* target* (text)*)
 	  ;
 
 img: OPENING_TAG IMG (id|style|klass|align|src|alt|width|height)*
