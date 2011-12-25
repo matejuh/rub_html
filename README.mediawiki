@@ -1,1 +1,11 @@
 == HTML Parser ==
+Semestrální projekt do předmětu MI-RUB FIT ČVUT Praha.
+
+=== Zadání ===
+'''Parsery:'''
+
+Princip těchto úloh spočívá ve správném rozparsování vstupu. Ten se dá uložit do stromu a následnou kontrolou zjistit, zda jsou prvky správně zanořeny. Strom je vhodné reprezentovat objektově.
+
+'''17. HTML parser (KS)'''
+
+Vytvořte program, který dostane na vstup HTML soubor a na výstup dá hlášku, zda je soubor dobře utvořen. Nemusíte řešit všechny tagy, stačí <HTML>, <HEAD>, <TITLE>, <BODY>, <B>, <I>, <U>, <BR> a tagy pro tabulky a nadpisy. U každého tagu uvažujte pouze několik nejběžnejších parametrů, ale minimálně 3. Výstup zpracujte co nejpřehledněji.
