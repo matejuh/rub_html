@@ -21,7 +21,7 @@ tokens{
 
      
    def error_message(e=$!)
-     STDERR.puts "Problem in formatting found!".colorize(:red)
+     \$stderr.puts "Problem in formatting found!".colorize(:red)
      #puts "error message"
    	# $!         The exception information message set by 'raise'.
     #puts e.class

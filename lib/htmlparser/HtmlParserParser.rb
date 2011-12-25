@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 #
-# HtmlParser.g
+# ../lib/htmlparser/HtmlParser.g
 # --
 # Generated using ANTLR version: 3.2.1-SNAPSHOT Jul 31, 2010 19:34:52
 # Ruby runtime library version: 1.8.11
-# Input grammar file: HtmlParser.g
-# Generated at: 2011-12-24 02:48:50
+# Input grammar file: ../lib/htmlparser/HtmlParser.g
+# Generated at: 2011-12-25 01:05:23
 # 
 
 # ~~~> start load path setup
@@ -114,7 +114,7 @@ module HtmlParser
     include TokenData
 
     begin
-      generated_using( "HtmlParser.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
+      generated_using( "../lib/htmlparser/HtmlParser.g", "3.2.1-SNAPSHOT Jul 31, 2010 19:34:52", "1.8.11" )
     rescue NoMethodError => error
       # ignore
     end
@@ -141,7 +141,7 @@ module HtmlParser
 
          
        def error_message(e=$!)
-         STDERR.puts "Problem in formatting found!".colorize(:red)
+         $stderr.puts "Problem in formatting found!".colorize(:red)
          #puts "error message"
        	# $!         The exception information message set by 'raise'.
         #puts e.class
@@ -165,7 +165,7 @@ module HtmlParser
               i+=1;
             end
             
-            puts token_name((e.input.at(e.input.position+1)).type)
+            #puts token_name((e.input.at(e.input.position+1)).type)
             
             if(!((e.input.at(e.input.position-i)).nil?) && token_name((e.input.at(e.input.position-i)).type)=="CLOSING_TAG")
               "Mismatched input: found </#{e.token}> expecting </#{(token_name(e.expecting)).downcase}>"
@@ -223,7 +223,7 @@ module HtmlParser
     # 
     # parser rule document
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 100:1: document : html ;
     # 
     def document
@@ -273,7 +273,7 @@ module HtmlParser
     # 
     # parser rule html
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 102:1: html : OPENING_TAG HTML END_TAG ( head )? ( body )? CLOSING_TAG HTML END_TAG -> ^( TAG HTML ( head )? ( body )? ) ;
     # 
     def html
@@ -422,7 +422,7 @@ module HtmlParser
     # 
     # parser rule head
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 110:1: head : OPENING_TAG HEAD END_TAG ( head_element )? CLOSING_TAG HEAD END_TAG -> ^( TAG HEAD ( head_element )? ) ;
     # 
     def head
@@ -540,7 +540,7 @@ module HtmlParser
     # 
     # parser rule head_element
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 115:1: head_element : title ;
     # 
     def head_element
@@ -590,7 +590,7 @@ module HtmlParser
     # 
     # parser rule title
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 119:1: title : OPENING_TAG TITLE END_TAG ( PCDATA )? CLOSING_TAG TITLE END_TAG -> ^( TAG TITLE ( PCDATA )? ) ;
     # 
     def title
@@ -708,7 +708,7 @@ module HtmlParser
     # 
     # parser rule body
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 125:1: body : OPENING_TAG BODY ( id | style | klass | bgcolor | background )* END_TAG ( body_content )* CLOSING_TAG BODY END_TAG -> ^( TAG BODY ( id )* ( style )* ( klass )* ( bgcolor )* ( background )* ( body_content )* ) ;
     # 
     def body
@@ -931,7 +931,7 @@ module HtmlParser
     # 
     # parser rule body_tag
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 135:1: body_tag : ( heading | block );
     # 
     def body_tag
@@ -1012,7 +1012,7 @@ module HtmlParser
     # 
     # parser rule body_content
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 140:1: body_content : ( body_tag | text );
     # 
     def body_content
@@ -1095,7 +1095,7 @@ module HtmlParser
     # 
     # parser rule heading
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 145:1: heading : ( h1 | h2 | h3 | h4 | h5 | h6 );
     # 
     def heading
@@ -1221,7 +1221,7 @@ module HtmlParser
     # 
     # parser rule block
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 149:1: block : ( paragraph | div | table );
     # 
     def block
@@ -1311,7 +1311,7 @@ module HtmlParser
     # 
     # parser rule font
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 155:1: font : ( italic | bold | underline );
     # 
     def font
@@ -1401,7 +1401,7 @@ module HtmlParser
     # 
     # parser rule special
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 161:1: special : ( anchor | img | br );
     # 
     def special
@@ -1491,7 +1491,7 @@ module HtmlParser
     # 
     # parser rule text_tag
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 167:1: text_tag : ( font | special );
     # 
     def text_tag
@@ -1572,7 +1572,7 @@ module HtmlParser
     # 
     # parser rule text
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 172:1: text : ( PCDATA -> ^( DATA PCDATA ) | text_tag );
     # 
     def text
@@ -1668,7 +1668,7 @@ module HtmlParser
     # 
     # parser rule h1
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 180:1: h1 : OPENING_TAG H1 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H1 END_TAG -> ^( TAG H1 ( id )* ( style )* ( klass )* ( align )* ( heading_data )* ) ;
     # 
     def h1
@@ -1874,7 +1874,7 @@ module HtmlParser
     # 
     # parser rule h2
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 185:1: h2 : OPENING_TAG H2 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H2 END_TAG ;
     # 
     def h2
@@ -2034,7 +2034,7 @@ module HtmlParser
     # 
     # parser rule h3
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 190:1: h3 : OPENING_TAG H3 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H3 END_TAG ;
     # 
     def h3
@@ -2194,7 +2194,7 @@ module HtmlParser
     # 
     # parser rule h4
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 195:1: h4 : OPENING_TAG H4 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H4 END_TAG ;
     # 
     def h4
@@ -2354,7 +2354,7 @@ module HtmlParser
     # 
     # parser rule h5
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 200:1: h5 : OPENING_TAG H5 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H5 END_TAG ;
     # 
     def h5
@@ -2514,7 +2514,7 @@ module HtmlParser
     # 
     # parser rule h6
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 205:1: h6 : OPENING_TAG H6 ( id | style | klass | align )* END_TAG ( heading_data )* CLOSING_TAG H6 END_TAG ;
     # 
     def h6
@@ -2674,7 +2674,7 @@ module HtmlParser
     # 
     # parser rule heading_data
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 210:1: heading_data : ( block | text );
     # 
     def heading_data
@@ -2757,7 +2757,7 @@ module HtmlParser
     # 
     # parser rule paragraph
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 214:1: paragraph : OPENING_TAG P ( id | style | klass | align )* END_TAG ( text )* CLOSING_TAG P END_TAG -> ^( TAG P ( id )* ( style )* ( klass )* ( align )* ( text )* ) ;
     # 
     def paragraph
@@ -2963,7 +2963,7 @@ module HtmlParser
     # 
     # parser rule div
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 220:1: div : OPENING_TAG DIV ( WS )* ( id | style | klass | align )* END_TAG ( body_content )* CLOSING_TAG DIV END_TAG -> ^( TAG DIV ( id )* ( style )* ( klass )* ( align )* ( body_content )* ) ;
     # 
     def div
@@ -3196,7 +3196,7 @@ module HtmlParser
     # 
     # parser rule italic
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 226:1: italic : OPENING_TAG I END_TAG ( text )+ CLOSING_TAG I END_TAG -> ^( TAG I ( text )+ ) ;
     # 
     def italic
@@ -3327,7 +3327,7 @@ module HtmlParser
     # 
     # parser rule bold
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 231:1: bold : OPENING_TAG B END_TAG ( text )+ CLOSING_TAG B END_TAG -> ^( TAG B ( text )+ ) ;
     # 
     def bold
@@ -3458,7 +3458,7 @@ module HtmlParser
     # 
     # parser rule underline
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 236:1: underline : OPENING_TAG U END_TAG ( text )+ CLOSING_TAG U END_TAG -> ^( TAG U ( text )+ ) ;
     # 
     def underline
@@ -3589,7 +3589,7 @@ module HtmlParser
     # 
     # parser rule table
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 242:1: table : OPENING_TAG TABLE ( id | style | klass | align | width | height | background | bgcolor | border )* END_TAG ( tr )+ CLOSING_TAG TABLE END_TAG -> ^( TAG TABLE ( id )* ( style )* ( klass )* ( align )* ( width )* ( height )* ( background )* ( bgcolor )* ( border )* ( tr )+ ) ;
     # 
     def table
@@ -3873,7 +3873,7 @@ module HtmlParser
     # 
     # parser rule tr
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 249:1: tr : OPENING_TAG TR END_TAG ( tr_data )* CLOSING_TAG TR END_TAG -> ^( TAG TR ( tr_data )* ) ;
     # 
     def tr
@@ -3996,7 +3996,7 @@ module HtmlParser
     # 
     # parser rule tr_data
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 255:1: tr_data : ( td | th );
     # 
     def tr_data
@@ -4077,7 +4077,7 @@ module HtmlParser
     # 
     # parser rule th
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 259:1: th : OPENING_TAG TH ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TH END_TAG -> ^( TAG TH ( id )* ( style )* ( klass )* ( align )* ( valign )* ( width )* ( height )* ( background )* ( bgcolor )* ( bordercolor )* ( body_content )* ) ;
     # 
     def th
@@ -4369,7 +4369,7 @@ module HtmlParser
     # 
     # parser rule td
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 264:1: td : OPENING_TAG TD ( id | style | klass | align | valign | width | height | background | bgcolor | bordercolor )* END_TAG ( body_content )* CLOSING_TAG TD END_TAG -> ^( TAG TD ( id )* ( style )* ( klass )* ( align )* ( valign )* ( width )* ( height )* ( background )* ( bgcolor )* ( bordercolor )* ( body_content )* ) ;
     # 
     def td
@@ -4661,7 +4661,7 @@ module HtmlParser
     # 
     # parser rule anchor
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 270:1: anchor : OPENING_TAG A ( id | style | klass | align | href | name | target ) END_TAG ( text )* CLOSING_TAG A END_TAG ;
     # 
     def anchor
@@ -4847,7 +4847,7 @@ module HtmlParser
     # 
     # parser rule img
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 275:1: img : OPENING_TAG IMG ( id | style | klass | align | src | alt | width | height )* END_NOPAIR_TAG -> ^( TAG IMG ( id )* ( style )* ( klass )* ( align )* ( src )* ( alt )* ( width )* ( height )* ) ;
     # 
     def img
@@ -5064,7 +5064,7 @@ module HtmlParser
     # 
     # parser rule br
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 279:1: br : OPENING_TAG BR END_NOPAIR_TAG -> ^( TAG BR ) ;
     # 
     def br
@@ -5145,7 +5145,7 @@ module HtmlParser
     # 
     # parser rule id
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 285:1: id : WS ID attr_svalue -> ^( ID attr_svalue ) ;
     # 
     def id
@@ -5226,7 +5226,7 @@ module HtmlParser
     # 
     # parser rule style
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 286:1: style : WS STYLE attr_svalue -> ^( STYLE attr_svalue ) ;
     # 
     def style
@@ -5307,7 +5307,7 @@ module HtmlParser
     # 
     # parser rule klass
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 287:1: klass : WS CLASS attr_svalue -> ^( CLASS attr_svalue ) ;
     # 
     def klass
@@ -5388,7 +5388,7 @@ module HtmlParser
     # 
     # parser rule bgcolor
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 289:1: bgcolor : WS BGCOLOR attr_svalue -> ^( BGCOLOR attr_svalue ) ;
     # 
     def bgcolor
@@ -5469,7 +5469,7 @@ module HtmlParser
     # 
     # parser rule background
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 291:1: background : WS BACKGROUND attr_svalue -> ^( BACKGROUND attr_svalue ) ;
     # 
     def background
@@ -5550,7 +5550,7 @@ module HtmlParser
     # 
     # parser rule align
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 293:1: align : WS ALIGN attr_svalue -> ^( ALIGN attr_svalue ) ;
     # 
     def align
@@ -5631,7 +5631,7 @@ module HtmlParser
     # 
     # parser rule src
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 295:1: src : WS SRC attr_svalue -> ^( SRC attr_svalue ) ;
     # 
     def src
@@ -5712,7 +5712,7 @@ module HtmlParser
     # 
     # parser rule alt
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 297:1: alt : WS ALT attr_svalue -> ^( ALT attr_svalue ) ;
     # 
     def alt
@@ -5793,7 +5793,7 @@ module HtmlParser
     # 
     # parser rule width
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 299:1: width : WS WIDTH attr_svalue -> ^( WIDTH attr_svalue ) ;
     # 
     def width
@@ -5874,7 +5874,7 @@ module HtmlParser
     # 
     # parser rule height
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 301:1: height : WS HEIGHT attr_svalue -> ^( HEIGHT attr_svalue ) ;
     # 
     def height
@@ -5955,7 +5955,7 @@ module HtmlParser
     # 
     # parser rule bordercolor
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 303:1: bordercolor : WS BORDERCOLOR attr_svalue -> ^( BORDERCOLOR attr_svalue ) ;
     # 
     def bordercolor
@@ -6036,7 +6036,7 @@ module HtmlParser
     # 
     # parser rule valign
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 305:1: valign : WS VALIGN attr_svalue -> ^( VALIGN attr_svalue ) ;
     # 
     def valign
@@ -6117,7 +6117,7 @@ module HtmlParser
     # 
     # parser rule border
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 307:1: border : WS BORDER attr_svalue -> ^( BORDER attr_svalue ) ;
     # 
     def border
@@ -6198,7 +6198,7 @@ module HtmlParser
     # 
     # parser rule href
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 309:1: href : WS HREF attr_svalue -> ^( HREF attr_svalue ) ;
     # 
     def href
@@ -6279,7 +6279,7 @@ module HtmlParser
     # 
     # parser rule name
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 311:1: name : WS ANAME attr_svalue -> ^( ANAME attr_svalue ) ;
     # 
     def name
@@ -6360,7 +6360,7 @@ module HtmlParser
     # 
     # parser rule target
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 313:1: target : WS TARGET attr_svalue -> ^( TARGET attr_svalue ) ;
     # 
     def target
@@ -6441,7 +6441,7 @@ module HtmlParser
     # 
     # parser rule attr_svalue
     # 
-    # (in HtmlParser.g)
+    # (in ../lib/htmlparser/HtmlParser.g)
     # 316:1: attr_svalue : ( WS )? ASSIGN ( WS )? SVALUE -> ^( ASSIGN SVALUE ) ;
     # 
     def attr_svalue
